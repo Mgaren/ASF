@@ -1,0 +1,40 @@
+{% extends 'home/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ 'styles/home.css' }}" rel="stylesheet">
+    <link href="{{ 'styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ 'styles/nav.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}ASF - Accueil{% endblock %}
+
+{% block main %}
+    <div class="actuality">
+        <h1>Les dernières actualités</h1>
+        <p>Vous retrouverez ici les dernières Actualités</p>
+    </div>
+    <div class="image-1">
+        <div class="text-1">
+        <p>
+            description de l'ASF...
+        </p>
+        <a href="#" class="about">Voir plus</a>
+        </div>
+    </div>
+    <div class="image-2">
+        <div class="text-2">
+            <p>
+                description des sections sportives...
+            </p>
+            <a href="#" class="about">Voir plus</a>
+        </div>
+    </div>
+    <div class="image-3">
+        <div class="text-3">
+            <p>
+                description des Partenaires...
+            </p>
+            <a href="#" class="about">Voir plus</a>
+        </div>
+    </div>
+{% endblock %}

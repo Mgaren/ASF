@@ -1,0 +1,11 @@
+:root {
+    /* Variable for Navbar */
+    --nav-background-color: green;
+    --nav-text-color: black;
+
+
+    /* Variable for Home page */
+    --home-text-color: black;
+    --home-background-color: green;
+    --home-text-color-buttom: white;
+}
