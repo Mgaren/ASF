@@ -16,7 +16,7 @@
     justify-content: space-around;
     z-index: 100;
     align-items: center;
-    height: 75px;
+    height: 150px;
     font-size: 22px;
     background-color: var(--nav-background-color);
 }
