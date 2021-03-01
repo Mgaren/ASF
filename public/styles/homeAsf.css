@@ -10,7 +10,7 @@ main {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background: url("../images/Historique.jpg") no-repeat fixed center;
+    background: url("../images/historique.jpg") no-repeat fixed center;
     background-size: cover;
     min-height: 1000px;
     margin-bottom: 50px;
@@ -100,7 +100,7 @@ main {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background: url("../images/carte-adérant.png") no-repeat fixed center;
+    background: url("../images/carte-Adérant.png") no-repeat fixed center;
     background-size: cover;
     min-height: 1000px;
     margin-bottom: 50px;
