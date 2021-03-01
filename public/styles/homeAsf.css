@@ -1,14 +1,8 @@
 @import "variables.css";
 @import "fontFamily.css";
 
-.actuality {
-    font-family: 'Raleway', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 175px;
-    color: black;
+main {
+    padding-top: 250px;
 }
 
 /* First carousel for ASF */
@@ -16,9 +10,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background: url("../images/1ere photo.jpg") no-repeat fixed center;
+    background: url("../images/Historique.jpg") no-repeat fixed center;
     background-size: cover;
-    min-height: 1200px;
+    min-height: 1000px;
     margin-bottom: 50px;
 }
 .text-1 {
@@ -42,9 +36,9 @@
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
-    background: url("../images/2eme photo.jpg") no-repeat fixed center;
+    background: url("../images/logo-ASF.png") no-repeat fixed center;
     background-size: cover;
-    min-height: 1200px;
+    min-height: 1000px;
     margin-bottom: 50px;
 }
 .text-2 {
@@ -68,9 +62,9 @@
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background: url("../images/3eme photo.jpg") no-repeat fixed center;
+    background: url("../images/logo-ASF.png") no-repeat fixed center;
     background-size: cover;
-    min-height: 1200px;
+    min-height: 1000px;
     margin-bottom: 50px;
 }
 .text-3 {
@@ -99,4 +93,56 @@
     background-color: red;
     text-decoration: none;
     color: var(--home-text-color-buttom);
+}
+
+/* First carousel for ASF */
+.image-4 {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background: url("../images/carte-adérant.png") no-repeat fixed center;
+    background-size: cover;
+    min-height: 1000px;
+    margin-bottom: 50px;
+}
+.text-4 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 30px;
+    width: 600px;
+    height: 250px;
+    font-size: 25px;
+    color: var(--home-text-color);
+    background: var(--home-background-color);
+}
+.text-4 p, .text-4 a {
+    margin: 10px 10px;
+}
+
+/* Second carousel for Section */
+.image-5 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    background: url("../images/logo-ASF.png") no-repeat fixed center;
+    background-size: cover;
+    min-height: 1000px;
+    margin-bottom: 50px;
+}
+.text-5 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 30px;
+    width: 600px;
+    height: 250px;
+    font-size: 25px;
+    color: var(--home-text-color);
+    background: var(--home-background-color);
+}
+.text-5 p, .text-5 a {
+    margin: 10px 10px;
 }
