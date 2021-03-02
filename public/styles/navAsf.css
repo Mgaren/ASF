@@ -7,28 +7,28 @@
     padding: 0;
 }
 
-.nav_bar {
+.nav_barAsf {
     display: flex;
     position: fixed;
-    top: 0;
+    top: 150px;
     right: 0;
     left: 0;
     justify-content: space-around;
     z-index: 100;
     align-items: center;
-    height: 150px;
+    height: 75px;
     font-size: 22px;
     background-color: var(--nav-background-color);
 }
 
-.nav_bar a {
+.nav_barAsf a {
     text-decoration: none;
     color: var(--nav-text-color);
     transition: transform .5s;
     font-family: 'Raleway', sans-serif;
 }
 
-.nav_bar a:hover {
+.nav_barAsf a:hover {
     text-decoration: none;
     color: var(--nav-text-color);
 }

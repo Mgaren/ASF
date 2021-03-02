@@ -1,0 +1,24 @@
+{% extends 'section/layout.html.twig' %}
+
+{% block stylesheets %}
+    {# <link href="{{ 'styles/homeAsf.css' }}" rel="stylesheet"> #}
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Section Sportives{% endblock %}
+
+{% block main %}
+    <ul class="container">
+        {% for section in sections %}
+            <li>
+                <div>
+                    <div><h2>{{ section.titre }}</h2></div>
+                    <div><img src="/uploads/sections/{{ section.image }}"></div>
+                    <div><h2>{{ section.description }}</h2></div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
