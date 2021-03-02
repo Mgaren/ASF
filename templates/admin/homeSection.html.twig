@@ -39,13 +39,13 @@
             <tbody>
             {% for section in sections %}
                 <tr>
-                    <td>{{ sections.titre }}</td>
-                    <td>{{ sections.description }}</td>
-                    <td>{{ sections.image }}</td>
+                    <td>{{ section.titre }}</td>
+                    <td>{{ section.description }}</td>
+                    <td>{{ section.image }}</td>
                     <td>
-                        <a href="{{ path('section_show', {'id': section.id}) }}">Détail</a>
+                        <a href="{{ path('show', {'id': section.id}) }}">Détail</a>
                         {{ include('section/_delete_form.html.twig') }}
-                        <a href="{{ path('section_edit', {'id': section.id}) }}">Editer</a>
+                        <a href="{{ path('edit', {'id': section.id}) }}">Editer</a>
                     </td>
                 </tr>
             {% else %}
