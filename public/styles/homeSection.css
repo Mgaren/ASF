@@ -1,0 +1,58 @@
+main {
+    font-family: 'Raleway', sans-serif;
+    padding-top: 250px;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.container_item {
+    display: flex;
+    margin: 1em 5px;
+}
+
+.sections {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+}
+
+.sections:hover {
+    transform: scale(1.02);
+}
+
+.section_title {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.section_title h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.section_text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+.section_text h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.section_image img {
+    width: 600px;
+    height: 500px;
+}
