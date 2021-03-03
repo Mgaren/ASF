@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Form\EditType;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Response;
@@ -117,12 +118,15 @@ class HomeSectionController extends AbstractController
      * @Route("/{id}", name="delete", methods={"DELETE"})
      * @param Request $request
      * @param Section $section
+     * @param EntityManagerInterface $entityManager
      * @return Response
      */
-    public function delete(Request $request, Section $section): Response
+    public function delete(Request $request, Section $section, EntityManagerInterface $entityManager): Response
     {
         if ($this->isCsrfTokenValid('delete' . $section->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
+            $filename = $section->getImage();
+            $path = $this->getParameter('upload_dir') . '/' . $filename;
+            unlink($path);
             $entityManager->remove($section);
             $entityManager->flush();
         }
