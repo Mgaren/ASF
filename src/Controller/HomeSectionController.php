@@ -28,7 +28,9 @@ class HomeSectionController extends AbstractController
     public function index(SectionRepository $sectionRepository): Response
     {
         return $this->render('section/index.html.twig', [
-            'sections' => $sectionRepository->findAll(),
+            'sections' => $sectionRepository->findBy([], [
+                'titre' => 'ASC'
+            ]),
         ]);
     }
 
@@ -67,7 +69,7 @@ class HomeSectionController extends AbstractController
             $entityManager->persist($section);
             $entityManager->flush();
 
-            return $this->redirectToRoute('section');
+            return $this->redirectToRoute('admin_homeSection');
         }
 
         return $this->render('section/new.html.twig', [
@@ -102,7 +104,7 @@ class HomeSectionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('section');
+            return $this->redirectToRoute('admin_homeSection');
         }
 
         return $this->render('section/edit.html.twig', [
@@ -125,6 +127,6 @@ class HomeSectionController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('section');
+        return $this->redirectToRoute('admin_homeSection');
     }
 }

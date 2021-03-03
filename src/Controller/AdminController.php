@@ -28,7 +28,9 @@ class AdminController extends AbstractController
         SectionRepository $sectionRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $sectionRepository->findAll();
+        $sections = $sectionRepository->findBy([], [
+            'titre' => 'ASC'
+        ]);
         $sections = $paginator->paginate(
             $sections,
             $request->query->getInt('page', 1),
