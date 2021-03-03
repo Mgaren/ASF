@@ -17,6 +17,15 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminController extends AbstractController
 {
     /**
+     * @Route("/", name="admin")
+     * @return Response
+     */
+    public function index(): Response
+    {
+        return $this->render('security/login.html.twig');
+    }
+
+    /**
      * @Route("/homeSection", name="homeSection", methods={"GET"})
      * @param Request $request
      * @param SectionRepository $sectionRepository
