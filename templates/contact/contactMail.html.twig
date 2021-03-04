@@ -1,0 +1,12 @@
+{% block stylesheets %}
+{% endblock %}
+
+{% block main %}
+    <div>
+        <h2>Demande d'information de la part de {{ contact.firstname }} {{ contact.lastname }}</h2>
+        <h4>Contact :</h4>
+        <p>Email : {{ contact.email }}</p>
+        <h4>Descriptif de l'évenement : </h4>
+        <p>{{ contact.description }}</p>
+    </div>
+{% endblock %}
