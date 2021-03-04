@@ -44,6 +44,9 @@
                     <a href="#">Editer ,,,</a>
                 </li>
             </ul>
+            <li>
+                <a href="{{ path('app_logout') }}">Se déconnecter</a>
+            </li>
         </nav>
         <main>
             {% for message in app.flashes('success') %}
