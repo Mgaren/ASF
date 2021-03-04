@@ -17,12 +17,12 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminController extends AbstractController
 {
     /**
-     * @Route("/", name="admin")
+     * @Route("/index", name="index")
      * @return Response
      */
     public function index(): Response
     {
-        return $this->render('security/login.html.twig');
+        return $this->render('admin/index.html.twig');
     }
 
     /**
