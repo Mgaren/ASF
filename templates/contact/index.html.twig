@@ -1,0 +1,26 @@
+{% extends 'contact/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Contact{% endblock %}
+
+{% block main %}
+    <h1>Contact</h1>
+    <div>
+        {{ form_start(form) }}
+        <div>
+            {{ form_widget(form) }}
+            <h4>* Champs Obligatoires</h4>
+            <button class="btn">{{ button_label|default('Envoyer') }}</button>
+        </div>
+        {{ form_end(form) }}
+        <div>
+            <a><img src="public/images/logo-telephone.jpg" alt="téléphone">00000000000000</a>
+            <a><img src="public/images/logo-adresse.jpg" alt="adresse">Fondettes</a>
+        </div>
+    </div>
+{% endblock %}

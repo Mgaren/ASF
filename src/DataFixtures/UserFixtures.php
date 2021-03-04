@@ -27,11 +27,11 @@ class UserFixtures extends Fixture
     {
         $superAdmin = new User();
 
-        $superAdmin->setEmail('presidentasf@gmail.com');
+        $superAdmin->setEmail('omnisportasf@gmail.com');
         $superAdmin->setRoles(['ROLE_SUPER_ADMIN']);
         $superAdmin->setPassword($this->passwordEncoder->encodePassword(
             $superAdmin,
-            'ASF2021'
+            'ASF@2021'
         ));
 
         $manager->persist($superAdmin);
