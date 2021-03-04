@@ -28,7 +28,7 @@ class UserFixtures extends Fixture
         $superAdmin = new User();
 
         $superAdmin->setEmail('presidentasf@gmail.com');
-        $superAdmin->setRoles(['ROLE_SUPERADMIN']);
+        $superAdmin->setRoles(['ROLE_SUPER_ADMIN']);
         $superAdmin->setPassword($this->passwordEncoder->encodePassword(
             $superAdmin,
             'ASF2021'
