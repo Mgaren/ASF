@@ -1,0 +1,53 @@
+@import 'variables.css';
+
+main {
+    font-family: 'Raleway', sans-serif;
+    padding-top: 250px;
+    padding-bottom: 50px;
+}
+
+h1 {
+    display: flex;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    min-height: 100%;
+    padding: 20px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    display: block;
+    padding: 20px 200px;
+    margin-bottom: 10px;
+    width: 100%;
+    border: 1px solid #ddd;
+    transition: border-width 0.2s ease;
+    border-radius: 2px;
+    background: #95ac009a;
+}
+
+button {
+    width: 100%;
+    height: 100%;
+    padding: 10px 10px;
+    background-color: #94AC00;
+    color: #fff;
+    margin-top: 20px;
+}
