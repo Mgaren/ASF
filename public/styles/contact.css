@@ -32,6 +32,11 @@ h1 {
     flex-direction: column;
 }
 
+.contact a {
+    margin: 50px;
+    font-size: 20px;
+}
+
 label {
     font-size: 20px;
 }
