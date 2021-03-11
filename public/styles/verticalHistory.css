@@ -88,7 +88,7 @@ h1 {
 }
 
 .timeline ul li:nth-child(even) div {
-    left: -680px;
+    left: -685px;
 }
 
 .timeline ul li:nth-child(even) div::before {
