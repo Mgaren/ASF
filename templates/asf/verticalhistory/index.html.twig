@@ -1,0 +1,31 @@
+{% extends 'asf/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/verticalHistory.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}L'histoire de l'ASF{% endblock %}
+
+{% block main %}
+    <section class="intro">
+        <div class="container">
+            <h1>L'histoire de l'ASF &darr;</h1>
+        </div>
+    </section>
+    <section class="timeline">
+        {% for verticalHistory in verticalHistorys %}
+        <ul>
+            <li>
+                <div>
+                    <time><a href="#">{{ verticalHistory.titre }}</a></time>
+                    <p>{{ verticalHistory.description }}</p>
+                    <img src="/uploads/histoire/{{ verticalHistory.image }}">
+                </div>
+            </li>
+        </ul>
+        {% endfor %}
+    </section>
+{% endblock %}

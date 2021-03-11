@@ -9,6 +9,7 @@
 /vendor/
 .idea/
 /public/uploads/sections/
+/public/uploads/histoire/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
