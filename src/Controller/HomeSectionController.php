@@ -36,7 +36,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/section/new", name="section_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -115,7 +115,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @Route("/section/{id}", name="section_delete", methods={"DELETE"})
      * @param Request $request
      * @param Section $section
      * @param EntityManagerInterface $entityManager
@@ -125,8 +125,11 @@ class HomeSectionController extends AbstractController
     {
         if ($this->isCsrfTokenValid('delete' . $section->getId(), $request->request->get('_token'))) {
             $filename = $section->getImage();
-            $path = $this->getParameter('upload_dir') . '/' . $filename;
-            unlink($path);
+            if (is_string($this->getParameter('upload_dir'))) {
+                $path = $this->getParameter('upload_dir') . $filename;
+                unlink($path);
+            }
+
             $entityManager->remove($section);
             $entityManager->flush();
         }
