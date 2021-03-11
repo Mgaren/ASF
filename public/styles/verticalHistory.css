@@ -12,6 +12,10 @@
 main {
     font: normal 16px/1.5 "Helvetica Neue", sans-serif;
     padding-top: 250px;
+    background: #456990;
+    color: #fff;
+    overflow-x: hidden;
+    padding-bottom: 50px;
 }
 
 .intro {
@@ -28,6 +32,10 @@ main {
 
 h1 {
     font-size: 2.5rem;
+}
+
+.timeline ul {
+    background: #456990;
 }
 
 .timeline ul li {
@@ -54,7 +62,7 @@ h1 {
 .timeline ul li div {
     position: relative;
     bottom: 0;
-    width: 400px;
+    width: 750px;
     padding: 15px;
     background: #F45B69;
 }
@@ -86,4 +94,16 @@ h1 {
     right: -15px;
     border-width: 8px 0 8px 16px;
     border-color: transparent transparent transparent #F45B69;
+}
+
+time {
+    display: block;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.timeline img {
+    width: 100%;
+    height: 100%;
 }

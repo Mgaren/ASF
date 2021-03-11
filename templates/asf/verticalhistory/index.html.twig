@@ -22,7 +22,9 @@
                 <div>
                     <time><a href="#">{{ verticalHistory.titre }}</a></time>
                     <p>{{ verticalHistory.description }}</p>
-                    <img src="/uploads/histoire/{{ verticalHistory.image }}">
+                    {% if verticalHistory.image == true %}
+                        <img src="/uploads/histoire/{{ verticalHistory.image }}">
+                    {% endif %}
                 </div>
             </li>
         </ul>
