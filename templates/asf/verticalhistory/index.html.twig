@@ -16,8 +16,8 @@
         </div>
     </section>
     <section class="timeline">
-        {% for verticalHistory in verticalHistorys %}
         <ul>
+            {% for verticalHistory in verticalHistorys %}
             <li>
                 <div>
                     <time><a href="#">{{ verticalHistory.titre }}</a></time>
@@ -27,7 +27,7 @@
                     {% endif %}
                 </div>
             </li>
+            {% endfor %}
         </ul>
-        {% endfor %}
     </section>
 {% endblock %}
