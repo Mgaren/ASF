@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-8"><h2>L'histoire vertical de l'ASF</h2></div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new"><a href="{{ path('new') }}">Ajouter</a></button>
+                    <button type="button" class="btn btn-info add-new"><a href="{{ path('asf_history_new') }}">Ajouter</a></button>
                 </div>
             </div>
         </div>
@@ -43,9 +43,9 @@
                     <td>{{ verticalHistory.description }}</td>
                     <td>{{ verticalHistory.image }}</td>
                     <td>
-                        <a href="{{ path('show', {'id': verticalHistory.id}) }}">Détail</a>
+                        <a href="{{ path('asf_history_show', {'id': verticalHistory.id}) }}">Détail</a>
                         {{ include('asf/verticalhistory/_delete_form.html.twig') }}
-                        <a href="{{ path('edit', {'id': verticalHistory.id}) }}">Editer</a>
+                        <a href="{{ path('asf_history_edit', {'id': verticalHistory.id}) }}">Editer</a>
                     </td>
                 </tr>
             {% else %}
@@ -53,6 +53,7 @@
                     <td colspan="7">L'histoire de l'ASF est vide</td>
                 </tr>
             {% endfor %}
+            {{ knp_pagination_render(verticalHistorys) }}
             </tbody>
         </table>
     </div>

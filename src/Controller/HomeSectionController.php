@@ -80,7 +80,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/section/show/{id}", name="section_show", methods={"GET"})
      * @param Section $section
      * @return Response
      */
@@ -92,7 +92,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/section/edit/{id}", name="section_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Section $section
      * @return Response

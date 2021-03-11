@@ -36,7 +36,7 @@ class VerticalHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="new", methods={"GET","POST"})
+     * @Route("/asf/history/new", name="asf_history_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -73,25 +73,25 @@ class VerticalHistoryController extends AbstractController
         }
 
         return $this->render('asf/verticalhistory/new.html.twig', [
-            'vertical_history' => $verticalHistory,
+            'verticalHistory' => $verticalHistory,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="show", methods={"GET"})
+     * @Route("/asf/history/show/{id}", name="asf_history_show", methods={"GET"})
      * @param VerticalHistory $verticalHistory
      * @return Response
      */
     public function show(VerticalHistory $verticalHistory): Response
     {
         return $this->render('asf/verticalhistory/show.html.twig', [
-            'vertical_history' => $verticalHistory,
+            'verticalHistory' => $verticalHistory,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="edit", methods={"GET","POST"})
+     * @Route("/asf/history/edit/{id}", name="asf_history_edit", methods={"GET","POST"})
      * @param Request $request
      * @param VerticalHistory $verticalHistory
      * @return Response
@@ -108,13 +108,13 @@ class VerticalHistoryController extends AbstractController
         }
 
         return $this->render('asf/verticalhistory/edit.html.twig', [
-            'vertical_history' => $verticalHistory,
+            'verticalHistory' => $verticalHistory,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="delete", methods={"DELETE"})
+     * @Route("/asf/history/delete/{id}", name="asf_history_delete", methods={"DELETE"})
      * @param Request $request
      * @param VerticalHistory $verticalHistory
      * @param EntityManagerInterface $entityManager

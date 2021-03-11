@@ -9,26 +9,26 @@
         <tbody>
             <tr>
                 <th>Id</th>
-                <td>{{ vertical_history.id }}</td>
+                <td>{{ verticalHistory.id }}</td>
             </tr>
             <tr>
                 <th>Titre</th>
-                <td>{{ vertical_history.titre }}</td>
+                <td>{{ verticalHistory.titre }}</td>
             </tr>
             <tr>
                 <th>Description</th>
-                <td>{{ vertical_history.description }}</td>
+                <td>{{ verticalHistory.description }}</td>
             </tr>
             <tr>
                 <th>Image</th>
-                <td>{{ vertical_history.image }}</td>
+                <td>{{ verticalHistory.image }}</td>
             </tr>
         </tbody>
     </table>
 
     <a href="{{ path('admin_verticalHistory') }}">Retour à la liste</a>
 
-    <a href="{{ path('edit', {'id': vertical_history.id}) }}">Editer</a>
+    <a href="{{ path('asf_history_edit', {'id': verticalHistory.id}) }}">Editer</a>
 
-    {{ include('verticalhistory/_delete_form.html.twig') }}
+    {{ include('asf/verticalhistory/_delete_form.html.twig') }}
 {% endblock %}
