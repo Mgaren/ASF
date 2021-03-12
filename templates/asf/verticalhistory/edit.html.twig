@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit VerticalHistory{% endblock %}
+
+{% block body %}
+    <h1>Editer l'histoire Vertical</h1>
+
+    {{ include('asf/verticalhistory/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_verticalHistory') }}">Retour à la liste</a>
+
+    {{ include('asf/verticalhistory/_delete_form.html.twig') }}
+{% endblock %}

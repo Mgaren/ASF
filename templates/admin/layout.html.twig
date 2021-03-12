@@ -18,32 +18,97 @@
                             <a href="{{ path('index') }}">Accueil</a>
                         </li>
                         <li>
-                            <a href="#">...</a>
+                            <a href="#">Actualités</a>
                         </li>
                         <li>
-                            <a href="#">???</a>
+                            <a href="{{ path('asf') }}">Alerte Sportive de Fondettes</a>
                         </li>
                         <li>
-                            <a href="#">///</a>
+                            <a href="{{ path('section') }}">Les Sections Sportives</a>
                         </li>
                         <li>
-                            <a href="#">,,,</a>
+                            <a href="#">Nos partenaires</a>
                         </li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ path('admin_homeSection') }}">Editer ...</a>
+                    <a href="#">Editer l'actualité</a>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenuasf" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Editer l'ASF</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenuasf">
+                        <li>
+                            <a href="{{ path('admin_verticalHistory') }}">Editer histoire vertical</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer toute l'histoire</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer Dirigeants ASF</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer salariés ASF</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer carte adhérent</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="active">
+                    <a href="#homeSubmenusection" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                        Editer les sections sportives</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenusection">
+                        <li>
+                            <a href="{{ path('admin_homeSection') }}">Les sections sportives</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer l'Athlétisme</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Badminton</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Basketball</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer l'Ecole de sport</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Football</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Judo</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Karaté Do</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer la Natation</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer la Pétanque</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Squash</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Tennis</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le Tennis de table</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le VTT</a>
+                        </li>
+                    </ul>
                 </li>
                 <li>
-                    <a href="#">Editer ???</a>
-                </li>
-                <li>
-                    <a href="#">Editer ///</a>
-                </li>
-                <li>
-                    <a href="#">Editer ,,,</a>
+                    <a href="#">Editer Nos Partenaires</a>
                 </li>
             </ul>
+            <li>
+                <a href="#">Profil</a>
+            </li>
             <li>
                 <a href="{{ path('app_logout') }}">Se déconnecter</a>
             </li>

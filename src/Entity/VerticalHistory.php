@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\SectionRepository;
+use App\Repository\VerticalHistoryRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SectionRepository::class)
+ * @ORM\Entity(repositoryClass=VerticalHistoryRepository::class)
  */
-class Section
+class VerticalHistory
 {
     /**
      * @ORM\Id
@@ -18,19 +18,19 @@ class Section
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\Column(type="string", length=100)
      */
     private string $titre;
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $image;
+    private string $description;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $description;
+    private string $image = "";
 
     public function getId(): ?int
     {
@@ -49,18 +49,6 @@ class Section
         return $this;
     }
 
-    public function getImage(): string
-    {
-        return $this->image;
-    }
-
-    public function setImage(string $image): self
-    {
-        $this->image = $image;
-
-        return $this;
-    }
-
     public function getDescription(): ?string
     {
         return $this->description;
@@ -69,6 +57,18 @@ class Section
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getImage(): string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
