@@ -20,7 +20,7 @@
             {% for verticalHistory in verticalHistorys %}
             <li>
                 <div>
-                    <time><a href="#">{{ verticalHistory.titre }}</a></time>
+                    <time><a href="{{ path('asf_history_history') }}">{{ verticalHistory.titre }}</a></time>
                     <p>{{ verticalHistory.description }}</p>
                     {% if verticalHistory.image == true %}
                         <img src="/uploads/histoire/{{ verticalHistory.image }}">
