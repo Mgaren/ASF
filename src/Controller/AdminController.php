@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Repository\SectionRepository;
+use App\Repository\VerticalHistoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -47,6 +48,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/homeSection.html.twig', [
             'sections' => $sections
+        ]);
+    }
+
+    /**
+     * @Route("/verticalHistory", name="verticalHistory", methods={"GET"})
+     * @param Request $request
+     * @param VerticalHistoryRepository $vertHistRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function verticalHistory(
+        Request $request,
+        VerticalHistoryRepository $vertHistRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $verticalHistory = $vertHistRepository->findBy([], [
+            'titre' => 'ASC'
+        ]);
+        $verticalHistory = $paginator->paginate(
+            $verticalHistory,
+            $request->query->getInt('page', 1),
+            5
+        );
+        return $this->render('admin/verticalHistory.html.twig', [
+            'verticalHistorys' => $verticalHistory
         ]);
     }
 }

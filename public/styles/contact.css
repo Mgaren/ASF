@@ -32,9 +32,18 @@ h1 {
     flex-direction: column;
 }
 
-input {
-    display: block;
-    padding: 20px 200px;
+.contact a {
+    margin: 50px;
+    font-size: 20px;
+}
+
+label {
+    font-size: 20px;
+}
+
+input, textarea {
+    font-size: 20px;
+    padding: 20px 20px;
     margin-bottom: 10px;
     width: 100%;
     border: 1px solid #ddd;
@@ -43,9 +52,14 @@ input {
     background: #95ac009a;
 }
 
+textarea {
+    padding-bottom: 50px;
+}
+
 button {
-    width: 100%;
+    width: 50%;
     height: 100%;
+    font-size: 20px;
     padding: 10px 10px;
     background-color: #94AC00;
     color: #fff;
