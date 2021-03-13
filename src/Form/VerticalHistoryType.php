@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\VerticalHistory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,7 +18,7 @@ class VerticalHistoryType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => 'Date*',
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Description*',
             ])
             ->add('fileimage', FileType::class, [
