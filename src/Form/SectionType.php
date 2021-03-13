@@ -17,7 +17,8 @@ class SectionType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => 'Nom de la section*',
             ])
-            ->add('image', FileType::class, [
+            ->add('fileimage', FileType::class, [
+                'mapped' => false,
                 'label' => 'Image*',
             ])
             ->add('description', TextType::class, [

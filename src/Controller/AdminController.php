@@ -44,7 +44,7 @@ class AdminController extends AbstractController
         $sections = $paginator->paginate(
             $sections,
             $request->query->getInt('page', 1),
-            5
+            10
         );
         return $this->render('admin/homeSection.html.twig', [
             'sections' => $sections
@@ -69,7 +69,7 @@ class AdminController extends AbstractController
         $verticalHistory = $paginator->paginate(
             $verticalHistory,
             $request->query->getInt('page', 1),
-            5
+            10
         );
         return $this->render('admin/verticalHistory.html.twig', [
             'verticalHistorys' => $verticalHistory

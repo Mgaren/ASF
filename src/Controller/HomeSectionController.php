@@ -2,7 +2,6 @@
 
 namespace App\Controller;
 
-use App\Form\EditType;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -50,7 +49,7 @@ class HomeSectionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $entityManager = $this->getDoctrine()->getManager();
 
-            $imageFile = $form->get('image')->getData();
+            $imageFile = $form->get('fileimage')->getData();
 
             if ($imageFile) {
                 $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
@@ -99,7 +98,7 @@ class HomeSectionController extends AbstractController
      */
     public function edit(Request $request, Section $section): Response
     {
-        $form = $this->createForm(EditType::class, $section);
+        $form = $this->createForm(SectionType::class, $section);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
