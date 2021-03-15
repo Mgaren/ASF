@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Section;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -17,10 +18,11 @@ class SectionType extends AbstractType
             ->add('titre', TextType::class, [
                 'label' => 'Nom de la section*',
             ])
-            ->add('image', FileType::class, [
+            ->add('fileimage', FileType::class, [
+                'mapped' => false,
                 'label' => 'Image*',
             ])
-            ->add('description', TextType::class, [
+            ->add('description', TextareaType::class, [
                 'label' => 'Description*',
             ])
         ;

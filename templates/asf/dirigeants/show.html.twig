@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Dirigeants{% endblock %}
+
+{% block body %}
+    <h1>Dirigeants</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ dirigeant.id }}</td>
+            </tr>
+            <tr>
+                <th>Prénom</th>
+                <td>{{ dirigeant.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ dirigeant.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Poste</th>
+                <td>{{ dirigeant.post }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ dirigeant.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_dirigeants') }}">Retour à la liste</a>
+
+    <a href="{{ path('asf_dirigeants_edit', {'id': dirigeant.id}) }}">Editer</a>
+
+    {{ include('asf/dirigeants/_delete_form.html.twig') }}
+{% endblock %}
