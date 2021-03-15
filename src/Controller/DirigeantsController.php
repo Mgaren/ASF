@@ -61,6 +61,7 @@ class DirigeantsController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
+                $dirigeant->setImage($newImageFile);
             }
             $entityManager->persist($dirigeant);
             $entityManager->flush();

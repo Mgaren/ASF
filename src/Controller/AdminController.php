@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\SectionRepository;
 use App\Repository\VerticalHistoryRepository;
 use App\Repository\DirigeantsRepository;
+use App\Repository\SalariesRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -99,6 +100,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/dirigeantsAsf.html.twig', [
             'dirigeants' => $dirigeants
+        ]);
+    }
+
+    /**
+     * @Route("/salaries", name="salaries", methods={"GET"})
+     * @param Request $request
+     * @param SalariesRepository $salariesRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function salariesAsf(
+        Request $request,
+        SalariesRepository $salariesRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $salaries = $salariesRepository->findBy([], [
+            'firstname' => 'ASC'
+        ]);
+        $salaries = $paginator->paginate(
+            $salaries,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/salariesAsf.html.twig', [
+            'salaries' => $salaries
         ]);
     }
 }

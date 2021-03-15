@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Salaries{% endblock %}
+
+{% block body %}
+    <h1>Salariés</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ salary.id }}</td>
+            </tr>
+            <tr>
+                <th>Firstname</th>
+                <td>{{ salary.firstname }}</td>
+            </tr>
+            <tr>
+                <th>Lastname</th>
+                <td>{{ salary.lastname }}</td>
+            </tr>
+            <tr>
+                <th>Firstsection</th>
+                <td>{{ salary.firstsection }}</td>
+            </tr>
+            <tr>
+                <th>Secondsection</th>
+                <td>{{ salary.secondsection }}</td>
+            </tr>
+            <tr>
+                <th>Thridsection</th>
+                <td>{{ salary.thridsection }}</td>
+            </tr>
+            <tr>
+                <th>Fourthsection</th>
+                <td>{{ salary.fourthsection }}</td>
+            </tr>
+            <tr>
+                <th>Image</th>
+                <td>{{ salary.image }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_salaries') }}">Retour à la liste</a>
+
+    <a href="{{ path('asf_salaries_edit', {'id': salary.id}) }}">Editer</a>
+
+    {{ include('asf/salaries/_delete_form.html.twig') }}
+{% endblock %}

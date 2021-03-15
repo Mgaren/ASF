@@ -1,0 +1,34 @@
+{% extends 'asf/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/dirigeants.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Salaries ASF{% endblock %}
+
+{% block main %}
+    <h1>Salariés ASF</h1>
+
+    <ul>
+        {% for salary in salaries %}
+            <li>
+                <div>
+                    <div>{{ salary.firstname }}</div>
+                    <div>{{ salary.lastname }}</div>
+                    <div>{{ salary.firstsection }}</div>
+                    <div>{{ salary.secondsection }}</div>
+                    <div>{{ salary.thridsection }}</div>
+                    <div>{{ salary.fourthsection }}</div>
+                    <div>
+                        {% if salary.image == true %}
+                        <img src="/uploads/salaries/{{ salary.image }}">
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
