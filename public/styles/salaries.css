@@ -26,7 +26,7 @@ h1 {
     font-size: 2.5rem;
 }
 
-.container_dirigeant {
+.container_salary {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
@@ -38,17 +38,17 @@ h1 {
     margin: 1em 5px;
 }
 
-.dirigeant {
+.salary {
     display: flex;
     flex-direction: row;
 }
 
-.dirigeant_image img {
+.salary_image img {
     height: 300px;
     width: 300px;
 }
 
-.dirigeant_info {
+.salary_info {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,36 @@ h1 {
     width: 350px;
 }
 
-.dirigeant_info div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.salary_info div {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
+
+.A {
+    grid-area: A;
+}
+
+.B {
+    grid-area: B;
+}
+
+.C {
+    grid-area: C;
+}
+
+.D {
+    grid-area: D;
+}
+
+.A, .B, .C, .D {
+    display: flex;
+    flex-direction: column;
+}
+
+.salary_section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+            "A B"
+            "C D";
 }

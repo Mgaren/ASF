@@ -1,7 +1,7 @@
 {% extends 'asf/layout.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ '/styles/dirigeants.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/salaries.css' }}" rel="stylesheet">
     <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
     <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
     <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
@@ -10,22 +10,41 @@
 {% block title %}Salaries ASF{% endblock %}
 
 {% block main %}
-    <h1>Salariés ASF</h1>
-
-    <ul>
+    <div class="intro">
+        <div class="container">
+            <h1>Salariés ASF</h1>
+        </div>
+    </div>
+    <ul class="container_salary">
         {% for salary in salaries %}
-            <li>
-                <div>
-                    <div>{{ salary.firstname }}</div>
-                    <div>{{ salary.lastname }}</div>
-                    <div>{{ salary.firstsection }}</div>
-                    <div>{{ salary.secondsection }}</div>
-                    <div>{{ salary.thridsection }}</div>
-                    <div>{{ salary.fourthsection }}</div>
-                    <div>
+            <li class="container_item">
+                <div class="salary">
+                    <div class="salary_image">
                         {% if salary.image == true %}
-                        <img src="/uploads/salaries/{{ salary.image }}">
+                            <img src="/uploads/salaries/{{ salary.image }}">
                         {% endif %}
+                    </div>
+                    <div class="salary_info">
+                        <div><h2>{{ salary.firstname }}</h2></div>
+                        <div><h2>{{ salary.lastname }}</h2></div>
+                        <div class="salary_section">
+                            <div class="A"><h4>{{ salary.firstsection }}</h4></div>
+                            <div class="B">
+                                {% if salary.secondsection == true %}
+                                    <h4>{{ salary.secondsection }}</h4>
+                                {% endif %}
+                            </div>
+                            <div class="C">
+                                {% if salary.thridsection == true %}
+                                    <h4>{{ salary.thridsection }}</h4>
+                                {% endif %}
+                            </div>
+                            <div class="D">
+                                {% if salary.fourthsection == true %}
+                                    <h4>{{ salary.fourthsection }}</h4>
+                                {% endif %}
+                            </div>
+                        </div>
                     </div>
                 </div>
             </li>
