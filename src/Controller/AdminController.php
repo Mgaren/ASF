@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\SectionRepository;
 use App\Repository\VerticalHistoryRepository;
+use App\Repository\DirigeantsRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -44,7 +45,7 @@ class AdminController extends AbstractController
         $sections = $paginator->paginate(
             $sections,
             $request->query->getInt('page', 1),
-            5
+            10
         );
         return $this->render('admin/homeSection.html.twig', [
             'sections' => $sections
@@ -69,10 +70,35 @@ class AdminController extends AbstractController
         $verticalHistory = $paginator->paginate(
             $verticalHistory,
             $request->query->getInt('page', 1),
-            5
+            10
         );
         return $this->render('admin/verticalHistory.html.twig', [
             'verticalHistorys' => $verticalHistory
+        ]);
+    }
+
+    /**
+     * @Route("/dirigeants", name="dirigeants", methods={"GET"})
+     * @param Request $request
+     * @param DirigeantsRepository $dirigeantsRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function dirigeantAsf(
+        Request $request,
+        DirigeantsRepository $dirigeantsRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $dirigeants = $dirigeantsRepository->findBy([], [
+            'post' => 'ASC'
+        ]);
+        $dirigeants = $paginator->paginate(
+            $dirigeants,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/dirigeantsAsf.html.twig', [
+            'dirigeants' => $dirigeants
         ]);
     }
 }

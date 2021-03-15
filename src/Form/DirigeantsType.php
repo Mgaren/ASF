@@ -2,24 +2,26 @@
 
 namespace App\Form;
 
-use App\Entity\VerticalHistory;
+use App\Entity\Dirigeants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class VerticalHistoryType extends AbstractType
+class DirigeantsType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('titre', TextType::class, [
-                'label' => 'Date*',
+            ->add('firstname', TextType::class, [
+                'label' => 'Prénom*',
             ])
-            ->add('description', TextareaType::class, [
-                'label' => 'Description*',
+            ->add('lastname', TextType::class, [
+                'label' => 'Nom*',
+            ])
+            ->add('post', TextType::class, [
+                'label' => 'Poste*',
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
@@ -32,7 +34,7 @@ class VerticalHistoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => VerticalHistory::class,
+            'data_class' => Dirigeants::class,
         ]);
     }
 }

@@ -1,0 +1,7 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    font-family: 'Raleway', sans-serif;
+    padding-top: 250px;
+}

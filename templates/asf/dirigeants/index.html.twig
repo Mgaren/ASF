@@ -1,0 +1,30 @@
+{% extends 'asf/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/dirigeants.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Dirigeants ASF{% endblock %}
+
+{% block main %}
+    <h1>Dirigeants ASF</h1>
+    <ul>
+        {% for dirigeant in dirigeants %}
+            <li>
+                <div>
+                    <div>{{ dirigeant.firstname }}</div>
+                    <div>{{ dirigeant.lastname }}</div>
+                    <div>{{ dirigeant.post }}</div>
+                    <div>
+                        {% if dirigeant.image == true %}
+                        <img src="/uploads/dirigeants/{{ dirigeant.image }}">
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -10,6 +10,7 @@
 .idea/
 /public/uploads/sections/
 /public/uploads/histoire/
+/public/uploads/dirigeants/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
