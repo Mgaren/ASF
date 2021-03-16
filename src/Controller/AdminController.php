@@ -91,7 +91,7 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $dirigeants = $dirigeantsRepository->findBy([], [
-            'post' => 'ASC'
+            'id' => 'ASC'
         ]);
         $dirigeants = $paginator->paginate(
             $dirigeants,
@@ -116,7 +116,7 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $salaries = $salariesRepository->findBy([], [
-            'firstname' => 'ASC'
+            'lastname' => 'ASC'
         ]);
         $salaries = $paginator->paginate(
             $salaries,

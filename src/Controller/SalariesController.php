@@ -29,7 +29,7 @@ class SalariesController extends AbstractController
     {
         return $this->render('asf/salaries/index.html.twig', [
             'salaries' => $salariesRepository->findBy([], [
-                'firstname' => 'ASC'
+                'lastname' => 'ASC'
             ]),
         ]);
     }
