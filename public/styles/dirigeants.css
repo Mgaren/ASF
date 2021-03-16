@@ -35,12 +35,12 @@ h1 {
 
 .container_item {
     display: flex;
-    margin: 1em 5px;
+    margin: 1em 5em;
 }
 
 .dirigeant {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 }
 
 .dirigeant_image img {
@@ -50,14 +50,20 @@ h1 {
 
 .dirigeant_info {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 300px;
-    width: 350px;
+    height: 50px;
+    width: 300px;
 }
 
-.dirigeant_info div {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+.dirigeant_info h2 {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    justify-content: center;
+}
+
+.dirigeant_post {
+    display: flex;
+    justify-content: center;
 }

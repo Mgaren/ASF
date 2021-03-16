@@ -19,14 +19,16 @@
         {% for dirigeant in dirigeants %}
             <li class="container_item">
                 <div class="dirigeant">
+                    <div class="dirigeant_info">
+                        <div><h2>{{ dirigeant.firstname }}</h2></div>
+                        <div><h2>{{ dirigeant.lastname }}</h2></div>
+                    </div>
                     <div class="dirigeant_image">
                         {% if dirigeant.image == true %}
                             <img src="/uploads/dirigeants/{{ dirigeant.image }}">
                         {% endif %}
                     </div>
-                    <div class="dirigeant_info">
-                        <div><h2>{{ dirigeant.firstname }}</h2></div>
-                        <div><h2>{{ dirigeant.lastname }}</h2></div>
+                    <div class="dirigeant_post">
                         <div><h4>{{ dirigeant.post }}</h4></div>
                     </div>
                 </div>

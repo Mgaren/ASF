@@ -25,7 +25,7 @@ class SalariesType extends AbstractType
                 'label' => "1ère section*",
                 'choices' => [
                     '' => null,
-                    'ASF' => 'ASF',
+                    'Omnisport' => 'Omnisport',
                     'Basketball' => 'Basketball'
                 ]
             ])
@@ -33,7 +33,7 @@ class SalariesType extends AbstractType
                 'label' => "2ème section",
                 'required' => false,
                 'choices' => [
-                    'ASF' => 'ASF',
+                    'Omnisport' => 'Omnisport',
                     'Basketball' => 'Basketball'
                 ]
             ])
@@ -41,7 +41,7 @@ class SalariesType extends AbstractType
                 'label' => "3ème section",
                 'required' => false,
                 'choices' => [
-                    'ASF' => 'ASF',
+                    'Omnisport' => 'Omnisport',
                     'Basketball' => 'Basketball'
                 ]
             ])
@@ -49,7 +49,7 @@ class SalariesType extends AbstractType
                 'label' => "4ème section",
                 'required' => false,
                 'choices' => [
-                    'ASF' => 'ASF',
+                    'Omnisport' => 'Omnisport',
                     'Basketball' => 'Basketball'
                 ]
             ])
