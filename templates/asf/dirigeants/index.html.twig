@@ -10,18 +10,26 @@
 {% block title %}Dirigeants ASF{% endblock %}
 
 {% block main %}
-    <h1>Dirigeants ASF</h1>
-    <ul>
+    <div class="intro">
+        <div class="container">
+            <h1>Dirigeants ASF</h1>
+        </div>
+    </div>
+    <ul class="container_dirigeant">
         {% for dirigeant in dirigeants %}
-            <li>
-                <div>
-                    <div>{{ dirigeant.firstname }}</div>
-                    <div>{{ dirigeant.lastname }}</div>
-                    <div>{{ dirigeant.post }}</div>
-                    <div>
+            <li class="container_item">
+                <div class="dirigeant">
+                    <div class="dirigeant_info">
+                        <div><h2>{{ dirigeant.firstname }}</h2></div>
+                        <div><h2>{{ dirigeant.lastname }}</h2></div>
+                    </div>
+                    <div class="dirigeant_image">
                         {% if dirigeant.image == true %}
-                        <img src="/uploads/dirigeants/{{ dirigeant.image }}">
+                            <img src="/uploads/dirigeants/{{ dirigeant.image }}">
                         {% endif %}
+                    </div>
+                    <div class="dirigeant_post">
+                        <div><h4>{{ dirigeant.post }}</h4></div>
                     </div>
                 </div>
             </li>

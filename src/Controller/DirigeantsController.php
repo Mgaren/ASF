@@ -29,7 +29,7 @@ class DirigeantsController extends AbstractController
     {
         return $this->render('asf/dirigeants/index.html.twig', [
             'dirigeants' => $dirigeantsRepository->findBy([], [
-                'post' => 'ASC'
+                'id' => 'ASC'
             ]),
         ]);
     }
@@ -61,6 +61,7 @@ class DirigeantsController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
+                $dirigeant->setImage($newImageFile);
             }
             $entityManager->persist($dirigeant);
             $entityManager->flush();
