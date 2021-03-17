@@ -7,6 +7,7 @@ parameters:
     upload_dir: '%kernel.project_dir%/public/uploads/sections/'
     upload_dir_history: '%kernel.project_dir%/public/uploads/histoire/'
     upload_dir_dirigeants: '%kernel.project_dir%/public/uploads/dirigeants/'
+    upload_dir_salaries: '%kernel.project_dir%/public/uploads/salaries/'
 
 services:
     # default configuration for services in *this* file
