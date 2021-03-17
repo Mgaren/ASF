@@ -1,0 +1,42 @@
+{% extends 'asf/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adherant.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Carte Adherant{% endblock %}
+
+{% block main %}
+    <div class="intro">
+        <div class="container">
+            <h1>La carte adhérant</h1>
+        </div>
+    <ul class="container_adherant">
+        {% for adherant_image in adherant_images %}
+            <li class="container_item">
+                <div class="adherant">
+                    <div class="adherant_image">
+                        {% if adherant_image.image == true %}
+                            <img src="/uploads/adherant/{{ adherant_image.image }}">
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    <ul class="container_adherant">
+        {% for adherant_text in adherant_texts %}
+            <li class="container_item">
+                <div class="adherant">
+                    <div class="dirigeant_text">
+                        <div><h2>{{ adherant_text.description }}</h2></div>
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+    </div>
+{% endblock %}
