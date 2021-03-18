@@ -5,6 +5,7 @@ namespace App\Form;
 use App\Entity\Dirigeants;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -20,8 +21,15 @@ class DirigeantsType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Nom*',
             ])
-            ->add('post', TextType::class, [
+            ->add('post', ChoiceType::class, [
                 'label' => 'Poste*',
+                'choices' => [
+                    'Président(e)' => 'Président(e)',
+                    'Vice Président(e)' => 'Vice Président(e)',
+                    'Trésorier(ère)' => 'Trésorier(ère)',
+                    'Secrétaire' => 'Secrétaire',
+                    'Membre' => 'Membre'
+                ]
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

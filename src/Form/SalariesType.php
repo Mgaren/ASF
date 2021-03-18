@@ -26,7 +26,19 @@ class SalariesType extends AbstractType
                 'choices' => [
                     '' => null,
                     'Omnisport' => 'Omnisport',
-                    'Basketball' => 'Basketball'
+                    'Athlétisme' => 'Athlétisme',
+                    'Badminton' => 'Badminton',
+                    'Basketball' => 'Basketball',
+                    'Ecole de sport' => 'Ecole de sport',
+                    'Football' => 'Football',
+                    'Judo' => 'Judo',
+                    'Karaté do' => 'Karaté do',
+                    'Natation' => 'Natation',
+                    'Pétanque' => 'Pétanque',
+                    'Squash' => 'Squash',
+                    'Tennis' => 'Tennis',
+                    'Tennis de table' => 'Tennis de table',
+                    'VTT' => 'VTT'
                 ]
             ])
             ->add('secondsection', ChoiceType::class, [
@@ -34,7 +46,19 @@ class SalariesType extends AbstractType
                 'required' => false,
                 'choices' => [
                     'Omnisport' => 'Omnisport',
-                    'Basketball' => 'Basketball'
+                    'Athlétisme' => 'Athlétisme',
+                    'Badminton' => 'Badminton',
+                    'Basketball' => 'Basketball',
+                    'Ecole de sport' => 'Ecole de sport',
+                    'Football' => 'Football',
+                    'Judo' => 'Judo',
+                    'Karaté do' => 'Karaté do',
+                    'Natation' => 'Natation',
+                    'Pétanque' => 'Pétanque',
+                    'Squash' => 'Squash',
+                    'Tennis' => 'Tennis',
+                    'Tennis de table' => 'Tennis de table',
+                    'VTT' => 'VTT'
                 ]
             ])
             ->add('thridsection', ChoiceType::class, [
@@ -42,7 +66,19 @@ class SalariesType extends AbstractType
                 'required' => false,
                 'choices' => [
                     'Omnisport' => 'Omnisport',
-                    'Basketball' => 'Basketball'
+                    'Athlétisme' => 'Athlétisme',
+                    'Badminton' => 'Badminton',
+                    'Basketball' => 'Basketball',
+                    'Ecole de sport' => 'Ecole de sport',
+                    'Football' => 'Football',
+                    'Judo' => 'Judo',
+                    'Karaté do' => 'Karaté do',
+                    'Natation' => 'Natation',
+                    'Pétanque' => 'Pétanque',
+                    'Squash' => 'Squash',
+                    'Tennis' => 'Tennis',
+                    'Tennis de table' => 'Tennis de table',
+                    'VTT' => 'VTT'
                 ]
             ])
             ->add('fourthsection', ChoiceType::class, [
@@ -50,7 +86,19 @@ class SalariesType extends AbstractType
                 'required' => false,
                 'choices' => [
                     'Omnisport' => 'Omnisport',
-                    'Basketball' => 'Basketball'
+                    'Athlétisme' => 'Athlétisme',
+                    'Badminton' => 'Badminton',
+                    'Basketball' => 'Basketball',
+                    'Ecole de sport' => 'Ecole de sport',
+                    'Football' => 'Football',
+                    'Judo' => 'Judo',
+                    'Karaté do' => 'Karaté do',
+                    'Natation' => 'Natation',
+                    'Pétanque' => 'Pétanque',
+                    'Squash' => 'Squash',
+                    'Tennis' => 'Tennis',
+                    'Tennis de table' => 'Tennis de table',
+                    'VTT' => 'VTT'
                 ]
             ])
             ->add('fileimage', FileType::class, [

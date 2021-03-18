@@ -98,14 +98,36 @@ class AdherantController extends AbstractController
      * @Route("/asf/adherant/image/edit/{id}", name="asf_adherant_image_edit", methods={"GET","POST"})
      * @param Request $request
      * @param AdherantImage $adherantImage
+     * @param SluggerInterface $slugger
      * @return Response
      */
-    public function editImage(Request $request, AdherantImage $adherantImage): Response
+    public function editImage(Request $request, AdherantImage $adherantImage, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(AdherantImageType::class, $adherantImage);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $adherantImage->getImage();
+                if ($filename !== '' && is_string($this->getParameter('upload_dir_adherant'))) {
+                    $path = $this->getParameter('upload_dir_adherant') . $filename;
+                    unlink($path);
+                }
+
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_adherant'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $adherantImage->setImage($newImageFile);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_adherant');
