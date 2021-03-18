@@ -93,14 +93,35 @@ class SalariesController extends AbstractController
      * @Route("/asf/salaries/edit/{id}", name="asf_salaries_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Salaries $salary
+     * @param SluggerInterface $slugger
      * @return Response
      */
-    public function edit(Request $request, Salaries $salary): Response
+    public function edit(Request $request, Salaries $salary, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(SalariesType::class, $salary);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $salary->getImage();
+                if ($filename !== '' && is_string($this->getParameter('upload_dir_salaries'))) {
+                    $path = $this->getParameter('upload_dir_salaries') . $filename;
+                    unlink($path);
+                }
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_salaries'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $salary->setImage($newImageFile);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_salaries');

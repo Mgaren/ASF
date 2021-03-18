@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\AdherantImageRepository;
+use App\Repository\AdherantTextRepository;
 use App\Repository\SectionRepository;
 use App\Repository\VerticalHistoryRepository;
 use App\Repository\DirigeantsRepository;
@@ -125,6 +127,38 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/salariesAsf.html.twig', [
             'salaries' => $salaries
+        ]);
+    }
+
+    /**
+     * @Route("/adherant", name="adherant", methods={"GET"})
+     * @param Request $request
+     * @param AdherantImageRepository $imageRepository
+     * @param AdherantTextRepository $textRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function carteAdherant(
+        Request $request,
+        AdherantImageRepository $imageRepository,
+        AdherantTextRepository $textRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $adherantImages = $imageRepository->findAll();
+        $adherantTexts = $textRepository->findAll();
+        $adherantImages = $paginator->paginate(
+            $adherantImages,
+            $request->query->getInt('page', 1),
+            5
+        );
+        $adherantTexts = $paginator->paginate(
+            $adherantTexts,
+            $request->query->getInt('page', 1),
+            5
+        );
+        return $this->render('admin/adherant.html.twig', [
+            'adherant_images' => $adherantImages,
+            'adherant_texts' => $adherantTexts
         ]);
     }
 }

@@ -94,14 +94,36 @@ class HomeSectionController extends AbstractController
      * @Route("/section/edit/{id}", name="section_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Section $section
+     * @param SluggerInterface $slugger
      * @return Response
      */
-    public function edit(Request $request, Section $section): Response
+    public function edit(Request $request, Section $section, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(SectionType::class, $section);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $section->getImage();
+                if (is_string($this->getParameter('upload_dir'))) {
+                    $path = $this->getParameter('upload_dir') . $filename;
+                    unlink($path);
+                }
+
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', true) . '-' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $section->setImage($newImageFile);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_homeSection');

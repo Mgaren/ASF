@@ -94,14 +94,36 @@ class VerticalHistoryController extends AbstractController
      * @Route("/asf/history/edit/{id}", name="asf_history_edit", methods={"GET","POST"})
      * @param Request $request
      * @param VerticalHistory $verticalHistory
+     * @param SluggerInterface $slugger
      * @return Response
      */
-    public function edit(Request $request, VerticalHistory $verticalHistory): Response
+    public function edit(Request $request, VerticalHistory $verticalHistory, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(VerticalHistoryType::class, $verticalHistory);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $verticalHistory->getImage();
+                if ($filename !== '' && is_string($this->getParameter('upload_dir_history'))) {
+                    $path = $this->getParameter('upload_dir_history') . $filename;
+                    unlink($path);
+                }
+
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_history'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $verticalHistory->setImage($newImageFile);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_verticalHistory');
