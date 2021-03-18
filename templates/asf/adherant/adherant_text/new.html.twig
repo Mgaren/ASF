@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AdherantText{% endblock %}
+
+{% block body %}
+    <h1>Ajouter le Texte</h1>
+
+    {{ include('asf/adherant/adherant_text/_form.html.twig') }}
+
+    <a href="{{ path('admin_adherant') }}">Retour à la liste</a>
+{% endblock %}

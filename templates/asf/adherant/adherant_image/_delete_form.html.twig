@@ -1,0 +1,5 @@
+<form method="post" action="{{ path('asf_adherant_image_delete', {'id': adherant_image.id}) }}" onsubmit="return confirm('Etez-vous sur de vouloir le supprimer?');">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ adherant_image.id) }}">
+    <button class="btn">Supprimer</button>
+</form>

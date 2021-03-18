@@ -91,14 +91,36 @@ class DirigeantsController extends AbstractController
      * @Route("/asf/dirigeants/edit/{id}", name="asf_dirigeants_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Dirigeants $dirigeant
+     * @param SluggerInterface $slugger
      * @return Response
      */
-    public function edit(Request $request, Dirigeants $dirigeant): Response
+    public function edit(Request $request, Dirigeants $dirigeant, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(DirigeantsType::class, $dirigeant);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $dirigeant->getImage();
+                if ($filename !== '' && is_string($this->getParameter('upload_dir_dirigeants'))) {
+                    $path = $this->getParameter('upload_dir_dirigeants') . $filename;
+                    unlink($path);
+                }
+
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_dirigeants'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $dirigeant->setImage($newImageFile);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_dirigeants');

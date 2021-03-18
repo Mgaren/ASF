@@ -12,6 +12,7 @@
 /public/uploads/histoire/
 /public/uploads/dirigeants/
 /public/uploads/salaries/
+/public/uploads/adherant/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###
