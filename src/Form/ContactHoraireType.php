@@ -21,7 +21,9 @@ class ContactHoraireType extends AbstractType
                     'Mardi' => 'Mardi',
                     'Mercredi' => 'Mercredi',
                     'Jeudi' => 'Jeudi',
-                    'Vendredi' => 'Vendredi'
+                    'Vendredi' => 'Vendredi',
+                    'Samedi' => 'Samedi',
+                    'Dimanche' => 'Dimanche'
                 ]
             ])
             ->add('morningHours', TextType::class, [
