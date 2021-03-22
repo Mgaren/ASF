@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\AdherantImageRepository;
 use App\Repository\AdherantTextRepository;
+use App\Repository\ContactHoraireRepository;
 use App\Repository\SectionRepository;
 use App\Repository\VerticalHistoryRepository;
 use App\Repository\DirigeantsRepository;
@@ -159,6 +160,31 @@ class AdminController extends AbstractController
         return $this->render('admin/adherant.html.twig', [
             'adherant_images' => $adherantImages,
             'adherant_texts' => $adherantTexts
+        ]);
+    }
+
+    /**
+     * @Route("/contact", name="contact_horaire", methods={"GET"})
+     * @param Request $request
+     * @param ContactHoraireRepository $horaireRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function contact(
+        Request $request,
+        ContactHoraireRepository $horaireRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $horaires = $horaireRepository->findBy([], [
+            'id' => 'ASC'
+        ]);
+        $horaires = $paginator->paginate(
+            $horaires,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/contactHoraire.html.twig', [
+            'contact_horaires' => $horaires
         ]);
     }
 }

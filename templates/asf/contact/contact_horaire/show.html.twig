@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Horaire{% endblock %}
+
+{% block body %}
+    <h1>Horaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ contact_horaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Jours</th>
+                <td>{{ contact_horaire.day }}</td>
+            </tr>
+            <tr>
+                <th>Horaire matin</th>
+                <td>{{ contact_horaire.morningHours }}</td>
+            </tr>
+            <tr>
+                <th>Horaire après-midi</th>
+                <td>{{ contact_horaire.afternoonHours }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_contact_horaire') }}">Retour à la liste</a>
+
+    <a href="{{ path('asf_contact_horaire_edit', {'id': contact_horaire.id}) }}">Editer</a>
+
+    {{ include('asf/contact/contact_horaire/_delete_form.html.twig') }}
+{% endblock %}

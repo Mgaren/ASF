@@ -1,4 +1,4 @@
-{% extends 'contact/layout.html.twig' %}
+{% extends 'asf/layout.html.twig' %}
 
 {% block stylesheets %}
     <link href="{{ '/styles/contact.css' }}" rel="stylesheet">
@@ -25,4 +25,24 @@
                 Allée de la Poupardière 3230 Fondettes </a>
         </div>
     </div>
+    <h1><img src="../images/logo-horloge.png" alt="horaires" height="100" width="100">Horaire d'ouverture/fermeture</h1>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Jours</th>
+            <th>Horaire matin</th>
+            <th>Horaire après-midi</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact_horaire in contact_horaires %}
+        <tr>
+            <td>{{ contact_horaire.day }}</td>
+            <td>{{ contact_horaire.morningHours }}</td>
+            <td>{{ contact_horaire.afternoonHours }}</td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 {% endblock %}
