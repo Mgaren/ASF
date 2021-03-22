@@ -3,8 +3,9 @@
 namespace App\Form;
 
 use App\Entity\Salaries;
+use App\Entity\SectionSalary;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -21,85 +22,28 @@ class SalariesType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Nom*',
             ])
-            ->add('firstsection', ChoiceType::class, [
+            ->add('firstsection', EntityType::class, [
                 'label' => "1ère section*",
-                'choices' => [
-                    '' => null,
-                    'Omnisport' => 'Omnisport',
-                    'Athlétisme' => 'Athlétisme',
-                    'Badminton' => 'Badminton',
-                    'Basketball' => 'Basketball',
-                    'Ecole de sport' => 'Ecole de sport',
-                    'Football' => 'Football',
-                    'Judo' => 'Judo',
-                    'Karaté do' => 'Karaté do',
-                    'Natation' => 'Natation',
-                    'Pétanque' => 'Pétanque',
-                    'Squash' => 'Squash',
-                    'Tennis' => 'Tennis',
-                    'Tennis de table' => 'Tennis de table',
-                    'VTT' => 'VTT'
-                ]
+                'class' => SectionSalary::class,
+                'choie_label' => 'name',
             ])
-            ->add('secondsection', ChoiceType::class, [
+            ->add('secondsection', EntityType::class, [
                 'label' => "2ème section",
                 'required' => false,
-                'choices' => [
-                    'Omnisport' => 'Omnisport',
-                    'Athlétisme' => 'Athlétisme',
-                    'Badminton' => 'Badminton',
-                    'Basketball' => 'Basketball',
-                    'Ecole de sport' => 'Ecole de sport',
-                    'Football' => 'Football',
-                    'Judo' => 'Judo',
-                    'Karaté do' => 'Karaté do',
-                    'Natation' => 'Natation',
-                    'Pétanque' => 'Pétanque',
-                    'Squash' => 'Squash',
-                    'Tennis' => 'Tennis',
-                    'Tennis de table' => 'Tennis de table',
-                    'VTT' => 'VTT'
-                ]
+                'class' => SectionSalary::class,
+                'choie_label' => 'name',
             ])
-            ->add('thridsection', ChoiceType::class, [
+            ->add('thridsection', EntityType::class, [
                 'label' => "3ème section",
                 'required' => false,
-                'choices' => [
-                    'Omnisport' => 'Omnisport',
-                    'Athlétisme' => 'Athlétisme',
-                    'Badminton' => 'Badminton',
-                    'Basketball' => 'Basketball',
-                    'Ecole de sport' => 'Ecole de sport',
-                    'Football' => 'Football',
-                    'Judo' => 'Judo',
-                    'Karaté do' => 'Karaté do',
-                    'Natation' => 'Natation',
-                    'Pétanque' => 'Pétanque',
-                    'Squash' => 'Squash',
-                    'Tennis' => 'Tennis',
-                    'Tennis de table' => 'Tennis de table',
-                    'VTT' => 'VTT'
-                ]
+                'class' => SectionSalary::class,
+                'choie_label' => 'name',
             ])
-            ->add('fourthsection', ChoiceType::class, [
+            ->add('fourthsection', EntityType::class, [
                 'label' => "4ème section",
                 'required' => false,
-                'choices' => [
-                    'Omnisport' => 'Omnisport',
-                    'Athlétisme' => 'Athlétisme',
-                    'Badminton' => 'Badminton',
-                    'Basketball' => 'Basketball',
-                    'Ecole de sport' => 'Ecole de sport',
-                    'Football' => 'Football',
-                    'Judo' => 'Judo',
-                    'Karaté do' => 'Karaté do',
-                    'Natation' => 'Natation',
-                    'Pétanque' => 'Pétanque',
-                    'Squash' => 'Squash',
-                    'Tennis' => 'Tennis',
-                    'Tennis de table' => 'Tennis de table',
-                    'VTT' => 'VTT'
-                ]
+                'class' => SectionSalary::class,
+                'choie_label' => 'name',
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

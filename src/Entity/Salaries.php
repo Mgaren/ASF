@@ -28,24 +28,32 @@ class Salaries
     private string $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
+     * @ORM\JoinColumn(nullable=false)
+     * @var SectionSalary|null
      */
-    private string $firstsection;
+    private ?SectionSalary $firstsection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
+     * @ORM\JoinColumn(nullable=true)
+     * @var SectionSalary|null
      */
-    private ?string $secondsection;
+    private ?SectionSalary $secondsection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
+     * @ORM\JoinColumn(nullable=true)
+     * @var SectionSalary|null
      */
-    private ?string $thridsection;
+    private ?SectionSalary $thridsection;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
+     * @ORM\JoinColumn(nullable=true)
+     * @var SectionSalary|null
      */
-    private ?string $fourthsection;
+    private ?SectionSalary $fourthsection;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -81,48 +89,48 @@ class Salaries
         return $this;
     }
 
-    public function getFirstsection(): ?string
+    public function getFirstsection(): ?SectionSalary
     {
         return $this->firstsection;
     }
 
-    public function setFirstsection(string $firstsection): self
+    public function setFirstsection(?SectionSalary $firstsection): self
     {
         $this->firstsection = $firstsection;
 
         return $this;
     }
 
-    public function getSecondsection(): ?string
+    public function getSecondsection(): ?SectionSalary
     {
         return $this->secondsection;
     }
 
-    public function setSecondsection(?string $secondsection): self
+    public function setSecondsection(?SectionSalary $secondsection): self
     {
         $this->secondsection = $secondsection;
 
         return $this;
     }
 
-    public function getThridsection(): ?string
+    public function getThridsection(): ?SectionSalary
     {
         return $this->thridsection;
     }
 
-    public function setThridsection(?string $thridsection): self
+    public function setThridsection(?SectionSalary $thridsection): self
     {
         $this->thridsection = $thridsection;
 
         return $this;
     }
 
-    public function getFourthsection(): ?string
+    public function getFourthsection(): ?SectionSalary
     {
         return $this->fourthsection;
     }
 
-    public function setFourthsection(?string $fourthsection): self
+    public function setFourthsection(?SectionSalary $fourthsection): self
     {
         $this->fourthsection = $fourthsection;
 
