@@ -31,12 +31,29 @@
                         </li>
                     </ul>
                 </li>
+                <li class="active">
+                    <a href="#homeSubmenuhome" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Editer la page d'accueil</a>
+                    <ul class="collapse list-unstyled" id="homeSubmenuhome">
+                        <li>
+                            <a href="#">Editer le carousel Histoire</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le carousel Sections Sportives</a>
+                        </li>
+                        <li>
+                            <a href="#">Editer le carousel Partenaires</a>
+                        </li>
+                    </ul>
+                </li>
                 <li>
                     <a href="#">Editer l'actualité</a>
                 </li>
                 <li class="active">
                     <a href="#homeSubmenuasf" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Editer l'ASF</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuasf">
+                        <li>
+                            <a href="#">L'ASF</a>
+                        </li>
                         <li>
                             <a href="{{ path('admin_verticalHistory') }}">Editer histoire vertical</a>
                         </li>
@@ -51,6 +68,9 @@
                         </li>
                         <li>
                             <a href="{{ path('admin_adherant') }}">Editer carte adhérent</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_contact_horaire') }}">Editer les Horaires</a>
                         </li>
                     </ul>
                 </li>
@@ -104,6 +124,12 @@
                 </li>
                 <li>
                     <a href="#">Editer Nos Partenaires</a>
+                </li>
+                <li>
+                    <a href="#">Ajouter un poste pour les Dirigeants</a>
+                </li>
+                <li>
+                    <a href="#">Ajouter une section pour les Salariés</a>
                 </li>
             </ul>
             <li>

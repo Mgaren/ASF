@@ -28,9 +28,11 @@ class Dirigeants
     private string $lastname;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=DirigeantsPost::class, inversedBy="dirigeants")
+     * @ORM\JoinColumn(nullable=false)
+     * @var DirigeantsPost|null
      */
-    private string $post;
+    private ?DirigeantsPost $dirigeantsPost;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -66,18 +68,6 @@ class Dirigeants
         return $this;
     }
 
-    public function getPost(): ?string
-    {
-        return $this->post;
-    }
-
-    public function setPost(string $post): self
-    {
-        $this->post = $post;
-
-        return $this;
-    }
-
     public function getImage(): string
     {
         return $this->image;
@@ -86,6 +76,18 @@ class Dirigeants
     public function setImage(string $image): self
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDirigeantsPost(): ?DirigeantsPost
+    {
+        return $this->dirigeantsPost;
+    }
+
+    public function setDirigeantsPost(?DirigeantsPost $dirigeantsPost): self
+    {
+        $this->dirigeantsPost = $dirigeantsPost;
 
         return $this;
     }

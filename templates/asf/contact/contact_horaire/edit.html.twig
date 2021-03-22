@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit ContactHoraire{% endblock %}
+
+{% block body %}
+    <h1>Edit ContactHoraire</h1>
+
+    {{ include('asf/contact/contact_horaire/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_contact_horaire') }}">Retour à la liste</a>
+
+    {{ include('asf/contact/contact_horaire/_delete_form.html.twig') }}
+{% endblock %}

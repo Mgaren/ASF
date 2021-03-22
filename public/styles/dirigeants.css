@@ -35,7 +35,7 @@ h1 {
 
 .container_item {
     display: flex;
-    margin: 1em 5em;
+    margin: 1em 5em 4em;
 }
 
 .dirigeant {
@@ -66,4 +66,5 @@ h1 {
 .dirigeant_post {
     display: flex;
     justify-content: center;
+    margin-top: 1em;
 }
