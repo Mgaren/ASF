@@ -2,7 +2,7 @@
 
 {% block stylesheets %}
     <link href="{{ '/styles/carousel.css' }}" rel="stylesheet">
-    {# <link href="{{ 'styles/home.css' }}" rel="stylesheet"> #}
+    <link href="{{ 'styles/home.css' }}" rel="stylesheet">
     <link href="{{ 'styles/footer.css' }}" rel="stylesheet">
     <link href="{{ 'styles/nav.css' }}" rel="stylesheet">
 {% endblock %}
@@ -16,10 +16,14 @@
     </div>
     <div class="home-carousel">
         {% if carousel_histories is not empty and carousel_histories[0].image1 %}
-            <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+            {% if carousel_histories[0].image1 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+            {% endif %}
         {% endif %}
         {% if carousel_histories is not empty and carousel_histories[0].image2 %}
-            <img src="/uploads/carousel/history/{{ carousel_histories[0].image2 }}">
+            {% if carousel_histories[0].image2 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image2 }}">
+            {% endif %}
         {% endif %}
         {% if carousel_histories is not empty and carousel_histories[0].image3 %}
             {% if carousel_histories[0].image3 == true %}
@@ -37,7 +41,9 @@
             {% endif %}
         {% endif %}
         {% if carousel_histories is not empty and carousel_histories[0].image1 %}
-            <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+            {% if carousel_histories[0].image1 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+            {% endif %}
         {% endif %}
     </div>
     <div class="image-2">

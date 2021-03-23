@@ -268,26 +268,26 @@ class CarouselHistoryController extends AbstractController
     ): Response {
         if ($this->isCsrfTokenValid('delete' . $carouselHistory->getId(), $request->request->get('_token'))) {
             $filename1 = $carouselHistory->getImage1();
-            $filename2 = $carouselHistory->getImage2();
-            $filename3 = $carouselHistory->getImage3();
-            $filename4 = $carouselHistory->getImage4();
-            $filename5 = $carouselHistory->getImage5();
             if ($filename1 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename1;
                 unlink($path);
             }
+            $filename2 = $carouselHistory->getImage2();
             if ($filename2 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename2;
                 unlink($path);
             }
+            $filename3 = $carouselHistory->getImage3();
             if ($filename3 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename3;
                 unlink($path);
             }
+            $filename4 = $carouselHistory->getImage4();
             if ($filename4 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename4;
                 unlink($path);
             }
+            $filename5 = $carouselHistory->getImage5();
             if ($filename5 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename5;
                 unlink($path);

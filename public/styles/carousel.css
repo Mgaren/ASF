@@ -1,6 +1,6 @@
 .home-carousel {
     position: relative;
-    width: 2000%;
+    width: 500%;
     margin: 0;
     padding: 0;
     font-size: 0;
@@ -10,8 +10,8 @@
 }
 
 .home-carousel img {
-    width: 5%;
-    height: auto;
+    width: 20%;
+    height: 1000px;
     float: left;
 }
 
