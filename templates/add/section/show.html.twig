@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}SectionSalary{% endblock %}
+
+{% block body %}
+    <h1>SectionSalary</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ section_salary.id }}</td>
+            </tr>
+            <tr>
+                <th>Name</th>
+                <td>{{ section_salary.name }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_section_salary') }}">Retour à la liste</a>
+
+    <a href="{{ path('add_section_salary_edit', {'id': section_salary.id}) }}">Editer</a>
+
+    {{ include('add/section/_delete_form.html.twig') }}
+{% endblock %}
