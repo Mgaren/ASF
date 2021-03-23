@@ -9,6 +9,8 @@ use App\Repository\SectionRepository;
 use App\Repository\VerticalHistoryRepository;
 use App\Repository\DirigeantsRepository;
 use App\Repository\SalariesRepository;
+use App\Repository\DirigeantsPostRepository;
+use App\Repository\SectionSalaryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -185,6 +187,52 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/contactHoraire.html.twig', [
             'contact_horaires' => $horaires
+        ]);
+    }
+
+    /**
+     * @Route("/dirigeants/post", name="dirieants_post", methods={"GET"})
+     * @param Request $request
+     * @param DirigeantsPostRepository $postRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addPost(
+        Request $request,
+        DirigeantsPostRepository $postRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $posts = $postRepository->findAll();
+        $posts = $paginator->paginate(
+            $posts,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/dirigeantsPost.html.twig', [
+            'dirigeants_posts' => $posts
+        ]);
+    }
+
+    /**
+     * @Route("/section/salary", name="section_salary", methods={"GET"})
+     * @param Request $request
+     * @param SectionSalaryRepository $salaryRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addSection(
+        Request $request,
+        SectionSalaryRepository $salaryRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $sections = $salaryRepository->findAll();
+        $sections = $paginator->paginate(
+            $sections,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/sectionSalary.html.twig', [
+            'section_salaries' => $sections
         ]);
     }
 }
