@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CarouselPartenaire{% endblock %}
+
+{% block body %}
+    <h1>Create new CarouselPartenaire</h1>
+
+    {{ include('carousel_partenaire/_form.html.twig') }}
+
+    <a href="{{ path('carousel_partenaire_index') }}">back to list</a>
+{% endblock %}

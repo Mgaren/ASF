@@ -1,0 +1,30 @@
+.home-carousel {
+    position: relative;
+    width: 2000%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+    left: 0;
+    animation: 30s slidy infinite ease-in-out;
+}
+
+.home-carousel img {
+    width: 5%;
+    height: auto;
+    float: left;
+}
+
+@keyframes slidy {
+    0% { left: 0; }
+    20% { left: 0; }
+
+    28% { left: -100%; }
+    53% { left: -100%; }
+
+    61% { left: -200%; }
+    87% { left: -200%; }
+
+    95% { left: -300%; }
+    100% { left: -300%; }
+}

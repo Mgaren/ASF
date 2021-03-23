@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit CarouselPartenaire{% endblock %}
+
+{% block body %}
+    <h1>Edit CarouselPartenaire</h1>
+
+    {{ include('carousel_partenaire/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('carousel_partenaire_index') }}">back to list</a>
+
+    {{ include('carousel_partenaire/_delete_form.html.twig') }}
+{% endblock %}

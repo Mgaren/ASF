@@ -9,6 +9,9 @@ parameters:
     upload_dir_dirigeants: '%kernel.project_dir%/public/uploads/dirigeants/'
     upload_dir_salaries: '%kernel.project_dir%/public/uploads/salaries/'
     upload_dir_adherant: '%kernel.project_dir%/public/uploads/adherant/'
+    upload_dir_carouselHistory: '%kernel.project_dir%/public/uploads/carousel/history/'
+    upload_dir_carouselSection: '%kernel.project_dir%/public/uploads/carousel/section/'
+    upload_dir_carouselPartenaire: '%kernel.project_dir%/public/uploads/carousel/partenaire/'
 
 services:
     # default configuration for services in *this* file

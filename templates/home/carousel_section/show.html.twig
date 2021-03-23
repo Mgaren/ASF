@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarouselSection{% endblock %}
+
+{% block body %}
+    <h1>CarouselSection</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carousel_section.id }}</td>
+            </tr>
+            <tr>
+                <th>Image1</th>
+                <td>{{ carousel_section.image1 }}</td>
+            </tr>
+            <tr>
+                <th>Image2</th>
+                <td>{{ carousel_section.image2 }}</td>
+            </tr>
+            <tr>
+                <th>Image3</th>
+                <td>{{ carousel_section.image3 }}</td>
+            </tr>
+            <tr>
+                <th>Image4</th>
+                <td>{{ carousel_section.image4 }}</td>
+            </tr>
+            <tr>
+                <th>Image5</th>
+                <td>{{ carousel_section.image5 }}</td>
+            </tr>
+            <tr>
+                <th>Image6</th>
+                <td>{{ carousel_section.image6 }}</td>
+            </tr>
+            <tr>
+                <th>Image7</th>
+                <td>{{ carousel_section.image7 }}</td>
+            </tr>
+            <tr>
+                <th>Image8</th>
+                <td>{{ carousel_section.image8 }}</td>
+            </tr>
+            <tr>
+                <th>Image9</th>
+                <td>{{ carousel_section.image9 }}</td>
+            </tr>
+            <tr>
+                <th>Image10</th>
+                <td>{{ carousel_section.image10 }}</td>
+            </tr>
+            <tr>
+                <th>Image11</th>
+                <td>{{ carousel_section.image11 }}</td>
+            </tr>
+            <tr>
+                <th>Image12</th>
+                <td>{{ carousel_section.image12 }}</td>
+            </tr>
+            <tr>
+                <th>Image13</th>
+                <td>{{ carousel_section.image13 }}</td>
+            </tr>
+            <tr>
+                <th>Image14</th>
+                <td>{{ carousel_section.image14 }}</td>
+            </tr>
+            <tr>
+                <th>Image15</th>
+                <td>{{ carousel_section.image15 }}</td>
+            </tr>
+            <tr>
+                <th>Image16</th>
+                <td>{{ carousel_section.image16 }}</td>
+            </tr>
+            <tr>
+                <th>Image17</th>
+                <td>{{ carousel_section.image17 }}</td>
+            </tr>
+            <tr>
+                <th>Image18</th>
+                <td>{{ carousel_section.image18 }}</td>
+            </tr>
+            <tr>
+                <th>Image19</th>
+                <td>{{ carousel_section.image19 }}</td>
+            </tr>
+            <tr>
+                <th>Image20</th>
+                <td>{{ carousel_section.image20 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('carousel_section_index') }}">back to list</a>
+
+    <a href="{{ path('carousel_section_edit', {'id': carousel_section.id}) }}">edit</a>
+
+    {{ include('carousel_section/_delete_form.html.twig') }}
+{% endblock %}

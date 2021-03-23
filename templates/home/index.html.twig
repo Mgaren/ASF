@@ -1,7 +1,8 @@
 {% extends 'home/layout.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ 'styles/home.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/carousel.css' }}" rel="stylesheet">
+    {# <link href="{{ 'styles/home.css' }}" rel="stylesheet"> #}
     <link href="{{ 'styles/footer.css' }}" rel="stylesheet">
     <link href="{{ 'styles/nav.css' }}" rel="stylesheet">
 {% endblock %}
@@ -13,13 +14,31 @@
         <h1>Les dernières actualités</h1>
         <p>Vous retrouverez ici les dernières Actualités</p>
     </div>
-    <div class="image-1">
-        <div class="text-1">
-            <p>
-                description de l'ASF...
-            </p>
-            <a href="#" class="about">Voir plus</a>
-        </div>
+    <div class="home-carousel">
+        {% if carousel_histories is not empty and carousel_histories[0].image1 %}
+            <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+        {% endif %}
+        {% if carousel_histories is not empty and carousel_histories[0].image2 %}
+            <img src="/uploads/carousel/history/{{ carousel_histories[0].image2 }}">
+        {% endif %}
+        {% if carousel_histories is not empty and carousel_histories[0].image3 %}
+            {% if carousel_histories[0].image3 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image3 }}">
+            {% endif %}
+        {% endif %}
+        {% if carousel_histories is not empty and carousel_histories[0].image4 %}
+            {% if carousel_histories[0].image4 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image4 }}">
+            {% endif %}
+        {% endif %}
+        {% if carousel_histories is not empty and carousel_histories[0].image5 %}
+            {% if carousel_histories[0].image5 == true %}
+                <img src="/uploads/carousel/history/{{ carousel_histories[0].image5 }}">
+            {% endif %}
+        {% endif %}
+        {% if carousel_histories is not empty and carousel_histories[0].image1 %}
+            <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+        {% endif %}
     </div>
     <div class="image-2">
         <div class="text-2">
