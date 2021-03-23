@@ -3,11 +3,11 @@
 {% block title %}Edit CarouselPartenaire{% endblock %}
 
 {% block body %}
-    <h1>Edit CarouselPartenaire</h1>
+    <h1>Editer le carousel des partenaires</h1>
 
-    {{ include('carousel_partenaire/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('home/carousel_partenaire/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
 
-    <a href="{{ path('carousel_partenaire_index') }}">back to list</a>
+    <a href="{{ path('admin_carousel_partenaire') }}">Retour à la liste</a>
 
-    {{ include('carousel_partenaire/_delete_form.html.twig') }}
+    {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}
 {% endblock %}

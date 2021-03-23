@@ -2,11 +2,11 @@
 
 namespace App\Entity;
 
-use App\Repository\CarouselSectionRepository;
+use App\Repository\CarouselPartenaireRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=CarouselSectionRepository::class)
+ * @ORM\Entity(repositoryClass=CarouselPartenaireRepository::class)
  */
 class CarouselPartenaire
 {

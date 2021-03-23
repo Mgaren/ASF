@@ -3,7 +3,7 @@
 {% block title %}CarouselSection{% endblock %}
 
 {% block body %}
-    <h1>CarouselSection</h1>
+    <h1>Carousel des Sections</h1>
 
     <table class="table">
         <tbody>
@@ -94,9 +94,10 @@
         </tbody>
     </table>
 
-    <a href="{{ path('carousel_section_index') }}">back to list</a>
+    <a href="{{ path('admin_carousel_section') }}">Retour à la liste</a>
 
-    <a href="{{ path('carousel_section_edit', {'id': carousel_section.id}) }}">edit</a>
+    <a href="{{ path('hime_carousel_section_edit', {'id': carousel_section.id}) }}">Editer</a>
 
-    {{ include('carousel_section/_delete_form.html.twig') }}
+    {# {{ include('home/carousel_section/_delete_form.html.twig') }} #}
 {% endblock %}
+

@@ -3,9 +3,9 @@
 {% block title %}New CarouselSection{% endblock %}
 
 {% block body %}
-    <h1>Create new CarouselSection</h1>
+    <h1>Ajouter le carousel des sections sportives</h1>
 
-    {{ include('carousel_section/_form.html.twig') }}
+    {{ include('home/carousel_section/_form.html.twig') }}
 
-    <a href="{{ path('carousel_section_index') }}">back to list</a>
+    <a href="{{ path('admin_carousel_section') }}">Retour à la liste</a>
 {% endblock %}

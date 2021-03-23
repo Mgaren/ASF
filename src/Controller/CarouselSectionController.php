@@ -4,31 +4,26 @@ namespace App\Controller;
 
 use App\Entity\CarouselSection;
 use App\Form\CarouselSectionType;
-use App\Repository\CarouselSectionRepository;
+use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 
 /**
- * @Route("/carousel/section")
+ * @Route("/home")
  */
 class CarouselSectionController extends AbstractController
 {
     /**
-     * @Route("/", name="carousel_section_index", methods={"GET"})
+     * @Route("/home/carousel/section/new", name="home_carousel_section_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param SluggerInterface $slugger
+     * @return Response
      */
-    public function index(CarouselSectionRepository $carouselSectionRepository): Response
-    {
-        return $this->render('carousel_section/index.html.twig', [
-            'carousel_sections' => $carouselSectionRepository->findAll(),
-        ]);
-    }
-
-    /**
-     * @Route("/new", name="carousel_section_new", methods={"GET","POST"})
-     */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $carouselSection = new CarouselSection();
         $form = $this->createForm(CarouselSectionType::class, $carouselSection);
@@ -39,29 +34,35 @@ class CarouselSectionController extends AbstractController
             $entityManager->persist($carouselSection);
             $entityManager->flush();
 
-            return $this->redirectToRoute('carousel_section_index');
+            return $this->redirectToRoute('admin_carousel_section');
         }
 
-        return $this->render('carousel_section/new.html.twig', [
+        return $this->render('home/carousel_section/new.html.twig', [
             'carousel_section' => $carouselSection,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="carousel_section_show", methods={"GET"})
+     * @Route("/home/carousel/section/show/{id}", name="home_carousel_section_show", methods={"GET"})
+     * @param CarouselSection $carouselSection
+     * @return Response
      */
     public function show(CarouselSection $carouselSection): Response
     {
-        return $this->render('carousel_section/show.html.twig', [
+        return $this->render('home/carousel_section/show.html.twig', [
             'carousel_section' => $carouselSection,
         ]);
     }
 
     /**
-     * @Route("/{id}/edit", name="carousel_section_edit", methods={"GET","POST"})
+     * @Route("/home/carousel/section/edit/{id}", name="home_carousel_section_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param CarouselSection $carouselSection
+     * @param SluggerInterface $slugger
+     * @return Response
      */
-    public function edit(Request $request, CarouselSection $carouselSection): Response
+    public function edit(Request $request, CarouselSection $carouselSection, SluggerInterface $slugger): Response
     {
         $form = $this->createForm(CarouselSectionType::class, $carouselSection);
         $form->handleRequest($request);
@@ -69,26 +70,32 @@ class CarouselSectionController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('carousel_section_index');
+            return $this->redirectToRoute('admin_carousel_section');
         }
 
-        return $this->render('carousel_section/edit.html.twig', [
+        return $this->render('home/carousel_section/edit.html.twig', [
             'carousel_section' => $carouselSection,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/{id}", name="carousel_section_delete", methods={"DELETE"})
+     * @Route("/home/carousel/section/delete/{id}", name="home_carousel_section_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param CarouselSection $carouselSection
+     * @param EntityManagerInterface $entityManager
+     * @return Response
      */
-    public function delete(Request $request, CarouselSection $carouselSection): Response
-    {
+    public function delete(
+        Request $request,
+        CarouselSection $carouselSection,
+        EntityManagerInterface $entityManager
+    ): Response {
         if ($this->isCsrfTokenValid('delete' . $carouselSection->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($carouselSection);
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('carousel_section_index');
+        return $this->redirectToRoute('admin_carousel_section');
     }
 }
