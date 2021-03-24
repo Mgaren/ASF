@@ -1,0 +1,82 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+.actuality {
+    font-family: 'Raleway', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 175px;
+    color: black;
+}
+
+.carousel {
+    display: flex;
+    flex-direction: column;
+}
+
+.home-carousel-history {
+    position: relative;
+    width: 500%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+    left: 0;
+    animation: 30s slidy infinite ease-in-out;
+}
+
+.home-carousel-history img {
+    width: 20%;
+    height: 1000px;
+    float: left;
+}
+
+.home-carousel-section {
+    position: relative;
+    width: 2000%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+    left: 0;
+    animation: 30s slidy infinite ease-in-out;
+}
+
+.home-carousel-section img {
+    width: 5%;
+    height: 1000px;
+    float: left;
+}
+
+.home-carousel-partenaire {
+    position: relative;
+    width: 2000%;
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
+    left: 0;
+    animation: 30s slidy infinite ease-in-out;
+}
+
+.home-carousel-partenaire img {
+    width: 5%;
+    height: 1000px;
+    float: left;
+}
+
+@keyframes slidy {
+    0% { left: 0; }
+    20% { left: 0; }
+
+    28% { left: -100%; }
+    53% { left: -100%; }
+
+    61% { left: -200%; }
+    87% { left: -200%; }
+
+    95% { left: -300%; }
+    100% { left: -300%; }
+}

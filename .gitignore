@@ -13,6 +13,9 @@
 /public/uploads/dirigeants/
 /public/uploads/salaries/
 /public/uploads/adherant/
+/public/uploads/carousel/history/
+/public/uploads/carousel/section/
+/public/uploads/carousel/partenaire/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

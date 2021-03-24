@@ -26,9 +26,9 @@ class DirigeantsPost
 
     /**
      * @ORM\OneToMany(targetEntity=Dirigeants::class, mappedBy="dirigeantsPost")
-     * @var ArrayCollection
+     * @var Collection
      */
-    private ArrayCollection $dirigeants;
+    private Collection $dirigeants;
 
 
     public function getId(): ?int
@@ -56,12 +56,12 @@ class DirigeantsPost
     /**
      * @return Collection|Dirigeants[]
      */
-    public function getProducts(): Collection
+    public function getDirigeants(): Collection
     {
         return $this->dirigeants;
     }
 
-    public function addProduct(Dirigeants $dirigeants): self
+    public function addDirigeant(Dirigeants $dirigeants): self
     {
         if (! $this->dirigeants->contains($dirigeants)) {
             $this->dirigeants[] = $dirigeants;
@@ -70,7 +70,7 @@ class DirigeantsPost
         return $this;
     }
 
-    public function removeProduct(Dirigeants $dirigeants): self
+    public function removeDirigeant(Dirigeants $dirigeants): self
     {
         if ($this->dirigeants->removeElement($dirigeants)) {
             // set the owning side to null (unless already changed)

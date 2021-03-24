@@ -1,0 +1,102 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}CarouselPartenaire{% endblock %}
+
+{% block body %}
+    <h1>CarouselPartenaire</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ carousel_partenaire.id }}</td>
+            </tr>
+            <tr>
+                <th>Image1</th>
+                <td>{{ carousel_partenaire.image1 }}</td>
+            </tr>
+            <tr>
+                <th>Image2</th>
+                <td>{{ carousel_partenaire.image2 }}</td>
+            </tr>
+            <tr>
+                <th>Image3</th>
+                <td>{{ carousel_partenaire.image3 }}</td>
+            </tr>
+            <tr>
+                <th>Image4</th>
+                <td>{{ carousel_partenaire.image4 }}</td>
+            </tr>
+            <tr>
+                <th>Image5</th>
+                <td>{{ carousel_partenaire.image5 }}</td>
+            </tr>
+            <tr>
+                <th>Image6</th>
+                <td>{{ carousel_partenaire.image6 }}</td>
+            </tr>
+            <tr>
+                <th>Image7</th>
+                <td>{{ carousel_partenaire.image7 }}</td>
+            </tr>
+            <tr>
+                <th>Image8</th>
+                <td>{{ carousel_partenaire.image8 }}</td>
+            </tr>
+            <tr>
+                <th>Image9</th>
+                <td>{{ carousel_partenaire.image9 }}</td>
+            </tr>
+            <tr>
+                <th>Image10</th>
+                <td>{{ carousel_partenaire.image10 }}</td>
+            </tr>
+            <tr>
+                <th>Image11</th>
+                <td>{{ carousel_partenaire.image11 }}</td>
+            </tr>
+            <tr>
+                <th>Image12</th>
+                <td>{{ carousel_partenaire.image12 }}</td>
+            </tr>
+            <tr>
+                <th>Image13</th>
+                <td>{{ carousel_partenaire.image13 }}</td>
+            </tr>
+            <tr>
+                <th>Image14</th>
+                <td>{{ carousel_partenaire.image14 }}</td>
+            </tr>
+            <tr>
+                <th>Image15</th>
+                <td>{{ carousel_partenaire.image15 }}</td>
+            </tr>
+            <tr>
+                <th>Image16</th>
+                <td>{{ carousel_partenaire.image16 }}</td>
+            </tr>
+            <tr>
+                <th>Image17</th>
+                <td>{{ carousel_partenaire.image17 }}</td>
+            </tr>
+            <tr>
+                <th>Image18</th>
+                <td>{{ carousel_partenaire.image18 }}</td>
+            </tr>
+            <tr>
+                <th>Image19</th>
+                <td>{{ carousel_partenaire.image19 }}</td>
+            </tr>
+            <tr>
+                <th>Image20</th>
+                <td>{{ carousel_partenaire.image20 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_carousel_partenaire') }}">Retour à la liste</a>
+
+    <a href="{{ path('home_carousel_partenaire_edit', {'id': carousel_partenaire.id}) }}">Editer</a>
+
+    {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}
+{% endblock %}

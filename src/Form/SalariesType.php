@@ -22,28 +22,28 @@ class SalariesType extends AbstractType
             ->add('lastname', TextType::class, [
                 'label' => 'Nom*',
             ])
-            ->add('firstsection', EntityType::class, [
+            ->add('sectionSalary', EntityType::class, [
                 'label' => "1ère section*",
                 'class' => SectionSalary::class,
-                'choie_label' => 'name',
+                'choice_label' => 'name',
             ])
-            ->add('secondsection', EntityType::class, [
+            ->add('sectionSalary', EntityType::class, [
                 'label' => "2ème section",
                 'required' => false,
                 'class' => SectionSalary::class,
-                'choie_label' => 'name',
+                'choice_label' => 'name',
             ])
-            ->add('thridsection', EntityType::class, [
+            ->add('sectionSalary', EntityType::class, [
                 'label' => "3ème section",
                 'required' => false,
                 'class' => SectionSalary::class,
-                'choie_label' => 'name',
+                'choice_label' => 'name',
             ])
-            ->add('fourthsection', EntityType::class, [
+            ->add('sectionSalary', EntityType::class, [
                 'label' => "4ème section",
                 'required' => false,
                 'class' => SectionSalary::class,
-                'choie_label' => 'name',
+                'choice_label' => 'name',
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

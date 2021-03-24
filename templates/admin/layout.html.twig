@@ -35,13 +35,13 @@
                     <a href="#homeSubmenuhome" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Editer la page d'accueil</a>
                     <ul class="collapse list-unstyled" id="homeSubmenuhome">
                         <li>
-                            <a href="#">Editer le carousel Histoire</a>
+                            <a href="{{ path('admin_carousel_history') }}">Editer le carousel Histoire</a>
                         </li>
                         <li>
-                            <a href="#">Editer le carousel Sections Sportives</a>
+                            <a href="{{ path('admin_carousel_section') }}">Editer le carousel Sections Sportives</a>
                         </li>
                         <li>
-                            <a href="#">Editer le carousel Partenaires</a>
+                            <a href="{{ path('admin_carousel_partenaire') }}">Editer le carousel Partenaires</a>
                         </li>
                     </ul>
                 </li>
@@ -126,7 +126,7 @@
                     <a href="#">Editer Nos Partenaires</a>
                 </li>
                 <li>
-                    <a href="{{ path('admin_dirieants_post') }}">Ajouter un poste pour les Dirigeants</a>
+                    <a href="{{ path('admin_dirigeants_post') }}">Ajouter un poste pour les Dirigeants</a>
                 </li>
                 <li>
                     <a href="{{ path('admin_section_salary') }}">Ajouter une section pour les Salariés</a>

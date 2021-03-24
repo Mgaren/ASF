@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New CarouselSection{% endblock %}
+
+{% block body %}
+    <h1>Ajouter le carousel des sections sportives</h1>
+
+    {{ include('home/carousel_section/_form.html.twig') }}
+
+    <a href="{{ path('admin_carousel_section') }}">Retour à la liste</a>
+{% endblock %}

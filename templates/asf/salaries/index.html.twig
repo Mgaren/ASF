@@ -29,20 +29,20 @@
                         {% endif %}
                     </div>
                     <div class="salary_section">
-                        <div class="A"><h4>{{ salary.firstsection }}</h4></div>
+                        <div class="A"><h4>{{ salary.sectionSalary.name }}</h4></div>
                         <div class="B">
-                            {% if salary.secondsection == true %}
-                                <h4>{{ salary.secondsection }}</h4>
+                            {% if salary.sectionSalary.name == true %}
+                                <h4>{{ salary.sectionSalary.name }}</h4>
                             {% endif %}
                         </div>
                         <div class="C">
-                            {% if salary.thridsection == true %}
-                                <h4>{{ salary.thridsection }}</h4>
+                            {% if salary.sectionSalary.name == true %}
+                                <h4>{{ salary.sectionSalary.name }}</h4>
                             {% endif %}
                         </div>
                         <div class="D">
-                            {% if salary.fourthsection == true %}
-                                <h4>{{ salary.fourthsection }}</h4>
+                            {% if salary.sectionSalary.name == true %}
+                                <h4>{{ salary.sectionSalary.name }}</h4>
                             {% endif %}
                         </div>
                     </div>

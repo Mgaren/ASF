@@ -11,6 +11,9 @@ use App\Repository\DirigeantsRepository;
 use App\Repository\SalariesRepository;
 use App\Repository\DirigeantsPostRepository;
 use App\Repository\SectionSalaryRepository;
+use App\Repository\CarouselHistoryRepository;
+use App\Repository\CarouselSectionRepository;
+use App\Repository\CarouselPartenaireRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -191,7 +194,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/dirigeants/post", name="dirieants_post", methods={"GET"})
+     * @Route("/dirigeants/post", name="dirigeants_post", methods={"GET"})
      * @param Request $request
      * @param DirigeantsPostRepository $postRepository
      * @param PaginatorInterface $paginator
@@ -233,6 +236,75 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/sectionSalary.html.twig', [
             'section_salaries' => $sections
+        ]);
+    }
+
+    /**
+     * @Route("/carousel/history", name="carousel_history", methods={"GET"})
+     * @param Request $request
+     * @param CarouselHistoryRepository $carouselHistory
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function carouselHistory(
+        Request $request,
+        CarouselHistoryRepository $carouselHistory,
+        PaginatorInterface $paginator
+    ): Response {
+        $carouselHistories = $carouselHistory->findAll();
+        $carouselHistories = $paginator->paginate(
+            $carouselHistories,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/carouselHistory.html.twig', [
+            'carousel_history' => $carouselHistories
+        ]);
+    }
+
+    /**
+     * @Route("/carousel/section", name="carousel_section", methods={"GET"})
+     * @param Request $request
+     * @param CarouselSectionRepository $carouselSection
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function carouselSection(
+        Request $request,
+        CarouselSectionRepository $carouselSection,
+        PaginatorInterface $paginator
+    ): Response {
+        $carouselSections = $carouselSection->findAll();
+        $carouselSections = $paginator->paginate(
+            $carouselSections,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/carouselSection.html.twig', [
+            'carousel_section' => $carouselSections
+        ]);
+    }
+
+    /**
+     * @Route("/carousel/partenaire", name="carousel_partenaire", methods={"GET"})
+     * @param Request $request
+     * @param CarouselPartenaireRepository $carouselPartenaire
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function carouselPartenaire(
+        Request $request,
+        CarouselPartenaireRepository $carouselPartenaire,
+        PaginatorInterface $paginator
+    ): Response {
+        $carouselPartenaires = $carouselPartenaire->findAll();
+        $carouselPartenaires = $paginator->paginate(
+            $carouselPartenaires,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/carouselPartenaire.html.twig', [
+            'carousel_partenaire' => $carouselPartenaires
         ]);
     }
 }

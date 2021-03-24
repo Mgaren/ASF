@@ -3,10 +3,12 @@
 namespace App\Entity;
 
 use App\Repository\SalariesRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=SalariesRepository::class)
+ * @ORM\Entity(repositoryClass="App\Repository\SalariesRepository", repositoryClass=SalariesRepository::class)
  */
 class Salaries
 {
@@ -28,32 +30,10 @@ class Salaries
     private string $lastname;
 
     /**
-     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
-     * @ORM\JoinColumn(nullable=false)
-     * @var SectionSalary|null
+     * @ORM\ManyToMany(targetEntity=SectionSalary::class, mappedBy="salaries")
+     * @var Collection
      */
-    private ?SectionSalary $firstsection;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
-     * @ORM\JoinColumn(nullable=true)
-     * @var SectionSalary|null
-     */
-    private ?SectionSalary $secondsection;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
-     * @ORM\JoinColumn(nullable=true)
-     * @var SectionSalary|null
-     */
-    private ?SectionSalary $thridsection;
-
-    /**
-     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="salaries")
-     * @ORM\JoinColumn(nullable=true)
-     * @var SectionSalary|null
-     */
-    private ?SectionSalary $fourthsection;
+    private Collection $sectionSalary;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -89,54 +69,6 @@ class Salaries
         return $this;
     }
 
-    public function getFirstsection(): ?SectionSalary
-    {
-        return $this->firstsection;
-    }
-
-    public function setFirstsection(?SectionSalary $firstsection): self
-    {
-        $this->firstsection = $firstsection;
-
-        return $this;
-    }
-
-    public function getSecondsection(): ?SectionSalary
-    {
-        return $this->secondsection;
-    }
-
-    public function setSecondsection(?SectionSalary $secondsection): self
-    {
-        $this->secondsection = $secondsection;
-
-        return $this;
-    }
-
-    public function getThridsection(): ?SectionSalary
-    {
-        return $this->thridsection;
-    }
-
-    public function setThridsection(?SectionSalary $thridsection): self
-    {
-        $this->thridsection = $thridsection;
-
-        return $this;
-    }
-
-    public function getFourthsection(): ?SectionSalary
-    {
-        return $this->fourthsection;
-    }
-
-    public function setFourthsection(?SectionSalary $fourthsection): self
-    {
-        $this->fourthsection = $fourthsection;
-
-        return $this;
-    }
-
     public function getImage(): string
     {
         return $this->image;
@@ -146,6 +78,37 @@ class Salaries
     {
         $this->image = $image;
 
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->sectionSalary = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|SectionSalary[]
+     */
+    public function getSectionSalary(): Collection
+    {
+        return $this->sectionSalary;
+    }
+
+    public function addSectionSalary(SectionSalary $sectionSalary): self
+    {
+        if (! $this->sectionSalary->contains($sectionSalary)) {
+            $this->sectionSalary[] = $sectionSalary;
+            $sectionSalary->addSalaries($this);
+        }
+        return $this;
+    }
+
+    public function removeSectionSalary(SectionSalary $sectionSalary): self
+    {
+        if ($this->sectionSalary->contains($sectionSalary)) {
+            $this->sectionSalary->removeElement($sectionSalary);
+            $sectionSalary->removeSalaries($this);
+        }
         return $this;
     }
 }
