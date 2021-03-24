@@ -194,7 +194,7 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/dirigeants/post", name="dirieants_post", methods={"GET"})
+     * @Route("/dirigeants/post", name="dirigeants_post", methods={"GET"})
      * @param Request $request
      * @param DirigeantsPostRepository $postRepository
      * @param PaginatorInterface $paginator

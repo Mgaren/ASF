@@ -72,7 +72,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile2->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile2
                     );
                 } catch (FileException $e) {
@@ -86,7 +86,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile3->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile3
                     );
                 } catch (FileException $e) {
@@ -100,7 +100,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile4->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile4
                     );
                 } catch (FileException $e) {
@@ -114,7 +114,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile5->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile5
                     );
                 } catch (FileException $e) {
@@ -142,7 +142,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile7->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile7
                     );
                 } catch (FileException $e) {
@@ -156,7 +156,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile8->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile8
                     );
                 } catch (FileException $e) {
@@ -170,7 +170,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile9->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile9
                     );
                 } catch (FileException $e) {
@@ -184,7 +184,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile10->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile10
                     );
                 } catch (FileException $e) {
@@ -198,7 +198,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile11->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile11
                     );
                 } catch (FileException $e) {
@@ -212,7 +212,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile12->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile12
                     );
                 } catch (FileException $e) {
@@ -226,7 +226,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile13->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile13
                     );
                 } catch (FileException $e) {
@@ -240,7 +240,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile14->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile14
                     );
                 } catch (FileException $e) {
@@ -254,7 +254,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile15->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile15
                     );
                 } catch (FileException $e) {
@@ -268,7 +268,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile16->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile16
                     );
                 } catch (FileException $e) {
@@ -282,7 +282,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile17->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile17
                     );
                 } catch (FileException $e) {
@@ -296,7 +296,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile18->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile18
                     );
                 } catch (FileException $e) {
@@ -310,7 +310,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile19->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile19
                     );
                 } catch (FileException $e) {
@@ -324,7 +324,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile20->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile20
                     );
                 } catch (FileException $e) {
@@ -419,7 +419,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile2->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile2
                     );
                 } catch (FileException $e) {
@@ -438,7 +438,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile3->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile3
                     );
                 } catch (FileException $e) {
@@ -457,7 +457,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile4->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile4
                     );
                 } catch (FileException $e) {
@@ -476,7 +476,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile5->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile5
                     );
                 } catch (FileException $e) {
@@ -514,7 +514,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile7->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile7
                     );
                 } catch (FileException $e) {
@@ -533,7 +533,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile8->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile8
                     );
                 } catch (FileException $e) {
@@ -552,7 +552,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile9->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile9
                     );
                 } catch (FileException $e) {
@@ -571,7 +571,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile10->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile10
                     );
                 } catch (FileException $e) {
@@ -590,7 +590,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile11->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile11
                     );
                 } catch (FileException $e) {
@@ -609,7 +609,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile12->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile12
                     );
                 } catch (FileException $e) {
@@ -628,7 +628,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile13->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile13
                     );
                 } catch (FileException $e) {
@@ -647,7 +647,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile14->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile14
                     );
                 } catch (FileException $e) {
@@ -666,7 +666,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile15->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile15
                     );
                 } catch (FileException $e) {
@@ -685,7 +685,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile16->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile16
                     );
                 } catch (FileException $e) {
@@ -704,7 +704,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile17->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile17
                     );
                 } catch (FileException $e) {
@@ -723,7 +723,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile18->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile18
                     );
                 } catch (FileException $e) {
@@ -742,7 +742,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile19->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile19
                     );
                 } catch (FileException $e) {
@@ -761,7 +761,7 @@ class CarouselSectionController extends AbstractController
 
                 try {
                     $imageFile20->move(
-                        $this->getParameter('upload_dir_carouselHistory'),
+                        $this->getParameter('upload_dir_carouselSection'),
                         $newImageFile20
                     );
                 } catch (FileException $e) {
