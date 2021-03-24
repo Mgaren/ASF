@@ -42,7 +42,7 @@
                 <tr>
                     <td>{{ dirigeant.firstname }}</td>
                     <td>{{ dirigeant.lastname }}</td>
-                    <td>{{ dirigeant.post }}</td>
+                    <td>{{ dirigeant.dirigeantsPost.name }}</td>
                     <th>{{ dirigeant.image }}</th>
                     <td>
                         <a href="{{ path('asf_dirigeants_show', {'id': dirigeant.id}) }}">Détail</a>

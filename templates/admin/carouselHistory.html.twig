@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}
-{% block title %}Administration - Dirigeants ASF{% endblock %}
+{% block title %}Administration - Carousel histoire{% endblock %}
 
 {% block main %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,46 +22,42 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>Les Salariés De l'ASF</h2></div>
+                <div class="col-sm-8"><h2>L'histoire de l'asf en carousel</h2></div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new"><a href="{{ path('asf_salaries_new') }}">Ajouter</a></button>
+                    <button type="button" class="btn btn-info add-new"><a href="{{ path('home_carousel_history_new') }}">Ajouter</a></button>
                 </div>
             </div>
         </div>
         <table class="table text-center">
             <thead>
             <tr>
-                <th>Prénom</th>
-                <th>Nom</th>
-                <th>1ère section</th>
-                <th>2ème section</th>
-                <th>3ème section</th>
-                <th>4ème section</th>
-                <th>Image</th>
+                <th>Image1</th>
+                <th>Image2</th>
+                <th>Image3</th>
+                <th>Image4</th>
+                <th>Image5</th>
             </tr>
             </thead>
             <tbody>
-            {% for salary in salaries %}
+            {% for carousel_history in carousel_history %}
                 <tr>
-                    <td>{{ salary.firstname }}</td>
-                    <td>{{ salary.lastname }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.image }}</td>
+                    <td>{{ carousel_history.image1 }}</td>
+                    <td>{{ carousel_history.image2 }}</td>
+                    <td>{{ carousel_history.image3 }}</td>
+                    <td>{{ carousel_history.image4 }}</td>
+                    <td>{{ carousel_history.image5 }}</td>
                     <td>
-                        <a href="{{ path('asf_salaries_show', {'id': salary.id}) }}">Détail</a>
-                        {{ include('asf/salaries/_delete_form.html.twig') }}
-                        <a href="{{ path('asf_salaries_edit', {'id': salary.id}) }}">Editer</a>
+                        <a href="{{ path('home_carousel_history_show', {'id': carousel_history.id}) }}">Détail</a>
+                        {# {{ include('home/carousel_history/_delete_form.html.twig') }} #}
+                        <a href="{{ path('home_carousel_history_edit', {'id': carousel_history.id}) }}">Editer</a>
                     </td>
                 </tr>
             {% else %}
                 <tr>
-                    <td colspan="7">La liste des salariés est vide</td>
+                    <td colspan="7">Le carousel est vide</td>
                 </tr>
             {% endfor %}
-            {{ knp_pagination_render(salaries) }}
+            {{ knp_pagination_render(carousel_history) }}
             </tbody>
         </table>
     </div>
@@ -81,3 +77,4 @@
         });
     </script>
 {% endblock %}
+

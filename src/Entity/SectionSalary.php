@@ -25,10 +25,10 @@ class SectionSalary
     private string $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=Salaries::class, mappedBy="sectionSalary")
-     * @var ArrayCollection
+     * @ORM\ManyToMany(targetEntity=Salaries::class, inversedBy="sectionSalary")
+     * @var Collection
      */
-    private ArrayCollection $salaries;
+    private Collection $salaries;
 
     public function getId(): ?int
     {
@@ -47,6 +47,11 @@ class SectionSalary
         return $this;
     }
 
+    public function __construct()
+    {
+        $this->salaries = new ArrayCollection();
+    }
+
     /**
      * @return Collection|Salaries[]
      */
@@ -59,30 +64,16 @@ class SectionSalary
     {
         if (! $this->salaries->contains($salaries)) {
             $this->salaries[] = $salaries;
-            $salaries->setFirstsection($this);
-            $salaries->setSecondsection($this);
-            $salaries->setThridsection($this);
-            $salaries->setFourthsection($this);
+            $salaries->addSectionSalary($this);
         }
         return $this;
     }
 
     public function removeSalaries(Salaries $salaries): self
     {
-        if ($this->salaries->removeElement($salaries)) {
-            // set the owning side to null (unless already changed)
-            if ($salaries->getFirstsection() === $this) {
-                $salaries->setFirstsection(null);
-            }
-            if ($salaries->getSecondsection() === $this) {
-                $salaries->setSecondsection(null);
-            }
-            if ($salaries->getThridsection() === $this) {
-                $salaries->setThridsection(null);
-            }
-            if ($salaries->getFourthsection() === $this) {
-                $salaries->setFourthsection(null);
-            }
+        if ($this->salaries->contains($salaries)) {
+            $this->salaries->removeElement($salaries);
+            $salaries->removeSectionSalary($this);
         }
         return $this;
     }
