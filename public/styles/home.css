@@ -1,26 +1,4 @@
-@import "variables.css";
-@import "fontFamily.css";
-
-.actuality {
-    font-family: 'Raleway', sans-serif;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 175px;
-    color: black;
-}
-
 /* First carousel for ASF */
-.image-1 {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background: url("../images/1ere photo.jpg") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1200px;
-    margin-bottom: 50px;
-}
 .text-1 {
     display: flex;
     flex-direction: column;
@@ -38,15 +16,6 @@
 }
 
 /* Second carousel for Section */
-.image-2 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    background: url("../images/2eme photo.jpg") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1200px;
-    margin-bottom: 50px;
-}
 .text-2 {
     display: flex;
     flex-direction: column;
@@ -64,15 +33,6 @@
 }
 
 /* Third carousel for Section */
-.image-3 {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background: url("../images/3eme photo.jpg") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1200px;
-    margin-bottom: 50px;
-}
 .text-3 {
     display: flex;
     flex-direction: column;
