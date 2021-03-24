@@ -25,7 +25,7 @@ class SectionSalary
     private string $name;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Salaries::class, mappedBy="sectionSalary")
+     * @ORM\ManyToMany(targetEntity=Salaries::class, inversedBy="sectionSalary")
      * @var Collection
      */
     private Collection $salaries;
@@ -64,6 +64,7 @@ class SectionSalary
     {
         if (! $this->salaries->contains($salaries)) {
             $this->salaries[] = $salaries;
+            $salaries->addSectionSalary($this);
         }
         return $this;
     }
@@ -72,6 +73,7 @@ class SectionSalary
     {
         if ($this->salaries->contains($salaries)) {
             $this->salaries->removeElement($salaries);
+            $salaries->removeSectionSalary($this);
         }
         return $this;
     }
