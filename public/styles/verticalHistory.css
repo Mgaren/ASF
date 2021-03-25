@@ -122,3 +122,8 @@ div p, div a {
     margin-left: 1rem;
     margin-right: 1rem;
 }
+
+.timeline img:hover {
+    width: 800%;
+    height: 800%;
+}
