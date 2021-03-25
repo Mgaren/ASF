@@ -33,10 +33,7 @@
             <tr>
                 <th>Prénom</th>
                 <th>Nom</th>
-                <th>1ère section</th>
-                <th>2ème section</th>
-                <th>3ème section</th>
-                <th>4ème section</th>
+                <th>sections</th>
                 <th>Image</th>
             </tr>
             </thead>
@@ -45,10 +42,11 @@
                 <tr>
                     <td>{{ salary.firstname }}</td>
                     <td>{{ salary.lastname }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
-                    <td>{{ salary.sectionSalary.name }}</td>
+                    <td>
+                    {% for section in salary.sectionSalary %}
+                        {{ section.name }}
+                    {% endfor %}
+                    </td>
                     <td>{{ salary.image }}</td>
                     <td>
                         <a href="{{ path('asf_salaries_show', {'id': salary.id}) }}">Détail</a>

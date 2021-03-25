@@ -29,22 +29,9 @@
                         {% endif %}
                     </div>
                     <div class="salary_section">
-                        <div class="A"><h4>{{ salary.sectionSalary.name }}</h4></div>
-                        <div class="B">
-                            {% if salary.sectionSalary.name == true %}
-                                <h4>{{ salary.sectionSalary.name }}</h4>
-                            {% endif %}
-                        </div>
-                        <div class="C">
-                            {% if salary.sectionSalary.name == true %}
-                                <h4>{{ salary.sectionSalary.name }}</h4>
-                            {% endif %}
-                        </div>
-                        <div class="D">
-                            {% if salary.sectionSalary.name == true %}
-                                <h4>{{ salary.sectionSalary.name }}</h4>
-                            {% endif %}
-                        </div>
+                        {% for section in salary.sectionSalary %}
+                            {{ section.name }}
+                        {% endfor %}
                     </div>
                 </div>
             </li>
