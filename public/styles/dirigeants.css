@@ -46,6 +46,7 @@ h1 {
 .dirigeant_image img {
     height: 300px;
     width: 300px;
+    border-radius: 50%;
 }
 
 .dirigeant_info {
