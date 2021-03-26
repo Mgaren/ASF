@@ -228,7 +228,9 @@ class AdminController extends AbstractController
         SectionSalaryRepository $salaryRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $salaryRepository->findAll();
+        $sections = $salaryRepository->findBy([], [
+            'name' => 'ASC',
+        ]);
         $sections = $paginator->paginate(
             $sections,
             $request->query->getInt('page', 1),
