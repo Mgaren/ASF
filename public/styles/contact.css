@@ -35,6 +35,13 @@ h1 {
 .contact a {
     margin: 10px;
     font-size: 30px;
+    display: flex;
+    align-items: center;
+}
+
+.contact img {
+    margin-right: 1rem;
+    margin-left: 1rem;
 }
 
 label {
@@ -69,4 +76,5 @@ button {
 .table {
     width: 100%;
     margin-top: 1rem;
+    text-align: center;
 }
