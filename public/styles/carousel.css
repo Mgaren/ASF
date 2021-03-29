@@ -69,7 +69,7 @@
 }
 
 .home-carousel-section img {
-    width: 4.76%;
+    width: 4.76%; /* 2.38 = 2sections par carousel*/
     height: 1000px;
     float: left;
 }
@@ -150,7 +150,7 @@
 }
 
 .home-carousel-partenaire img {
-    width: 3.85%;
+    width: 3.85%; /*1.925 = 2 partenaires en 1 carousel*/
     height: 1000px;
     float: left;
 }
