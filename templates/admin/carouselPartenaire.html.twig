@@ -86,6 +86,26 @@
                     <td>{{ carousel_partenaire.image18 }}</td>
                     <td>{{ carousel_partenaire.image19 }}</td>
                     <td>{{ carousel_partenaire.image20 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>Image21</th>
+                <th>Image22</th>
+                <th>Image23</th>
+                <th>Image24</th>
+                <th>Image25</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel_partenaire in carousel_partenaire %}
+                <tr>
+                    <td>{{ carousel_partenaire.image21 }}</td>
+                    <td>{{ carousel_partenaire.image22 }}</td>
+                    <td>{{ carousel_partenaire.image23 }}</td>
+                    <td>{{ carousel_partenaire.image24 }}</td>
+                    <td>{{ carousel_partenaire.image25 }}</td>
                     <td>
                         <a href="{{ path('home_carousel_partenaire_show', {'id': carousel_partenaire.id}) }}">Détail</a>
                         {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}
