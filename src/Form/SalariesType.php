@@ -29,6 +29,9 @@ class SalariesType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,
+                //'query_bulder' => function (EntityRepository $er) {
+                //return $er->createQueryBuilder('sectionSalary')->addOrderBy('sectionSalary.name', 'ASC');
+                //}
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
