@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\History;
 use App\Form\HistoryType;
 use App\Repository\HistoryRepository;
+use App\Repository\PresidentRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -22,14 +23,18 @@ class HistoryController extends AbstractController
 {
     /**
      * @param HistoryRepository $historyRepository
+     * @param PresidentRepository $presidentRepository
      * @return Response
      * @Route("/", name="asf_history_history", methods={"GET"})
      */
-    public function index(HistoryRepository $historyRepository): Response
+    public function index(HistoryRepository $historyRepository, PresidentRepository $presidentRepository): Response
     {
         return $this->render('asf/history/index.html.twig', [
             'histories' => $historyRepository->findBy([], [
                 'id' => 'ASC'
+            ]),
+            'presidents' => $presidentRepository->findBy([], [
+                'date' => 'ASC'
             ]),
         ]);
     }

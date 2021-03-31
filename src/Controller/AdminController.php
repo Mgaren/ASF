@@ -11,6 +11,7 @@ use App\Repository\DirigeantsRepository;
 use App\Repository\SalariesRepository;
 use App\Repository\DirigeantsPostRepository;
 use App\Repository\SectionSalaryRepository;
+use App\Repository\PresidentRepository;
 use App\Repository\CarouselHistoryRepository;
 use App\Repository\CarouselSectionRepository;
 use App\Repository\CarouselPartenaireRepository;
@@ -239,6 +240,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/sectionSalary.html.twig', [
             'section_salaries' => $sections
+        ]);
+    }
+
+    /**
+     * @Route("/president", name="president", methods={"GET"})
+     * @param Request $request
+     * @param PresidentRepository $presidentRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addPresident(
+        Request $request,
+        PresidentRepository $presidentRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $presidents = $presidentRepository->findBy([], [
+            'date' => 'ASC',
+        ]);
+        $presidents = $paginator->paginate(
+            $presidents,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/president.html.twig', [
+            'presidents' => $presidents
         ]);
     }
 
