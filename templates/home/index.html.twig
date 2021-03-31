@@ -20,6 +20,8 @@
             </div>
         </div>
         <div class="home-carousel-history">
+            {% set history = [carousel_histories[0].image1, carousel_histories[0].image2, carousel_histories[0].image3] %}
+
             {% if carousel_histories is not empty and carousel_histories[0].image1 %}
                 {% if carousel_histories[0].image1 == true %}
                     <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
@@ -40,14 +42,14 @@
                     <img src="/uploads/carousel/history/{{ carousel_histories[0].image4 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/history/{{ random([carousel_histories[0].image1, carousel_histories[0].image2, carousel_histories[0].image3]) }}">
+                <img src="/uploads/carousel/history/{{ random(history) }}">
             {% endif %}
             {% if carousel_histories is not empty and carousel_histories[0].image5 %}
                 {% if carousel_histories[0].image5 == true %}
                     <img src="/uploads/carousel/history/{{ carousel_histories[0].image5 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/history/{{ random([carousel_histories[0].image1, carousel_histories[0].image2, carousel_histories[0].image3]) }}">
+                <img src="/uploads/carousel/history/{{ random(history) }}">
             {% endif %}
             {% if carousel_histories is not empty and carousel_histories[0].image1 %}
                 {% if carousel_histories[0].image1 == true %}
@@ -55,7 +57,19 @@
                 {% endif %}
             {% endif %}
         </div>
+        <div class="container">
+            <div class="text-1">
+                <a href="#">description sur les sections de l'ASF...</a>
+            </div>
+        </div>
         <div class="home-carousel-section">
+            {% set section = [
+                carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
+                carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
+                carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
+                carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
+                carousel_sections[0].image13] %}
+
             {% if carousel_sections is not empty and carousel_sections[0].image1 %}
                 {% if carousel_sections[0].image1 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image1 }}">
@@ -126,84 +140,49 @@
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image14 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image15 %}
                 {% if carousel_sections[0].image15 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image15 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image16 %}
                 {% if carousel_sections[0].image16 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image16 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image17 %}
                 {% if carousel_sections[0].image17 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image17 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image18 %}
                 {% if carousel_sections[0].image18 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image18 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image19 %}
                 {% if carousel_sections[0].image19 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image19 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image20 %}
                 {% if carousel_sections[0].image20 == true %}
                     <img src="/uploads/carousel/section/{{ carousel_sections[0].image20 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/section/{{ random([
-                    carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
-                    carousel_sections[0].image4, carousel_sections[0].image5, carousel_sections[0].image6,
-                    carousel_sections[0].image7, carousel_sections[0].image8, carousel_sections[0].image9,
-                    carousel_sections[0].image10, carousel_sections[0].image11, carousel_sections[0].image12,
-                    carousel_sections[0].image13]) }}">
+                <img src="/uploads/carousel/section/{{ random(section) }}">
             {% endif %}
             {% if carousel_sections is not empty and carousel_sections[0].image1 %}
                 {% if carousel_sections[0].image1 == true %}
@@ -211,7 +190,20 @@
                 {% endif %}
             {% endif %}
         </div>
+        <div class="container">
+            <div class="text-1">
+                <a href="#">description sur les partenaires de l'ASF...</a>
+            </div>
+        </div>
         <div class="home-carousel-partenaire">
+            {% set partenaire = [
+                carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
+                carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
+                carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
+                carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
+                carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
+                carousel_partenaires[0].image16, carousel_partenaires[0].image17] %}
+
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image1 %}
                 {% if carousel_partenaires[0].image1 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image1 }}">
@@ -297,117 +289,63 @@
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image17 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image18 %}
                 {% if carousel_partenaires[0].image18 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image18 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image19 %}
                 {% if carousel_partenaires[0].image19 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image19 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image20 %}
                 {% if carousel_partenaires[0].image20 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image20 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image21 %}
                 {% if carousel_partenaires[0].image21 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image21 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image22 %}
                 {% if carousel_partenaires[0].image22 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image22 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image23 %}
                 {% if carousel_partenaires[0].image23 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image23 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image24 %}
                 {% if carousel_partenaires[0].image24 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image24 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image25 %}
                 {% if carousel_partenaires[0].image25 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image25 }}">
                 {% endif %}
             {% else %}
-                <img src="/uploads/carousel/partenaire/{{ random([
-                    carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
-                    carousel_partenaires[0].image4, carousel_partenaires[0].image5, carousel_partenaires[0].image6,
-                    carousel_partenaires[0].image7, carousel_partenaires[0].image8, carousel_partenaires[0].image9,
-                    carousel_partenaires[0].image10, carousel_partenaires[0].image11, carousel_partenaires[0].image12,
-                    carousel_partenaires[0].image13, carousel_partenaires[0].image14, carousel_partenaires[0].image15,
-                    carousel_partenaires[0].image16, carousel_partenaires[0].image17]) }}">
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
             {% endif %}
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image1 %}
                 {% if carousel_partenaires[0].image1 == true %}
