@@ -1,0 +1,72 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+    padding-top: 250px;
+    background: #456990;
+    color: #fff;
+    overflow-x: hidden;
+    padding-bottom: 50px;
+}
+
+.intro {
+    background: #F45B69;
+    padding: 100px 0;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.container h1 {
+    font-size: 4rem;
+}
+
+.history {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.history p {
+    font-size: 3rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+.history img {
+    margin-left: 1rem;
+    margin-right: 1rem;
+    width: 35%;
+}
+
+.table {
+    width: 50%;
+    margin-top: 1rem;
+    border: medium solid black;
+    border-collapse: collapse;
+}
+
+.president {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+th {
+    border: thin solid #6495ed;
+    padding: 5px;
+    text-align: center;
+}
+td {
+    border: thin solid #6495ed;
+    padding: 5px;
+    text-align: center;
+}

@@ -22,27 +22,27 @@
         <div class="contact">
             <a><img src="../images/logo-telephone.jpg" alt="téléphone" height="100" width="100"> 02 47 49 93 53 </a>
             <a><img src="../images/logo-adresse.jpg" alt="adresse" height="100" width="100">
-                Allée de la Poupardière 3230 Fondettes </a>
+                Allée de la Poupardière 37230 Fondettes </a>
+            <a><img src="../images/logo-horloge.png" alt="horaires" height="100" width="100">Horaire d'ouverture/fermeture</a>
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Jours</th>
+                    <th>Horaire matin</th>
+                    <th>Horaire après-midi</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for contact_horaire in contact_horaires %}
+                    <tr>
+                        <td class="day">{{ contact_horaire.day }}</td>
+                        <td class="morning">{{ contact_horaire.morningHours }}</td>
+                        <td class="afternoon">{{ contact_horaire.afternoonHours }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
-    <h1><img src="../images/logo-horloge.png" alt="horaires" height="100" width="100">Horaire d'ouverture/fermeture</h1>
-
-    <table class="table">
-        <thead>
-        <tr>
-            <th>Jours</th>
-            <th>Horaire matin</th>
-            <th>Horaire après-midi</th>
-        </tr>
-        </thead>
-        <tbody>
-        {% for contact_horaire in contact_horaires %}
-        <tr>
-            <td>{{ contact_horaire.day }}</td>
-            <td>{{ contact_horaire.morningHours }}</td>
-            <td>{{ contact_horaire.afternoonHours }}</td>
-        </tr>
-        {% endfor %}
-        </tbody>
-    </table>
 {% endblock %}

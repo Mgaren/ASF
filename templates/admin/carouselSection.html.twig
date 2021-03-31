@@ -41,16 +41,6 @@
                 <th>Image8</th>
                 <th>Image9</th>
                 <th>Image10</th>
-                <th>Image11</th>
-                <th>Image12</th>
-                <th>Image13</th>
-                <th>Image14</th>
-                <th>Image15</th>
-                <th>Image16</th>
-                <th>Image17</th>
-                <th>Image18</th>
-                <th>Image19</th>
-                <th>Image20</th>
             </tr>
             </thead>
             <tbody>
@@ -66,6 +56,26 @@
                     <td>{{ carousel_section.image8 }}</td>
                     <td>{{ carousel_section.image9 }}</td>
                     <td>{{ carousel_section.image10 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>Image11</th>
+                <th>Image12</th>
+                <th>Image13</th>
+                <th>Image14</th>
+                <th>Image15</th>
+                <th>Image16</th>
+                <th>Image17</th>
+                <th>Image18</th>
+                <th>Image19</th>
+                <th>Image20</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel_section in carousel_section %}
+                <tr>
                     <td>{{ carousel_section.image11 }}</td>
                     <td>{{ carousel_section.image12 }}</td>
                     <td>{{ carousel_section.image13 }}</td>

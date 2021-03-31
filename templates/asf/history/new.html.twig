@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New History{% endblock %}
+
+{% block body %}
+    <h1>Ajouter une nouvelle Histoire</h1>
+
+    {{ include('asf/history/_form.html.twig') }}
+
+    <a href="{{ path('admin_history') }}">Retour à la liste</a>
+{% endblock %}

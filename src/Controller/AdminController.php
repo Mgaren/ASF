@@ -11,9 +11,11 @@ use App\Repository\DirigeantsRepository;
 use App\Repository\SalariesRepository;
 use App\Repository\DirigeantsPostRepository;
 use App\Repository\SectionSalaryRepository;
+use App\Repository\PresidentRepository;
 use App\Repository\CarouselHistoryRepository;
 use App\Repository\CarouselSectionRepository;
 use App\Repository\CarouselPartenaireRepository;
+use App\Repository\HistoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -228,7 +230,9 @@ class AdminController extends AbstractController
         SectionSalaryRepository $salaryRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $salaryRepository->findAll();
+        $sections = $salaryRepository->findBy([], [
+            'name' => 'ASC',
+        ]);
         $sections = $paginator->paginate(
             $sections,
             $request->query->getInt('page', 1),
@@ -236,6 +240,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/sectionSalary.html.twig', [
             'section_salaries' => $sections
+        ]);
+    }
+
+    /**
+     * @Route("/president", name="president", methods={"GET"})
+     * @param Request $request
+     * @param PresidentRepository $presidentRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addPresident(
+        Request $request,
+        PresidentRepository $presidentRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $presidents = $presidentRepository->findBy([], [
+            'date' => 'ASC',
+        ]);
+        $presidents = $paginator->paginate(
+            $presidents,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/president.html.twig', [
+            'presidents' => $presidents
         ]);
     }
 
@@ -305,6 +334,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/carouselPartenaire.html.twig', [
             'carousel_partenaire' => $carouselPartenaires
+        ]);
+    }
+
+    /**
+     * @Route("/history", name="history", methods={"GET"})
+     * @param Request $request
+     * @param HistoryRepository $historyRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function history(
+        Request $request,
+        HistoryRepository $historyRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $history = $historyRepository->findBy([], [
+            'id' => 'ASC'
+        ]);
+        $history = $paginator->paginate(
+            $history,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/history.html.twig', [
+            'historys' => $history
         ]);
     }
 }

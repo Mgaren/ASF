@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Salaries;
 use App\Entity\SectionSalary;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -23,27 +24,15 @@ class SalariesType extends AbstractType
                 'label' => 'Nom*',
             ])
             ->add('sectionSalary', EntityType::class, [
-                'label' => "1ère section*",
+                'label' => "section*",
                 'class' => SectionSalary::class,
                 'choice_label' => 'name',
-            ])
-            ->add('sectionSalary', EntityType::class, [
-                'label' => "2ème section",
-                'required' => false,
-                'class' => SectionSalary::class,
-                'choice_label' => 'name',
-            ])
-            ->add('sectionSalary', EntityType::class, [
-                'label' => "3ème section",
-                'required' => false,
-                'class' => SectionSalary::class,
-                'choice_label' => 'name',
-            ])
-            ->add('sectionSalary', EntityType::class, [
-                'label' => "4ème section",
-                'required' => false,
-                'class' => SectionSalary::class,
-                'choice_label' => 'name',
+                'multiple' => true,
+                'expanded' => true,
+                'by_reference' => false,
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('sectionSalary')->addOrderBy('sectionSalary.name', 'ASC');
+                }
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
