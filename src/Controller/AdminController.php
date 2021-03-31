@@ -14,6 +14,7 @@ use App\Repository\SectionSalaryRepository;
 use App\Repository\CarouselHistoryRepository;
 use App\Repository\CarouselSectionRepository;
 use App\Repository\CarouselPartenaireRepository;
+use App\Repository\HistoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -307,6 +308,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/carouselPartenaire.html.twig', [
             'carousel_partenaire' => $carouselPartenaires
+        ]);
+    }
+
+    /**
+     * @Route("/history", name="history", methods={"GET"})
+     * @param Request $request
+     * @param HistoryRepository $historyRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function history(
+        Request $request,
+        HistoryRepository $historyRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $history = $historyRepository->findBy([], [
+            'id' => 'ASC'
+        ]);
+        $history = $paginator->paginate(
+            $history,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/history.html.twig', [
+            'historys' => $history
         ]);
     }
 }

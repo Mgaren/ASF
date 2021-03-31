@@ -10,5 +10,19 @@
 {% block title %}L'histoire de l'ASF{% endblock %}
 
 {% block main %}
-    <p>ici toute l'histoire de l'ASF prochainement</p>
+    <section class="intro">
+        <div class="container">
+            <h1>Toute l'histoire de l'ASF</h1>
+        </div>
+    </section>
+    <section class="">
+    {% for history in histories %}
+        <time>{{ history.name }}</time>
+        <p>{{ history.description }}</p>
+        {% if history.image == true %}
+            <img src="/uploads/histoire/{{ history.image }}">
+        {% endif %}
+
+    {% endfor %}
+    </section>
 {% endblock %}
