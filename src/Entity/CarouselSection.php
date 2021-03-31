@@ -20,102 +20,102 @@ class CarouselSection
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image1;
+    private string $image1 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image2;
+    private string $image2 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image3;
+    private string $image3 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image4;
+    private string $image4 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image5;
+    private string $image5 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image6;
+    private string $image6 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image7;
+    private string $image7 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image8;
+    private string $image8 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image9;
+    private string $image9 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image10;
+    private string $image10 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image11;
+    private string $image11 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image12;
+    private string $image12 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image13;
+    private string $image13 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image14;
+    private string $image14 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image15;
+    private string $image15 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image16;
+    private string $image16 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image17;
+    private string $image17 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image18;
+    private string $image18 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image19;
+    private string $image19 = '';
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image20;
+    private string $image20 = '';
 
     public function getId(): ?int
     {
