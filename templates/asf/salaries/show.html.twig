@@ -12,29 +12,20 @@
                 <td>{{ salary.id }}</td>
             </tr>
             <tr>
-                <th>Firstname</th>
+                <th>Prénom</th>
                 <td>{{ salary.firstname }}</td>
             </tr>
             <tr>
-                <th>Lastname</th>
+                <th>Nom</th>
                 <td>{{ salary.lastname }}</td>
             </tr>
             <tr>
-                <th>Firstsection</th>
-                <td>{{ salary.firstsection }}</td>
-            </tr>
-            <tr>
-                <th>Secondsection</th>
-                <td>{{ salary.secondsection }}</td>
-            </tr>
-            <tr>
-                <th>Thridsection</th>
-                <td>{{ salary.thridsection }}</td>
-            </tr>
-            <tr>
-                <th>Fourthsection</th>
-                <td>{{ salary.fourthsection }}</td>
-            </tr>
+                <th>Section</th>
+                <td>
+                    {% for section in salary.sectionSalary %}
+                        {{ section.name }}
+                    {% endfor %}
+                </td>
             <tr>
                 <th>Image</th>
                 <td>{{ salary.image }}</td>

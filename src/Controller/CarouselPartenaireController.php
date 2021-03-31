@@ -51,6 +51,11 @@ class CarouselPartenaireController extends AbstractController
             $imageFile18 = $form->get('fileimage18')->getData();
             $imageFile19 = $form->get('fileimage19')->getData();
             $imageFile20 = $form->get('fileimage20')->getData();
+            $imageFile21 = $form->get('fileimage21')->getData();
+            $imageFile22 = $form->get('fileimage22')->getData();
+            $imageFile23 = $form->get('fileimage23')->getData();
+            $imageFile24 = $form->get('fileimage24')->getData();
+            $imageFile25 = $form->get('fileimage25')->getData();
             if ($imageFile1) {
                 $imageFile1name = pathinfo($imageFile1->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeImageFile1name = $slugger->slug($imageFile1name);
@@ -331,6 +336,76 @@ class CarouselPartenaireController extends AbstractController
                 }
                 $carouselPartenaire->setImage20($newImageFile20);
             }
+            if ($imageFile21) {
+                $imageFile21name = pathinfo($imageFile21->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile21name = $slugger->slug($imageFile21name);
+                $newImageFile21 = $safeImageFile21name . '-' . uniqid('', false) . '.' . $imageFile21->guessExtension();
+
+                try {
+                    $imageFile21->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile21
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage21($newImageFile21);
+            }
+            if ($imageFile22) {
+                $imageFile22name = pathinfo($imageFile22->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile22name = $slugger->slug($imageFile22name);
+                $newImageFile22 = $safeImageFile22name . '-' . uniqid('', false) . '.' . $imageFile22->guessExtension();
+
+                try {
+                    $imageFile22->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile22
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage22($newImageFile22);
+            }
+            if ($imageFile23) {
+                $imageFile23name = pathinfo($imageFile23->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile23name = $slugger->slug($imageFile23name);
+                $newImageFile23 = $safeImageFile23name . '-' . uniqid('', false) . '.' . $imageFile23->guessExtension();
+
+                try {
+                    $imageFile23->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile23
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage23($newImageFile23);
+            }
+            if ($imageFile24) {
+                $imageFile24name = pathinfo($imageFile24->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile24name = $slugger->slug($imageFile24name);
+                $newImageFile24 = $safeImageFile24name . '-' . uniqid('', false) . '.' . $imageFile24->guessExtension();
+
+                try {
+                    $imageFile24->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile24
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage24($newImageFile24);
+            }
+            if ($imageFile25) {
+                $imageFile25name = pathinfo($imageFile25->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile25name = $slugger->slug($imageFile25name);
+                $newImageFile25 = $safeImageFile25name . '-' . uniqid('', false) . '.' . $imageFile25->guessExtension();
+
+                try {
+                    $imageFile25->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile25
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage25($newImageFile25);
+            }
             $entityManager->persist($carouselPartenaire);
             $entityManager->flush();
 
@@ -388,6 +463,11 @@ class CarouselPartenaireController extends AbstractController
             $imageFile18 = $form->get('fileimage18')->getData();
             $imageFile19 = $form->get('fileimage19')->getData();
             $imageFile20 = $form->get('fileimage20')->getData();
+            $imageFile21 = $form->get('fileimage21')->getData();
+            $imageFile22 = $form->get('fileimage22')->getData();
+            $imageFile23 = $form->get('fileimage23')->getData();
+            $imageFile24 = $form->get('fileimage24')->getData();
+            $imageFile25 = $form->get('fileimage25')->getData();
             if ($imageFile1 !== null) {
                 $filename1 = $carouselPartenaire->getImage1();
                 if ($filename1 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
@@ -768,6 +848,101 @@ class CarouselPartenaireController extends AbstractController
                 }
                 $carouselPartenaire->setImage20($newImageFile20);
             }
+            if ($imageFile21 !== null) {
+                $filename21 = $carouselPartenaire->getImage21();
+                if ($filename21 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename21;
+                    unlink($path);
+                }
+                $imageFile21name = pathinfo($imageFile21->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile21name = $slugger->slug($imageFile21name);
+                $newImageFile21 = $safeImageFile21name . '-' . uniqid('', false) . '.' . $imageFile21->guessExtension();
+
+                try {
+                    $imageFile21->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile21
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage21($newImageFile21);
+            }
+            if ($imageFile22 !== null) {
+                $filename22 = $carouselPartenaire->getImage22();
+                if ($filename22 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename22;
+                    unlink($path);
+                }
+                $imageFile22name = pathinfo($imageFile22->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile22name = $slugger->slug($imageFile22name);
+                $newImageFile22 = $safeImageFile22name . '-' . uniqid('', false) . '.' . $imageFile22->guessExtension();
+
+                try {
+                    $imageFile22->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile22
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage22($newImageFile22);
+            }
+            if ($imageFile23 !== null) {
+                $filename23 = $carouselPartenaire->getImage23();
+                if ($filename23 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename23;
+                    unlink($path);
+                }
+                $imageFile23name = pathinfo($imageFile23->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile23name = $slugger->slug($imageFile23name);
+                $newImageFile23 = $safeImageFile23name . '-' . uniqid('', false) . '.' . $imageFile23->guessExtension();
+
+                try {
+                    $imageFile23->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile23
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage23($newImageFile23);
+            }
+            if ($imageFile24 !== null) {
+                $filename24 = $carouselPartenaire->getImage24();
+                if ($filename24 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename24;
+                    unlink($path);
+                }
+                $imageFile24name = pathinfo($imageFile24->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile24name = $slugger->slug($imageFile24name);
+                $newImageFile24 = $safeImageFile24name . '-' . uniqid('', false) . '.' . $imageFile24->guessExtension();
+
+                try {
+                    $imageFile24->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile24
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage24($newImageFile24);
+            }
+            if ($imageFile25 !== null) {
+                $filename25 = $carouselPartenaire->getImage25();
+                if ($filename25 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename25;
+                    unlink($path);
+                }
+                $imageFile25name = pathinfo($imageFile25->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile25name = $slugger->slug($imageFile25name);
+                $newImageFile25 = $safeImageFile25name . '-' . uniqid('', false) . '.' . $imageFile25->guessExtension();
+
+                try {
+                    $imageFile25->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile25
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage25($newImageFile25);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_carousel_partenaire');
@@ -890,6 +1065,31 @@ class CarouselPartenaireController extends AbstractController
             $filename20 = $carouselPartenaire->getImage20();
             if ($filename20 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
                 $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename20;
+                unlink($path);
+            }
+            $filename21 = $carouselPartenaire->getImage21();
+            if ($filename21 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename21;
+                unlink($path);
+            }
+            $filename22 = $carouselPartenaire->getImage22();
+            if ($filename22 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename22;
+                unlink($path);
+            }
+            $filename23 = $carouselPartenaire->getImage23();
+            if ($filename23 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename23;
+                unlink($path);
+            }
+            $filename24 = $carouselPartenaire->getImage24();
+            if ($filename24 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename24;
+                unlink($path);
+            }
+            $filename25 = $carouselPartenaire->getImage25();
+            if ($filename25 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename25;
                 unlink($path);
             }
             $entityManager->remove($carouselPartenaire);

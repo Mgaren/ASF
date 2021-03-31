@@ -59,44 +59,28 @@ class CarouselPartenaireType extends AbstractType
                 'label' => '9ème image',
             ])
             ->add('fileimage10', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '10ème image',
+                'mapped' => false, 'required' => false, 'label' => '10ème image',
             ])
             ->add('fileimage11', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '11ème image',
+                'mapped' => false, 'required' => false, 'label' => '11ème image',
             ])
             ->add('fileimage12', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '12ème image',
+                'mapped' => false, 'required' => false, 'label' => '12ème image',
             ])
             ->add('fileimage13', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '13ème image',
+                'mapped' => false, 'required' => false, 'label' => '13ème image',
             ])
             ->add('fileimage14', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '14ème image',
+                'mapped' => false, 'required' => false, 'label' => '14ème image',
             ])
             ->add('fileimage15', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '15ème image',
+                'mapped' => false, 'required' => false, 'label' => '15ème image',
             ])
             ->add('fileimage16', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '16ème image',
+                'mapped' => false, 'required' => false, 'label' => '16ème image',
             ])
             ->add('fileimage17', FileType::class, [
-                'mapped' => false,
-                'required' => false,
-                'label' => '17ème image',
+                'mapped' => false, 'required' => false, 'label' => '17ème image',
             ])
             ->add('fileimage18', FileType::class, [
                 'mapped' => false, 'required' => false, 'label' => '18ème image',
@@ -106,6 +90,21 @@ class CarouselPartenaireType extends AbstractType
             ])
             ->add('fileimage20', FileType::class, [
                 'mapped' => false, 'required' => false, 'label' => '20ème image',
+            ])
+            ->add('fileimage21', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '21ème image',
+            ])
+            ->add('fileimage22', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '22ème image',
+            ])
+            ->add('fileimage23', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '23ème image',
+            ])
+            ->add('fileimage24', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '24ème image',
+            ])
+            ->add('fileimage25', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '25ème image',
             ])
         ;
     }

@@ -58,10 +58,10 @@
                             <a href="{{ path('admin_verticalHistory') }}">Editer histoire vertical</a>
                         </li>
                         <li>
-                            <a href="#">Editer toute l'histoire</a>
+                            <a href="{{ path('admin_history') }}">Editer toute l'histoire</a>
                         </li>
                         <li>
-                            <a href="{{ path('admin_dirigeants') }}">Editer Dirigeants ASF</a>
+                            <a href="{{ path('admin_dirigeants') }}">Editer Bureau ASF</a>
                         </li>
                         <li>
                             <a href="{{ path('admin_salaries') }}">Editer salariés ASF</a>
@@ -126,10 +126,13 @@
                     <a href="#">Editer Nos Partenaires</a>
                 </li>
                 <li>
-                    <a href="{{ path('admin_dirigeants_post') }}">Ajouter un poste pour les Dirigeants</a>
+                    <a href="{{ path('admin_dirigeants_post') }}">Ajouter un poste pour le bureau</a>
                 </li>
                 <li>
                     <a href="{{ path('admin_section_salary') }}">Ajouter une section pour les Salariés</a>
+                </li>
+                <li>
+                    <a href="{{ path('admin_president') }}">Ajouter un(e) président(e)</a>
                 </li>
             </ul>
             <li>

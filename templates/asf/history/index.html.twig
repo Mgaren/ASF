@@ -1,7 +1,7 @@
 {% extends 'asf/layout.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ '/styles/verticalHistory.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/history.css' }}" rel="stylesheet">
     <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
     <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
     <link href="{{ '/styles/navAsf.css' }}" rel="stylesheet">
@@ -10,5 +10,38 @@
 {% block title %}L'histoire de l'ASF{% endblock %}
 
 {% block main %}
-    <p>ici toute l'histoire de l'ASF prochainement</p>
+    <section class="intro">
+        <div class="container">
+            <h1>Toute l'histoire de l'ASF</h1>
+        </div>
+    </section>
+    {% for history in histories %}
+        <section class="history">
+            <p>{{ history.description }}</p>
+            {% if history.image == true %}
+                <img src="/uploads/histoire/{{ history.image }}">
+            {% endif %}
+        </section>
+    {% endfor %}
+    <div class="president">
+        <h1>Les différents Présidents de l’ASF s’étant succédés :</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Date</th>
+                <th>Prénom</th>
+                <th>Nom</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for president in presidents %}
+                <tr>
+                    <td class="date">{{ president.date }}</td>
+                    <td class="firstname">{{ president.firstname }}</td>
+                    <td class="lastname">{{ president.lastname }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
 {% endblock %}
