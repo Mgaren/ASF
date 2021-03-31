@@ -4,6 +4,7 @@ namespace App\Form;
 
 use App\Entity\Salaries;
 use App\Entity\SectionSalary;
+use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
@@ -29,9 +30,9 @@ class SalariesType extends AbstractType
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,
-                //'query_bulder' => function (EntityRepository $er) {
-                //return $er->createQueryBuilder('sectionSalary')->addOrderBy('sectionSalary.name', 'ASC');
-                //}
+                'query_builder' => function (EntityRepository $er) {
+                    return $er->createQueryBuilder('sectionSalary')->addOrderBy('sectionSalary.name', 'ASC');
+                }
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
