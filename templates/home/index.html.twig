@@ -11,8 +11,17 @@
 {% block main %}
     <div class="actuality">
         <h1>Les dernières actualités</h1>
-        <p>Vous retrouverez ici les dernières Actualités</p>
-    </div>
+        {% for actuality in actualitys %}
+            <div>
+                <div>{{ actuality.titre }}</div>
+                <div>{{ actuality.description }}</div>
+                <div>
+                    {% if actuality.image == true %}
+                        <img src="/uploads/actuality/{{ actuality.image }}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}    </div>
     <div class="carousel">
         <div class="container">
             <div class="text-1">

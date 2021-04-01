@@ -26,7 +26,9 @@ class ActualityController extends AbstractController
     public function index(ActualityRepository $actualityRepository): Response
     {
         return $this->render('actuality/index.html.twig', [
-            'actualities' => $actualityRepository->findAll(),
+            'actualities' => $actualityRepository->findBy([], [
+                'id' => 'DESC'
+            ]),
         ]);
     }
 
