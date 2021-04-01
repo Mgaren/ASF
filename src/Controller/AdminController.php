@@ -17,6 +17,7 @@ use App\Repository\CarouselSectionRepository;
 use App\Repository\CarouselPartenaireRepository;
 use App\Repository\HistoryRepository;
 use App\Repository\ActualityRepository;
+use App\Repository\PartenaireRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -385,6 +386,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/actuality.html.twig', [
             'actualitys' => $actuality
+        ]);
+    }
+
+    /**
+     * @Route("/partenaire", name="partenaire", methods={"GET"})
+     * @param Request $request
+     * @param PartenaireRepository $partenaireRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function partenaire(
+        Request $request,
+        PartenaireRepository $partenaireRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $partenaire = $partenaireRepository->findBy([], [
+            'name' => 'ASC'
+        ]);
+        $partenaire = $paginator->paginate(
+            $partenaire,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/partenaire.html.twig', [
+            'partenaires' => $partenaire
         ]);
     }
 }

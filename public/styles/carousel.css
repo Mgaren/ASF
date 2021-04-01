@@ -1,14 +1,50 @@
 @import "variables.css";
 @import "fontFamily.css";
 
+main {
+    padding-top: 175px;
+}
+
+.actuality h1 {
+    text-align: center;
+}
+
 .actuality {
-    font-family: 'Raleway', sans-serif;
+    margin-top: 2rem;
+    width: 100vw;
+}
+
+.container_actuality {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.actualities {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 175px;
-    color: black;
+    width: 300px;
+}
+
+.actuality_titre {
+    font-size: 30px;
+}
+
+.actuality_text {
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.actuality_image {
+    width: 500px;
+}
+
+.actuality_image img {
+    width: 100%;
 }
 
 .container {

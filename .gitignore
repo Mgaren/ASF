@@ -17,6 +17,7 @@
 /public/uploads/carousel/section/
 /public/uploads/carousel/partenaire/
 /public/uploads/actuality/
+/public/uploads/partenaire/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

@@ -4,3 +4,47 @@
 main {
     padding-top: 175px;
 }
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    margin-top: 2rem;
+    width: 100vw;
+}
+
+.container_actuality {
+    display: flex;
+    flex-direction: row;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    justify-content: center;
+}
+
+.actuality {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    margin-right: 2rem;
+}
+
+.actuality_titre {
+    font-size: 30px;
+}
+
+.actuality_text {
+    font-size: 20px;
+    margin-top: 1rem;
+}
+
+.actuality_image {
+    width: 500px;
+    margin-left: 2rem;
+}
+
+.actuality_image img {
+    width: 100%;
+}

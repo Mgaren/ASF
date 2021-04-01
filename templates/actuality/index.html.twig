@@ -12,12 +12,14 @@
 {% block main %}
     <h1>L'actualité de l'ASF</h1>
 
-    <div>
+    <div class="container">
         {% for actuality in actualities %}
-            <div>
-                <div>{{ actuality.titre }}</div>
-                <div>{{ actuality.description }}</div>
-                <div>
+            <div class="container_actuality">
+                <div class="actuality">
+                    <div class="actuality_titre">{{ actuality.titre }}</div>
+                    <div class="actuality_text">{{ actuality.description }}</div>
+                </div>
+                <div class="actuality_image">
                     {% if actuality.image == true %}
                         <img src="/uploads/actuality/{{ actuality.image }}">
                     {% endif %}

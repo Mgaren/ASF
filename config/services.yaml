@@ -13,6 +13,7 @@ parameters:
     upload_dir_carouselSection: '%kernel.project_dir%/public/uploads/carousel/section/'
     upload_dir_carouselPartenaire: '%kernel.project_dir%/public/uploads/carousel/partenaire/'
     upload_dir_actuality: '%kernel.project_dir%/public/uploads/actuality/'
+    upload_dir_partenaire: '%kernel.project_dir%/public/uploads/partenaire/'
 
 services:
     # default configuration for services in *this* file

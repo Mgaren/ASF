@@ -2,8 +2,11 @@
 @import "fontFamily.css";
 
 main {
-    font-family: 'Raleway', sans-serif;
-    padding-top: 250px;
+    padding-top: 175px;
+}
+
+h1 {
+    text-align: center;
 }
 
 .container {
@@ -11,7 +14,7 @@ main {
     align-items: center;
     flex-wrap: wrap;
     list-style: none;
-    margin: 0;
+    margin-top: 2rem;
     padding: 0;
     width: 100%;
     justify-content: center;
@@ -22,40 +25,44 @@ main {
     margin: 1em 5px;
 }
 
-.sections {
+.partenaire {
     display: flex;
     flex-direction: column;
     overflow: hidden;
     transition: transform .5s;
 }
 
-.sections:hover {
+.partenaire:hover {
     transform: scale(1.10);
 }
 
-.section_title {
-    font-size: 24px;
+.partenaire_name {
     font-weight: 700;
     letter-spacing: 1px;
     margin: 0;
 }
-.section_title h2 {
+.partenaire_name h2 {
     display: flex;
     justify-content: center;
 }
 
-.section_text {
+.partenaire_text {
     font-size: 16px;
     line-height: 1.5;
     margin-bottom: 1.25rem;
     font-weight: 400;
 }
-.section_text h2 {
+.partenaire_text h3 {
     display: flex;
     justify-content: center;
 }
 
-.section_image img {
+.partenaire_image {
+    display: flex;
+    justify-content: center;
+}
+
+.partenaire_image img {
     width: 400px;
-    height: 300px;
+    height: 350px;
 }
