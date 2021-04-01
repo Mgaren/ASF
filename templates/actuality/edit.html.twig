@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Actuality{% endblock %}
+
+{% block body %}
+    <h1>Editer l'actualité</h1>
+
+    {{ include('actuality/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_actuality') }}">Retour à la liste</a>
+
+    {{ include('actuality/_delete_form.html.twig') }}
+{% endblock %}

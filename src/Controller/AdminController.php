@@ -16,6 +16,7 @@ use App\Repository\CarouselHistoryRepository;
 use App\Repository\CarouselSectionRepository;
 use App\Repository\CarouselPartenaireRepository;
 use App\Repository\HistoryRepository;
+use App\Repository\ActualityRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -359,6 +360,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/history.html.twig', [
             'historys' => $history
+        ]);
+    }
+
+    /**
+     * @Route("/actuality", name="actuality", methods={"GET"})
+     * @param Request $request
+     * @param ActualityRepository $actualityRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function actuality(
+        Request $request,
+        ActualityRepository $actualityRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $actuality = $actualityRepository->findBy([], [
+            'id' => 'DESC'
+        ]);
+        $actuality = $paginator->paginate(
+            $actuality,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/actuality.html.twig', [
+            'actualitys' => $actuality
         ]);
     }
 }

@@ -12,6 +12,7 @@ parameters:
     upload_dir_carouselHistory: '%kernel.project_dir%/public/uploads/carousel/history/'
     upload_dir_carouselSection: '%kernel.project_dir%/public/uploads/carousel/section/'
     upload_dir_carouselPartenaire: '%kernel.project_dir%/public/uploads/carousel/partenaire/'
+    upload_dir_actuality: '%kernel.project_dir%/public/uploads/actuality/'
 
 services:
     # default configuration for services in *this* file

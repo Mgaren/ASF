@@ -1,0 +1,6 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    padding-top: 175px;
+}
