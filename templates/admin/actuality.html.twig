@@ -34,6 +34,7 @@
                 <th>date</th>
                 <th>Titre</th>
                 <th>Description</th>
+                <th>Complément description</th>
                 <th>Image</th>
             </tr>
             </thead>
@@ -43,6 +44,7 @@
                     <td>{{ actuality.date }}</td>
                     <td>{{ actuality.titre }}</td>
                     <td>{{ actuality.description }}</td>
+                    <td>{{ actuality.description2 }}</td>
                     <td>{{ actuality.image }}</td>
                     <td>
                         <a href="{{ path('actuality_show', {'id': actuality.id}) }}">Détail</a>

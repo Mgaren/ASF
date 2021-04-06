@@ -24,6 +24,10 @@ class ActualityType extends AbstractType
             ->add('description', TextareaType::class, [
                 'label' => 'Description*'
             ])
+            ->add('description2', TextareaType::class, [
+                'required' => false,
+                'label' => 'Complément description'
+            ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
                 'required' => false,

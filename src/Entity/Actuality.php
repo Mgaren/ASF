@@ -35,6 +35,11 @@ class Actuality
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
+    private ?string $description2;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
     private string $image = '';
 
     public function getId(): ?int
@@ -78,19 +83,23 @@ class Actuality
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getDate(): string
     {
         return $this->date;
     }
 
-    /**
-     * @param string $date
-     */
     public function setDate(string $date): void
     {
         $this->date = $date;
+    }
+
+    public function getDescription2(): ?string
+    {
+        return $this->description2;
+    }
+
+    public function setDescription2(?string $description2): void
+    {
+        $this->description2 = $description2;
     }
 }
