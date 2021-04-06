@@ -55,6 +55,11 @@ main {
     justify-content: center;
 }
 
+.section_image {
+    display: flex;
+    justify-content: center;
+}
+
 .section_image img {
     width: 400px;
     height: 300px;
