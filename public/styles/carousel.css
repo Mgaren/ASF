@@ -5,46 +5,74 @@ main {
     padding-top: 175px;
 }
 
-.actuality h1 {
+h1 {
     text-align: center;
 }
 
 .actuality {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
     margin-top: 2rem;
-    width: 100vw;
+    padding: 0;
+    justify-content: center;
 }
 
 .container_actuality {
     display: flex;
-    flex-direction: row;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-    justify-content: center;
+    margin: 1em 5px;
 }
 
 .actualities {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    overflow: hidden;
+    transition: transform .5s;
     width: 300px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+}
+
+.container_actuality:hover {
+    transform: scale(1.20);
 }
 
 .actuality_titre {
-    font-size: 30px;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_date {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
 }
 
 .actuality_text {
-    font-size: 20px;
-    margin-top: 1rem;
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
 }
 
 .actuality_image {
-    width: 500px;
-}
+    display: flex;
+    justify-content: center;}
 
 .actuality_image img {
-    width: 100%;
+    width: 200px;
+    height: 200px;
 }
 
 .container {
@@ -62,9 +90,47 @@ main {
     margin: 30px 30px;
     width: 450px;
     height: 225px;
-    transform: translate(-40%, 250%);
+    transform: translate(0, 250%);
 }
 .text-1 a {
+    margin: 10px 10px;
+    text-decoration: none;
+    color: red;
+    font-size: 30px;
+}
+
+.text-2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    margin: 30px 30px;
+    width: 450px;
+    height: 225px;
+    transform: translate(0, 100%);
+}
+.text-2 a {
+    margin: 10px 10px;
+    text-decoration: none;
+    color: red;
+    font-size: 30px;
+}
+
+.text-3 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    z-index: 1;
+    position: absolute;
+    margin: 30px 30px;
+    width: 450px;
+    height: 225px;
+    transform: translate(0, 100%);
+}
+.text-3 a {
     margin: 10px 10px;
     text-decoration: none;
     color: red;
