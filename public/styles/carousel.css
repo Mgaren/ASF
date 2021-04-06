@@ -211,8 +211,8 @@ main {
 }
 
 .home-carousel-partenaire img {
-    width: 3.85%; /*1.925 = 2 partenaires en 1 carousel*/
-    height: 100vh;
+    width: 1.925%; /*1.925 = 2 partenaires en 1 carousel*/
+    height: 50vh;
     float: left;
 }
 @keyframes slidy-partenaire {
