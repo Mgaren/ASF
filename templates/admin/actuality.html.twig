@@ -31,6 +31,7 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>date</th>
                 <th>Titre</th>
                 <th>Description</th>
                 <th>Image</th>
@@ -39,6 +40,7 @@
             <tbody>
             {% for actuality in actualitys %}
                 <tr>
+                    <td>{{ actuality.date }}</td>
                     <td>{{ actuality.titre }}</td>
                     <td>{{ actuality.description }}</td>
                     <td>{{ actuality.image }}</td>

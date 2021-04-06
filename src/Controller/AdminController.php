@@ -352,7 +352,7 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $history = $historyRepository->findBy([], [
-            'id' => 'ASC'
+            'date' => 'ASC'
         ]);
         $history = $paginator->paginate(
             $history,

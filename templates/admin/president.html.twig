@@ -32,16 +32,14 @@
             <thead>
             <tr>
                 <th>Date</th>
-                <th>Prénom</th>
-                <th>Nom</th>
+                <th>Prénom et Nom</th>
             </tr>
             </thead>
             <tbody>
             {% for president in presidents %}
                 <tr>
                     <td>{{ president.date }}</td>
-                    <td>{{ president.firstname }}</td>
-                    <td>{{ president.lastname }}</td>
+                    <td>{{ president.firstname }} {{ president.lastname }}</td>
                     <td>
                         <a href="{{ path('asf_president_show', {'id': president.id}) }}">Détail</a>
                         {{ include('asf/president/_delete_form.html.twig') }}

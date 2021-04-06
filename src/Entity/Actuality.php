@@ -20,6 +20,11 @@ class Actuality
     /**
      * @ORM\Column(type="string", length=255)
      */
+    private string $date;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
     private string $titre;
 
     /**
@@ -71,5 +76,21 @@ class Actuality
         $this->image = $image;
 
         return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getDate(): string
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param string $date
+     */
+    public function setDate(string $date): void
+    {
+        $this->date = $date;
     }
 }

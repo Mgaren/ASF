@@ -15,6 +15,9 @@ class ActualityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('date', TextType::class, [
+                'label' => 'Date*'
+            ])
             ->add('titre', TextType::class, [
                 'label' => 'Titre*'
             ])
