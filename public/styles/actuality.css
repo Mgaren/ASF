@@ -16,7 +16,7 @@ h1 {
     list-style: none;
     margin-top: 2rem;
     padding: 0;
-    justify-content: center;
+    justify-content: space-around;
 }
 
 .container_actuality {
