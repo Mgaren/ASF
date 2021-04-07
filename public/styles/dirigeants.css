@@ -47,8 +47,14 @@ h1 {
     flex-direction: column;
     overflow: hidden;
     transition: transform .5s;
-    margin-left: 1rem;
     margin-right: 1rem;
+    margin-left: 1rem;
+}
+
+.dirigeant_image {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
 }
 
 .dirigeant_image img {
@@ -58,17 +64,13 @@ h1 {
 }
 
 .dirigeant_info {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    height: 50px;
-    width: 300px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
 }
 
 .dirigeant_info h2 {
-    margin-left: 1rem;
-    margin-right: 1rem;
+    display: flex;
     justify-content: center;
 }
 
