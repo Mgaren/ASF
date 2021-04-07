@@ -28,19 +28,27 @@ h1 {
 
 .container_dirigeant {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+    width: 100%;
     justify-content: center;
 }
 
 .container_item {
     display: flex;
-    margin: 1em 5em 4em;
+    margin: 1em 5px;
 }
 
 .dirigeant {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .dirigeant_image img {

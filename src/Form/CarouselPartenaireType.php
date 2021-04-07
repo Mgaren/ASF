@@ -106,6 +106,9 @@ class CarouselPartenaireType extends AbstractType
             ->add('fileimage25', FileType::class, [
                 'mapped' => false, 'required' => false, 'label' => '25ème image',
             ])
+            ->add('fileimage26', FileType::class, [
+                'mapped' => false, 'required' => false, 'label' => '26ème image',
+            ])
         ;
     }
 

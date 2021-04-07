@@ -29,16 +29,14 @@
             <thead>
             <tr>
                 <th>Date</th>
-                <th>Prénom</th>
-                <th>Nom</th>
+                <th>Prénom et Nom</th>
             </tr>
             </thead>
             <tbody>
             {% for president in presidents %}
                 <tr>
                     <td class="date">{{ president.date }}</td>
-                    <td class="firstname">{{ president.firstname }}</td>
-                    <td class="lastname">{{ president.lastname }}</td>
+                    <td class="firstname">{{ president.firstname }} {{ president.lastname }}</td>
                 </tr>
             {% endfor %}
             </tbody>

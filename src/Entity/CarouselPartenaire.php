@@ -142,6 +142,11 @@ class CarouselPartenaire
      */
     private string $image25 = '';
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image26 = '';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -443,6 +448,18 @@ class CarouselPartenaire
     public function setImage25(string $image25): self
     {
         $this->image25 = $image25;
+
+        return $this;
+    }
+
+    public function getImage26(): string
+    {
+        return $this->image26;
+    }
+
+    public function setImage26(string $image26): self
+    {
+        $this->image26 = $image26;
 
         return $this;
     }

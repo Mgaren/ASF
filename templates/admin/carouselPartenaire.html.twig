@@ -36,11 +36,6 @@
                 <th>Image3</th>
                 <th>Image4</th>
                 <th>Image5</th>
-                <th>Image6</th>
-                <th>Image7</th>
-                <th>Image8</th>
-                <th>Image9</th>
-                <th>Image10</th>
             </tr>
             </thead>
             <tbody>
@@ -51,6 +46,21 @@
                     <td>{{ carousel_partenaire.image3 }}</td>
                     <td>{{ carousel_partenaire.image4 }}</td>
                     <td>{{ carousel_partenaire.image5 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>Image6</th>
+                <th>Image7</th>
+                <th>Image8</th>
+                <th>Image9</th>
+                <th>Image10</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel_partenaire in carousel_partenaire %}
+                <tr>
                     <td>{{ carousel_partenaire.image6 }}</td>
                     <td>{{ carousel_partenaire.image7 }}</td>
                     <td>{{ carousel_partenaire.image8 }}</td>
@@ -66,11 +76,6 @@
                 <th>Image13</th>
                 <th>Image14</th>
                 <th>Image15</th>
-                <th>Image16</th>
-                <th>Image17</th>
-                <th>Image18</th>
-                <th>Image19</th>
-                <th>Image20</th>
             </tr>
             </thead>
             <tbody>
@@ -81,6 +86,21 @@
                     <td>{{ carousel_partenaire.image13 }}</td>
                     <td>{{ carousel_partenaire.image14 }}</td>
                     <td>{{ carousel_partenaire.image15 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>Image16</th>
+                <th>Image17</th>
+                <th>Image18</th>
+                <th>Image19</th>
+                <th>Image20</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel_partenaire in carousel_partenaire %}
+                <tr>
                     <td>{{ carousel_partenaire.image16 }}</td>
                     <td>{{ carousel_partenaire.image17 }}</td>
                     <td>{{ carousel_partenaire.image18 }}</td>
@@ -106,6 +126,18 @@
                     <td>{{ carousel_partenaire.image23 }}</td>
                     <td>{{ carousel_partenaire.image24 }}</td>
                     <td>{{ carousel_partenaire.image25 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>Image26</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for carousel_partenaire in carousel_partenaire %}
+                <tr>
+                    <td>{{ carousel_partenaire.image26 }}</td>
                     <td>
                         <a href="{{ path('home_carousel_partenaire_show', {'id': carousel_partenaire.id}) }}">Détail</a>
                         {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}

@@ -1,0 +1,32 @@
+{% extends 'actuality/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/actuality.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+{% endblock %}
+
+
+{% block title %}Actuality{% endblock %}
+
+{% block main %}
+    <h1>L'actualité de l'ASF</h1>
+
+    <div class="container">
+        {% for actuality in actualities %}
+            <div class="container_actuality">
+                <div class="actuality">
+                    <div class="actuality_titre">{{ actuality.titre }}</div>
+                    <div class="actuality_date">{{ actuality.date }}</div>
+                    <div class="actuality_text">{{ actuality.description }}</div>
+                    <div class="actuality_text">{{ actuality.description2 }}</div>
+                </div>
+                <div class="actuality_image">
+                    {% if actuality.image == true %}
+                        <img src="/uploads/actuality/{{ actuality.image }}">
+                    {% endif %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

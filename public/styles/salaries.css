@@ -28,19 +28,27 @@ h1 {
 
 .container_salary {
     display: flex;
-    flex-wrap: wrap;
     align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+    width: 100%;
     justify-content: center;
 }
 
 .container_item {
     display: flex;
-    margin: 1em 5em;
+    margin: 1em 5px;
 }
 
 .salary {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+    margin-left: 1rem;
+    margin-right: 1rem;
 }
 
 .salary_image img {
@@ -56,6 +64,7 @@ h1 {
     justify-content: center;
     height: 50px;
     width: 300px;
+    margin-bottom: 1rem;
 }
 
 .salary_info h2 {
@@ -68,6 +77,7 @@ h1 {
     display: flex;
     flex-direction: row;
     justify-content: center;
+    margin-top: 1rem;
 }
 
 .salary_section h4 {
