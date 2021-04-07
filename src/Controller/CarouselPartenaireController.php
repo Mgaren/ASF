@@ -56,6 +56,7 @@ class CarouselPartenaireController extends AbstractController
             $imageFile23 = $form->get('fileimage23')->getData();
             $imageFile24 = $form->get('fileimage24')->getData();
             $imageFile25 = $form->get('fileimage25')->getData();
+            $imageFile26 = $form->get('fileimage26')->getData();
             if ($imageFile1) {
                 $imageFile1name = pathinfo($imageFile1->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeImageFile1name = $slugger->slug($imageFile1name);
@@ -406,6 +407,20 @@ class CarouselPartenaireController extends AbstractController
                 }
                 $carouselPartenaire->setImage25($newImageFile25);
             }
+            if ($imageFile26) {
+                $imageFile26name = pathinfo($imageFile26->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile26name = $slugger->slug($imageFile26name);
+                $newImageFile26 = $safeImageFile26name . '-' . uniqid('', false) . '.' . $imageFile26->guessExtension();
+
+                try {
+                    $imageFile26->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile26
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage26($newImageFile26);
+            }
             $entityManager->persist($carouselPartenaire);
             $entityManager->flush();
 
@@ -468,6 +483,7 @@ class CarouselPartenaireController extends AbstractController
             $imageFile23 = $form->get('fileimage23')->getData();
             $imageFile24 = $form->get('fileimage24')->getData();
             $imageFile25 = $form->get('fileimage25')->getData();
+            $imageFile26 = $form->get('fileimage26')->getData();
             if ($imageFile1 !== null) {
                 $filename1 = $carouselPartenaire->getImage1();
                 if ($filename1 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
@@ -943,6 +959,25 @@ class CarouselPartenaireController extends AbstractController
                 }
                 $carouselPartenaire->setImage25($newImageFile25);
             }
+            if ($imageFile26 !== null) {
+                $filename26 = $carouselPartenaire->getImage26();
+                if ($filename26 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                    $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename26;
+                    unlink($path);
+                }
+                $imageFile26name = pathinfo($imageFile26->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile26name = $slugger->slug($imageFile26name);
+                $newImageFile26 = $safeImageFile26name . '-' . uniqid('', false) . '.' . $imageFile26->guessExtension();
+
+                try {
+                    $imageFile26->move(
+                        $this->getParameter('upload_dir_carouselPartenaire'),
+                        $newImageFile26
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselPartenaire->setImage26($newImageFile26);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_carousel_partenaire');
@@ -1090,6 +1125,11 @@ class CarouselPartenaireController extends AbstractController
             $filename25 = $carouselPartenaire->getImage25();
             if ($filename25 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
                 $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename25;
+                unlink($path);
+            }
+            $filename26 = $carouselPartenaire->getImage26();
+            if ($filename26 !== '' && is_string($this->getParameter('upload_dir_carouselPartenaire'))) {
+                $path = $this->getParameter('upload_dir_carouselPartenaire') . $filename26;
                 unlink($path);
             }
             $entityManager->remove($carouselPartenaire);

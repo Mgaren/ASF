@@ -1,0 +1,84 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    padding-top: 175px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+    justify-content: center;
+}
+
+.container_actuality {
+    display: flex;
+    margin: 1em 5px;
+}
+
+.actuality {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+    width: 300px;
+    height: 200px;
+    text-align: center;
+    justify-content: center;
+}
+
+.actuality_titre {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_date {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_image {
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_image img {
+    width: 200px;
+    height: 200px;
+}
+
+/*
+.actuality_image img:hover {
+    width: 300px;
+    height: 300px;
+}
+*/
+
+.actuality_image img:hover {
+    transform: scale(1.70);
+}

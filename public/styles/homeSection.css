@@ -30,7 +30,7 @@ main {
 }
 
 .sections:hover {
-    transform: scale(1.02);
+    transform: scale(1.10);
 }
 
 .section_title {
@@ -55,7 +55,12 @@ main {
     justify-content: center;
 }
 
+.section_image {
+    display: flex;
+    justify-content: center;
+}
+
 .section_image img {
-    width: 600px;
-    height: 500px;
+    width: 400px;
+    height: 300px;
 }

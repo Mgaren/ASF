@@ -46,3 +46,9 @@ footer {
     padding-top: 10px;
 }
 
+#scrollUp {
+    position: fixed;
+    bottom : 30px;
+    right: 0;
+    opacity: 0.5;
+}

@@ -31,7 +31,7 @@ class HistoryController extends AbstractController
     {
         return $this->render('asf/history/index.html.twig', [
             'histories' => $historyRepository->findBy([], [
-                'id' => 'ASC'
+                'date' => 'ASC'
             ]),
             'presidents' => $presidentRepository->findBy([], [
                 'date' => 'ASC'

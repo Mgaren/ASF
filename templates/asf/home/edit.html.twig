@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit HomeAsf{% endblock %}
+
+{% block body %}
+    <h1>Editer la page Asf</h1>
+
+    {{ include('asf/home/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_homeAsf') }}">Retour à la liste</a>
+
+    {# {{ include('asf/home/_delete_form.html.twig') }} #}
+{% endblock %}
