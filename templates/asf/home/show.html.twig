@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}HomeAsf{% endblock %}
+
+{% block body %}
+    <h1>Page Asf</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ home_asf.id }}</td>
+            </tr>
+            <tr>
+                <th>Image1</th>
+                <td>{{ home_asf.image1 }}</td>
+            </tr>
+            <tr>
+                <th>Image2</th>
+                <td>{{ home_asf.image2 }}</td>
+            </tr>
+            <tr>
+                <th>Image3</th>
+                <td>{{ home_asf.image3 }}</td>
+            </tr>
+            <tr>
+                <th>Image4</th>
+                <td>{{ home_asf.image4 }}</td>
+            </tr>
+            <tr>
+                <th>Image5</th>
+                <td>{{ home_asf.image5 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_homeAsf') }}">Retour à la liste</a>
+
+    <a href="{{ path('asf_edit', {'id': home_asf.id}) }}">Editer</a>
+
+    {# {{ include('asf/home/_delete_form.html.twig') }} #}
+{% endblock %}

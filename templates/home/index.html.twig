@@ -29,11 +29,6 @@
         {% endfor %}
     </div>
     <div class="carousel">
-        <div class="container">
-            <div class="text-1">
-                <a href="{{ path('asf') }}">description sur l'histoire de l'ASF...</a>
-            </div>
-        </div>
         <div class="home-carousel-history">
             {% set history = [carousel_histories[0].image1, carousel_histories[0].image2, carousel_histories[0].image3] %}
 
@@ -73,10 +68,13 @@
             {% endif %}
         </div>
         <div class="container">
-            <div class="text-2">
-                <a href="{{ path('section') }}">description sur les sections de l'ASF...</a>
+            <div class="text-1">
+                <a href="{{ path('asf') }}">description sur l'histoire de l'ASF...</a>
             </div>
         </div>
+    </div>
+
+    <div class="carousel">
         <div class="home-carousel-section">
             {% set section = [
                 carousel_sections[0].image1, carousel_sections[0].image2, carousel_sections[0].image3,
@@ -211,10 +209,13 @@
             {% endif %}
         </div>
         <div class="container">
-            <div class="text-3">
-                <a href="{{ path('partenaire') }}">description sur les partenaires de l'ASF...</a>
+            <div class="text-2">
+                <a href="{{ path('section') }}">description sur les sections de l'ASF...</a>
             </div>
         </div>
+    </div>
+
+    <div class="carousel">
         <div class="home-carousel-partenaire">
             {% set partenaire = [
                 carousel_partenaires[0].image1, carousel_partenaires[0].image2, carousel_partenaires[0].image3,
@@ -408,6 +409,11 @@
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image2 }}">
                 {% endif %}
             {% endif %}
+        </div>
+        <div class="container">
+            <div class="text-3">
+                <a href="{{ path('partenaire') }}">description sur les partenaires de l'ASF...</a>
+            </div>
         </div>
     </div>
 {% endblock %}

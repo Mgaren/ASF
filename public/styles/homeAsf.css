@@ -5,144 +5,43 @@ main {
     padding-top: 250px;
 }
 
-/* First carousel for ASF */
-.image-1 {
+.container {
     display: flex;
     justify-content: flex-end;
     align-items: flex-end;
-    background: url("../images/historique.jpg") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1000px;
-    margin-bottom: 50px;
-}
-.text-1 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px;
-    width: 600px;
-    height: 250px;
-    font-size: 25px;
-    color: var(--home-text-color);
-    background: var(--home-background-color);
-}
-.text-1 p, .text-1 a {
-    margin: 10px 10px;
 }
 
-/* Second carousel for Section */
-.image-2 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    background: url("../images/logo-ASF.png") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1000px;
-    margin-bottom: 50px;
-}
-.text-2 {
+.history, .dirigeant, .salary, .adherant, .contact {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px;
-    width: 600px;
-    height: 250px;
-    font-size: 25px;
-    color: var(--home-text-color);
-    background: var(--home-background-color);
-}
-.text-2 p, .text-2 a {
-    margin: 10px 10px;
+    position: relative;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
-/* Third carousel for Section */
-.image-3 {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background: url("../images/logo-ASF.png") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1000px;
-    margin-bottom: 50px;
+.image-1, .image-2, .image-3, .image-4, .image-5 {
+    position: relative;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: 0;
+    font-size: 0;
+    text-align: left;
 }
-.text-3 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px;
-    width: 600px;
-    height: 250px;
-    font-size: 25px;
-    color: var(--home-text-color);
-    background: var(--home-background-color);
+.image-1 img, .image-2 img, .image-3 img, .image-4 img, .image-5 img {
+    width: 100vw;
+    height: 100vh;
 }
-.text-3 p, .text-3 a {
-    margin: 10px 10px;
-}
-
-.about {
-    display: flex;
-    justify-content: center;
+.text-1, .text-2, .text-3, .text-4, .text-5 {
     text-align: center;
-    align-items: center;
-    height: 50px;
-    padding: 10px 70px;
-    background-color: red;
+    z-index: 1;
+    position: absolute;
+    margin-bottom: 30px;
+    margin-right: 10px;
+    width: 500px;
+}
+.text-1 a, .text-2 a, .text-3 a, .text-4 a, .text-5 a {
+    margin: 10px 10px;
     text-decoration: none;
-    color: var(--home-text-color-buttom);
-}
-
-/* First carousel for ASF */
-.image-4 {
-    display: flex;
-    justify-content: flex-end;
-    align-items: flex-end;
-    background: url("../images/carte-Adérant.png") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1000px;
-    margin-bottom: 50px;
-}
-.text-4 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px;
-    width: 600px;
-    height: 250px;
-    font-size: 25px;
-    color: var(--home-text-color);
-    background: var(--home-background-color);
-}
-.text-4 p, .text-4 a {
-    margin: 10px 10px;
-}
-
-/* Second carousel for Section */
-.image-5 {
-    display: flex;
-    justify-content: flex-start;
-    align-items: flex-end;
-    background: url("../images/logo-ASF.png") no-repeat fixed center;
-    background-size: cover;
-    min-height: 1000px;
-    margin-bottom: 50px;
-}
-.text-5 {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin: 30px 30px;
-    width: 600px;
-    height: 250px;
-    font-size: 25px;
-    color: var(--home-text-color);
-    background: var(--home-background-color);
-}
-.text-5 p, .text-5 a {
-    margin: 10px 10px;
+    color: red;
+    font-size: 30px;
 }

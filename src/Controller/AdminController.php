@@ -18,6 +18,7 @@ use App\Repository\CarouselPartenaireRepository;
 use App\Repository\HistoryRepository;
 use App\Repository\ActualityRepository;
 use App\Repository\PartenaireRepository;
+use App\Repository\HomeAsfRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -411,6 +412,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/partenaire.html.twig', [
             'partenaires' => $partenaire
+        ]);
+    }
+
+    /**
+     * @Route("/homeAsf", name="homeAsf", methods={"GET"})
+     * @param Request $request
+     * @param HomeAsfRepository $homeAsfRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function homeAsf(
+        Request $request,
+        HomeAsfRepository $homeAsfRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $homeAsf = $homeAsfRepository->findBy([], [
+            'id' => 'ASC'
+        ]);
+        $homeAsf = $paginator->paginate(
+            $homeAsf,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/homeAsf.html.twig', [
+            'home_asfs' => $homeAsf
         ]);
     }
 }

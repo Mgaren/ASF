@@ -10,44 +10,66 @@
 {% block title %}Alerte Sportif de Fondettes{% endblock %}
 
 {% block main %}
-    <div class="image-1">
-        <div class="text-1">
-            <p>
-                L'histoire de l'ASF...
-            </p>
-            <a href="#" class="about">Voir plus</a>
+    {% for home_asf in home_asfs %}
+        <div class="history">
+            <div class="image-1">
+                {% if home_asf.image1 == true %}
+                    <img src="/uploads/homeAsf/{{ home_asf.image1 }}">
+                {% endif %}
+            </div>
+            <div class="container">
+                <div class="text-1">
+                    <a href="{{ path('asf_history') }}" class="about">L'histoire de l'ASF...</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="image-2">
-        <div class="text-2">
-            <p>
-                Vous trouverez ici les dirigeants de l'omnisport / de l'ASF...
-            </p>
-            <a href="#" class="about">Voir plus</a>
+        <div class="dirigeant">
+            <div class="image-2">
+                {% if home_asf.image2 == true %}
+                    <img src="/uploads/homeAsf/{{ home_asf.image2 }}">
+                {% endif %}
+            </div>
+            <div class="container">
+                <div class="text-2">
+                    <a href="{{ path('asf_dirigeants') }}" class="about">Vous trouverez ici le bureau de l'omnisports...</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="image-3">
-        <div class="text-3">
-            <p>
-                Vous trouverez ici les salariés de l'omnisport / de l'ASF...
-            </p>
-            <a href="#" class="about">Voir plus</a>
+        <div class="salary">
+            <div class="image-3">
+                {% if home_asf.image3 == true %}
+                    <img src="/uploads/homeAsf/{{ home_asf.image3 }}">
+                {% endif %}
+            </div>
+            <div class="container">
+                <div class="text-3">
+                    <a href="{{ path('asf_salaries') }}" class="about">Vous trouverez ici les salariés de l'omnisports...</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="image-4">
-        <div class="text-4">
-            <p>
-                Vous souhaitez devenir Adérant, et profiter de divers avantage...
-            </p>
-            <a href="#" class="about">Voir plus</a>
+        <div class="adherent">
+            <div class="image-4">
+                {% if home_asf.image4 == true %}
+                    <img src="/uploads/homeAsf/{{ home_asf.image4 }}">
+                {% endif %}
+            </div>
+            <div class="container">
+                <div class="text-4">
+                    <a href="{{ path('asf_adherant') }}" class="about">Vous souhaitez devenir Adhérant, et profiter de divers avantage...</a>
+                </div>
+            </div>
         </div>
-    </div>
-    <div class="image-5">
-        <div class="text-5">
-            <p>
-                Pour nous contactez...
-            </p>
-            <a href="{{ path('asf_contact') }}" class="about">Voir plus</a>
+        <div class="contact">
+            <div class="image-5">
+                {% if home_asf.image5 == true %}
+                    <img src="/uploads/homeAsf/{{ home_asf.image5 }}">
+                {% endif %}
+            </div>
+            <div class="container">
+                <div class="text-5">
+                    <a href="{{ path('asf_contact') }}" class="about">Pour nous contactez...</a>
+                </div>
+            </div>
         </div>
-    </div>
+    {% endfor %}
 {% endblock %}
