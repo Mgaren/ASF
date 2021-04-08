@@ -53,7 +53,7 @@ class Category
     }
 
     /**
-     * @return Collection|Dirigeants[]
+     * @return Collection|AdherantPartenaire[]
      */
     public function getAdherantPartenaire(): Collection
     {

@@ -21,6 +21,7 @@ use App\Repository\PartenaireRepository;
 use App\Repository\HomeAsfRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\AdherantPartenaireRepository;
+use App\Repository\DateRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -81,7 +82,7 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $verticalHistory = $vertHistRepository->findBy([], [
-            'titre' => 'ASC'
+            'date' => 'ASC'
         ]);
         $verticalHistory = $paginator->paginate(
             $verticalHistory,
@@ -148,6 +149,7 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param AdherantImageRepository $imageRepository
      * @param AdherantTextRepository $textRepository
+     * @param AdherantPartenaireRepository $adherantPartenaireR
      * @param PaginatorInterface $paginator
      * @return Response
      */
@@ -474,6 +476,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/category.html.twig', [
             'categories' => $category
+        ]);
+    }
+
+    /**
+     * @Route("/date", name="date", methods={"GET"})
+     * @param Request $request
+     * @param DateRepository $dateRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addDate(
+        Request $request,
+        DateRepository $dateRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $date = $dateRepository->findBy([], [
+            'date' => 'ASC'
+        ]);
+        $date = $paginator->paginate(
+            $date,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/date.html.twig', [
+            'dates' => $date
         ]);
     }
 }
