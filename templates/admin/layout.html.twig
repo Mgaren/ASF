@@ -125,16 +125,23 @@
                 <li>
                     <a href="{{ path('admin_partenaire') }}">Editer Nos Partenaires</a>
                 </li>
-                <li>
-                    <a href="{{ path('admin_dirigeants_post') }}">Ajouter un poste pour le bureau</a>
+                <li class="active">
+                    <a href="#add" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">Ajouter</a>
+                    <ul class="collapse list-unstyled" id="add">
+                        <li>
+                            <a href="{{ path('admin_dirigeants_post') }}">Ajouter un poste pour le bureau</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_section_salary') }}">Ajouter une section pour les Salariés</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_president') }}">Ajouter un(e) président(e)</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('admin_category') }}">Ajouter une categorie</a>
+                        </li>
+                    </ul>
                 </li>
-                <li>
-                    <a href="{{ path('admin_section_salary') }}">Ajouter une section pour les Salariés</a>
-                </li>
-                <li>
-                    <a href="{{ path('admin_president') }}">Ajouter un(e) président(e)</a>
-                </li>
-            </ul>
             <li>
                 <a href="#">Profil</a>
             </li>

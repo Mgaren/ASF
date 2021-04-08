@@ -28,7 +28,6 @@ class DirigeantsType extends AbstractType
                 'choice_label' => 'name',
                 'multiple' => false,
                 'expanded' => true,
-                'by_reference' => false,
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

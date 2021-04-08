@@ -8,6 +8,9 @@ use App\Repository\AdherantImageRepository;
 use App\Entity\AdherantText;
 use App\Form\AdherantTextType;
 use App\Repository\AdherantTextRepository;
+use App\Entity\AdherantPartenaire;
+use App\Form\AdherantPartenaireType;
+use App\Repository\AdherantPartenaireRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -27,15 +30,20 @@ class AdherantController extends AbstractController
      * @Route("/", name="asf_adherant", methods={"GET"})
      * @param AdherantImageRepository $imageRepository
      * @param AdherantTextRepository $textRepository
+     * @param AdherantPartenaireRepository $adherantPartenaireR
      * @return Response
      */
     public function index(
         AdherantImageRepository $imageRepository,
-        AdherantTextRepository $textRepository
+        AdherantTextRepository $textRepository,
+        AdherantPartenaireRepository $adherantPartenaireR
     ): Response {
         return$this->render('asf/adherant/index.html.twig', [
             'adherant_images' => $imageRepository->findAll(),
             'adherant_texts' => $textRepository->findAll(),
+            'adherant_partenaires' => $adherantPartenaireR->findBy([], [
+                'name' => 'ASC'
+            ]),
         ]);
     }
 
@@ -241,6 +249,132 @@ class AdherantController extends AbstractController
     ): Response {
         if ($this->isCsrfTokenValid('delete' . $adherantText->getId(), $request->request->get('_token'))) {
             $entityManager->remove($adherantText);
+            $entityManager->flush();
+        }
+
+        return $this->redirectToRoute('admin_adherant');
+    }
+
+    //new, show, edit and delete partenaire for adherant page
+
+    /**
+     * @Route("/asf/adherant/partenaire/new", name="asf_adherant_partenaire_new", methods={"GET","POST"})
+     * @param Request $request
+     * @param SluggerInterface $slugger
+     * @return Response
+     */
+    public function new(Request $request, SluggerInterface $slugger): Response
+    {
+        $adherantPartenaire = new AdherantPartenaire();
+        $form = $this->createForm(AdherantPartenaireType::class, $adherantPartenaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $entityManager = $this->getDoctrine()->getManager();
+
+            $imageFile = $form->get('fileimage')->getData();
+
+            if ($imageFile) {
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_adherant'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $adherantPartenaire->setImage($newImageFile);
+            }
+            $entityManager->persist($adherantPartenaire);
+            $entityManager->flush();
+
+            return $this->redirectToRoute('admin_adherant');
+        }
+
+        return $this->render('asf/adherant/adherant_partenaire/new.html.twig', [
+            'adherant_partenaire' => $adherantPartenaire,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/asf/adherant/partenaire/show/{id}", name="asf_adherant_partenaire_show", methods={"GET"})
+     * @param AdherantPartenaire $adherantPartenaire
+     * @return Response
+     */
+    public function show(AdherantPartenaire $adherantPartenaire): Response
+    {
+        return $this->render('asf/adherant/adherant_partenaire/show.html.twig', [
+            'adherant_partenaire' => $adherantPartenaire,
+        ]);
+    }
+
+    /**
+     * @Route("/asf/adherant/partenaire/edit/{id}", name="asf_adherant_partenaire_edit", methods={"GET","POST"})
+     * @param Request $request
+     * @param AdherantPartenaire $adherantPartenaire
+     * @param SluggerInterface $slugger
+     * @return Response
+     */
+    public function edit(Request $request, AdherantPartenaire $adherantPartenaire, SluggerInterface $slugger): Response
+    {
+        $form = $this->createForm(AdherantPartenaireType::class, $adherantPartenaire);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $imageFile = $form->get('fileimage')->getData();
+            if ($imageFile !== null) {
+                $filename = $adherantPartenaire->getImage();
+                if ($filename !== '' && is_string($this->getParameter('upload_dir_adherant'))) {
+                    $path = $this->getParameter('upload_dir_adherant') . $filename;
+                    unlink($path);
+                }
+                $imageFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFilename = $slugger->slug($imageFilename);
+                $newImageFile = $safeImageFilename . '-' . uniqid('', false) . '.' . $imageFile->guessExtension();
+
+                try {
+                    $imageFile->move(
+                        $this->getParameter('upload_dir_adherant'),
+                        $newImageFile
+                    );
+                } catch (FileException $e) {
+                }
+                $adherantPartenaire->setImage($newImageFile);
+            }
+            $this->getDoctrine()->getManager()->flush();
+
+            return $this->redirectToRoute('admin_adherant');
+        }
+
+        return $this->render('asf/adherant/adherant_partenaire/edit.html.twig', [
+            'adherant_partenaire' => $adherantPartenaire,
+            'form' => $form->createView(),
+        ]);
+    }
+
+    /**
+     * @Route("/asf/adherant/partenaire/delete/{id}", name="asf_adherant_partenaire_delete", methods={"DELETE"})
+     * @param Request $request
+     * @param AdherantPartenaire $adherantPartenaire
+     * @param EntityManagerInterface $entityManager
+     * @return Response
+     */
+    public function delete(
+        Request $request,
+        AdherantPartenaire $adherantPartenaire,
+        EntityManagerInterface $entityManager
+    ): Response {
+        if ($this->isCsrfTokenValid('delete' . $adherantPartenaire->getId(), $request->request->get('_token'))) {
+            $filename = $adherantPartenaire->getImage();
+            if ($filename !== '' && is_string($this->getParameter('upload_dir_adherant'))) {
+                $path = $this->getParameter('upload_dir_adherant') . $filename;
+                unlink($path);
+            }
+            $entityManager->remove($adherantPartenaire);
             $entityManager->flush();
         }
 

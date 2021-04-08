@@ -19,6 +19,8 @@ use App\Repository\HistoryRepository;
 use App\Repository\ActualityRepository;
 use App\Repository\PartenaireRepository;
 use App\Repository\HomeAsfRepository;
+use App\Repository\CategoryRepository;
+use App\Repository\AdherantPartenaireRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -153,10 +155,14 @@ class AdminController extends AbstractController
         Request $request,
         AdherantImageRepository $imageRepository,
         AdherantTextRepository $textRepository,
+        AdherantPartenaireRepository $adherantPartenaireR,
         PaginatorInterface $paginator
     ): Response {
         $adherantImages = $imageRepository->findAll();
         $adherantTexts = $textRepository->findAll();
+        $adherantPartenaires = $adherantPartenaireR->findBy([], [
+            'name' => 'ASC'
+        ]);
         $adherantImages = $paginator->paginate(
             $adherantImages,
             $request->query->getInt('page', 1),
@@ -167,9 +173,15 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             5
         );
+        $adherantPartenaires = $paginator->paginate(
+            $adherantPartenaires,
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('admin/adherant.html.twig', [
             'adherant_images' => $adherantImages,
-            'adherant_texts' => $adherantTexts
+            'adherant_texts' => $adherantTexts,
+            'adherant_partenaires' => $adherantPartenaires
         ]);
     }
 
@@ -437,6 +449,31 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/homeAsf.html.twig', [
             'home_asfs' => $homeAsf
+        ]);
+    }
+
+    /**
+     * @Route("/category", name="category", methods={"GET"})
+     * @param Request $request
+     * @param CategoryRepository $categoryRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addCategory(
+        Request $request,
+        CategoryRepository $categoryRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $category = $categoryRepository->findBy([], [
+            'name' => 'ASC'
+        ]);
+        $category = $paginator->paginate(
+            $category,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/category.html.twig', [
+            'categories' => $category
         ]);
     }
 }

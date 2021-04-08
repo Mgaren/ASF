@@ -39,4 +39,20 @@
             </li>
         {% endfor %}
     </ul>
+    <ul class="container_adherant">
+        {% for adherant_partenaire in adherant_partenaires %}
+            <li class="container_item">
+                <div class="adherant">
+                    <div class="dirigeant_partenaire">
+                        <div class="dirigeant_partenaire">{{ adherant_partenaire.category.name }}</div>
+                        <div>{{ adherant_partenaire.name }}</div>
+                        <div>{{ adherant_partenaire.description }}</div>
+                        {% if adherant_partenaire.image == true %}
+                            <a href="{{ adherant_partenaire.lien }}"><img src="/uploads/adherant/{{ adherant_partenaire.image }}"></a>
+                        {% endif %}
+                    </div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
 {% endblock %}
