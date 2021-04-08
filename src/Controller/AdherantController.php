@@ -11,6 +11,7 @@ use App\Repository\AdherantTextRepository;
 use App\Entity\AdherantPartenaire;
 use App\Form\AdherantPartenaireType;
 use App\Repository\AdherantPartenaireRepository;
+use App\Repository\CategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -31,12 +32,14 @@ class AdherantController extends AbstractController
      * @param AdherantImageRepository $imageRepository
      * @param AdherantTextRepository $textRepository
      * @param AdherantPartenaireRepository $adherantPartenaireR
+     * @param CategoryRepository $categoryRepository
      * @return Response
      */
     public function index(
         AdherantImageRepository $imageRepository,
         AdherantTextRepository $textRepository,
-        AdherantPartenaireRepository $adherantPartenaireR
+        AdherantPartenaireRepository $adherantPartenaireR,
+        CategoryRepository $categoryRepository
     ): Response {
         return$this->render('asf/adherant/index.html.twig', [
             'adherant_images' => $imageRepository->findAll(),
@@ -44,6 +47,9 @@ class AdherantController extends AbstractController
             'adherant_partenaires' => $adherantPartenaireR->findBy([], [
                 'name' => 'ASC'
             ]),
+            'categories' => $categoryRepository->findBy([], [
+                'name' => 'ASC'
+            ])
         ]);
     }
 
