@@ -41,12 +41,20 @@ class AdherantController extends AbstractController
         AdherantPartenaireRepository $adherantPartenaireR,
         CategoryRepository $categoryRepository
     ): Response {
+        $adherant_partenaires = $adherantPartenaireR->findBy([], [
+            'name' => 'ASC'
+        ]);
+        $partenaires_by_category = [];
+        foreach ($adherant_partenaires as $adherant_partenaire) {
+            $categoryId = $adherant_partenaire->getCategory()->getId();
+            $partenaires_by_category[$categoryId]['categoryName'] = $adherant_partenaire->getCategory()->getName();
+            $partenaires_by_category[$categoryId]['partenaires'][] = $adherant_partenaire;
+        }
+
         return$this->render('asf/adherant/index.html.twig', [
             'adherant_images' => $imageRepository->findAll(),
             'adherant_texts' => $textRepository->findAll(),
-            'adherant_partenaires' => $adherantPartenaireR->findBy([], [
-                'name' => 'ASC'
-            ]),
+            'adherant_partenaires_by_category' => $partenaires_by_category,
             'categories' => $categoryRepository->findBy([], [
                 'name' => 'ASC'
             ])

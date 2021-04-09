@@ -40,9 +40,8 @@ class AdherantPartenaire
     /**
      * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="adherantPartenaires")
      * @ORM\JoinColumn(nullable=false)
-     * @var Category|null
      */
-    private ?Category $category;
+    private Category $category;
 
     public function getId(): ?int
     {
@@ -97,12 +96,12 @@ class AdherantPartenaire
         return $this;
     }
 
-    public function getCategory(): ?Category
+    public function getCategory(): Category
     {
         return $this->category;
     }
 
-    public function setCategory(?Category $category): self
+    public function setCategory(Category $category): self
     {
         $this->category = $category;
 

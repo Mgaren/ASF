@@ -19,7 +19,7 @@ class VerticalHistoryType extends AbstractType
             ->add('date', EntityType::class, [
                 'label' => 'Date*',
                 'class' => Date::class,
-                'choice_label' => 'name',
+                'choice_label' => 'date',
                 'multiple' => false,
                 'expanded' => true,
             ])
