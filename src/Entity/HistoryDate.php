@@ -2,15 +2,15 @@
 
 namespace App\Entity;
 
-use App\Repository\DateRepository;
+use App\Repository\HistoryDateRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=DateRepository::class)
+ * @ORM\Entity(repositoryClass=HistoryDateRepository::class)
  */
-class Date
+class HistoryDate
 {
     /**
      * @ORM\Id
@@ -25,13 +25,13 @@ class Date
     private string $date;
 
     /**
-     * @ORM\OneToMany(targetEntity=VerticalHistory::class, mappedBy="Date")
+     * @ORM\OneToMany(targetEntity=VerticalHistory::class, mappedBy="HistoryDate")
      * @var Collection
      */
     private Collection $verticalHistory;
 
     /**
-     * @ORM\OneToMany(targetEntity=History::class, mappedBy="Date")
+     * @ORM\OneToMany(targetEntity=History::class, mappedBy="HistoryDate")
      * @var Collection
      */
     private Collection $history;

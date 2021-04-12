@@ -2,7 +2,7 @@
 
 namespace App\Form;
 
-use App\Entity\Date;
+use App\Entity\HistoryDate;
 use App\Entity\History;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
@@ -18,7 +18,7 @@ class HistoryType extends AbstractType
         $builder
             ->add('date', EntityType::class, [
                 'label' => 'Date*',
-                'class' => Date::class,
+                'class' => HistoryDate::class,
                 'choice_label' => 'date',
                 'multiple' => false,
                 'expanded' => true,

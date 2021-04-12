@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\Date;
+use App\Entity\HistoryDate;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class DateType extends AbstractType
+class HistoryDateType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -22,7 +22,7 @@ class DateType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Date::class,
+            'data_class' => HistoryDate::class,
         ]);
     }
 }

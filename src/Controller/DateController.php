@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Entity\Date;
-use App\Form\DateType;
+use App\Entity\HistoryDate;
+use App\Form\HistoryDateType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -21,8 +21,8 @@ class DateController extends AbstractController
      */
     public function new(Request $request): Response
     {
-        $date = new Date();
-        $form = $this->createForm(DateType::class, $date);
+        $date = new HistoryDate();
+        $form = $this->createForm(HistoryDateType::class, $date);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -41,10 +41,10 @@ class DateController extends AbstractController
 
     /**
      * @Route("/date/show/{id}", name="date_show", methods={"GET"})
-     * @param Date $date
+     * @param HistoryDate $date
      * @return Response
      */
-    public function show(Date $date): Response
+    public function show(HistoryDate $date): Response
     {
         return $this->render('add/date/show.html.twig', [
             'date' => $date,
@@ -54,12 +54,12 @@ class DateController extends AbstractController
     /**
      * @Route("/date/edit/{id}", name="date_edit", methods={"GET","POST"})
      * @param Request $request
-     * @param Date $date
+     * @param HistoryDate $date
      * @return Response
      */
-    public function edit(Request $request, Date $date): Response
+    public function edit(Request $request, HistoryDate $date): Response
     {
-        $form = $this->createForm(DateType::class, $date);
+        $form = $this->createForm(HistoryDateType::class, $date);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -77,10 +77,10 @@ class DateController extends AbstractController
     /**
      * @Route("/date/delete/{id}", name="date_delete", methods={"DELETE"})
      * @param Request $request
-     * @param Date $date
+     * @param HistoryDate $date
      * @return Response
      */
-    public function delete(Request $request, Date $date): Response
+    public function delete(Request $request, HistoryDate $date): Response
     {
         if ($this->isCsrfTokenValid('delete' . $date->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();

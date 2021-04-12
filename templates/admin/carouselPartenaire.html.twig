@@ -132,12 +132,20 @@
             <thead>
             <tr>
                 <th>Image26</th>
+                <th>Image27</th>
+                <th>Image28</th>
+                <th>Image29</th>
+                <th>Image30</th>
             </tr>
             </thead>
             <tbody>
             {% for carousel_partenaire in carousel_partenaire %}
                 <tr>
                     <td>{{ carousel_partenaire.image26 }}</td>
+                    <td>{{ carousel_partenaire.image27 }}</td>
+                    <td>{{ carousel_partenaire.image28 }}</td>
+                    <td>{{ carousel_partenaire.image29 }}</td>
+                    <td>{{ carousel_partenaire.image30 }}</td>
                     <td>
                         <a href="{{ path('home_carousel_partenaire_show', {'id': carousel_partenaire.id}) }}">Détail</a>
                         {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}

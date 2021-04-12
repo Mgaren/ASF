@@ -21,7 +21,7 @@ use App\Repository\PartenaireRepository;
 use App\Repository\HomeAsfRepository;
 use App\Repository\CategoryRepository;
 use App\Repository\AdherantPartenaireRepository;
-use App\Repository\DateRepository;
+use App\Repository\HistoryDateRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -482,13 +482,13 @@ class AdminController extends AbstractController
     /**
      * @Route("/date", name="date", methods={"GET"})
      * @param Request $request
-     * @param DateRepository $dateRepository
+     * @param HistoryDateRepository $dateRepository
      * @param PaginatorInterface $paginator
      * @return Response
      */
     public function addDate(
         Request $request,
-        DateRepository $dateRepository,
+        HistoryDateRepository $dateRepository,
         PaginatorInterface $paginator
     ): Response {
         $date = $dateRepository->findBy([], [

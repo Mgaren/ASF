@@ -42,6 +42,11 @@ class CarouselHistory
      */
     private string $image5 = '';
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image6 = '';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +108,18 @@ class CarouselHistory
     public function setImage5(string $image5): self
     {
         $this->image5 = $image5;
+
+        return $this;
+    }
+
+    public function getImage6(): string
+    {
+        return $this->image6;
+    }
+
+    public function setImage6(string $image6): self
+    {
+        $this->image6 = $image6;
 
         return $this;
     }

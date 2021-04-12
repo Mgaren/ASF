@@ -38,6 +38,11 @@ class CarouselHistoryType extends AbstractType
                 'required' => false,
                 'label' => '5ème image',
             ])
+            ->add('fileimage6', FileType::class, [
+                'mapped' => false,
+                'required' => false,
+                'label' => '6ème image',
+            ])
         ;
     }
 

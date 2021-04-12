@@ -36,6 +36,7 @@ class CarouselHistoryController extends AbstractController
             $imageFile3 = $form->get('fileimage3')->getData();
             $imageFile4 = $form->get('fileimage4')->getData();
             $imageFile5 = $form->get('fileimage5')->getData();
+            $imageFile6 = $form->get('fileimage6')->getData();
             if ($imageFile1) {
                 $imageFile1name = pathinfo($imageFile1->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeImageFile1name = $slugger->slug($imageFile1name);
@@ -106,6 +107,20 @@ class CarouselHistoryController extends AbstractController
                 }
                 $carouselHistory->setImage5($newImageFile5);
             }
+            if ($imageFile6) {
+                $imageFile6name = pathinfo($imageFile6->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile6name = $slugger->slug($imageFile6name);
+                $newImageFile6 = $safeImageFile6name . '-' . uniqid('', false) . '.' . $imageFile6->guessExtension();
+
+                try {
+                    $imageFile6->move(
+                        $this->getParameter('upload_dir_carouselHistory'),
+                        $newImageFile6
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselHistory->setImage6($newImageFile6);
+            }
             $entityManager->persist($carouselHistory);
             $entityManager->flush();
 
@@ -148,6 +163,7 @@ class CarouselHistoryController extends AbstractController
             $imageFile3 = $form->get('fileimage3')->getData();
             $imageFile4 = $form->get('fileimage4')->getData();
             $imageFile5 = $form->get('fileimage5')->getData();
+            $imageFile6 = $form->get('fileimage6')->getData();
             if ($imageFile1 !== null) {
                 $filename1 = $carouselHistory->getImage1();
                 if ($filename1 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
@@ -243,6 +259,25 @@ class CarouselHistoryController extends AbstractController
                 }
                 $carouselHistory->setImage5($newImageFile5);
             }
+            if ($imageFile6 !== null) {
+                $filename6 = $carouselHistory->getImage6();
+                if ($filename6 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
+                    $path = $this->getParameter('upload_dir_carouselHistory') . $filename6;
+                    unlink($path);
+                }
+                $imageFile6name = pathinfo($imageFile6->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeImageFile6name = $slugger->slug($imageFile6name);
+                $newImageFile6 = $safeImageFile6name . '-' . uniqid('', false) . '.' . $imageFile6->guessExtension();
+
+                try {
+                    $imageFile6->move(
+                        $this->getParameter('upload_dir_carouselHistory'),
+                        $newImageFile6
+                    );
+                } catch (FileException $e) {
+                }
+                $carouselHistory->setImage6($newImageFile6);
+            }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_carousel_history');
@@ -290,6 +325,11 @@ class CarouselHistoryController extends AbstractController
             $filename5 = $carouselHistory->getImage5();
             if ($filename5 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
                 $path = $this->getParameter('upload_dir_carouselHistory') . $filename5;
+                unlink($path);
+            }
+            $filename6 = $carouselHistory->getImage6();
+            if ($filename6 !== '' && is_string($this->getParameter('upload_dir_carouselHistory'))) {
+                $path = $this->getParameter('upload_dir_carouselHistory') . $filename6;
                 unlink($path);
             }
 

@@ -133,7 +133,7 @@ h1 {
 /* carousel history home page */
 .home-carousel-history {
     position: relative;
-    width: 600%;
+    width: 800%;
     margin-bottom: 1rem;
     padding: 0;
     font-size: 0;
@@ -143,28 +143,22 @@ h1 {
 }
 
 .home-carousel-history img {
-    width: 16.66%;
-    height: 100vh;
+    width: 6.25%;
+    height: 50vh;
     float: left;
 }
 @keyframes slidy-history {
     0% { left: 0; }
-    13% { left: -100%; }
+    15% { left: -100%; }
 
-    17% { left: -100%; }
-    32% { left: -200%; }
+    25% { left: -100%; }
+    50% { left: -200%; }
 
-    37% { left: -200%; }
-    52% { left: -300%; }
+    60% { left: -200%; }
+    85% { left: -300%; }
 
-    57% { left: -300%; }
-    72% { left: -400%; }
-
-    77% { left: -400%; }
-    92% { left: -500%; }
-
-    95% { left: -500%; }
-    100% { left: -500%; }
+    95% { left: -300%; }
+    100% { left: -300%; }
 }
 
 /* carousel section home page */
@@ -223,7 +217,7 @@ h1 {
 /* carousel partenaire home page */
 .home-carousel-partenaire {
     position: relative;
-    width: 2800%;
+    width: 3200%;
     margin-top: 1rem;
     font-size: 0;
     text-align: left;
@@ -232,7 +226,7 @@ h1 {
 }
 
 .home-carousel-partenaire img {
-    width: 1.7857%;
+    width: 1.0417%;
     height: 50vh;
     float: left;
 }
@@ -240,42 +234,48 @@ h1 {
     0% { left: 0; }
     4% { left: -100%; }
 
-    6% { left: -100%; }
+    7% { left: -100%; }
     11% { left: -200%; }
 
     13% { left: -200%; }
-    18% { left: -300%; }
+    17% { left: -300%; }
 
     20% { left: -300%; }
-    25% { left: -400%; }
+    24% { left: -400%; }
 
-    27% { left: -400%; }
-    32% { left: -500%; }
+    26% { left: -400%; }
+    30% { left: -500%; }
 
-    34% { left: -500%; }
+    33% { left: -500%; }
+    37% { left: -600%; }
+
     39% { left: -600%; }
+    43% { left: -700%; }
 
-    41% { left: -600%; }
     46% { left: -700%; }
+    50% { left: -800%; }
 
-    58% { left: -700%; }
-    63% { left: -800%; }
+    52% { left: -800%; }
+    56% { left: -900%; }
 
-    65% { left: -800%; }
-    70% { left: -900%; }
+    59% { left: -900%; }
+    63% { left: -1000%; }
 
-    72% { left: -900%; }
-    77% { left: -1000%; }
+    65% { left: -1000%; }
+    69% { left: -1100%; }
 
-    79% { left: -1000%; }
-    84% { left: -1100%; }
+    72% { left: -1100%; }
+    76% { left: -1200%; }
 
-    86% { left: -1100%; }
-    91% { left: -1200%; }
+    78% { left: -1200%; }
+    82% { left: -1300%; }
 
-    93% { left: -1200%; }
-    98% { left: -1300%; }
+    85% { left: -1300%; }
+    89% { left: -1400%; }
 
-    99% { left: -1300%; }
-    100% { left: -1300%; }
+    91% { left: -1400%; }
+    95% { left: -1500%; }
+
+    98% { left: -1500%; }
+    100% { left: -1500%; }
 }
