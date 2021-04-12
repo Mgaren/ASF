@@ -8,12 +8,14 @@ main {
 .container {
     display: flex;
     justify-content: flex-end;
-    align-items: flex-end;
+    align-items: center;
 }
 
 .history, .dirigeant, .salary, .adherant, .contact {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
     position: relative;
     margin-top: 2rem;
     margin-bottom: 2rem;
@@ -36,8 +38,7 @@ main {
     text-align: center;
     z-index: 1;
     position: absolute;
-    margin-bottom: 30px;
-    margin-right: 10px;
+    padding-left: 150px;
     width: 500px;
 }
 .text-1 a, .text-2 a, .text-3 a, .text-4 a, .text-5 a {
