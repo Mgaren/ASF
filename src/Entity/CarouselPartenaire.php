@@ -147,6 +147,26 @@ class CarouselPartenaire
      */
     private string $image26 = '';
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image27 = '';
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image28 = '';
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image29 = '';
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private string $image30 = '';
+
     public function getId(): ?int
     {
         return $this->id;
@@ -460,6 +480,54 @@ class CarouselPartenaire
     public function setImage26(string $image26): self
     {
         $this->image26 = $image26;
+
+        return $this;
+    }
+
+    public function getImage27(): string
+    {
+        return $this->image27;
+    }
+
+    public function setImage27(string $image27): self
+    {
+        $this->image27 = $image27;
+
+        return $this;
+    }
+
+    public function getImage28(): string
+    {
+        return $this->image28;
+    }
+
+    public function setImage28(string $image28): self
+    {
+        $this->image28 = $image28;
+
+        return $this;
+    }
+
+    public function getImage29(): string
+    {
+        return $this->image29;
+    }
+
+    public function setImage29(string $image29): self
+    {
+        $this->image29 = $image29;
+
+        return $this;
+    }
+
+    public function getImage30(): string
+    {
+        return $this->image30;
+    }
+
+    public function setImage30(string $image30): self
+    {
+        $this->image30 = $image30;
 
         return $this;
     }

@@ -18,9 +18,11 @@ class History
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\ManyToOne(targetEntity=HistoryDate::class, inversedBy="History")
+     * @ORM\JoinColumn(nullable=false)
+     * @var HistoryDate|null
      */
-    private string $date;
+    private ?HistoryDate $date;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -61,19 +63,15 @@ class History
         return $this;
     }
 
-    /**
-     * @return string
-     */
-    public function getDate(): string
+    public function getDate(): ?HistoryDate
     {
         return $this->date;
     }
 
-    /**
-     * @param string $date
-     */
-    public function setDate(string $date): void
+    public function setDate(?HistoryDate $date): self
     {
         $this->date = $date;
+
+        return $this;
     }
 }

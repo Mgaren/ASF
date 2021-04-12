@@ -43,3 +43,68 @@ h1 {
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+
+.category {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 5rem;
+    margin-top: 5rem;
+}
+
+.container_adherant_partenaire {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 5rem;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+}
+
+.container_item_partenaire {
+    display: flex;
+    margin: 1em 1em;
+}
+
+.partenaire {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+}
+
+.partenaire:hover {
+    transform: scale(1.10);
+}
+
+.partenaire_name {
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 0;
+}
+.partenaire_name h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.partenaire_text {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+    font-weight: 400;
+}
+.partenaire_text h3 {
+    display: flex;
+    justify-content: center;
+}
+
+.partenaire_image {
+    display: flex;
+    justify-content: center;
+}
+
+.partenaire_image img {
+    width: 300px;
+    height: 250px;
+}

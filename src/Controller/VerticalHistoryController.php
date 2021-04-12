@@ -30,7 +30,7 @@ class VerticalHistoryController extends AbstractController
     ): Response {
         return $this->render('asf/verticalhistory/index.html.twig', [
             'verticalHistorys' => $vertHistRepository->findBy([], [
-                'titre' => 'ASC'
+                'date' => 'ASC'
             ]),
         ]);
     }

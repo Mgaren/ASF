@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Date{% endblock %}
+
+{% block body %}
+    <h1>Date</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ date.id }}</td>
+            </tr>
+            <tr>
+                <th>Date</th>
+                <td>{{ date.date }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_date') }}">Retour à la liste</a>
+
+    <a href="{{ path('add_date_edit', {'id': date.id}) }}">Editer</a>
+
+    {{ include('add/date/_delete_form.html.twig') }}
+{% endblock %}

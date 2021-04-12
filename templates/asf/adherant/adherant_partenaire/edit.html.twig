@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit AdherantPartenaire{% endblock %}
+
+{% block body %}
+    <h1>Editer le partenaire de la carte adhérent</h1>
+
+    {{ include('asf/adherant/adherant_partenaire/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+
+    <a href="{{ path('admin_adherant') }}">Retour à la liste</a>
+
+    {{ include('asf/adherant/adherant_partenaire/_delete_form.html.twig') }}
+{% endblock %}

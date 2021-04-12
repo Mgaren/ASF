@@ -18,9 +18,11 @@ class VerticalHistory
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=100)
+     * @ORM\ManyToOne(targetEntity=HistoryDate::class, inversedBy="VerticalHistory")
+     * @ORM\JoinColumn(nullable=false)
+     * @var HistoryDate|null
      */
-    private string $titre;
+    private ?HistoryDate $date;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -37,14 +39,14 @@ class VerticalHistory
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getDate(): ?HistoryDate
     {
-        return $this->titre;
+        return $this->date;
     }
 
-    public function setTitre(string $titre): self
+    public function setDate(?HistoryDate $date): self
     {
-        $this->titre = $titre;
+        $this->date = $date;
 
         return $this;
     }
