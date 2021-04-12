@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New AdherantPartenaire{% endblock %}
+
+{% block body %}
+    <h1>Ajouter un partenaire</h1>
+
+    {{ include('asf/adherant/adherant_partenaire/_form.html.twig') }}
+
+    <a href="{{ path('admin_adherant') }}">Retour à la liste</a>
+{% endblock %}

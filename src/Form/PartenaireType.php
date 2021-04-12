@@ -19,6 +19,7 @@ class PartenaireType extends AbstractType
                 'label' => 'Nom du partenaire*'
             ])
             ->add('description', TextareaType::class, [
+                'required' => false,
                 'label' => 'Description*'
             ])
             ->add('lien', TextType::class, [

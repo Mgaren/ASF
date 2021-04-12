@@ -61,9 +61,21 @@
             {% else %}
                 <img src="/uploads/carousel/history/{{ random(history) }}">
             {% endif %}
+            {% if carousel_histories is not empty and carousel_histories[0].image6 %}
+                {% if carousel_histories[0].image6 == true %}
+                    <img src="/uploads/carousel/history/{{ carousel_histories[0].image6 }}">
+                {% endif %}
+            {% else %}
+                <img src="/uploads/carousel/history/{{ random(history) }}">
+            {% endif %}
             {% if carousel_histories is not empty and carousel_histories[0].image1 %}
                 {% if carousel_histories[0].image1 == true %}
                     <img src="/uploads/carousel/history/{{ carousel_histories[0].image1 }}">
+                {% endif %}
+            {% endif %}
+            {% if carousel_histories is not empty and carousel_histories[0].image2 %}
+                {% if carousel_histories[0].image2 == true %}
+                    <img src="/uploads/carousel/history/{{ carousel_histories[0].image2 }}">
                 {% endif %}
             {% endif %}
         </div>
@@ -395,6 +407,34 @@
             {% if carousel_partenaires is not empty and carousel_partenaires[0].image26 %}
                 {% if carousel_partenaires[0].image26 == true %}
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image26 }}">
+                {% endif %}
+            {% else %}
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
+            {% endif %}
+            {% if carousel_partenaires is not empty and carousel_partenaires[0].image27 %}
+                {% if carousel_partenaires[0].image27 == true %}
+                    <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image27 }}">
+                {% endif %}
+            {% else %}
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
+            {% endif %}
+            {% if carousel_partenaires is not empty and carousel_partenaires[0].image28 %}
+                {% if carousel_partenaires[0].image28 == true %}
+                    <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image28 }}">
+                {% endif %}
+            {% else %}
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
+            {% endif %}
+            {% if carousel_partenaires is not empty and carousel_partenaires[0].image29 %}
+                {% if carousel_partenaires[0].image29 == true %}
+                    <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image29 }}">
+                {% endif %}
+            {% else %}
+                <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">
+            {% endif %}
+            {% if carousel_partenaires is not empty and carousel_partenaires[0].image30 %}
+                {% if carousel_partenaires[0].image30 == true %}
+                    <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image30 }}">
                 {% endif %}
             {% else %}
                 <img src="/uploads/carousel/partenaire/{{ random(partenaire) }}">

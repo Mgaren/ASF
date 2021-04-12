@@ -28,8 +28,9 @@ main {
     text-align: left;
 }
 .image-1 img, .image-2 img, .image-3 img, .image-4 img, .image-5 img {
-    width: 100vw;
-    height: 100vh;
+    width: 50vw;
+    height: 50vh;
+    align-items: center;
 }
 .text-1, .text-2, .text-3, .text-4, .text-5 {
     text-align: center;
