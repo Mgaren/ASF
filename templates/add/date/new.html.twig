@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New Date{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une date d'histoire</h1>
-
     {{ include('add/date/_form.html.twig') }}
-
-    <a href="{{ path('admin_date') }}">Retour à la liste</a>
 {% endblock %}

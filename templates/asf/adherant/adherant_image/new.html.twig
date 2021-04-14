@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New AdherantImage{% endblock %}
 
 {% block body %}
-    <h1>Ajouter l'image "carte adherant" </h1>
-
     {{ include('asf/adherant/adherant_image/_form.html.twig') }}
-
-    <a href="{{ path('admin_adherant') }}">Retour à la liste</a>
 {% endblock %}

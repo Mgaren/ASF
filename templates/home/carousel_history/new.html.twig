@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New CarouselHistory{% endblock %}
 
 {% block body %}
-    <h1>Ajouter le carousel d'histoire</h1>
-
     {{ include('home/carousel_history/_form.html.twig') }}
-
-    <a href="{{ path('admin_carousel_history') }}">Retour à la liste</a>
 {% endblock %}

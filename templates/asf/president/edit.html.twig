@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Edit President{% endblock %}
 
 {% block body %}
-    <h1>Editer les présidents de l'ASF</h1>
-
     {{ include('asf/president/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
-
-    <a href="{{ path('admin_president') }}">Retour à la liste</a>
-
-    {{ include('asf/president/_delete_form.html.twig') }}
 {% endblock %}

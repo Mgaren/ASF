@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Edit DirigeantsPost{% endblock %}
 
 {% block body %}
-    <h1>Edit DirigeantsPost</h1>
-
     {{ include('add/post/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
-
-    <a href="{{ path('admin_dirigeants_post') }}">Retour à la liste</a>
-
-    {{ include('add/post/_delete_form.html.twig') }}
 {% endblock %}

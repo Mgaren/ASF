@@ -16,17 +16,17 @@ class CarouselHistoryType extends AbstractType
             ->add('fileimage1', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '1ère image',
+                'label' => '1ère image*',
             ])
             ->add('fileimage2', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '2ème image',
+                'label' => '2ème image*',
             ])
             ->add('fileimage3', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '3ème image',
+                'label' => '3ème image*',
             ])
             ->add('fileimage4', FileType::class, [
                 'mapped' => false,

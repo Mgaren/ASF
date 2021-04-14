@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Edit CarouselHistory{% endblock %}
 
 {% block body %}
-    <h1>Editer le Carousel d'histoire</h1>
-
     {{ include('home/carousel_history/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
-
-    <a href="{{ path('admin_carousel_history') }}">Retour à la liste</a>
-
-    {# {{ include('home/carousel_history/_delete_form.html.twig') }} #}
 {% endblock %}

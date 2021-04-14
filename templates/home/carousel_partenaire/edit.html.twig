@@ -1,13 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}Edit CarouselPartenaire{% endblock %}
 
 {% block body %}
-    <h1>Editer le carousel des partenaires</h1>
-
     {{ include('home/carousel_partenaire/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
-
-    <a href="{{ path('admin_carousel_partenaire') }}">Retour à la liste</a>
-
-    {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}
 {% endblock %}
