@@ -217,7 +217,7 @@ h1 {
 /* carousel partenaire home page */
 .home-carousel-partenaire {
     position: relative;
-    width: 3200%;
+    width: 3300%;
     margin-top: 1rem;
     font-size: 0;
     text-align: left;
@@ -226,7 +226,7 @@ h1 {
 }
 
 .home-carousel-partenaire img {
-    width: 1.0417%;
+    width: 1.0101%;
     height: 50vh;
     float: left;
 }
@@ -234,48 +234,33 @@ h1 {
     0% { left: 0; }
     4% { left: -100%; }
 
-    7% { left: -100%; }
-    11% { left: -200%; }
+    6% { left: -100%; }
+    14% { left: -200%; }
 
-    13% { left: -200%; }
-    17% { left: -300%; }
+    16% { left: -200%; }
+    24% { left: -300%; }
 
-    20% { left: -300%; }
-    24% { left: -400%; }
+    26% { left: -300%; }
+    34% { left: -400%; }
 
-    26% { left: -400%; }
-    30% { left: -500%; }
+    36% { left: -400%; }
+    44% { left: -500%; }
 
-    33% { left: -500%; }
-    37% { left: -600%; }
+    46% { left: -500%; }
+    54% { left: -600%; }
 
-    39% { left: -600%; }
-    43% { left: -700%; }
+    56% { left: -600%; }
+    64% { left: -700%; }
 
-    46% { left: -700%; }
-    50% { left: -800%; }
+    66% { left: -700%; }
+    74% { left: -800%; }
 
-    52% { left: -800%; }
-    56% { left: -900%; }
+    76% { left: -800%; }
+    84% { left: -900%; }
 
-    59% { left: -900%; }
-    63% { left: -1000%; }
+    86% { left: -900%; }
+    94% { left: -1000%; }
 
-    65% { left: -1000%; }
-    69% { left: -1100%; }
-
-    72% { left: -1100%; }
-    76% { left: -1200%; }
-
-    78% { left: -1200%; }
-    82% { left: -1300%; }
-
-    85% { left: -1300%; }
-    89% { left: -1400%; }
-
-    91% { left: -1400%; }
-    95% { left: -1500%; }
-
-    98% { left: -1500%; }
-    100% { left: -1500%; }
+    96% { left: -1000%; }
+    100% { left: -1000%; }
 }

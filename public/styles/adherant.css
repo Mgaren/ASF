@@ -101,13 +101,11 @@ h1 {
 }
 
 .partenaire_text {
-    font-size: 20px;
-    width: 350px;
-}
-
-.partenaire_text h3 {
     display: flex;
     justify-content: center;
+    text-align: center;
+    font-size: 20px;
+    width: 350px;
 }
 
 .partenaire_image {
