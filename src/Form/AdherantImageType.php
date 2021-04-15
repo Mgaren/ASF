@@ -16,7 +16,7 @@ class AdherantImageType extends AbstractType
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Image',
+                'label' => 'Image*',
             ])
         ;
     }

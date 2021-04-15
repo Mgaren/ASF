@@ -33,7 +33,7 @@ class PartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/partenaire/new", name="partenaire_new", methods={"GET","POST"})
+     * @Route("/new", name="partenaire_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -76,7 +76,7 @@ class PartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/partenaire/show/{id}", name="partenaire_show", methods={"GET"})
+     * @Route("/show/{id}", name="partenaire_show", methods={"GET"})
      * @param Partenaire $partenaire
      * @return Response
      */
@@ -88,7 +88,7 @@ class PartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/partenaire/edit/{id}", name="partenaire_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="partenaire_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Partenaire $partenaire
      * @param SluggerInterface $slugger
@@ -132,7 +132,7 @@ class PartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="partenaire_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="partenaire_delete", methods={"DELETE"})
      * @param Request $request
      * @param Partenaire $partenaire
      * @param EntityManagerInterface $entityManager

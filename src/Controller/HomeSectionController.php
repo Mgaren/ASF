@@ -35,7 +35,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/section/new", name="section_new", methods={"GET","POST"})
+     * @Route("/new", name="section_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -79,7 +79,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/section/show/{id}", name="section_show", methods={"GET"})
+     * @Route("/show/{id}", name="section_show", methods={"GET"})
      * @param Section $section
      * @return Response
      */
@@ -91,7 +91,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/section/edit/{id}", name="section_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="section_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Section $section
      * @param SluggerInterface $slugger
@@ -136,7 +136,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/section/{id}", name="section_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="section_delete", methods={"DELETE"})
      * @param Request $request
      * @param Section $section
      * @param EntityManagerInterface $entityManager
@@ -159,7 +159,7 @@ class HomeSectionController extends AbstractController
     }
 
     /**
-     * @Route("/section/sport/{id}", name="section_sport", methods={"GET"})
+     * @Route("/sport/{id}", name="section_sport", methods={"GET"})
      * @param Section $section
      * @return Response
      */

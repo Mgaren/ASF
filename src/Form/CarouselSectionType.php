@@ -16,67 +16,67 @@ class CarouselSectionType extends AbstractType
             ->add('fileimage1', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '1ère image',
+                'label' => '1ère image*',
             ])
             ->add('fileimage2', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '2ème image',
+                'label' => '2ème image*',
             ])
             ->add('fileimage3', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '3ème image',
+                'label' => '3ème image*',
             ])
             ->add('fileimage4', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '4ème image',
+                'label' => '4ème image*',
             ])
             ->add('fileimage5', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '5ème image',
+                'label' => '5ème image*',
             ])
             ->add('fileimage6', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '6ème image',
+                'label' => '6ème image*',
             ])
             ->add('fileimage7', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '7ème image',
+                'label' => '7ème image*',
             ])
             ->add('fileimage8', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '8ème image',
+                'label' => '8ème image*',
             ])
             ->add('fileimage9', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '9ème image',
+                'label' => '9ème image*',
             ])
             ->add('fileimage10', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '10ème image',
+                'label' => '10ème image*',
             ])
             ->add('fileimage11', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '11ème image',
+                'label' => '11ème image*',
             ])
             ->add('fileimage12', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '12ème image',
+                'label' => '12ème image*',
             ])
             ->add('fileimage13', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => '13ème image',
+                'label' => '13ème image*',
             ])
             ->add('fileimage14', FileType::class, [
                 'mapped' => false,

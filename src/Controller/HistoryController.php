@@ -40,7 +40,7 @@ class HistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/history/new", name="asf_history_history_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_history_history_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -83,7 +83,7 @@ class HistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/history/show/{id}", name="asf_history_history_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_history_history_show", methods={"GET"})
      * @param History $history
      * @return Response
      */
@@ -95,7 +95,7 @@ class HistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/history/edit/{id}", name="asf_history_history_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_history_history_edit", methods={"GET","POST"})
      * @param Request $request
      * @param History $history
      * @param SluggerInterface $slugger
@@ -140,7 +140,7 @@ class HistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/history/delete/{id}", name="asf_history_history_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_history_history_delete", methods={"DELETE"})
      * @param Request $request
      * @param History $history
      * @param EntityManagerInterface $entityManager

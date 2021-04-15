@@ -36,7 +36,7 @@ class VerticalHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/new", name="asf_history_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_history_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -79,7 +79,7 @@ class VerticalHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/show/{id}", name="asf_history_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_history_show", methods={"GET"})
      * @param VerticalHistory $verticalHistory
      * @return Response
      */
@@ -91,7 +91,7 @@ class VerticalHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/edit/{id}", name="asf_history_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_history_edit", methods={"GET","POST"})
      * @param Request $request
      * @param VerticalHistory $verticalHistory
      * @param SluggerInterface $slugger
@@ -136,7 +136,7 @@ class VerticalHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/asf/history/delete/{id}", name="asf_history_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_history_delete", methods={"DELETE"})
      * @param Request $request
      * @param VerticalHistory $verticalHistory
      * @param EntityManagerInterface $entityManager

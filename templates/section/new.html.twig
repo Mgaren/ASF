@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New Section{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une nouvelle section sportive</h1>
-
     {{ include('section/_form.html.twig') }}
-
-    <a href="{{ path('admin_homeSection') }}">Retour à la liste</a>
 {% endblock %}

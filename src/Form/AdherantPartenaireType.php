@@ -30,10 +30,10 @@ class AdherantPartenaireType extends AbstractType
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
                 'required' => false,
-                'label' => 'Image',
+                'label' => 'Image*',
             ])
             ->add('category', EntityType::class, [
-                'label' => 'Catégorie',
+                'label' => 'Catégorie*',
                 'class' => Category::class,
                 'choice_label' => 'name',
                 'multiple' => false,

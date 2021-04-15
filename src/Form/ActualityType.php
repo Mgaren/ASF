@@ -22,11 +22,43 @@ class ActualityType extends AbstractType
                 'label' => 'Titre*'
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description*'
+                'label' => '1er Paragraphe*'
             ])
             ->add('description2', TextareaType::class, [
                 'required' => false,
-                'label' => 'Complément description'
+                'label' => '2ème Paragraphe'
+            ])
+            ->add('description3', TextareaType::class, [
+                'required' => false,
+                'label' => '3ème Paragraphe'
+            ])
+            ->add('description4', TextareaType::class, [
+                'required' => false,
+                'label' => '4ème Paragraphe'
+            ])
+            ->add('description5', TextareaType::class, [
+                'required' => false,
+                'label' => '5ème Paragraphe'
+            ])
+            ->add('description6', TextareaType::class, [
+                'required' => false,
+                'label' => '6ème Paragraphe'
+            ])
+            ->add('description7', TextareaType::class, [
+                'required' => false,
+                'label' => '7ème Paragraphe'
+            ])
+            ->add('description8', TextareaType::class, [
+                'required' => false,
+                'label' => '8ème Paragraphe'
+            ])
+            ->add('description9', TextareaType::class, [
+                'required' => false,
+                'label' => '9ème Paragraphe'
+            ])
+            ->add('description10', TextareaType::class, [
+                'required' => false,
+                'label' => '10ème Paragraphe'
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

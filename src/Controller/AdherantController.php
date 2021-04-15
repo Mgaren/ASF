@@ -64,7 +64,7 @@ class AdherantController extends AbstractController
     //new, show, edit and delete image for adherant page
 
     /**
-     * @Route("/asf/adherant/image/new", name="asf_adherant_image_new", methods={"GET","POST"})
+     * @Route("/image/new", name="asf_adherant_image_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -105,7 +105,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/image/show/{id}", name="asf_adherant_image_show", methods={"GET"})
+     * @Route("/image/show/{id}", name="asf_adherant_image_show", methods={"GET"})
      * @param AdherantImage $adherantImage
      * @return Response
      */
@@ -117,7 +117,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/image/edit/{id}", name="asf_adherant_image_edit", methods={"GET","POST"})
+     * @Route("/image/edit/{id}", name="asf_adherant_image_edit", methods={"GET","POST"})
      * @param Request $request
      * @param AdherantImage $adherantImage
      * @param SluggerInterface $slugger
@@ -162,7 +162,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/image/delete/{id}", name="asf_adherant_image_delete", methods={"DELETE"})
+     * @Route("/image/delete/{id}", name="asf_adherant_image_delete", methods={"DELETE"})
      * @param Request $request
      * @param AdherantImage $adherantImage
      * @param EntityManagerInterface $entityManager
@@ -190,7 +190,7 @@ class AdherantController extends AbstractController
     //new, show, edit and delete text for adherant page
 
     /**
-     * @Route("/asf/adherant/text/new", name="asf_adherant_text_new", methods={"GET","POST"})
+     * @Route("/text/new", name="asf_adherant_text_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -215,7 +215,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/text/show/{id}", name="asf_adherant_text_show", methods={"GET"})
+     * @Route("/text/show/{id}", name="asf_adherant_text_show", methods={"GET"})
      * @param AdherantText $adherantText
      * @return Response
      */
@@ -227,7 +227,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/text/edit/{id}", name="asf_adherant_text_edit", methods={"GET","POST"})
+     * @Route("/text/edit/{id}", name="asf_adherant_text_edit", methods={"GET","POST"})
      * @param Request $request
      * @param AdherantText $adherantText
      * @return Response
@@ -250,7 +250,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/text/delete/{id}", name="asf_adherant_text_delete", methods={"DELETE"})
+     * @Route("/text/delete/{id}", name="asf_adherant_text_delete", methods={"DELETE"})
      * @param Request $request
      * @param AdherantText $adherantText
      * @param EntityManagerInterface $entityManager
@@ -272,7 +272,7 @@ class AdherantController extends AbstractController
     //new, show, edit and delete partenaire for adherant page
 
     /**
-     * @Route("/asf/adherant/partenaire/new", name="asf_adherant_partenaire_new", methods={"GET","POST"})
+     * @Route("/partenaire/new", name="asf_adherant_partenaire_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -315,7 +315,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/partenaire/show/{id}", name="asf_adherant_partenaire_show", methods={"GET"})
+     * @Route("/partenaire/show/{id}", name="asf_adherant_partenaire_show", methods={"GET"})
      * @param AdherantPartenaire $adherantPartenaire
      * @return Response
      */
@@ -327,7 +327,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/partenaire/edit/{id}", name="asf_adherant_partenaire_edit", methods={"GET","POST"})
+     * @Route("/partenaire/edit/{id}", name="asf_adherant_partenaire_edit", methods={"GET","POST"})
      * @param Request $request
      * @param AdherantPartenaire $adherantPartenaire
      * @param SluggerInterface $slugger
@@ -371,7 +371,7 @@ class AdherantController extends AbstractController
     }
 
     /**
-     * @Route("/asf/adherant/partenaire/delete/{id}", name="asf_adherant_partenaire_delete", methods={"DELETE"})
+     * @Route("/partenaire/delete/{id}", name="asf_adherant_partenaire_delete", methods={"DELETE"})
      * @param Request $request
      * @param AdherantPartenaire $adherantPartenaire
      * @param EntityManagerInterface $entityManager

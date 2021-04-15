@@ -18,7 +18,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class CarouselHistoryController extends AbstractController
 {
     /**
-     * @Route("/home/carousel/history/new", name="home_carousel_history_new", methods={"GET","POST"})
+     * @Route("/carousel/history/new", name="home_carousel_history_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -134,7 +134,7 @@ class CarouselHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/history/show/{id}", name="home_carousel_history_show", methods={"GET"})
+     * @Route("/carousel/history/show/{id}", name="home_carousel_history_show", methods={"GET"})
      * @param CarouselHistory $carouselHistory
      * @return Response
      */
@@ -146,7 +146,7 @@ class CarouselHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/history/edit/{id}", name="home_carousel_history_edit", methods={"GET","POST"})
+     * @Route("/carousel/history/edit/{id}", name="home_carousel_history_edit", methods={"GET","POST"})
      * @param Request $request
      * @param CarouselHistory $carouselHistory
      * @param SluggerInterface $slugger
@@ -290,7 +290,7 @@ class CarouselHistoryController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/history/delete/{id}", name="home_carousel_history_delete", methods={"DELETE"})
+     * @Route("/carousel/history/delete/{id}", name="home_carousel_history_delete", methods={"DELETE"})
      * @param Request $request
      * @param CarouselHistory $carouselHistory
      * @param EntityManagerInterface $entityManager

@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New VerticalHistory{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une nouvelle Histoire</h1>
-
     {{ include('asf/verticalhistory/_form.html.twig') }}
-
-    <a href="{{ path('admin_verticalHistory') }}">Retour à la liste</a>
 {% endblock %}

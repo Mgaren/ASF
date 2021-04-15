@@ -31,12 +31,14 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>Numéro</th>
                 <th>Les Postes</th>
             </tr>
             </thead>
             <tbody>
             {% for dirigeants_post in dirigeants_posts %}
                 <tr>
+                    <td>{{ dirigeants_post.number }}</td>
                     <td>{{ dirigeants_post.name }}</td>
                     <td>
                         <a href="{{ path('add_dirigeants_post_show', {'id': dirigeants_post.id}) }}">Détail</a>

@@ -15,7 +15,7 @@ class AdherantTextType extends AbstractType
     {
         $builder
             ->add('description', TextareaType::class, [
-                'label' => 'text',
+                'label' => 'text*',
             ])
         ;
     }

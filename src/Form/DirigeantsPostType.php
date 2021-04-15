@@ -13,6 +13,9 @@ class DirigeantsPostType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('number', TextType::class, [
+                'label' => 'numéro*',
+            ])
             ->add('name', TextType::class, [
                 'label' => 'poste*',
             ]);

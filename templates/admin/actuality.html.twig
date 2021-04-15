@@ -33,8 +33,6 @@
             <tr>
                 <th>date</th>
                 <th>Titre</th>
-                <th>Description</th>
-                <th>Complément description</th>
                 <th>Image</th>
             </tr>
             </thead>
@@ -43,14 +41,52 @@
                 <tr>
                     <td>{{ actuality.date }}</td>
                     <td>{{ actuality.titre }}</td>
-                    <td>{{ actuality.description }}</td>
-                    <td>{{ actuality.description2 }}</td>
                     <td>{{ actuality.image }}</td>
                     <td>
                         <a href="{{ path('actuality_show', {'id': actuality.id}) }}">Détail</a>
                         {{ include('actuality/_delete_form.html.twig') }}
                         <a href="{{ path('actuality_edit', {'id': actuality.id}) }}">Editer</a>
                     </td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>1er Paragraphe</th>
+                <th>2ème Paragraphe</th>
+                <th>3ème Paragraphe</th>
+                <th>4ème Paragraphe</th>
+                <th>5ème Paragraphe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for actuality in actualitys %}
+                <tr>
+                    <td>{{ actuality.description }}</td>
+                    <td>{{ actuality.description2 }}</td>
+                    <td>{{ actuality.description3 }}</td>
+                    <td>{{ actuality.description4 }}</td>
+                    <td>{{ actuality.description5 }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            <thead>
+            <tr>
+                <th>6ème Paragraphe</th>
+                <th>7ème Paragraphe</th>
+                <th>8ème Paragraphe</th>
+                <th>9ème Paragraphe</th>
+                <th>10ème Paragraphe</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for actuality in actualitys %}
+                <tr>
+                    <td>{{ actuality.description6 }}</td>
+                    <td>{{ actuality.description7 }}</td>
+                    <td>{{ actuality.description8 }}</td>
+                    <td>{{ actuality.description9 }}</td>
+                    <td>{{ actuality.description10 }}</td>
                 </tr>
             {% else %}
                 <tr>

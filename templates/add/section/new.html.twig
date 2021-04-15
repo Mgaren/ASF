@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New SectionSalary{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une section pour salariés</h1>
-
     {{ include('add/section/_form.html.twig') }}
-
-    <a href="{{ path('admin_section_salary') }}">Retour à la liste</a>
 {% endblock %}
