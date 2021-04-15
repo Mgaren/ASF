@@ -42,6 +42,11 @@
                     <td>{{ actuality.date }}</td>
                     <td>{{ actuality.titre }}</td>
                     <td>{{ actuality.image }}</td>
+                    <td>
+                        <a href="{{ path('actuality_show', {'id': actuality.id}) }}">Détail</a>
+                        {{ include('actuality/_delete_form.html.twig') }}
+                        <a href="{{ path('actuality_edit', {'id': actuality.id}) }}">Editer</a>
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -82,11 +87,6 @@
                     <td>{{ actuality.description8 }}</td>
                     <td>{{ actuality.description9 }}</td>
                     <td>{{ actuality.description10 }}</td>
-                    <td>
-                        <a href="{{ path('actuality_show', {'id': actuality.id}) }}">Détail</a>
-                        {{ include('actuality/_delete_form.html.twig') }}
-                        <a href="{{ path('actuality_edit', {'id': actuality.id}) }}">Editer</a>
-                    </td>
                 </tr>
             {% else %}
                 <tr>
