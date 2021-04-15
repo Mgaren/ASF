@@ -224,7 +224,9 @@ class AdminController extends AbstractController
         DirigeantsPostRepository $postRepository,
         PaginatorInterface $paginator
     ): Response {
-        $posts = $postRepository->findAll();
+        $posts = $postRepository->findBy([], [
+            'number' => 'ASC'
+        ]);
         $posts = $paginator->paginate(
             $posts,
             $request->query->getInt('page', 1),

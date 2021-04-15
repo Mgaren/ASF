@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New Dirigeants{% endblock %}
 
 {% block body %}
-    <h1>Ajouter un dirigeant</h1>
-
     {{ include('asf/dirigeants/_form.html.twig') }}
-
-    <a href="{{ path('admin_dirigeants') }}">Retour à la liste</a>
 {% endblock %}

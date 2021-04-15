@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New HomeAsf{% endblock %}
 
 {% block body %}
-    <h1>Ajouter les images de la page ASF</h1>
-
     {{ include('asf/home/_form.html.twig') }}
-
-    <a href="{{ path('admin_homeAsf') }}">Retour à la liste</a>
 {% endblock %}

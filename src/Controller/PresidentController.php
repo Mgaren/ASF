@@ -16,7 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class PresidentController extends AbstractController
 {
     /**
-     * @Route("/asf/president/new", name="asf_president_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_president_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -41,7 +41,7 @@ class PresidentController extends AbstractController
     }
 
     /**
-     * @Route("/asf/president/show/{id}", name="asf_president_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_president_show", methods={"GET"})
      * @param President $president
      * @return Response
      */
@@ -53,7 +53,7 @@ class PresidentController extends AbstractController
     }
 
     /**
-     * @Route("/asf/president/edit/{id}", name="asf_president_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_president_edit", methods={"GET","POST"})
      * @param Request $request
      * @param President $president
      * @return Response
@@ -76,7 +76,7 @@ class PresidentController extends AbstractController
     }
 
     /**
-     * @Route("/asf/president/delete/{id}", name="asf_president_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_president_delete", methods={"DELETE"})
      * @param Request $request
      * @param President $president
      * @param EntityManagerInterface $entityManager

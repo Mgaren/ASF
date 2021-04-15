@@ -35,7 +35,7 @@ class SalariesController extends AbstractController
     }
 
     /**
-     * @Route("/asf/salaries/new", name="asf_salaries_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_salaries_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -78,7 +78,7 @@ class SalariesController extends AbstractController
     }
 
     /**
-     * @Route("/asf/salaries/show/{id}", name="asf_salaries_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_salaries_show", methods={"GET"})
      * @param Salaries $salary
      * @return Response
      */
@@ -90,7 +90,7 @@ class SalariesController extends AbstractController
     }
 
     /**
-     * @Route("/asf/salaries/edit/{id}", name="asf_salaries_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_salaries_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Salaries $salary
      * @param SluggerInterface $slugger
@@ -134,7 +134,7 @@ class SalariesController extends AbstractController
     }
 
     /**
-     * @Route("/asf/salaries/delete/{id}", name="asf_salaries_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_salaries_delete", methods={"DELETE"})
      * @param Request $request
      * @param Salaries $salary
      * @param EntityManagerInterface $entityManager

@@ -35,7 +35,7 @@ class DirigeantsController extends AbstractController
     }
 
     /**
-     * @Route("/asf/dirigeants/new", name="asf_dirigeants_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_dirigeants_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -76,7 +76,7 @@ class DirigeantsController extends AbstractController
     }
 
     /**
-     * @Route("/asf/dirigeants/show/{id}", name="asf_dirigeants_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_dirigeants_show", methods={"GET"})
      * @param Dirigeants $dirigeant
      * @return Response
      */
@@ -88,7 +88,7 @@ class DirigeantsController extends AbstractController
     }
 
     /**
-     * @Route("/asf/dirigeants/edit/{id}", name="asf_dirigeants_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_dirigeants_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Dirigeants $dirigeant
      * @param SluggerInterface $slugger
@@ -133,7 +133,7 @@ class DirigeantsController extends AbstractController
     }
 
     /**
-     * @Route("/asf/dirigeants/delete/{id}", name="asf_dirigeants_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_dirigeants_delete", methods={"DELETE"})
      * @param Request $request
      * @param Dirigeants $dirigeant
      * @param EntityManagerInterface $entityManager

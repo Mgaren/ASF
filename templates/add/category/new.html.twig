@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New Category{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une categorie pour les partenaires de la carte adhérent</h1>
-
     {{ include('add/category/_form.html.twig') }}
-
-    <a href="{{ path('admin_category') }}">Retour à la liste</a>
 {% endblock %}

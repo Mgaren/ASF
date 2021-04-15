@@ -1,9 +1,9 @@
 {% extends 'home/layout.html.twig' %}
 
 {% block stylesheets %}
-    <link href="{{ 'styles/carousel.css' }}" rel="stylesheet">
-    <link href="{{ 'styles/footer.css' }}" rel="stylesheet">
-    <link href="{{ 'styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/carousel.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}Accueil{% endblock %}
@@ -18,7 +18,6 @@
                     <div class="actuality_titre">{{ actuality.titre }}</div>
                     <div class="actuality_date">{{ actuality.date }}</div>
                     <div class="actuality_text">{{ actuality.description }}</div>
-                    <div class="actuality_text">{{ actuality.description2 }}</div>
                 </div>
                 <div class="actuality_image">
                     {% if actuality.image == true %}

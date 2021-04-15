@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}New Actuality{% endblock %}
 
 {% block body %}
-    <h1>Ajouter une nouvelle actualité</h1>
-
     {{ include('actuality/_form.html.twig') }}
-
-    <a href="{{ path('admin_actuality') }}">Retour à la liste</a>
 {% endblock %}
