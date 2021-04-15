@@ -33,7 +33,7 @@ class ActualityController extends AbstractController
     }
 
     /**
-     * @Route("/actuality/new", name="actuality_new", methods={"GET","POST"})
+     * @Route("/new", name="actuality_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -76,7 +76,7 @@ class ActualityController extends AbstractController
     }
 
     /**
-     * @Route("/actuality/show/{id}", name="actuality_show", methods={"GET"})
+     * @Route("/show/{id}", name="actuality_show", methods={"GET"})
      * @param Actuality $actuality
      * @return Response
      */
@@ -88,7 +88,7 @@ class ActualityController extends AbstractController
     }
 
     /**
-     * @Route("/actuality/edit/{id}", name="actuality_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="actuality_edit", methods={"GET","POST"})
      * @param Request $request
      * @param Actuality $actuality
      * @param SluggerInterface $slugger
@@ -132,7 +132,7 @@ class ActualityController extends AbstractController
     }
 
     /**
-     * @Route("/actuality/delete/{id}", name="actuality_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="actuality_delete", methods={"DELETE"})
      * @param Request $request
      * @param Actuality $actuality
      * @param EntityManagerInterface $entityManager

@@ -19,6 +19,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class ContactController
  * @package App\Controller
+ * @Route("/asf/contact")
  */
 class ContactController extends AbstractController
 {
@@ -29,7 +30,7 @@ class ContactController extends AbstractController
      * @param ContactHoraireRepository $horaireRepository
      * @return Response
      * @throws TransportExceptionInterface
-     * @Route("/asf/contact", name="asf_contact", methods={"GET"})
+     * @Route("/", name="asf_contact", methods={"GET"})
      */
     public function index(
         Request $request,
@@ -59,7 +60,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/asf/contact/new", name="asf_contact_horaire_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_contact_horaire_new", methods={"GET","POST"})
      * @param Request $request
      * @return Response
      */
@@ -84,7 +85,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/asf/contact/show/{id}", name="asf_contact_horaire_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_contact_horaire_show", methods={"GET"})
      * @param ContactHoraire $contactHoraire
      * @return Response
      */
@@ -96,7 +97,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/asf/contact/edit/{id}", name="asf_contact_horaire_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_contact_horaire_edit", methods={"GET","POST"})
      * @param Request $request
      * @param ContactHoraire $contactHoraire
      * @return Response
@@ -119,7 +120,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/asf/contact/delete/{id}", name="asf_contact_horaire_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_contact_horaire_delete", methods={"DELETE"})
      * @param Request $request
      * @param ContactHoraire $contactHoraire
      * @return Response

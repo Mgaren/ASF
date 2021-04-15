@@ -16,13 +16,14 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 /**
  * Class HomeAsfController
  * @package App\Controller
+ * @Route("/asf")
  */
 class HomeAsfController extends AbstractController
 {
     /**
      * @param HomeAsfRepository $homeAsfRepository
      * @return Response
-     * @Route("/asf", name="asf", methods={"GET"})
+     * @Route("/", name="asf", methods={"GET"})
      */
     public function index(HomeAsfRepository $homeAsfRepository): Response
     {
@@ -32,7 +33,7 @@ class HomeAsfController extends AbstractController
     }
 
     /**
-     * @Route("/asf/new", name="asf_new", methods={"GET","POST"})
+     * @Route("/new", name="asf_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -133,7 +134,7 @@ class HomeAsfController extends AbstractController
     }
 
     /**
-     * @Route("/asf/show/{id}", name="asf_show", methods={"GET"})
+     * @Route("/show/{id}", name="asf_show", methods={"GET"})
      * @param HomeAsf $homeAsf
      * @return Response
      */
@@ -145,7 +146,7 @@ class HomeAsfController extends AbstractController
     }
 
     /**
-     * @Route("/asf/edit/{id}", name="asf_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="asf_edit", methods={"GET","POST"})
      * @param Request $request
      * @param HomeAsf $homeAsf
      * @param SluggerInterface $slugger
@@ -269,7 +270,7 @@ class HomeAsfController extends AbstractController
     }
 
     /**
-     * @Route("/asf/delete/{id}", name="asf_delete", methods={"DELETE"})
+     * @Route("/delete/{id}", name="asf_delete", methods={"DELETE"})
      * @param Request $request
      * @param HomeAsf $homeAsf
      * @param EntityManagerInterface $entityManager

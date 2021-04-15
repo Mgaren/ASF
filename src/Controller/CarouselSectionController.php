@@ -18,7 +18,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class CarouselSectionController extends AbstractController
 {
     /**
-     * @Route("/home/carousel/section/new", name="home_carousel_section_new", methods={"GET","POST"})
+     * @Route("/carousel/section/new", name="home_carousel_section_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -344,7 +344,7 @@ class CarouselSectionController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/section/show/{id}", name="home_carousel_section_show", methods={"GET"})
+     * @Route("/carousel/section/show/{id}", name="home_carousel_section_show", methods={"GET"})
      * @param CarouselSection $carouselSection
      * @return Response
      */
@@ -356,7 +356,7 @@ class CarouselSectionController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/section/edit/{id}", name="home_carousel_section_edit", methods={"GET","POST"})
+     * @Route("/carousel/section/edit/{id}", name="home_carousel_section_edit", methods={"GET","POST"})
      * @param Request $request
      * @param CarouselSection $carouselSection
      * @param SluggerInterface $slugger
@@ -780,7 +780,7 @@ class CarouselSectionController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/section/delete/{id}", name="home_carousel_section_delete", methods={"DELETE"})
+     * @Route("/carousel/section/delete/{id}", name="home_carousel_section_delete", methods={"DELETE"})
      * @param Request $request
      * @param CarouselSection $carouselSection
      * @param EntityManagerInterface $entityManager

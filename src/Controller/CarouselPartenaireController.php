@@ -18,7 +18,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 class CarouselPartenaireController extends AbstractController
 {
     /**
-     * @Route("/home/carousel/partenaire/new", name="home_carousel_partenaire_new", methods={"GET","POST"})
+     * @Route("/carousel/partenaire/new", name="home_carousel_partenaire_new", methods={"GET","POST"})
      * @param Request $request
      * @param SluggerInterface $slugger
      * @return Response
@@ -494,7 +494,7 @@ class CarouselPartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/partenaire/show/{id}", name="home_carousel_partenaire_show", methods={"GET"})
+     * @Route("/carousel/partenaire/show/{id}", name="home_carousel_partenaire_show", methods={"GET"})
      * @param CarouselPartenaire $carouselPartenaire
      * @return Response
      */
@@ -506,7 +506,7 @@ class CarouselPartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/partenaire/edit/{id}", name="home_carousel_partenaire_edit", methods={"GET","POST"})
+     * @Route("/carousel/partenaire/edit/{id}", name="home_carousel_partenaire_edit", methods={"GET","POST"})
      * @param Request $request
      * @param CarouselPartenaire $carouselPartenaire
      * @param SluggerInterface $slugger
@@ -1130,7 +1130,7 @@ class CarouselPartenaireController extends AbstractController
     }
 
     /**
-     * @Route("/home/carousel/partenaire/delete/{id}", name="home_carousel_partenaire_delete", methods={"DELETE"})
+     * @Route("/carousel/partenaire/delete/{id}", name="home_carousel_partenaire_delete", methods={"DELETE"})
      * @param Request $request
      * @param CarouselPartenaire $carouselPartenaire
      * @param EntityManagerInterface $entityManager
