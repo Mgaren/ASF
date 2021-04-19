@@ -57,7 +57,7 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $sections = $sectionRepository->findBy([], [
-            'titre' => 'ASC'
+            'sectionSalary' => 'ASC'
         ]);
         $sections = $paginator->paginate(
             $sections,

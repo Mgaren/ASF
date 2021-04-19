@@ -29,7 +29,7 @@ class HomeSectionController extends AbstractController
     {
         return $this->render('section/index.html.twig', [
             'sections' => $sectionRepository->findBy([], [
-                'titre' => 'ASC'
+                'sectionSalary' => 'ASC'
             ]),
         ]);
     }
