@@ -37,7 +37,7 @@ class BasketballPlanning
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $cotisation;
+    private ?string $cotisation;
 
     /**
      * @ORM\ManyToMany(targetEntity=BasketballCategory::class, inversedBy="basketballPlanning")
@@ -91,7 +91,7 @@ class BasketballPlanning
         return $this->cotisation;
     }
 
-    public function setCotisation(string $cotisation): self
+    public function setCotisation(?string $cotisation): self
     {
         $this->cotisation = $cotisation;
 

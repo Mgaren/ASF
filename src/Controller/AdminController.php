@@ -56,11 +56,14 @@ class AdminController extends AbstractController
         SectionRepository $sectionRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $sectionRepository->findBy([], [
-            'sectionSalary' => 'ASC'
-        ]);
+        $sections = $sectionRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sections as $section) {
+            $sectionsOrdered[$section->getSectionSalary()->getName()] = $section;
+        }
+        ksort($sectionsOrdered);
         $sections = $paginator->paginate(
-            $sections,
+            $sectionsOrdered,
             $request->query->getInt('page', 1),
             10
         );

@@ -44,8 +44,8 @@
                     <td>{{ basketball_planning.day }}</td>
                     <td>{{ basketball_planning.time }}</td>
                     <td>
-                        {% for basketball_category in basketball_planning.basketball_category %}
-                            {{ basketball_category.name }}
+                        {% for category in basketball_planning.basketballCategory %}
+                            {{ category.name }}
                         {% endfor %}
                     </td>
                     <td>{{ basketball_planning.lieu }}</td>

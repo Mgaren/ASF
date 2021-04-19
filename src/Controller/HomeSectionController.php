@@ -27,10 +27,14 @@ class HomeSectionController extends AbstractController
      */
     public function index(SectionRepository $sectionRepository): Response
     {
+        $sections = $sectionRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sections as $section) {
+            $sectionsOrdered[$section->getSectionSalary()->getName()] = $section;
+        }
+        ksort($sectionsOrdered);
         return $this->render('section/index.html.twig', [
-            'sections' => $sectionRepository->findBy([], [
-                'sectionSalary' => 'ASC'
-            ]),
+            'sections' => $sectionsOrdered,
         ]);
     }
 
