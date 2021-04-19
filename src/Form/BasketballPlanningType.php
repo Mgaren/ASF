@@ -35,12 +35,17 @@ class BasketballPlanningType extends AbstractType
             ->add('lieu', TextType::class, [
                 'label' => 'Lieu d\'entrainement*'
             ])
+            ->add('cotisation', TextType::class, [
+                'label' => 'Cotisation',
+                'required' => false,
+            ])
             ->add('basketballCategory', EntityType::class, [
                 'label' => 'Catégorie*',
                 'class' => BasketballCategory::class,
                 'choice_label' => 'name',
-                'multiple' => false,
+                'multiple' => true,
                 'expanded' => true,
+                'by_reference' => false,
                 'query_builder' => function (EntityRepository $er) {
                     return $er->createQueryBuilder('basketballCategory')->addOrderBy('basketballCategory.name', 'ASC');
                 }

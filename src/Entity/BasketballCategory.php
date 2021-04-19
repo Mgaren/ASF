@@ -25,7 +25,7 @@ class BasketballCategory
     private string $name;
 
     /**
-     * @ORM\OneToMany(targetEntity=BasketballPlanning::class, mappedBy="basketballCategory")
+     * @ORM\ManyToMany(targetEntity=BasketballPlanning::class, mappedBy="basketballCategory")
      * @var Collection
      */
     private Collection $basketballPlanning;
@@ -64,17 +64,16 @@ class BasketballCategory
     {
         if (! $this->basketballPlanning->contains($basketballPlanning)) {
             $this->basketballPlanning[] = $basketballPlanning;
-            $basketballPlanning->setBasketballCategory($this);
+            $basketballPlanning->addBasketballCategory($this);
         }
         return $this;
     }
 
     public function removeBasketballPlanning(BasketballPlanning $basketballPlanning): self
     {
-        if ($this->basketballPlanning->removeElement($basketballPlanning)) {
-            if ($basketballPlanning->getBasketballCategory() === $this) {
-                $basketballPlanning->setBasketballCategory(null);
-            }
+        if ($this->basketballPlanning->contains($basketballPlanning)) {
+            $this->basketballPlanning->removeElement($basketballPlanning);
+            $basketballPlanning->removeBasketballCategory($this);
         }
         return $this;
     }

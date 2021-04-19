@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\BasketballPlanningRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -33,10 +35,15 @@ class BasketballPlanning
     private string $lieu;
 
     /**
-     * @ORM\ManyToOne(targetEntity=BasketballCategory::class, inversedBy="basketballPlanning")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private ?BasketballCategory $basketballCategory;
+    private string $cotisation;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=BasketballCategory::class, inversedBy="basketballPlanning")
+     * @var Collection
+     */
+    private Collection $basketballCategory;
 
     public function getId(): ?int
     {
@@ -79,15 +86,46 @@ class BasketballPlanning
         return $this;
     }
 
-    public function getBasketballCategory(): ?BasketballCategory
+    public function getCotisation(): ?string
+    {
+        return $this->cotisation;
+    }
+
+    public function setCotisation(string $cotisation): self
+    {
+        $this->cotisation = $cotisation;
+
+        return $this;
+    }
+
+    public function __construct()
+    {
+        $this->basketballCategory = new ArrayCollection();
+    }
+
+    /**
+     * @return Collection|BasketballCategory[]
+     */
+    public function getBasketballCategory(): Collection
     {
         return $this->basketballCategory;
     }
 
-    public function setBasketballCategory(?BasketballCategory $basketballCategory): self
+    public function addBasketballCategory(BasketballCategory $basketballCategory): self
     {
-        $this->basketballCategory = $basketballCategory;
+        if (! $this->basketballCategory->contains($basketballCategory)) {
+            $this->basketballCategory[] = $basketballCategory;
+            $basketballCategory->addBasketballPlanning($this);
+        }
+        return $this;
+    }
 
+    public function removeBasketballCategory(BasketballCategory $basketballCategory): self
+    {
+        if ($this->basketballCategory->contains($basketballCategory)) {
+            $this->basketballCategory->removeElement($basketballCategory);
+            $basketballCategory->removeBasketballPlanning($this);
+        }
         return $this;
     }
 }

@@ -30,7 +30,7 @@ class AdminSectionController extends AbstractController
         PaginatorInterface $paginator
     ): Response {
         $category = $categoryRepository->findBy([], [
-            'name' => 'ASC'
+            'id' => 'ASC'
         ]);
         $category = $paginator->paginate(
             $category,

@@ -152,4 +152,16 @@ class ActualityController extends AbstractController
 
         return $this->redirectToRoute('admin_actuality');
     }
+
+    /**
+     * @Route("/actualities/{id}", name="actualities_show", methods={"GET"})
+     * @param Actuality $actuality
+     * @return Response
+     */
+    public function actualities(Actuality $actuality): Response
+    {
+        return $this->render('actuality/actualities/index.html.twig', [
+            'actuality' => $actuality,
+        ]);
+    }
 }
