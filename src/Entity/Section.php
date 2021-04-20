@@ -20,9 +20,11 @@ class Section
     private int $id;
 
     /**
-     * @ORM\Column(type="string", length=50)
+     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="section")
+     * @ORM\JoinColumn(nullable=false)
+     * @var SectionSalary|null
      */
-    private string $titre;
+    private ?SectionSalary $sectionSalary;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -39,14 +41,14 @@ class Section
         return $this->id;
     }
 
-    public function getTitre(): ?string
+    public function getSectionSalary(): ?SectionSalary
     {
-        return $this->titre;
+        return $this->sectionSalary;
     }
 
-    public function setTitre(string $titre): self
+    public function setSectionSalary(?SectionSalary $sectionSalary): self
     {
-        $this->titre = $titre;
+        $this->sectionSalary = $sectionSalary;
 
         return $this;
     }

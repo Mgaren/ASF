@@ -448,6 +448,11 @@
                     <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image2 }}">
                 {% endif %}
             {% endif %}
+            {% if carousel_partenaires is not empty and carousel_partenaires[0].image3 %}
+                {% if carousel_partenaires[0].image3 == true %}
+                    <img src="/uploads/carousel/partenaire/{{ carousel_partenaires[0].image3 }}">
+                {% endif %}
+            {% endif %}
         </div>
         <div class="container">
             <div class="text-3">

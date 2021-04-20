@@ -9,7 +9,7 @@
 
 .nav_barSection {
     display: flex;
-    position: fixed;
+    position: sticky;
     top: 150px;
     right: 0;
     left: 0;

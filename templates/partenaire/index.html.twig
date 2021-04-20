@@ -15,7 +15,6 @@
         {% for partenaire in partenaires %}
             <li class="container_item">
                 <div class="partenaire">
-                    <div class="partenaire_name"><h2>{{ partenaire.name }}</h2></div>
                     <div class="partenaire_image">
                         {% if partenaire.image == true %}
                             <a href="{{ partenaire.lien }}"><img src="/uploads/partenaire/{{ partenaire.image }}"></a>

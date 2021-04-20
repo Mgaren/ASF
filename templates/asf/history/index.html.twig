@@ -15,8 +15,8 @@
             <h1>Toute l'histoire de l'ASF</h1>
         </div>
     </section>
-    {% for history in histories %}
-        <section class="history">
+    {% for key, history in histories %}
+        <section class="history" id="{{ key ~ history.date.date }}">
             <p>{{ history.description }}</p>
             {% if history.image == true %}
                 <img src="/uploads/histoire/{{ history.image }}">

@@ -16,7 +16,7 @@
         {% for actuality in actualities %}
             <div class="container_actuality">
                 <div class="actuality">
-                    <div class="actuality_titre">{{ actuality.titre }}</div>
+                    <div class="actuality_titre"><a href="{{ path('actualities_show', {id:actuality.id}) }}">{{ actuality.titre }}</a></div>
                     <div class="actuality_date">{{ actuality.date }}</div>
                     <div class="actuality_text">{{ actuality.description }}</div>
                     <div class="actuality_text">
@@ -27,41 +27,6 @@
                     <div class="actuality_text">
                         {% if actuality.description3 == true %}
                             {{ actuality.description3 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description4 == true %}
-                            {{ actuality.description4 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description5 == true %}
-                            {{ actuality.description5 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description6 == true %}
-                            {{ actuality.description6 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description7 == true %}
-                            {{ actuality.description7 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description8 == true %}
-                            {{ actuality.description8 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description9 == true %}
-                            {{ actuality.description9 }}
-                        {% endif %}
-                    </div>
-                    <div class="actuality_text">
-                        {% if actuality.description10 == true %}
-                            {{ actuality.description10 }}
                         {% endif %}
                     </div>
                 </div>

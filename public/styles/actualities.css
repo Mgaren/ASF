@@ -1,0 +1,16 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    padding-top: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container_actuality {
+    display: flex;
+    margin: 1em 5px;
+    width: 700px;
+}
