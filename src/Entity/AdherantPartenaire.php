@@ -38,10 +38,10 @@ class AdherantPartenaire
     private string $image = '';
 
     /**
-     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="adherantPartenaires")
+     * @ORM\ManyToOne(targetEntity=PartenaireCategory::class, inversedBy="adherantPartenaires")
      * @ORM\JoinColumn(nullable=false)
      */
-    private Category $category;
+    private ?PartenaireCategory $partenaireCategory;
 
     public function getId(): ?int
     {
@@ -96,14 +96,14 @@ class AdherantPartenaire
         return $this;
     }
 
-    public function getCategory(): Category
+    public function getPartenaireCategory(): ?PartenaireCategory
     {
-        return $this->category;
+        return $this->partenaireCategory;
     }
 
-    public function setCategory(Category $category): self
+    public function setPartenaireCategory(?PartenaireCategory $partenaireCategory): self
     {
-        $this->category = $category;
+        $this->partenaireCategory = $partenaireCategory;
 
         return $this;
     }

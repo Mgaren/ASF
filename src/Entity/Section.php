@@ -20,60 +20,96 @@ class Section
     private int $id;
 
     /**
-     * @ORM\ManyToOne(targetEntity=SectionSalary::class, inversedBy="section")
-     * @ORM\JoinColumn(nullable=false)
-     * @var SectionSalary|null
-     */
-    private ?SectionSalary $sectionSalary;
-
-    /**
-     * @ORM\Column(type="string", length=255, nullable=true)
-     */
-    private string $image;
-
-    /**
      * @ORM\Column(type="string", length=255)
      */
-    private string $description;
+    private ?string $name;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Salaries::class, inversedBy="section")
+     * @var Collection
+     */
+    private Collection $salaries;
+
+    /**
+     * @ORM\OneToMany(targetEntity=HomeSection::class, mappedBy="section")
+     * @var Collection
+     */
+    private Collection $homeSection;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getSectionSalary(): ?SectionSalary
+    public function getName(): ?string
     {
-        return $this->sectionSalary;
+        return $this->name;
     }
 
-    public function setSectionSalary(?SectionSalary $sectionSalary): self
+    public function setName(string $name): self
     {
-        $this->sectionSalary = $sectionSalary;
+        $this->name = $name;
 
         return $this;
     }
 
-    public function getImage(): string
+    public function __construct()
     {
-        return $this->image;
+        $this->salaries = new ArrayCollection();
+        $this->homeSection = new ArrayCollection();
     }
 
-    public function setImage(string $image): self
+    /**
+     * @return Collection|Salaries[]
+     */
+    public function getSalaries(): Collection
     {
-        $this->image = $image;
+        return $this->salaries;
+    }
 
+    public function addSalaries(Salaries $salaries): self
+    {
+        if (! $this->salaries->contains($salaries)) {
+            $this->salaries[] = $salaries;
+            $salaries->addSection($this);
+        }
         return $this;
     }
 
-    public function getDescription(): ?string
+    public function removeSalaries(Salaries $salaries): self
     {
-        return $this->description;
+        if ($this->salaries->contains($salaries)) {
+            $this->salaries->removeElement($salaries);
+            $salaries->removeSection($this);
+        }
+        return $this;
     }
 
-    public function setDescription(string $description): self
+    /**
+     * @return Collection|HomeSection[]
+     */
+    public function getSection(): Collection
     {
-        $this->description = $description;
+        return $this->homeSection;
+    }
 
+    public function addSection(HomeSection $homeSection): self
+    {
+        if (! $this->homeSection->contains($homeSection)) {
+            $this->homeSection[] = $homeSection;
+            $homeSection->setSection($this);
+        }
+        return $this;
+    }
+
+    public function removeSection(HomeSection $homeSection): self
+    {
+        if ($this->homeSection->removeElement($homeSection)) {
+            // set the owning side to null (unless already changed)
+            if ($homeSection->getSection() === $this) {
+                $homeSection->setSection(null);
+            }
+        }
         return $this;
     }
 }

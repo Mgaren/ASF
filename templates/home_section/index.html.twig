@@ -1,0 +1,24 @@
+{% extends 'home_section/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/homeSection.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}HomeSection index{% endblock %}
+
+{% block main %}
+    <ul class="container">
+        {% for home_section in home_sections %}
+            <li class="container_item">
+                <div class="sections">
+                    <div class="section_title"><h2>{{ home_section.section.name }}</h2></div>
+                    <div class="section_image"><a href="{{ path('sectionSport', {id:home_section.id}) }}"><img src="/uploads/sections/{{ home_section.image }}"></a></div>
+                    <div class="section_text"><h2>{{ home_section.description }}</h2></div>
+                </div>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}

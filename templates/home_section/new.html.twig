@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}New HomeSection{% endblock %}
+
+{% block body %}
+    {{ include('home_section/_form.html.twig') }}
+{% endblock %}
