@@ -11,7 +11,7 @@ use App\Repository\AdherantTextRepository;
 use App\Entity\AdherantPartenaire;
 use App\Form\AdherantPartenaireType;
 use App\Repository\AdherantPartenaireRepository;
-use App\Repository\CategoryRepository;
+use App\Repository\PartenaireCategoryRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -32,22 +32,24 @@ class AdherantController extends AbstractController
      * @param AdherantImageRepository $imageRepository
      * @param AdherantTextRepository $textRepository
      * @param AdherantPartenaireRepository $adherantPartenaireR
-     * @param CategoryRepository $categoryRepository
+     * @param PartenaireCategoryRepository $categoryRepository
      * @return Response
      */
     public function index(
         AdherantImageRepository $imageRepository,
         AdherantTextRepository $textRepository,
         AdherantPartenaireRepository $adherantPartenaireR,
-        CategoryRepository $categoryRepository
+        PartenaireCategoryRepository $categoryRepository
     ): Response {
         $adherant_partenaires = $adherantPartenaireR->findBy([], [
             'name' => 'ASC'
         ]);
         $partenaires_by_category = [];
         foreach ($adherant_partenaires as $adherant_partenaire) {
-            $categoryId = $adherant_partenaire->getCategory()->getId();
-            $partenaires_by_category[$categoryId]['categoryName'] = $adherant_partenaire->getCategory()->getName();
+            $categoryId = $adherant_partenaire->getPartenaireCategory()->getId();
+            $partenaires_by_category[$categoryId]['categoryName'] = $adherant_partenaire
+                ->getPartenaireCategory()
+                ->getName();
             $partenaires_by_category[$categoryId]['partenaires'][] = $adherant_partenaire;
         }
 

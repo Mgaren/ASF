@@ -3,7 +3,7 @@
 namespace App\Form;
 
 use App\Entity\AdherantPartenaire;
-use App\Entity\Category;
+use App\Entity\PartenaireCategory;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -32,14 +32,14 @@ class AdherantPartenaireType extends AbstractType
                 'required' => false,
                 'label' => 'Image*',
             ])
-            ->add('category', EntityType::class, [
+            ->add('partenaireCategory', EntityType::class, [
                 'label' => 'Catégorie*',
-                'class' => Category::class,
+                'class' => PartenaireCategory::class,
                 'choice_label' => 'name',
                 'multiple' => false,
                 'expanded' => true,
                 'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('category')->addOrderBy('category.name', 'ASC');
+                    return $er->createQueryBuilder('partenaireCategory')->addOrderBy('partenaireCategory.name', 'ASC');
                 }
             ])
         ;

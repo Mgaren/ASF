@@ -1,11 +1,11 @@
 <div class="wrapper">
     {{ form_start(form) }}
     <div class="form">
-        <h1>Ajouter/Editer une section pour salariés</h1>
+        <h1>Ajouter/Editer une categorie pour les partenaires de la carte adhérent</h1>
         <h4>* Champs Obligatoires</h4>
         {{ form_widget(form) }}
         <button class="btn">{{ button_label|default('Ajouter') }}</button>
-        <a href="{{ path('admin_section') }}">Retour à la liste</a>
+        <a href="{{ path('admin_partenaire_category') }}">Retour à la liste</a>
     </div>
     {{ form_end(form) }}
 </div>

@@ -30,10 +30,10 @@ class Salaries
     private string $lastname;
 
     /**
-     * @ORM\ManyToMany(targetEntity=SectionSalary::class, mappedBy="salaries")
+     * @ORM\ManyToMany(targetEntity=Section::class, mappedBy="salaries")
      * @var Collection
      */
-    private Collection $sectionSalary;
+    private Collection $section;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -83,31 +83,31 @@ class Salaries
 
     public function __construct()
     {
-        $this->sectionSalary = new ArrayCollection();
+        $this->section = new ArrayCollection();
     }
 
     /**
-     * @return Collection|SectionSalary[]
+     * @return Collection|Section[]
      */
-    public function getSectionSalary(): Collection
+    public function getSection(): Collection
     {
-        return $this->sectionSalary;
+        return $this->section;
     }
 
-    public function addSectionSalary(SectionSalary $sectionSalary): self
+    public function addSection(Section $section): self
     {
-        if (! $this->sectionSalary->contains($sectionSalary)) {
-            $this->sectionSalary[] = $sectionSalary;
-            $sectionSalary->addSalaries($this);
+        if (! $this->section->contains($section)) {
+            $this->section[] = $section;
+            $section->addSalaries($this);
         }
         return $this;
     }
 
-    public function removeSectionSalary(SectionSalary $sectionSalary): self
+    public function removeSection(Section $section): self
     {
-        if ($this->sectionSalary->contains($sectionSalary)) {
-            $this->sectionSalary->removeElement($sectionSalary);
-            $sectionSalary->removeSalaries($this);
+        if ($this->section->contains($section)) {
+            $this->section->removeElement($section);
+            $section->removeSalaries($this);
         }
         return $this;
     }
