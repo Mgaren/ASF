@@ -161,16 +161,4 @@ class HomeSectionController extends AbstractController
 
         return $this->redirectToRoute('admin_homeSection');
     }
-
-    /**
-     * @Route("/sport/{id}", name="section_sport", methods={"GET"})
-     * @param Section $section
-     * @return Response
-     */
-    public function sport(Section $section): Response
-    {
-        return $this->render('section/sports/sport.html.twig', [
-            'section' => $section,
-        ]);
-    }
 }
