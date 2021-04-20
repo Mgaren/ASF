@@ -30,12 +30,18 @@ class SectionSalary
      */
     private Collection $salaries;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Section::class, mappedBy="sectionSalary")
+     * @var Collection
+     */
+    private Collection $section;
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -50,6 +56,7 @@ class SectionSalary
     public function __construct()
     {
         $this->salaries = new ArrayCollection();
+        $this->section = new ArrayCollection();
     }
 
     /**
@@ -74,6 +81,34 @@ class SectionSalary
         if ($this->salaries->contains($salaries)) {
             $this->salaries->removeElement($salaries);
             $salaries->removeSectionSalary($this);
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Section[]
+     */
+    public function getSection(): Collection
+    {
+        return $this->section;
+    }
+
+    public function addSection(Section $section): self
+    {
+        if (! $this->section->contains($section)) {
+            $this->section[] = $section;
+            $section->setSectionSalary($this);
+        }
+        return $this;
+    }
+
+    public function removeSection(Section $section): self
+    {
+        if ($this->section->removeElement($section)) {
+            // set the owning side to null (unless already changed)
+            if ($section->getSectionSalary() === $this) {
+                $section->setSectionSalary(null);
+            }
         }
         return $this;
     }

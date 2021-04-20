@@ -27,10 +27,14 @@ class HomeSectionController extends AbstractController
      */
     public function index(SectionRepository $sectionRepository): Response
     {
+        $sections = $sectionRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sections as $section) {
+            $sectionsOrdered[$section->getSectionSalary()->getName()] = $section;
+        }
+        ksort($sectionsOrdered);
         return $this->render('section/index.html.twig', [
-            'sections' => $sectionRepository->findBy([], [
-                'titre' => 'ASC'
-            ]),
+            'sections' => $sectionsOrdered,
         ]);
     }
 
@@ -156,17 +160,5 @@ class HomeSectionController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_homeSection');
-    }
-
-    /**
-     * @Route("/sport/{id}", name="section_sport", methods={"GET"})
-     * @param Section $section
-     * @return Response
-     */
-    public function sport(Section $section): Response
-    {
-        return $this->render('section/sports/sport.html.twig', [
-            'section' => $section,
-        ]);
     }
 }

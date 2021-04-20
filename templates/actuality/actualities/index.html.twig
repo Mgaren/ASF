@@ -1,0 +1,71 @@
+{% extends 'actuality/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/actualities.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Actualités{% endblock %}
+
+{% block main %}
+    <h1>L'actualité de l'ASF</h1>
+
+    <div class="container_actuality">
+        <div class="actuality">
+            <div class="actuality_titre">{{ actuality.titre }}</div>
+            <div class="actuality_date">{{ actuality.date }}</div>
+            <div class="actuality_text">{{ actuality.description }}</div>
+            <div class="actuality_text">
+                {% if actuality.description2 == true %}
+                    {{ actuality.description2 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description3 == true %}
+                    {{ actuality.description3 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description4 == true %}
+                    {{ actuality.description4 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description5 == true %}
+                    {{ actuality.description5 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description6 == true %}
+                    {{ actuality.description6 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description7 == true %}
+                    {{ actuality.description7 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description8 == true %}
+                    {{ actuality.description8 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description9 == true %}
+                    {{ actuality.description9 }}
+                {% endif %}
+            </div>
+            <div class="actuality_text">
+                {% if actuality.description10 == true %}
+                    {{ actuality.description10 }}
+                {% endif %}
+            </div>
+        </div>
+        <div class="actuality_image">
+            {% if actuality.image == true %}
+                <img src="/uploads/actuality/{{ actuality.image }}">
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

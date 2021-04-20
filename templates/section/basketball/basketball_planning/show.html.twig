@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BasketballPlanning{% endblock %}
+
+{% block body %}
+    <h1>BasketballPlanning</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ basketball_planning.id }}</td>
+            </tr>
+            <tr>
+                <th>Day</th>
+                <td>{{ basketball_planning.day }}</td>
+            </tr>
+            <tr>
+                <th>Time</th>
+                <td>{{ basketball_planning.time }}</td>
+            </tr>
+            <tr>
+                <th>Lieu</th>
+                <td>{{ basketball_planning.lieu }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_basketball_planning') }}">Retour à la liste</a>
+
+    <a href="{{ path('basketball_planning_edit', {'id': basketball_planning.id}) }}">Editer</a>
+
+    {{ include('section/basketball/basketball_planning/_delete_form.html.twig') }}
+{% endblock %}
