@@ -2,52 +2,47 @@
 
 namespace App\Controller;
 
-use Doctrine\ORM\EntityManagerInterface;
+use App\Entity\HomeSection;
+use App\Form\HomeSectionType;
+use App\Repository\HomeSectionRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use App\Entity\Section;
-use App\Form\SectionType;
-use App\Repository\SectionRepository;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\String\Slugger\SluggerInterface;
+use Doctrine\ORM\EntityManagerInterface;
 
 /**
- * Class HomeSectionController
- * @package App\Controller
- * @Route("/section")
+ * @Route("/homeSection")
  */
 class HomeSectionController extends AbstractController
 {
     /**
-     * @param SectionRepository $sectionRepository
+     * @Route("/", name="home_section", methods={"GET"})
+     * @param HomeSectionRepository $homeSectionRep
      * @return Response
-     * @Route("/", name="section", methods={"GET"})
      */
-    public function index(SectionRepository $sectionRepository): Response
+    public function index(HomeSectionRepository $homeSectionRep): Response
     {
-        $sections = $sectionRepository->findAll();
+        $homeSections = $homeSectionRep->findAll();
         $sectionsOrdered = [];
-        foreach ($sections as $section) {
-            $sectionsOrdered[$section->getSectionSalary()->getName()] = $section;
+        foreach ($homeSections as $homeSection) {
+            $sectionsOrdered[$homeSection->getSection()->getName()] = $homeSection;
         }
         ksort($sectionsOrdered);
-        return $this->render('section/index.html.twig', [
-            'sections' => $sectionsOrdered,
+        return $this->render('home_section/index.html.twig', [
+            'home_sections' => $sectionsOrdered,
         ]);
     }
 
     /**
-     * @Route("/new", name="section_new", methods={"GET","POST"})
-     * @param Request $request
-     * @param SluggerInterface $slugger
-     * @return Response
+     * @Route("/new", name="home_section_new", methods={"GET","POST"})
      */
     public function new(Request $request, SluggerInterface $slugger): Response
     {
-        $section = new Section();
-        $form = $this->createForm(SectionType::class, $section);
+        $homeSection = new HomeSection();
+        $form = $this->createForm(HomeSectionType::class, $homeSection);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -67,49 +62,48 @@ class HomeSectionController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
-                $section->setImage($newImageFile);
+                $homeSection->setImage($newImageFile);
             }
-
-            $entityManager->persist($section);
+            $entityManager->persist($homeSection);
             $entityManager->flush();
 
             return $this->redirectToRoute('admin_homeSection');
         }
 
-        return $this->render('section/new.html.twig', [
-            'section' => $section,
+        return $this->render('home_section/new.html.twig', [
+            'home_section' => $homeSection,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/show/{id}", name="section_show", methods={"GET"})
-     * @param Section $section
+     * @Route("/show/{id}", name="home_section_show", methods={"GET"})
+     * @param HomeSection $homeSection
      * @return Response
      */
-    public function show(Section $section): Response
+    public function show(HomeSection $homeSection): Response
     {
-        return $this->render('section/show.html.twig', [
-            'section' => $section,
+        return $this->render('home_section/show.html.twig', [
+            'home_section' => $homeSection,
         ]);
     }
 
     /**
-     * @Route("/edit/{id}", name="section_edit", methods={"GET","POST"})
+     * @Route("/edit/{id}", name="home_section_edit", methods={"GET","POST"})
      * @param Request $request
-     * @param Section $section
+     * @param HomeSection $homeSection
      * @param SluggerInterface $slugger
      * @return Response
      */
-    public function edit(Request $request, Section $section, SluggerInterface $slugger): Response
+    public function edit(Request $request, HomeSection $homeSection, SluggerInterface $slugger): Response
     {
-        $form = $this->createForm(SectionType::class, $section);
+        $form = $this->createForm(HomeSectionType::class, $homeSection);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $imageFile = $form->get('fileimage')->getData();
             if ($imageFile !== null) {
-                $filename = $section->getImage();
+                $filename = $homeSection->getImage();
                 if (is_string($this->getParameter('upload_dir'))) {
                     $path = $this->getParameter('upload_dir') . $filename;
                     unlink($path);
@@ -126,36 +120,31 @@ class HomeSectionController extends AbstractController
                     );
                 } catch (FileException $e) {
                 }
-                $section->setImage($newImageFile);
+                $homeSection->setImage($newImageFile);
             }
             $this->getDoctrine()->getManager()->flush();
 
             return $this->redirectToRoute('admin_homeSection');
         }
 
-        return $this->render('section/edit.html.twig', [
-            'section' => $section,
+        return $this->render('home_section/edit.html.twig', [
+            'home_section' => $homeSection,
             'form' => $form->createView(),
         ]);
     }
 
     /**
-     * @Route("/delete/{id}", name="section_delete", methods={"DELETE"})
-     * @param Request $request
-     * @param Section $section
-     * @param EntityManagerInterface $entityManager
-     * @return Response
+     * @Route("/delete/{id}", name="home_section_delete", methods={"DELETE"})
      */
-    public function delete(Request $request, Section $section, EntityManagerInterface $entityManager): Response
+    public function delete(Request $request, HomeSection $homeSection, EntityManagerInterface $entityManager): Response
     {
-        if ($this->isCsrfTokenValid('delete' . $section->getId(), $request->request->get('_token'))) {
-            $filename = $section->getImage();
+        if ($this->isCsrfTokenValid('delete' . $homeSection->getId(), $request->request->get('_token'))) {
+            $filename = $homeSection->getImage();
             if (is_string($this->getParameter('upload_dir'))) {
                 $path = $this->getParameter('upload_dir') . $filename;
                 unlink($path);
             }
-
-            $entityManager->remove($section);
+            $entityManager->remove($homeSection);
             $entityManager->flush();
         }
 

@@ -51,7 +51,7 @@
                 {% for adherant_partenaire in category.partenaires %}
                 <li class="item_partenaire">
                     <div class="partenaire">
-                        <div class="partenaire_name" id="{{ adherant_partenaire.category.id }}"><h2>{{ adherant_partenaire.name }}</h2></div>
+                        <div class="partenaire_name" id="{{ adherant_partenaire.partenaireCategory.id }}"><h2>{{ adherant_partenaire.name }}</h2></div>
                         <div class="partenaire_image">
                             {% if adherant_partenaire.image == true %}
                                 <a href="{{ adherant_partenaire.lien }}"><img src="/uploads/adherant/{{ adherant_partenaire.image }}"></a>

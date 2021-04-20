@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Edit Category{% endblock %}
+
+{% block body %}
+    {{ include('add/partenaire_category/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+{% endblock %}

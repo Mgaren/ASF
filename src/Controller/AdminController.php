@@ -5,12 +5,12 @@ namespace App\Controller;
 use App\Repository\AdherantImageRepository;
 use App\Repository\AdherantTextRepository;
 use App\Repository\ContactHoraireRepository;
-use App\Repository\SectionRepository;
+use App\Repository\HomeSectionRepository;
 use App\Repository\VerticalHistoryRepository;
 use App\Repository\DirigeantsRepository;
 use App\Repository\SalariesRepository;
 use App\Repository\DirigeantsPostRepository;
-use App\Repository\SectionSalaryRepository;
+use App\Repository\SectionRepository;
 use App\Repository\PresidentRepository;
 use App\Repository\CarouselHistoryRepository;
 use App\Repository\CarouselSectionRepository;
@@ -19,7 +19,7 @@ use App\Repository\HistoryRepository;
 use App\Repository\ActualityRepository;
 use App\Repository\PartenaireRepository;
 use App\Repository\HomeAsfRepository;
-use App\Repository\CategoryRepository;
+use App\Repository\PartenaireCategoryRepository;
 use App\Repository\AdherantPartenaireRepository;
 use App\Repository\HistoryDateRepository;
 use Knp\Component\Pager\PaginatorInterface;
@@ -47,28 +47,28 @@ class AdminController extends AbstractController
     /**
      * @Route("/homeSection", name="homeSection", methods={"GET"})
      * @param Request $request
-     * @param SectionRepository $sectionRepository
+     * @param HomeSectionRepository $homeSectionRep
      * @param PaginatorInterface $paginator
      * @return Response
      */
     public function homeSection(
         Request $request,
-        SectionRepository $sectionRepository,
+        HomeSectionRepository $homeSectionRep,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $sectionRepository->findAll();
+        $homeSections = $homeSectionRep->findAll();
         $sectionsOrdered = [];
-        foreach ($sections as $section) {
-            $sectionsOrdered[$section->getSectionSalary()->getName()] = $section;
+        foreach ($homeSections as $homeSection) {
+            $sectionsOrdered[$homeSection->getSection()->getName()] = $homeSection;
         }
         ksort($sectionsOrdered);
-        $sections = $paginator->paginate(
+        $homeSections = $paginator->paginate(
             $sectionsOrdered,
             $request->query->getInt('page', 1),
             10
         );
         return $this->render('admin/homeSection.html.twig', [
-            'sections' => $sections
+            'home_sections' => $homeSections
         ]);
     }
 
@@ -241,18 +241,18 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/section/salary", name="section_salary", methods={"GET"})
+     * @Route("/section", name="section", methods={"GET"})
      * @param Request $request
-     * @param SectionSalaryRepository $salaryRepository
+     * @param SectionRepository $sectionRepository
      * @param PaginatorInterface $paginator
      * @return Response
      */
     public function addSection(
         Request $request,
-        SectionSalaryRepository $salaryRepository,
+        SectionRepository $sectionRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sections = $salaryRepository->findBy([], [
+        $sections = $sectionRepository->findBy([], [
             'name' => 'ASC',
         ]);
         $sections = $paginator->paginate(
@@ -260,8 +260,8 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
-        return $this->render('admin/sectionSalary.html.twig', [
-            'section_salaries' => $sections
+        return $this->render('admin/section.html.twig', [
+            'sections' => $sections
         ]);
     }
 
@@ -460,27 +460,27 @@ class AdminController extends AbstractController
     }
 
     /**
-     * @Route("/category", name="category", methods={"GET"})
+     * @Route("/partenaireCategory", name="partenaire_category", methods={"GET"})
      * @param Request $request
-     * @param CategoryRepository $categoryRepository
+     * @param PartenaireCategoryRepository $partenaireCatRep
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function addCategory(
+    public function addPartenaireCategory(
         Request $request,
-        CategoryRepository $categoryRepository,
+        PartenaireCategoryRepository $partenaireCatRep,
         PaginatorInterface $paginator
     ): Response {
-        $category = $categoryRepository->findBy([], [
+        $partenaireCategory = $partenaireCatRep->findBy([], [
             'name' => 'ASC'
         ]);
-        $category = $paginator->paginate(
-            $category,
+        $partenaireCategory = $paginator->paginate(
+            $partenaireCategory,
             $request->query->getInt('page', 1),
             10
         );
-        return $this->render('admin/category.html.twig', [
-            'categories' => $category
+        return $this->render('admin/PartenaireCategory.html.twig', [
+            'partenaire_categories' => $partenaireCategory
         ]);
     }
 
