@@ -22,6 +22,9 @@ use App\Repository\HomeAsfRepository;
 use App\Repository\PartenaireCategoryRepository;
 use App\Repository\AdherantPartenaireRepository;
 use App\Repository\HistoryDateRepository;
+use App\Repository\CguRepository;
+use App\Repository\ItemRepository;
+use App\Repository\CguCategoryRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -506,6 +509,61 @@ class AdminController extends AbstractController
         );
         return $this->render('admin/date.html.twig', [
             'dates' => $date
+        ]);
+    }
+
+    /**
+     * @Route("/cgu", name="cgu", methods={"GET"})
+     * @param Request $request
+     * @param CguRepository $cguRepository
+     * @param ItemRepository $itemRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function cgu(
+        Request $request,
+        CguRepository $cguRepository,
+        ItemRepository $itemRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $cgu = $cguRepository->findAll();
+        $cgu = $paginator->paginate(
+            $cgu,
+            $request->query->getInt('page', 1),
+            10
+        );
+        $item = $itemRepository->findAll();
+        $item = $paginator->paginate(
+            $item,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/cgu.html.twig', [
+            'cgus' => $cgu,
+            'items' => $item
+        ]);
+    }
+
+    /**
+     * @Route("/cgu/category", name="cgu_category", methods={"GET"})
+     * @param Request $request
+     * @param CguCategoryRepository $cguCategoryRep
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addCguCategory(
+        Request $request,
+        CguCategoryRepository $cguCategoryRep,
+        PaginatorInterface $paginator
+    ): Response {
+        $cguCategory = $cguCategoryRep->findAll();
+        $cguCategory = $paginator->paginate(
+            $cguCategory,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin/cguCategory.html.twig', [
+            'cgu_categories' => $cguCategory
         ]);
     }
 }

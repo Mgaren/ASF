@@ -2,19 +2,19 @@
 
 namespace App\Form;
 
-use App\Entity\AdherantText;
+use App\Entity\CguCategory;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class AdherantTextType extends AbstractType
+class CguCategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('description', TextareaType::class, [
-                'label' => 'text*',
+            ->add('name', TextType::class, [
+                'label' => 'N° de l\'article + l\'intitulé*'
             ])
         ;
     }
@@ -22,7 +22,7 @@ class AdherantTextType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => AdherantText::class,
+            'data_class' => CguCategory::class,
         ]);
     }
 }

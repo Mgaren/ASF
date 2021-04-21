@@ -1,11 +1,11 @@
 <div class="wrapper">
     {{ form_start(form) }}
     <div class="form">
-        <h1>Ajouter/Editer une Date</h1>
+        <h1>Ajouter/Editer la page CGU</h1>
         <h4>* Champs Obligatoires</h4>
         {{ form_widget(form) }}
         <button class="btn">{{ button_label|default('Ajouter') }}</button>
-        <a href="{{ path('admin_date') }}">Retour à la liste</a>
+        <a href="{{ path('admin_cgu') }}">Retour à la liste</a>
     </div>
     {{ form_end(form) }}
 </div>

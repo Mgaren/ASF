@@ -9,12 +9,20 @@
 }
 
 #dirigeants_dirigeantsPost,
-#salaries_sectionSalary,
-#adherant_partenaire_category,
+#salaries_section,
+#adherant_partenaire_partenaireCategory,
 #vertical_history_date,
-#history_date {
+#history_date,
+#home_section_section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: minmax(25px, 25px);
+    align-items: center;
+}
+
+#item_cguCategory {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     grid-auto-rows: minmax(25px, 25px);
     align-items: center;
 }
