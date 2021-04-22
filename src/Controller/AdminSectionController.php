@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\SectionCategoryRepository;
 use App\Repository\SectionPlanningRepository;
+use App\Repository\SectionSportRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -64,6 +65,31 @@ class AdminSectionController extends AbstractController
         );
         return $this->render('admin_section/sectionPlanning.html.twig', [
             'section_plannings' => $sectionPlanning
+        ]);
+    }
+
+    /**
+     * @Route("/section/sport", name="section_sport", methods={"GET"})
+     * @param Request $request
+     * @param SectionSportRepository $sportRepository
+     * @param PaginatorInterface $paginator
+     * @return Response
+     */
+    public function addSectionSport(
+        Request $request,
+        SectionSportRepository $sportRepository,
+        PaginatorInterface $paginator
+    ): Response {
+        $sectionSport = $sportRepository->findBy([], [
+            'id' => 'ASC'
+        ]);
+        $sectionSport = $paginator->paginate(
+            $sectionSport,
+            $request->query->getInt('page', 1),
+            10
+        );
+        return $this->render('admin_section/sectionSport.html.twig', [
+            'section_sports' => $sectionSport
         ]);
     }
 }

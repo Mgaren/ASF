@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New SectionSport{% endblock %}
+
+{% block body %}
+    <h1>Create new SectionSport</h1>
+
+    {{ include('section/section_sport/_form.html.twig') }}
+
+    <a href="{{ path('admin_section_sport') }}">Retour à la liste</a>
+{% endblock %}
