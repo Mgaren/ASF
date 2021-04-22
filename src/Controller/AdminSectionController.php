@@ -2,8 +2,8 @@
 
 namespace App\Controller;
 
-use App\Repository\BasketballCategoryRepository;
-use App\Repository\BasketballPlanningRepository;
+use App\Repository\SectionCategoryRepository;
+use App\Repository\SectionPlanningRepository;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -18,52 +18,52 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 class AdminSectionController extends AbstractController
 {
     /**
-     * @Route("/basketball/category", name="basketball_category", methods={"GET"})
+     * @Route("/section/category", name="section_category", methods={"GET"})
      * @param Request $request
-     * @param BasketballCategoryRepository $categoryRepository
+     * @param SectionCategoryRepository $categoryRepository
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function addBasketballCategory(
+    public function addSectionCategory(
         Request $request,
-        BasketballCategoryRepository $categoryRepository,
+        SectionCategoryRepository $categoryRepository,
         PaginatorInterface $paginator
     ): Response {
-        $category = $categoryRepository->findBy([], [
+        $sectionCategory = $categoryRepository->findBy([], [
             'id' => 'ASC'
         ]);
-        $category = $paginator->paginate(
-            $category,
+        $sectionCategory = $paginator->paginate(
+            $sectionCategory,
             $request->query->getInt('page', 1),
             10
         );
-        return $this->render('admin_section/basketballCategory.html.twig', [
-            'basketball_categories' => $category
+        return $this->render('admin_section/sectionCategory.html.twig', [
+            'section_categories' => $sectionCategory
         ]);
     }
 
     /**
-     * @Route("/basketball/planning", name="basketball_planning", methods={"GET"})
+     * @Route("/section/planning", name="section_planning", methods={"GET"})
      * @param Request $request
-     * @param BasketballPlanningRepository $planningRepository
+     * @param SectionPlanningRepository $planningRepository
      * @param PaginatorInterface $paginator
      * @return Response
      */
-    public function addBasketballPlanning(
+    public function addSectionPlanning(
         Request $request,
-        BasketballPlanningRepository $planningRepository,
+        SectionPlanningRepository $planningRepository,
         PaginatorInterface $paginator
     ): Response {
-        $planning = $planningRepository->findBy([], [
+        $sectionPlanning = $planningRepository->findBy([], [
             'id' => 'ASC'
         ]);
-        $planning = $paginator->paginate(
-            $planning,
+        $sectionPlanning = $paginator->paginate(
+            $sectionPlanning,
             $request->query->getInt('page', 1),
             10
         );
-        return $this->render('admin_section/basketballPlanning.html.twig', [
-            'basketball_plannings' => $planning
+        return $this->render('admin_section/sectionPlanning.html.twig', [
+            'section_plannings' => $sectionPlanning
         ]);
     }
 }

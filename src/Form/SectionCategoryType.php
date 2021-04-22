@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\BasketballCategory;
+use App\Entity\SectionCategory;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BasketballCategoryType extends AbstractType
+class SectionCategoryType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -22,7 +22,7 @@ class BasketballCategoryType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => BasketballCategory::class,
+            'data_class' => SectionCategory::class,
         ]);
     }
 }

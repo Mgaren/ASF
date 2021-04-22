@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}
-{% block title %}Administration - BasketballCategories{% endblock %}
+{% block title %}Administration - Section Categories{% endblock %}
 
 {% block main %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,9 +22,9 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>Les catégories pour le Basketball</h2></div>
+                <div class="col-sm-8"><h2>Les catégories pour les sections</h2></div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new"><a href="{{ path('add_basketball_category_new') }}">Ajouter</a></button>
+                    <button type="button" class="btn btn-info add-new"><a href="{{ path('add_section_category_new') }}">Ajouter</a></button>
                 </div>
             </div>
         </div>
@@ -35,13 +35,13 @@
             </tr>
             </thead>
             <tbody>
-            {% for basketball_category in basketball_categories %}
+            {% for section_category in section_categories %}
                 <tr>
-                    <td>{{ basketball_category.name }}</td>
+                    <td>{{ section_category.name }}</td>
                     <td>
-                        <a href="{{ path('add_basketball_category_show', {'id': basketball_category.id}) }}">Détail</a>
-                        {{ include('section/basketball/basketball_category/_delete_form.html.twig') }}
-                        <a href="{{ path('add_basketball_category_edit', {'id': basketball_category.id}) }}">Editer</a>
+                        <a href="{{ path('add_section_category_show', {'id': section_category.id}) }}">Détail</a>
+                        {{ include('section/section_category/_delete_form.html.twig') }}
+                        <a href="{{ path('add_section_category_edit', {'id': section_category.id}) }}">Editer</a>
                     </td>
                 </tr>
             {% else %}
@@ -49,7 +49,7 @@
                     <td colspan="7">La liste des catégories est vide</td>
                 </tr>
             {% endfor %}
-            {{ knp_pagination_render(basketball_categories) }}
+            {{ knp_pagination_render(section_categories) }}
             </tbody>
         </table>
     </div>

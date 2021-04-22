@@ -14,14 +14,10 @@
             </tr>
         </thead>
         <tbody>
-        {% for basketball_category in basketball_categories %}
+        {% for section_category in section_categories %}
             <tr>
-                <td>{{ basketball_category.id }}</td>
-                <td>{{ basketball_category.name }}</td>
-                <td>
-                    <a href="{{ path('basketball_category_show', {'id': basketball_category.id}) }}">show</a>
-                    <a href="{{ path('basketball_category_edit', {'id': basketball_category.id}) }}">edit</a>
-                </td>
+                <td>{{ section_category.id }}</td>
+                <td>{{ section_category.name }}</td>
             </tr>
         {% else %}
             <tr>
@@ -30,6 +26,4 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('basketball_category_new') }}">Create new</a>
 {% endblock %}

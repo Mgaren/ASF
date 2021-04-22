@@ -21,7 +21,7 @@ class SportController extends AbstractController
      */
     public function sport(HomeSection $section): Response
     {
-        return $this->render('section/sports/sport.html.twig', [
+        return $this->render('section/sport.html.twig', [
             'home_section' => $section,
         ]);
     }

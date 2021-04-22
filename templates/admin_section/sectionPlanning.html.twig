@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 {% endblock %}
-{% block title %}Administration - Basketballplanning{% endblock %}
+{% block title %}Administration - Section Planning{% endblock %}
 
 {% block main %}
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -22,9 +22,9 @@
     <div class="table-wrapper">
         <div class="table-title">
             <div class="row">
-                <div class="col-sm-8"><h2>Le planning d'entrainement pour le Basketball</h2></div>
+                <div class="col-sm-8"><h2>Le planning d'entrainement pour les sections</h2></div>
                 <div class="col-sm-4">
-                    <button type="button" class="btn btn-info add-new"><a href="{{ path('basketball_planning_new') }}">Ajouter</a></button>
+                    <button type="button" class="btn btn-info add-new"><a href="{{ path('section_planning_new') }}">Ajouter</a></button>
                 </div>
             </div>
         </div>
@@ -39,21 +39,21 @@
             </tr>
             </thead>
             <tbody>
-            {% for basketball_planning in basketball_plannings %}
+            {% for section_planning in section_plannings %}
                 <tr>
-                    <td>{{ basketball_planning.day }}</td>
-                    <td>{{ basketball_planning.time }}</td>
+                    <td>{{ section_planning.day }}</td>
+                    <td>{{ section_planning.time }}</td>
                     <td>
-                        {% for category in basketball_planning.basketballCategory %}
+                        {% for category in section_planning.sectionCategory %}
                             {{ category.name }}
                         {% endfor %}
                     </td>
-                    <td>{{ basketball_planning.lieu }}</td>
-                    <td>{{ basketball_planning.cotisation }}</td>
+                    <td>{{ section_planning.lieu }}</td>
+                    <td>{{ section_planning.cotisation }}</td>
                     <td>
-                        <a href="{{ path('basketball_planning_show', {'id': basketball_planning.id}) }}">Détail</a>
-                        {{ include('section/basketball/basketball_planning/_delete_form.html.twig') }}
-                        <a href="{{ path('basketball_planning_edit', {'id': basketball_planning.id}) }}">Editer</a>
+                        <a href="{{ path('section_planning_show', {'id': section_planning.id}) }}">Détail</a>
+                        {{ include('section/section_planning/_delete_form.html.twig') }}
+                        <a href="{{ path('section_planning_edit', {'id': section_planning.id}) }}">Editer</a>
                     </td>
                 </tr>
             {% else %}
@@ -61,7 +61,7 @@
                     <td colspan="7">Le planning est vide</td>
                 </tr>
             {% endfor %}
-            {{ knp_pagination_render(basketball_plannings) }}
+            {{ knp_pagination_render(section_plannings) }}
             </tbody>
         </table>
     </div>

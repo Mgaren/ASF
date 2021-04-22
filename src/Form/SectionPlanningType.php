@@ -2,8 +2,8 @@
 
 namespace App\Form;
 
-use App\Entity\BasketballPlanning;
-use App\Entity\BasketballCategory;
+use App\Entity\SectionPlanning;
+use App\Entity\SectionCategory;
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -12,7 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
-class BasketballPlanningType extends AbstractType
+class SectionPlanningType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
@@ -39,15 +39,15 @@ class BasketballPlanningType extends AbstractType
                 'label' => 'Cotisation',
                 'required' => false,
             ])
-            ->add('basketballCategory', EntityType::class, [
+            ->add('sectionCategory', EntityType::class, [
                 'label' => 'Catégorie*',
-                'class' => BasketballCategory::class,
+                'class' => SectionCategory::class,
                 'choice_label' => 'name',
                 'multiple' => true,
                 'expanded' => true,
                 'by_reference' => false,
                 'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('basketballCategory')->addOrderBy('basketballCategory.name', 'ASC');
+                    return $er->createQueryBuilder('sectionCategory')->addOrderBy('sectionCategory.id', 'ASC');
                 }
             ])
         ;
@@ -56,7 +56,7 @@ class BasketballPlanningType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => BasketballPlanning::class,
+            'data_class' => SectionPlanning::class,
         ]);
     }
 }

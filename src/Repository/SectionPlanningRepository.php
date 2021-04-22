@@ -2,25 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\BasketballCategory;
+use App\Entity\SectionPlanning;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method BasketballCategory|null find($id, $lockMode = null, $lockVersion = null)
- * @method BasketballCategory|null findOneBy(array $criteria, array $orderBy = null)
- * @method BasketballCategory[]    findAll()
- * @method BasketballCategory[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method SectionPlanning|null find($id, $lockMode = null, $lockVersion = null)
+ * @method SectionPlanning|null findOneBy(array $criteria, array $orderBy = null)
+ * @method SectionPlanning[]    findAll()
+ * @method SectionPlanning[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class BasketballCategoryRepository extends ServiceEntityRepository
+class SectionPlanningRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, BasketballCategory::class);
+        parent::__construct($registry, SectionPlanning::class);
     }
 
     // /**
-    //  * @return BasketballCategory[] Returns an array of BasketballCategory objects
+    //  * @return BasketballPlanning[] Returns an array of BasketballPlanning objects
     //  */
     /*
     public function findByExampleField($value)
@@ -37,7 +37,7 @@ class BasketballCategoryRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?BasketballCategory
+    public function findOneBySomeField($value): ?BasketballPlanning
     {
         return $this->createQueryBuilder('b')
             ->andWhere('b.exampleField = :val')
