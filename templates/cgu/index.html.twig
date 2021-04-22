@@ -11,28 +11,30 @@
 {% block main %}
     <h1>Les conditions générales d'utilisation du site</h1>
 
-    <div>
-        {% for cgu in cgus %}
-            <div>
-                <div>{{ cgu.description1 }}</div>
-                <div>{{ cgu.description2 }}</div>
-                <div>{{ cgu.description3 }}</div>
-            </div>
-        {% endfor %}
-    </div>
-    <div>
-        {% for item in items %}
-            <div>
-                <div>{{ item.cguCategory.name }}</div>
-                <div>{{ item.description }}</div>
-            </div>
-        {% endfor %}
-    </div>
-    <div>
-        {% for cgu in cgus %}
-            <div>
-                <div>{{ cgu.description4 }}</div>
-            </div>
-        {% endfor %}
+    <div class="container">
+        <div>
+            {% for cgu in cgus %}
+                <div>
+                    <div class="cgu_text">{{ cgu.description1 }}</div>
+                    <div class="cgu_text">{{ cgu.description2 }}</div>
+                    <div class="cgu_text">{{ cgu.description3 }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for item in items %}
+                <div>
+                    <div class="cgu_article"><h2>{{ item.cguCategory.name }}</h2></div>
+                    <div class="cgu_article_description"><p>{{ item.description }}</p></div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for cgu in cgus %}
+                <div>
+                    <div class="cgu_description">{{ cgu.description4 }}</div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
 {% endblock %}
