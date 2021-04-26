@@ -31,6 +31,7 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>Section</th>
                 <th>Jour</th>
                 <th>Horaire</th>
                 <th>Catégorie</th>
@@ -41,6 +42,7 @@
             <tbody>
             {% for section_planning in section_plannings %}
                 <tr>
+                    <td>{{ section_planning.section.name }}</td>
                     <td>{{ section_planning.day }}</td>
                     <td>{{ section_planning.time }}</td>
                     <td>

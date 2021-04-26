@@ -31,12 +31,14 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>Section</th>
                 <th>Nom</th>
             </tr>
             </thead>
             <tbody>
             {% for section_category in section_categories %}
                 <tr>
+                    <td>{{ section_category.section.name }}</td>
                     <td>{{ section_category.name }}</td>
                     <td>
                         <a href="{{ path('add_section_category_show', {'id': section_category.id}) }}">Détail</a>

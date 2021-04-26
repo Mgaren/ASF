@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Section</th>
                 <th>Name</th>
                 <th>actions</th>
             </tr>
@@ -16,6 +17,7 @@
         <tbody>
         {% for section_category in section_categories %}
             <tr>
+                <td>{{ section_category.section.name }}</td>
                 <td>{{ section_category.id }}</td>
                 <td>{{ section_category.name }}</td>
             </tr>

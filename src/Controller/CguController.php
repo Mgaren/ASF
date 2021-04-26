@@ -24,17 +24,17 @@ class CguController extends AbstractController
      */
     public function index(CguRepository $cguRepository, ItemRepository $itemRepository): Response
     {
-        /*$items = $itemRepository->findAll();
+        $items = $itemRepository->findAll();
         $item_by_category = [];
         foreach ($items as $item) {
             $itemId = $item->getCguCategory()->getId();
             $item_by_category[$itemId]['cguCategory'] = $item->getCguCategory()->getName();
             $item_by_category[$itemId]['items'][] = $item;
-        }*/
+        }
 
         return $this->render('cgu/index.html.twig', [
             'cgus' => $cguRepository->findAll(),
-            'items' => $itemRepository->findAll(),
+            'items' => $item_by_category,
         ]);
     }
 

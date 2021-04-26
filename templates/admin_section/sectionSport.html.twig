@@ -31,6 +31,7 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>Section</th>
                 <th>Description du sport</th>
                 <th>Renseignement</th>
                 <th>Info complémentaire</th>
@@ -41,6 +42,7 @@
             <tbody>
             {% for section_sport in section_sports %}
                 <tr>
+                    <td>{{ section_sport.section.name }}</td>
                     <td>{{ section_sport.description1 }}</td>
                     <td>{{ section_sport.description2 }}</td>
                     <td>{{ section_sport.description3 }}</td>

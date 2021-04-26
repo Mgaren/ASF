@@ -42,6 +42,13 @@ class SectionSport
      */
     private string $lien;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="sectionSport")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Section|null
+     */
+    private ?Section $section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -103,6 +110,18 @@ class SectionSport
     public function setLien(string $lien): self
     {
         $this->lien = $lien;
+
+        return $this;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }

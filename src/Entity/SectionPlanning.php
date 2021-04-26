@@ -45,6 +45,13 @@ class SectionPlanning
      */
     private Collection $sectionCategory;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="sectionPlanning")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Section|null
+     */
+    private ?Section $section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -94,6 +101,18 @@ class SectionPlanning
     public function setCotisation(?string $cotisation): self
     {
         $this->cotisation = $cotisation;
+
+        return $this;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }

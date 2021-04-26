@@ -24,8 +24,10 @@
         <div>
             {% for item in items %}
                 <div>
-                    <div class="cgu_article"><h2>{{ item.cguCategory.name }}</h2></div>
-                    <div class="cgu_article_description"><p>{{ item.description }}</p></div>
+                    <div class="cgu_article"><h2>{{ item.cguCategory }}</h2></div>
+                    {% for category_item in item.items %}
+                    <div class="cgu_article_description"><p>{{ category_item.description }}</p></div>
+                    {% endfor %}
                 </div>
             {% endfor %}
         </div>

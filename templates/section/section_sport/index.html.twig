@@ -9,11 +9,12 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Description1</th>
-                <th>Description2</th>
-                <th>Description3</th>
+                <th>Section</th>
+                <th>Description du sport</th>
+                <th>Renseignement</th>
+                <th>Info complémentaire</th>
                 <th>Image</th>
-                <th>Lien</th>
+                <th>Lien du site</th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -21,6 +22,7 @@
         {% for section_sport in section_sports %}
             <tr>
                 <td>{{ section_sport.id }}</td>
+                <td>{{ section_sport.section.name }}</td>
                 <td>{{ section_sport.description1 }}</td>
                 <td>{{ section_sport.description2 }}</td>
                 <td>{{ section_sport.description3 }}</td>

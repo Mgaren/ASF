@@ -30,6 +30,13 @@ class SectionCategory
      */
     private Collection $sectionPlanning;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="sectionCategory")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Section|null
+     */
+    private ?Section $section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -43,6 +50,18 @@ class SectionCategory
     public function setName(string $name): self
     {
         $this->name = $name;
+
+        return $this;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
 
         return $this;
     }
