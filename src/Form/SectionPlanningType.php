@@ -54,11 +54,10 @@ class SectionPlanningType extends AbstractType
                 'required' => false,
             ]);
         $builder->addEventListener(FormEvents::PRE_SET_DATA, function (FormEvent $event) {
-            /*$section = $event->getData();*/
+            $section = $event->getData();
             $form = $event->getForm();
-            $section = $form->get('section')->getData();
-            if (!$section) {
-                $this->sectionId = 0;
+
+            if ($section && $section->getId()) {
                 $form->add('sectionCategory', EntityType::class, [
                     'label' => 'Catégorie*',
                     'class' => SectionCategory::class,
@@ -72,7 +71,7 @@ class SectionPlanningType extends AbstractType
                             ->andWhere('sectionCategory.section_id', $this->sectionId)
                             ->addOrderBy('sectionCategory.id', 'ASC');
                     }
-                    ]);
+                ]);
             }
         });
     }

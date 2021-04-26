@@ -35,12 +35,12 @@ class SectionSport
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $image = '';
+    private string $image;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
-    private string $lien;
+    private ?string $lien;
 
     /**
      * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="sectionSport")
@@ -102,12 +102,12 @@ class SectionSport
         return $this;
     }
 
-    public function getLien(): string
+    public function getLien(): ?string
     {
         return $this->lien;
     }
 
-    public function setLien(string $lien): self
+    public function setLien(?string $lien): self
     {
         $this->lien = $lien;
 

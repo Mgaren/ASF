@@ -30,16 +30,19 @@ class AdminSectionController extends AbstractController
         SectionCategoryRepository $categoryRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sectionCategory = $categoryRepository->findBy([], [
-            'id' => 'ASC'
-        ]);
-        $sectionCategory = $paginator->paginate(
-            $sectionCategory,
+        $sectionCategories = $categoryRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sectionCategories as $sectionCategory) {
+            $sectionsOrdered[$sectionCategory->getSection()->getName()] = $sectionCategory;
+        }
+        ksort($sectionsOrdered);
+        $sectionCategories = $paginator->paginate(
+            $sectionsOrdered,
             $request->query->getInt('page', 1),
             10
         );
         return $this->render('admin_section/sectionCategory.html.twig', [
-            'section_categories' => $sectionCategory
+            'section_categories' => $sectionCategories
         ]);
     }
 
@@ -55,16 +58,19 @@ class AdminSectionController extends AbstractController
         SectionPlanningRepository $planningRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sectionPlanning = $planningRepository->findBy([], [
-            'id' => 'ASC'
-        ]);
-        $sectionPlanning = $paginator->paginate(
-            $sectionPlanning,
+        $sectionPlannings = $planningRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sectionPlannings as $sectionPlanning) {
+            $sectionsOrdered[$sectionPlanning->getSection()->getName()] = $sectionPlanning;
+        }
+        ksort($sectionsOrdered);
+        $sectionPlannings = $paginator->paginate(
+            $sectionsOrdered,
             $request->query->getInt('page', 1),
             10
         );
         return $this->render('admin_section/sectionPlanning.html.twig', [
-            'section_plannings' => $sectionPlanning
+            'section_plannings' => $sectionPlannings
         ]);
     }
 
@@ -80,16 +86,19 @@ class AdminSectionController extends AbstractController
         SectionSportRepository $sportRepository,
         PaginatorInterface $paginator
     ): Response {
-        $sectionSport = $sportRepository->findBy([], [
-            'id' => 'ASC'
-        ]);
-        $sectionSport = $paginator->paginate(
-            $sectionSport,
+        $sectionSports = $sportRepository->findAll();
+        $sectionsOrdered = [];
+        foreach ($sectionSports as $sectionSport) {
+            $sectionsOrdered[$sectionSport->getSection()->getName()] = $sectionSport;
+        }
+        ksort($sectionsOrdered);
+        $sectionSports = $paginator->paginate(
+            $sectionsOrdered,
             $request->query->getInt('page', 1),
             10
         );
         return $this->render('admin_section/sectionSport.html.twig', [
-            'section_sports' => $sectionSport
+            'section_sports' => $sectionSports
         ]);
     }
 }
