@@ -23,6 +23,7 @@ class SectionPlanningType extends AbstractType
         $builder
             ->add('section', EntityType::class, [
                 'label' => 'section*',
+                'required' => true,
                 'class' => Section::class,
                 'choice_label' => 'name',
                 'multiple' => false,
@@ -33,6 +34,7 @@ class SectionPlanningType extends AbstractType
             ])
             ->add('day', ChoiceType::class, [
                 'label' => 'Jour*',
+                'required' => true,
                 'choices' => [
                     'Lundi' => 'Lundi',
                     'Mardi' => 'Mardi',
@@ -44,10 +46,12 @@ class SectionPlanningType extends AbstractType
                 ]
             ])
             ->add('time', TextType::class, [
-                'label' => 'Horaire*'
+                'label' => 'Horaire*',
+                'required' => true,
             ])
             ->add('lieu', TextType::class, [
-                'label' => 'Lieu d\'entrainement*'
+                'label' => 'Lieu d\'entrainement*',
+                'required' => true,
             ])
             ->add('cotisation', TextType::class, [
                 'label' => 'Cotisation',

@@ -15,15 +15,19 @@ class CguType extends AbstractType
         $builder
             ->add('description1', TextareaType::class, [
                 'label' => '1er paragraphe*',
+                'required' => true,
             ])
             ->add('description2', TextareaType::class, [
                 'label' => '2ème paragraphe*',
+                'required' => true,
             ])
             ->add('description3', TextareaType::class, [
                 'label' => '3ème paragraphe*',
+                'required' => true,
             ])
             ->add('description4', TextareaType::class, [
                 'label' => '4ème paragraphe*',
+                'required' => true,
             ])
         ;
     }

@@ -16,14 +16,16 @@ class PartenaireType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom du partenaire*'
+                'label' => 'Nom du partenaire*',
+                'required' => true,
             ])
             ->add('description', TextareaType::class, [
                 'required' => false,
                 'label' => 'Description*'
             ])
             ->add('lien', TextType::class, [
-                'label' => 'Lien Http *'
+                'label' => 'Lien Http *',
+                'required' => true,
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

@@ -14,7 +14,8 @@ class HistoryDateType extends AbstractType
     {
         $builder
             ->add('date', TextType::class, [
-                'label' => 'Date*'
+                'label' => 'Date*',
+                'required' => true,
             ])
         ;
     }

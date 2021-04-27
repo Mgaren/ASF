@@ -17,13 +17,15 @@ class ItemType extends AbstractType
         $builder
             ->add('cguCategory', EntityType::class, [
                 'label' => 'N° de l\'article*',
+                'required' => true,
                 'class' => CguCategory::class,
                 'choice_label' => 'name',
                 'multiple' => false,
                 'expanded' => true,
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description de l\'article'
+                'label' => 'Description de l\'article',
+                'required' => true,
             ])
         ;
     }

@@ -19,6 +19,7 @@ class HomeSectionType extends AbstractType
         $builder
             ->add('section', EntityType::class, [
                 'label' => 'Nom de la section*',
+                'required' => true,
                 'class' => Section::class,
                 'choice_label' => 'name',
                 'multiple' => false,
@@ -34,6 +35,7 @@ class HomeSectionType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description*',
+                'required' => true,
             ])
         ;
     }

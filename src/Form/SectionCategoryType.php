@@ -18,6 +18,7 @@ class SectionCategoryType extends AbstractType
         $builder
             ->add('section', EntityType::class, [
                 'label' => 'section*',
+                'required' => true,
                 'class' => Section::class,
                 'choice_label' => 'name',
                 'multiple' => false,

@@ -14,7 +14,8 @@ class CguCategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'N° de l\'article + l\'intitulé*'
+                'label' => 'N° de l\'article + l\'intitulé*',
+                'required' => true,
             ])
         ;
     }

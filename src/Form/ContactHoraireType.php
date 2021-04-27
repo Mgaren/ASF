@@ -16,6 +16,7 @@ class ContactHoraireType extends AbstractType
         $builder
             ->add('day', ChoiceType::class, [
                 'label' => 'Jour*',
+                'required' => true,
                 'choices' => [
                     'Lundi' => 'Lundi',
                     'Mardi' => 'Mardi',
@@ -27,10 +28,13 @@ class ContactHoraireType extends AbstractType
                 ]
             ])
             ->add('morningHours', TextType::class, [
-                'label' => 'Horaire matin*'
+                'label' => 'Horaire matin*',
+                'required' => true,
+
             ])
             ->add('afternoonHours', TextType::class, [
-                'label' => 'Horaire après-midi*'
+                'label' => 'Horaire après-midi*',
+                'required' => true,
             ])
         ;
     }

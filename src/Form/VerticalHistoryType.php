@@ -18,6 +18,7 @@ class VerticalHistoryType extends AbstractType
         $builder
             ->add('date', EntityType::class, [
                 'label' => 'Date*',
+                'required' => true,
                 'class' => HistoryDate::class,
                 'choice_label' => 'date',
                 'multiple' => false,
@@ -25,6 +26,7 @@ class VerticalHistoryType extends AbstractType
             ])
             ->add('description', TextareaType::class, [
                 'label' => 'Description*',
+                'required' => true,
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,

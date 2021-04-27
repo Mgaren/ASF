@@ -20,6 +20,7 @@ class SectionSportType extends AbstractType
         $builder
             ->add('section', EntityType::class, [
                 'label' => 'section*',
+                'required' => true,
                 'class' => Section::class,
                 'choice_label' => 'name',
                 'multiple' => false,
@@ -29,13 +30,16 @@ class SectionSportType extends AbstractType
                 }
             ])
             ->add('description1', TextareaType::class, [
-                'label' => 'Description du sport*'
+                'label' => 'Description du sport*',
+                'required' => true,
             ])
             ->add('description2', TextareaType::class, [
-                'label' => 'Renseignement*'
+                'label' => 'Renseignement*',
+                'required' => true,
             ])
             ->add('description3', TextareaType::class, [
-                'label' => 'Info complémentaire*'
+                'label' => 'Info complémentaire*',
+                'required' => true,
             ])
             ->add('fileimage', FileType::class, [
                 'label' => 'Image / Logo*',

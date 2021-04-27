@@ -16,13 +16,16 @@ class ActualityType extends AbstractType
     {
         $builder
             ->add('date', TextType::class, [
-                'label' => 'Date*'
+                'label' => 'Date*',
+                'required' => true,
             ])
             ->add('titre', TextType::class, [
-                'label' => 'Titre*'
+                'label' => 'Titre*',
+                'required' => true,
             ])
             ->add('description', TextareaType::class, [
-                'label' => '1er Paragraphe*'
+                'label' => '1er Paragraphe*',
+                'required' => true,
             ])
             ->add('description2', TextareaType::class, [
                 'required' => false,
