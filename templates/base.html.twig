@@ -12,7 +12,10 @@
     {% block body %}
     {% endblock %}
 
-    {% block javascripts %}{{ encore_entry_script_tags("app") }}
+    {% block javascripts %}
+    {{ encore_entry_script_tags("app") }}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="public/js/script.js"></script>
     {% endblock %}
 
 </body>

@@ -61,7 +61,7 @@ class AdminSectionController extends AbstractController
         $sectionPlannings = $planningRepository->findAll();
         $sectionsOrdered = [];
         foreach ($sectionPlannings as $sectionPlanning) {
-            $sectionsOrdered[$sectionPlanning->getSection()->getName()] = $sectionPlanning;
+            $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
         }
         ksort($sectionsOrdered);
         $sectionPlannings = $paginator->paginate(

@@ -12,6 +12,7 @@ h1 {
 .container_actuality {
     display: flex;
     margin: 2em 2em;
+    justify-content: center;
 }
 
 .actuality {

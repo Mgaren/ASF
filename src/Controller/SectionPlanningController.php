@@ -3,6 +3,7 @@
 namespace App\Controller;
 
 use App\Entity\SectionPlanning;
+use App\Form\SectionPlanningsType;
 use App\Form\SectionPlanningType;
 use App\Repository\SectionPlanningRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -31,7 +32,7 @@ class SectionPlanningController extends AbstractController
     public function new(Request $request): Response
     {
         $sectionPlanning = new SectionPlanning();
-        $form = $this->createForm(SectionPlanningType::class, $sectionPlanning);
+        $form = $this->createForm(SectionPlanningsType::class, $sectionPlanning);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
