@@ -1,0 +1,30 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+main {
+    padding-top: 30px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    margin: 2em 2em;
+}
+
+.cgu_text {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.cgu_description {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+    text-align: center;
+}
+
+.cgu_article {
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}

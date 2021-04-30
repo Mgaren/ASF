@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}New Sport{% endblock %}
+
+{% block body %}
+    {{ include('section/section_sport/_form.html.twig') }}
+{% endblock %}

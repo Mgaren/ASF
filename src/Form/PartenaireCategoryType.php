@@ -14,7 +14,8 @@ class PartenaireCategoryType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Catégorie*'
+                'label' => 'Catégorie*',
+                'required' => true,
             ])
         ;
     }

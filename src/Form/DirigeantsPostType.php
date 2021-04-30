@@ -15,9 +15,11 @@ class DirigeantsPostType extends AbstractType
         $builder
             ->add('number', TextType::class, [
                 'label' => 'numéro*',
+                'required' => true,
             ])
             ->add('name', TextType::class, [
                 'label' => 'poste*',
+                'required' => true,
             ]);
     }
 

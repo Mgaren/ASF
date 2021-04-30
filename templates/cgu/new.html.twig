@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}New Cgu{% endblock %}
+
+{% block body %}
+    {{ include('cgu/_form.html.twig') }}
+{% endblock %}

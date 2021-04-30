@@ -18,12 +18,15 @@ class DirigeantsType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom*',
+                'required' => true,
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Nom*',
+                'required' => true,
             ])
             ->add('dirigeantsPost', EntityType::class, [
                 'label' => 'Poste*',
+                'required' => true,
                 'class' => DirigeantsPost::class,
                 'choice_label' => 'name',
                 'multiple' => false,

@@ -15,6 +15,7 @@ class SectionType extends AbstractType
         $builder
             ->add('name', TextType::class, [
                 'label' => 'section*',
+                'required' => true,
             ])
         ;
     }
