@@ -11,6 +11,50 @@ h1 {
 
 .container_actuality {
     display: flex;
-    margin: 1em 5px;
-    width: 700px;
+    margin: 2em 2em;
+    justify-content: center;
+}
+
+.actuality {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    text-align: center;
+    justify-content: center;
+}
+
+.actuality_titre {
+    font-size: 30px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_date {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_text {
+    font-size: 16px;
+    margin-bottom: 0.25rem;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_image {
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_image img {
+    width: 600px;
+    height: 500px;
 }

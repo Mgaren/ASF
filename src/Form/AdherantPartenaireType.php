@@ -19,13 +19,16 @@ class AdherantPartenaireType extends AbstractType
     {
         $builder
             ->add('name', TextType::class, [
-                'label' => 'Nom du partenaire*'
+                'label' => 'Nom du partenaire*',
+                'required' => true,
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description*'
+                'label' => 'Description*',
+                'required' => true,
             ])
             ->add('lien', TextType::class, [
-                'label' => 'Lien Http*'
+                'label' => 'Lien Http*',
+                'required' => true,
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
@@ -34,6 +37,7 @@ class AdherantPartenaireType extends AbstractType
             ])
             ->add('partenaireCategory', EntityType::class, [
                 'label' => 'Catégorie*',
+                'required' => true,
                 'class' => PartenaireCategory::class,
                 'choice_label' => 'name',
                 'multiple' => false,

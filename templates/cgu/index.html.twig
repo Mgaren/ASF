@@ -1,0 +1,42 @@
+{% extends 'home/layout.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/cgu.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Cgu{% endblock %}
+
+{% block main %}
+    <h1>Les conditions générales d'utilisation du site</h1>
+
+    <div class="container">
+        <div>
+            {% for cgu in cgus %}
+                <div>
+                    <div class="cgu_text">{{ cgu.description1 }}</div>
+                    <div class="cgu_text">{{ cgu.description2 }}</div>
+                    <div class="cgu_text">{{ cgu.description3 }}</div>
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for item in items %}
+                <div>
+                    <div class="cgu_article"><h2>{{ item.cguCategory }}</h2></div>
+                    {% for category_item in item.items %}
+                    <div class="cgu_article_description"><p>{{ category_item.description }}</p></div>
+                    {% endfor %}
+                </div>
+            {% endfor %}
+        </div>
+        <div>
+            {% for cgu in cgus %}
+                <div>
+                    <div class="cgu_description">{{ cgu.description4 }}</div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

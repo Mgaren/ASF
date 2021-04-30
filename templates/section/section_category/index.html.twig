@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}BasketballCategory index{% endblock %}
+
+{% block body %}
+    <h1>BasketballCategory index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Section</th>
+                <th>Name</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for section_category in section_categories %}
+            <tr>
+                <td>{{ section_category.section.name }}</td>
+                <td>{{ section_category.id }}</td>
+                <td>{{ section_category.name }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

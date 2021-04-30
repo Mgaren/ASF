@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link href="{{ '/styles/adminForm.css' }}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}Edit Sport{% endblock %}
+
+{% block body %}
+    {{ include('section/section_sport/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+{% endblock %}

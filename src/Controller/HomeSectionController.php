@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\HomeSection;
 use App\Form\HomeSectionType;
 use App\Repository\HomeSectionRepository;
+use App\Service\NavbarGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,9 +22,13 @@ class HomeSectionController extends AbstractController
     /**
      * @Route("/", name="home_section", methods={"GET"})
      * @param HomeSectionRepository $homeSectionRep
+     * @param NavbarGenerator $navbarGenerator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function index(HomeSectionRepository $homeSectionRep): Response
+    public function index(HomeSectionRepository $homeSectionRep, NavbarGenerator $navbarGenerator): Response
     {
         $homeSections = $homeSectionRep->findAll();
         $sectionsOrdered = [];
@@ -31,8 +36,10 @@ class HomeSectionController extends AbstractController
             $sectionsOrdered[$homeSection->getSection()->getName()] = $homeSection;
         }
         ksort($sectionsOrdered);
-        return $this->render('home_section/index.html.twig', [
+        $htmlNav = $navbarGenerator->getNav();
+        return $this->render('home_section/layout.html.twig', [
             'home_sections' => $sectionsOrdered,
+            'html_nav' => $htmlNav,
         ]);
     }
 

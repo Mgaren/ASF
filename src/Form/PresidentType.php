@@ -14,13 +14,16 @@ class PresidentType extends AbstractType
     {
         $builder
             ->add('date', TextType::class, [
-                'label' => 'date*'
+                'label' => 'date*',
+                'required' => true,
             ])
             ->add('firstname', TextType::class, [
-                'label' => 'Prénom*'
+                'label' => 'Prénom*',
+                'required' => true,
             ])
             ->add('lastname', TextType::class, [
-                'label' => 'Nom*'
+                'label' => 'Nom*',
+                'required' => true,
             ])
         ;
     }

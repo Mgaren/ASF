@@ -19,12 +19,15 @@ class SalariesType extends AbstractType
         $builder
             ->add('firstname', TextType::class, [
                 'label' => 'Prénom*',
+                'required' => true,
             ])
             ->add('lastname', TextType::class, [
                 'label' => 'Nom*',
+                'required' => true,
             ])
             ->add('section', EntityType::class, [
                 'label' => "section*",
+                'required' => true,
                 'class' => Section::class,
                 'choice_label' => 'name',
                 'multiple' => true,

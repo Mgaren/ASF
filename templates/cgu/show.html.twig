@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Cgu{% endblock %}
+
+{% block body %}
+    <h1>Cgu</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ cgu.id }}</td>
+            </tr>
+            <tr>
+                <th>1er paragraphe</th>
+                <td>{{ cgu.description1 }}</td>
+            </tr>
+            <tr>
+                <th>2ème paragraphe</th>
+                <td>{{ cgu.description2 }}</td>
+            </tr>
+            <tr>
+                <th>3ème paragraphe</th>
+                <td>{{ cgu.description3 }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('admin_cgu') }}">Retour à la liste</a>
+
+    <a href="{{ path('cgu_edit', {'id': cgu.id}) }}">Editer</a>
+
+    {{ include('cgu/_delete_form.html.twig') }}
+{% endblock %}

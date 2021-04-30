@@ -18,13 +18,15 @@ class HistoryType extends AbstractType
         $builder
             ->add('date', EntityType::class, [
                 'label' => 'Date*',
+                'required' => true,
                 'class' => HistoryDate::class,
                 'choice_label' => 'date',
                 'multiple' => false,
                 'expanded' => true,
             ])
             ->add('description', TextareaType::class, [
-                'label' => 'Description*'
+                'label' => 'Description*',
+                'required' => true,
             ])
             ->add('fileimage', FileType::class, [
                 'mapped' => false,
