@@ -264,3 +264,43 @@ h1 {
     96% { left: -1000%; }
     100% { left: -1000%; }
 }
+
+@media screen and (max-width: 900px) {
+    .home-carousel-history img {
+        height: 25vh;
+    }
+    .home-carousel-section img {
+        height: 25vh;
+    }
+    .home-carousel-partenaire img {
+        height: 25vh;
+    }
+    .text-3 {
+        margin-bottom: -40px;
+    }
+    .container_actuality:hover {
+        transform: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home-carousel-history img {
+        width: 12.5%;
+        height: 25vh;
+    }
+    .home-carousel-section img {
+        width: 4.5454%;
+        height: 25vh;
+    }
+    .home-carousel-partenaire img {
+        width: 1.51515%;
+        height: 25vh;
+    }
+    .container_actuality {
+        display: flex;
+        flex-direction: column;
+    }
+    .container_actuality:hover {
+        transform: none;
+    }
+}

@@ -17,13 +17,14 @@
                 <p>ici la fiche du sport en question prochainement</p>
                 {{ section.name }}
 
-                {% for section_sport in section_sports %}
-                    {# {{ section_sport.section.name }}
-    {{ section_sport.description1 }}
-    {{ section_sport.description2 }}
-    {{ section_sport.description3 }}
-    {{ section_sport.image }}
-    {{ section_sport.lien }} #}
+        {#
+        {% for section_sport in section_sports %}
+            {{ section_sport.section.name }}
+{{ section_sport.description1 }}
+{{ section_sport.description2 }}
+{{ section_sport.description3 }}
+{{ section_sport.image }}
+{{ section_sport.lien }}
                 {% endfor %}
 
                 <table>
@@ -55,7 +56,7 @@
                     {% endfor %}
                     </tbody>
                 </table>
-
+        #}
             {% endblock %}
     </main>
     {% include "_footer.html.twig" %}

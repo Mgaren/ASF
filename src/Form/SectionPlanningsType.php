@@ -19,42 +19,15 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SectionPlanningsType extends AbstractType
 {
+    private EntityManagerInterface $emi;
+    public function __construct(EntityManagerInterface $emi)
+    {
+        $this->emi = $emi;
+    }
+
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('section', EntityType::class, [
-                'label' => 'section*',
-                'required' => true,
-                'class' => Section::class,
-                'choice_label' => 'name',
-                'multiple' => false,
-                'expanded' => true,
-                'query_builder' => function (EntityRepository $er) {
-                    return $er->createQueryBuilder('section')->addOrderBy('section.name', 'ASC');
-                },
-            ]);
-        $builder->addEventListener(
-            FormEvents::POST_SUBMIT,
-            function (FormEvent $event) {
-                $section = $event->getData();
-                $form = $event->getForm();
-                $builder = $form->getConfig()->getFormFactory()->createNamedBuilder(
-                    'sectionCategory',
-                    EntityType::class,
-                    null,
-                    [
-                        'label' => 'Catégorie*',
-                        'class' => SectionCategory::class,
-                        'choice_label' => 'name',
-                        'multiple' => true,
-                        'expanded' => true,
-                        'by_reference' => false,
-                        'auto_initialize' => false,
-                    ]
-                );
-                $form->getParent()->add($builder->getForm());
-            }
-        )
             ->add('day', ChoiceType::class, [
                 'label' => 'Jour*',
                 'required' => true,
@@ -80,6 +53,68 @@ class SectionPlanningsType extends AbstractType
                 'label' => 'Cotisation',
                 'required' => false,
             ]);
+        $builder->addEventListener(FormEvents::PRE_SET_DATA, array($this, 'onPreSetData'));
+        $builder->addEventListener(FormEvents::PRE_SUBMIT, array($this, 'onPreSubmit'));
+    }
+
+    protected function addElements(FormInterface $form, Section $section = null): void
+    {
+        $form->add('section', EntityType::class, [
+            'required' => true,
+            'label' => 'section*',
+            'data' => $section,
+            'placeholder' => 'Selectionner une section',
+            'class' => Section::class,
+            'multiple' => false,
+            'expanded' => false,
+            'query_builder' => function (EntityRepository $er) {
+                return $er->createQueryBuilder('section')->addOrderBy('section.name', 'ASC');
+            },
+        ]);
+
+        $sectionCategories = [];
+
+        if ($section) {
+            $repoSectionCategory = $this->emi->getRepository(SectionCategory::class);
+
+            $sectionCategories = $repoSectionCategory->createQueryBuilder("s")
+                ->where("s.section = :section_id")
+                ->setParameter("section_id", $section->getId())
+                ->getQuery()
+                ->getResult();
+        }
+
+        $form->add('sectionCategory', EntityType::class, [
+            'required' => true,
+            'label' => 'Categorie*',
+            'placeholder' => 'Selectionner une section',
+            'class' => SectionCategory::class,
+            'choices' => $sectionCategories,
+            'auto_initialize' => false,
+            'multiple' => true,
+            'expanded' => false,
+            'by_reference' => false,
+        ]);
+    }
+
+    public function onPreSubmit(FormEvent $event): void
+    {
+        $form = $event->getForm();
+        $data = $event->getData();
+
+        $section = $this->emi->getRepository(Section::class)->find($data['section']);
+
+        $this->addElements($form, $section);
+    }
+
+    public function onPreSetData(FormEvent $event): void
+    {
+        $sectionPlanning = $event->getData();
+        $form = $event->getForm();
+
+        $section = $sectionPlanning->getSection() ?: null;
+
+        $this->addElements($form, $section);
     }
 
     public function configureOptions(OptionsResolver $resolver): void

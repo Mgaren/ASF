@@ -22,7 +22,7 @@ class Section
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private ?string $name;
+    private string $name;
 
     /**
      * @ORM\ManyToMany(targetEntity=Salaries::class, inversedBy="section")
@@ -59,7 +59,7 @@ class Section
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -69,6 +69,11 @@ class Section
         $this->name = $name;
 
         return $this;
+    }
+
+    public function __toString(): string
+    {
+        return $this->name;
     }
 
     public function __construct()

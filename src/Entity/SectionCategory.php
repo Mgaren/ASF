@@ -54,6 +54,11 @@ class SectionCategory
         return $this;
     }
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function getSection(): ?Section
     {
         return $this->section;
