@@ -50,7 +50,7 @@
                     <td>{{ section_sport.lien }}</td>
                     <td>
                         <a href="{{ path('section_sport_show', {'id': section_sport.id}) }}">Détail</a>
-                        {{ include('section/section_sport/_delete_form.html.twig') }}
+                        {# {{ include('section/section_sport/_delete_form.html.twig') }} #}
                         <a href="{{ path('section_sport_edit', {'id': section_sport.id}) }}">Editer</a>
                     </td>
                 </tr>

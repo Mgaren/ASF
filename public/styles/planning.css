@@ -1,0 +1,34 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+h1 {
+    text-align: center;
+}
+
+.table {
+    width: 75%;
+    margin-top: 1rem;
+    border: medium solid black;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+th {
+    border: thin solid #6495ed;
+    padding: 5px;
+    text-align: center;
+}
+td {
+    border: thin solid #6495ed;
+    padding: 5px;
+    text-align: center;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+td.cotisation, th.cotisation {
+    display: none;
+    text-decoration: none;
+}

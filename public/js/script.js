@@ -1,26 +1,23 @@
-$('#section_planning_section').change(function () {
+$('#section_plannings_section').change(function () {
     let sectionSelector = $(this);
 
     // Request the neighborhoods of the selected city.
     $.ajax({
-        url: "{{ path('section_planning_index') }}",
+        url: "/section/planning/get-categories-from-section",
         type: "GET",
         dataType: "JSON",
         data: {
             section_id: sectionSelector.val()
         },
         success: function (sectioncategories) {
-            let sectioncategorySelect = $("#section_planning_sectionCategory");
+            let sectioncategorySelect = $("#section_plannings_sectionCategory");
 
             // Remove current options
             sectioncategorySelect.html('');
 
-            // Empty value ...
-            sectioncategorySelect.append('<option value> Select a sectioncategory of ' + sectionSelector.find("option:selected").text() + ' ...</option>');
-
-
             $.each(sectioncategories, function (key, sectioncategory) {
-                sectioncategorySelect.append('<option value="' + sectioncategory.id + '">' + sectioncategory.name + '</option>');
+                sectioncategorySelect.append('<input type="checkbox" id="section_planningssectionCategory' + sectioncategory.id + '" name="section_plannings[sectionCategory][]" value="' + sectioncategory.id + '">');
+                sectioncategorySelect.append('<label for="section_planningssectionCategory' + sectioncategory.id + '">' + sectioncategory.name + '</label>');
             });
         },
         error: function (err) {

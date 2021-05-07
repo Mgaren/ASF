@@ -13,4 +13,11 @@
     --home-text-color: black;
     --home-background-color: green;
     --home-text-color-buttom: white;
+
+    /* Variable for charte color */
+    --first-color: #174b44;
+    --second-color: #89985a;
+    --thrid-color: #c4c4c6;
+    --fourth-color: #b2d243;
+    --fifth-color: #47c5ab;
 }

@@ -3,8 +3,6 @@
 namespace App\Controller;
 
 use App\Entity\Section;
-use App\Repository\SectionPlanningRepository;
-use App\Repository\SectionSportRepository;
 use App\Service\SportPageGenerator;
 use App\Service\NavbarGenerator;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,8 +19,6 @@ class SportController extends AbstractController
     /**
      * @Route("/{id}", name="sectionSport", methods={"GET"})
      * @param Section $sectionRep
-     * @param SectionPlanningRepository $sectionPlanningRep
-     * @param SectionSportRepository $sectionSportRep
      * @param SportPageGenerator $sportPageGenerator
      * @param NavbarGenerator $navbarGenerator
      * @return Response
@@ -32,31 +28,18 @@ class SportController extends AbstractController
      */
     public function sport(
         Section $sectionRep,
-        SectionPlanningRepository $sectionPlanningRep,
-        SectionSportRepository $sectionSportRep,
         SportPageGenerator $sportPageGenerator,
         NavbarGenerator $navbarGenerator
     ): Response {
-        /*$sectionPlannings = $sectionPlanningRep->findAll();
-        $sectionPlanningById = [];
-        foreach ($sectionPlannings as $sectionPlanning) {
-            $sectionPlanningId = $sectionPlanning->getSection()->getName();
-            $sectionPlanningById[$sectionPlanningId]['section'] = $sectionPlanning->getSection()->getName();
-            $sectionPlanningById[$sectionPlanningId]['planning'][] = $sectionPlanning;
-        }
-        $sectionSports = $sectionSportRep->findAll();
-        $sectionsSportById = [];
-        foreach ($sectionSports as $sectionSport) {
-            $sectionsSportById[$sectionSport->getSection()->getName()] = $sectionSport;
-        }*/
+        $id = $sectionRep->getId();
         $htmlNav = $navbarGenerator->getNav();
-        //$htmlSportPlanning = $sportPageGenerator->sportPlanning();
-        //$htmlSport = $sportPageGenerator->sport();
+        $htmlSportPlanning = $sportPageGenerator->getSportPlanning($id);
+        $htmlSport = $sportPageGenerator->getSport($id);
 
         return $this->render('section/layout.html.twig', [
             'section' => $sectionRep,
-            //'section_plannings' => $htmlSportPlanning,
-            //'section_sports' => $htmlSport,
+            'section_plannings' => $htmlSportPlanning,
+            'section_sports' => $htmlSport,
             'html_nav' => $htmlNav,
         ]);
     }

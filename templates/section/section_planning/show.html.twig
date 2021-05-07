@@ -29,7 +29,11 @@
             </tr>
             <tr>
                 <th>Catégorie</th>
-                <td>{{ section_planning.sectionCategory.name }}</td>
+                <td>
+                    {% for category in section_planning.sectionCategory %}
+                        {{ category.name }}
+                    {% endfor %}
+                </td>
             </tr>
         </tbody>
     </table>
@@ -38,5 +42,5 @@
 
     <a href="{{ path('section_planning_edit', {'id': section_planning.id}) }}">Editer</a>
 
-    {{ include('section/section_planning/_delete_form.html.twig') }}
+    {# {{ include('section/section_planning/_delete_form.html.twig') }} #}
 {% endblock %}

@@ -4,7 +4,6 @@ namespace App\Controller;
 
 use App\Entity\SectionSport;
 use App\Form\SectionSportType;
-use App\Repository\SectionSportRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -18,16 +17,6 @@ use Symfony\Component\String\Slugger\SluggerInterface;
  */
 class SectionSportController extends AbstractController
 {
-    /**
-     * @Route("/", name="section_sport", methods={"GET"})
-     */
-    public function index(SectionSportRepository $sectionSport): Response
-    {
-        return $this->render('section/section_sport/index.html.twig', [
-            'section_sports' => $sectionSport->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/new", name="section_sport_new", methods={"GET","POST"})
      */

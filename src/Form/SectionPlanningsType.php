@@ -19,10 +19,10 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 
 class SectionPlanningsType extends AbstractType
 {
-    private EntityManagerInterface $emi;
-    public function __construct(EntityManagerInterface $emi)
+    private EntityManagerInterface $entityManager;
+    public function __construct(EntityManagerInterface $entityManager)
     {
-        $this->emi = $emi;
+        $this->entityManager = $entityManager;
     }
 
     public function buildForm(FormBuilderInterface $builder, array $options): void
@@ -75,7 +75,7 @@ class SectionPlanningsType extends AbstractType
         $sectionCategories = [];
 
         if ($section) {
-            $repoSectionCategory = $this->emi->getRepository(SectionCategory::class);
+            $repoSectionCategory = $this->entityManager->getRepository(SectionCategory::class);
 
             $sectionCategories = $repoSectionCategory->createQueryBuilder("s")
                 ->where("s.section = :section_id")
@@ -92,7 +92,7 @@ class SectionPlanningsType extends AbstractType
             'choices' => $sectionCategories,
             'auto_initialize' => false,
             'multiple' => true,
-            'expanded' => false,
+            'expanded' => true,
             'by_reference' => false,
         ]);
     }
@@ -102,7 +102,7 @@ class SectionPlanningsType extends AbstractType
         $form = $event->getForm();
         $data = $event->getData();
 
-        $section = $this->emi->getRepository(Section::class)->find($data['section']);
+        $section = $this->entityManager->getRepository(Section::class)->find($data['section']);
 
         $this->addElements($form, $section);
     }

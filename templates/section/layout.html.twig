@@ -3,61 +3,21 @@
 {% block body %}
     <header>
         {% include "_nav.html.twig" %}
-        {{ html_nav|raw }}
+        {{ html_nav | raw }}
     </header>
     <main>
-            {% block stylesheets %}
-                <link href="{{ '/styles/sectionSport.css' }}" rel="stylesheet">
-                <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
-                <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
-                <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
-            {% endblock %}
+        {% block stylesheets %}
+            <link href="{{ '/styles/sectionSport.css' }}" rel="stylesheet">
+            <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+            <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+            <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
+        {% endblock %}
 
-            {% block main %}
-                <p>ici la fiche du sport en question prochainement</p>
-                {{ section.name }}
-
-        {#
-        {% for section_sport in section_sports %}
-            {{ section_sport.section.name }}
-{{ section_sport.description1 }}
-{{ section_sport.description2 }}
-{{ section_sport.description3 }}
-{{ section_sport.image }}
-{{ section_sport.lien }}
-                {% endfor %}
-
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Jours</th>
-                        <th>Horaires</th>
-                        <th>Categories</th>
-                        <th>Lieu</th>
-                        <th>Cotisation</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    {% for section_planning in section_plannings %}
-                        <tr>
-                            {% for test in section_planning.planning %}
-                                <td>{{ test.day }}</td>
-                                <td>{{ test.time }}</td>
-                                <td>
-                                    {% for category in test.sectionCategory %}
-                                        {{ category.name }}
-                                    {% endfor %}
-                                </td>
-                                <td>{{ test.lieu }}</td>
-                                <td>{{ test.cotisation }}</td>
-                            {% endfor %}
-
-                        </tr>
-                    {% endfor %}
-                    </tbody>
-                </table>
-        #}
-            {% endblock %}
+        {% block main %}
+            <h1>{{ section.name }}</h1>
+            {{ section_sports | raw }}
+            {{ section_plannings | raw }}
+        {% endblock %}
     </main>
     {% include "_footer.html.twig" %}
 {% endblock %}

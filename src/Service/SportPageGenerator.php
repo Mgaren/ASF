@@ -21,32 +21,34 @@ class SportPageGenerator
     }
 
     /**
+     * @param int $id
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function sportPlanning(): string
+    public function getSportPlanning(int $id): string
     {
         $sportPlanning = $this->entityManager->getRepository(SectionPlanning::class)->findBy(
-            ['section' => 'section']
+            ['section' => $id ]
         );
-        $htmlSportPlanning = $this->twig->render('section/layout.html.twig', ['section_planning' => $sportPlanning]);
-        return $htmlSportPlanning;
+        return $this->twig->render('section/section_planning/planning.html.twig', [
+            'section_plannings' => $sportPlanning
+        ]);
     }
 
     /**
+     * @param int $id
      * @return string
      * @throws \Twig\Error\LoaderError
      * @throws \Twig\Error\RuntimeError
      * @throws \Twig\Error\SyntaxError
      */
-    public function sport(): string
+    public function getSport(int $id): string
     {
         $sport = $this->entityManager->getRepository(SectionSport::class)->findBy(
-            ['section' => 'section']
+            ['section' => $id ]
         );
-        $htmlSport = $this->twig->render('section/layout.html.twig', ['section_sport' => $sport]);
-        return $htmlSport;
+        return $this->twig->render('section/section_sport/sport.html.twig', ['section_sports' => $sport]);
     }
 }

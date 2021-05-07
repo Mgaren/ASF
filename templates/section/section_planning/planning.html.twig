@@ -1,0 +1,42 @@
+{% block body %}
+    {% block stylesheets %}
+        <link href="{{ '/styles/planning.css' }}" rel="stylesheet">
+    {% endblock %}
+    <div class="container">
+        <h1>Planning d'entrainement</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Jour</th>
+                <th>Horaire</th>
+                <th>Catégorie</th>
+                <th>Lieu</th>
+                <th class="cotisation">Cotisation</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for section_planning in section_plannings %}
+                <tr>
+                    <td class="day">{{ section_planning.day }}</td>
+                    <td class="time">{{ section_planning.time }}</td>
+                    <td class="category">
+                        {% for category in section_planning.sectionCategory %}
+                            {{ category.name }}
+                        {% endfor %}
+                    </td>
+                    <td class="lieu">{{ section_planning.lieu }}</td>
+                    <td class="cotisation">
+                        {% if section_planning.cotisation == true %}
+                            {{ section_planning.cotisation }}
+                        {% endif %}
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="5">La page de la section est en cours de préparation</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+{% endblock %}
