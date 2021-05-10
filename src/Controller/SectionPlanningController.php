@@ -2,11 +2,11 @@
 
 namespace App\Controller;
 
+use App\Entity\SectionCategory;
 use App\Entity\SectionPlanning;
 use App\Form\SectionPlanningsType;
-use App\Form\SectionPlanningType;
-use App\Repository\SectionPlanningRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,16 +16,6 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class SectionPlanningController extends AbstractController
 {
-    /**
-     * @Route("/", name="section_planning_index", methods={"GET"})
-     */
-    public function index(SectionPlanningRepository $sectionPlanning): Response
-    {
-        return $this->render('section/section_planning/index.html.twig', [
-            'section_plannings' => $sectionPlanning->findAll(),
-        ]);
-    }
-
     /**
      * @Route("/new", name="section_planning_new", methods={"GET","POST"})
      */
@@ -64,7 +54,7 @@ class SectionPlanningController extends AbstractController
      */
     public function edit(Request $request, SectionPlanning $sectionPlanning): Response
     {
-        $form = $this->createForm(SectionPlanningType::class, $sectionPlanning);
+        $form = $this->createForm(SectionPlanningsType::class, $sectionPlanning);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -91,5 +81,29 @@ class SectionPlanningController extends AbstractController
         }
 
         return $this->redirectToRoute('admin_section_planning');
+    }
+
+    /**
+     * @Route("/get-categories-from-section", name="section_get_categories", methods={"GET"})
+     */
+    public function getCategoriesFromSection(Request $request): JsonResponse
+    {
+        $emi = $this->getDoctrine()->getManager();
+        $repoSectionCategory = $emi->getRepository(SectionCategory::class);
+
+        $sectionCategories = $repoSectionCategory->createQueryBuilder("s")
+            ->where("s.section = :section_id")
+            ->setParameter("section_id", $request->query->get("section_id"))
+            ->getQuery()
+            ->getResult();
+
+        $responseArray = [];
+        foreach ($sectionCategories as $sectionCategory) {
+            $responseArray[] = [
+                "id" => $sectionCategory->getId(),
+                "name" => $sectionCategory->getName()
+            ];
+        }
+        return new JsonResponse($responseArray);
     }
 }

@@ -50,7 +50,7 @@ class SectionPlanning
      * @ORM\JoinColumn(nullable=false)
      * @var Section|null
      */
-    private ?Section $section;
+    private ?Section $section = null;
 
     public function getId(): ?int
     {

@@ -1,0 +1,32 @@
+{% block body %}
+    {% block stylesheets %}
+        <link href="{{ '/styles/sport.css' }}" rel="stylesheet">
+    {% endblock %}
+    <div class="container">
+        {% for section_sport in section_sports %}
+            <div class="section">
+                <div class="image">
+                    {% if section_sport.image == true %}
+                        <img src="/uploads/sports/{{ section_sport.image }}">
+                    {% endif %}
+                </div>
+                <div class="sport">
+                    <div class="sport_description"><p>{{ section_sport.description1 }}</p></div>
+                    <div class="renseignement"><p>{{ section_sport.description2 }}</p></div>
+                    <div class="info">
+                        <p>{{ section_sport.description3 }}</p>
+                        <div class="lien">
+                            {% if section_sport.lien == true %}
+                                <a href="{{ section_sport.lien }}" target="_blank">{{ section_sport.lien }}</a>
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {% else %}
+            <tr>
+                <td colspan="5">La page de la section est en cours de préparation</td>
+            </tr>
+        {% endfor %}
+    </div>
+{% endblock %}

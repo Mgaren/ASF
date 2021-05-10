@@ -130,8 +130,12 @@ h1 {
     margin-bottom: 2rem;
 }
 
+.home {
+    overflow: hidden;
+}
+
 /* carousel history home page */
-.home-carousel-history {
+.home-carousel-history figure {
     position: relative;
     width: 800%;
     margin-bottom: 1rem;
@@ -142,7 +146,7 @@ h1 {
     animation: 40s slidy-history infinite ease-in-out;
 }
 
-.home-carousel-history img {
+.home-carousel-history figure img {
     width: 6.25%;
     height: 50vh;
     float: left;
@@ -162,7 +166,7 @@ h1 {
 }
 
 /* carousel section home page */
-.home-carousel-section {
+.home-carousel-section figure {
     position: relative;
     width: 2200%;
     margin-top: 1rem;
@@ -174,7 +178,7 @@ h1 {
     animation: 80s slidy-section infinite ease-in-out;
 }
 
-.home-carousel-section img {
+.home-carousel-section figure img {
     width: 2.2727%;
     height: 50vh;
     float: left;
@@ -215,7 +219,7 @@ h1 {
 }
 
 /* carousel partenaire home page */
-.home-carousel-partenaire {
+.home-carousel-partenaire figure {
     position: relative;
     width: 3300%;
     margin-top: 1rem;
@@ -225,7 +229,7 @@ h1 {
     animation: 100s slidy-partenaire infinite ease-in-out;
 }
 
-.home-carousel-partenaire img {
+.home-carousel-partenaire figure img {
     width: 1.0101%;
     height: 50vh;
     float: left;
@@ -263,4 +267,44 @@ h1 {
 
     96% { left: -1000%; }
     100% { left: -1000%; }
+}
+
+@media screen and (max-width: 900px) {
+    .home-carousel-history figure img {
+        height: 25vh;
+    }
+    .home-carousel-section figure img {
+        height: 25vh;
+    }
+    .home-carousel-partenaire figure img {
+        height: 25vh;
+    }
+    .text-3 {
+        margin-bottom: -40px;
+    }
+    .container_actuality:hover {
+        transform: none;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .home-carousel-history figure img {
+        width: 12.5%;
+        height: 25vh;
+    }
+    .home-carousel-section figure img {
+        width: 4.5454%;
+        height: 25vh;
+    }
+    .home-carousel-partenaire figure img {
+        width: 1.51515%;
+        height: 25vh;
+    }
+    .container_actuality {
+        display: flex;
+        flex-direction: column;
+    }
+    .container_actuality:hover {
+        transform: none;
+    }
 }

@@ -33,7 +33,7 @@ class AdminSectionController extends AbstractController
         $sectionCategories = $categoryRepository->findAll();
         $sectionsOrdered = [];
         foreach ($sectionCategories as $sectionCategory) {
-            $sectionsOrdered[$sectionCategory->getSection()->getName()] = $sectionCategory;
+            $sectionsOrdered[$sectionCategory->getSection()->getName()][] = $sectionCategory;
         }
         ksort($sectionsOrdered);
         $sectionCategories = $paginator->paginate(

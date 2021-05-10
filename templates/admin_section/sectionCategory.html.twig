@@ -37,15 +37,17 @@
             </thead>
             <tbody>
             {% for section_category in section_categories %}
+                {% for category in section_category %}
                 <tr>
-                    <td>{{ section_category.section.name }}</td>
-                    <td>{{ section_category.name }}</td>
+                    <td>{{ category.section.name }}</td>
+                    <td>{{ category.name }}</td>
                     <td>
-                        <a href="{{ path('add_section_category_show', {'id': section_category.id}) }}">Détail</a>
-                        {{ include('section/section_category/_delete_form.html.twig') }}
-                        <a href="{{ path('add_section_category_edit', {'id': section_category.id}) }}">Editer</a>
+                        <a href="{{ path('add_section_category_show', {'id': category.id}) }}">Détail</a>
+                        {# {{ include('section/section_category/_delete_form.html.twig') }} #}
+                        <a href="{{ path('add_section_category_edit', {'id': category.id}) }}">Editer</a>
                     </td>
                 </tr>
+                {% endfor %}
             {% else %}
                 <tr>
                     <td colspan="7">La liste des catégories est vide</td>

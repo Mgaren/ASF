@@ -55,7 +55,7 @@
                     <td>{{ planning.cotisation }}</td>
                     <td>
                         <a href="{{ path('section_planning_show', {'id': planning.id}) }}">Détail</a>
-                        {{ include('section/section_planning/_delete_form.html.twig') }}
+                        {# {{ include('section/section_planning/_delete_form.html.twig') }} #}
                         <a href="{{ path('section_planning_edit', {'id': planning.id}) }}">Editer</a>
                     </td>
                 </tr>
