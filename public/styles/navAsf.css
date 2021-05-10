@@ -19,6 +19,7 @@
     height: 75px;
     font-size: 22px;
     background-color: var(--nav-background-color);
+    text-align: center;
 }
 
 .nav_barAsf a {
