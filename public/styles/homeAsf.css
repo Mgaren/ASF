@@ -44,6 +44,24 @@ main {
 .text-1 a, .text-2 a, .text-3 a, .text-4 a, .text-5 a {
     margin: 10px 10px;
     text-decoration: none;
-    color: red;
+    color: var(--fifth-color);
     font-size: 30px;
+}
+
+@media screen and (max-width: 1200px) {
+    .history, .dirigeant, .salary, .adherant, .contact {
+        flex-direction: column;
+    }
+
+    .container {
+        display: flex;
+        flex-direction: column-reverse;
+        justify-content: center;
+    }
+
+    .text-1, .text-2, .text-3, .text-4, .text-5 {
+        padding: 0 0;
+        width: 100vw;
+        margin-top: 1.5rem;
+    }
 }

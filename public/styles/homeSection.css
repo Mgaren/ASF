@@ -63,3 +63,9 @@ main {
     width: 400px;
     height: 300px;
 }
+
+@media screen and (max-width: 1200px) {
+    .sections:hover {
+        transform: none;
+    }
+}
