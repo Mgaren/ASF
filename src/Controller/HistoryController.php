@@ -29,6 +29,14 @@ class HistoryController extends AbstractController
      */
     public function index(HistoryRepository $historyRepository, PresidentRepository $presidentRepository): Response
     {
+        /*$histories = $historyRepository->findAll();
+        $history_by_date = [];
+        foreach ($histories as $history) {
+            $historyId = $history->getDate()->getId();
+            $history_by_date[$historyId]['historyDate'] = $history->getDate()->getId();
+            $history_by_date[$historyId]['histories'][] = $history;
+        }*/
+
         return $this->render('asf/history/index.html.twig', [
             'histories' => $historyRepository->findBy([], [
                 'date' => 'ASC'

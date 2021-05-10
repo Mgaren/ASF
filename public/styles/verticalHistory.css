@@ -12,14 +12,14 @@
 main {
     font: normal 16px/1.5 "Helvetica Neue", sans-serif;
     padding-top: 30px;
-    background: var(--fifth-color);
+    background: var(--first-color);
     color: var(--history-text-color);
     overflow-x: hidden;
     padding-bottom: 50px;
 }
 
 .intro {
-    background: var(--second-color);
+    background: var(--first-color);
     padding: 100px 0;
 }
 
@@ -35,7 +35,7 @@ h1 {
 }
 
 .timeline ul {
-    background: var(--fifth-color);
+    background: var(--first-color);
     padding: 50px 0;
 }
 
@@ -156,6 +156,6 @@ time p, time a {
     .timeline ul li:nth-child(even) div::before {
         left: -15px;
         border-width: 8px 16px 8px 0;
-        border-color: transparent var(--history-background-color) transparent transparent;
+        border-color: transparent var(--second-color) transparent transparent;
     }
 }

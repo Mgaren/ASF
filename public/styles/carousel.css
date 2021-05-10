@@ -279,8 +279,16 @@ h1 {
     .home-carousel-partenaire figure img {
         height: 25vh;
     }
+    .text-1, .text-2 {
+        margin-bottom: 1px;
+        margin-right: 1px;
+    }
+    .text-1 a, .text-2 a, .text-3 a {
+        font-size: 1.5rem;
+    }
     .text-3 {
-        margin-bottom: -40px;
+        margin-bottom: -30px;
+        margin-right: 1px;
     }
     .container_actuality:hover {
         transform: none;
@@ -306,5 +314,8 @@ h1 {
     }
     .container_actuality:hover {
         transform: none;
+    }
+    .text-3 a {
+        font-size: 1.4rem;
     }
 }
