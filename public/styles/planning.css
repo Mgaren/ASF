@@ -28,7 +28,3 @@ td {
     flex-direction: column;
     align-items: center;
 }
-td.cotisation, th.cotisation {
-    display: none;
-    text-decoration: none;
-}

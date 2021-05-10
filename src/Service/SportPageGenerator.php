@@ -32,8 +32,18 @@ class SportPageGenerator
         $sportPlanning = $this->entityManager->getRepository(SectionPlanning::class)->findBy(
             ['section' => $id ]
         );
+        $displayCotisation = false;
+        foreach ($sportPlanning as $planning) {
+            /** @var SectionPlanning $planning */
+            $cotisation = $planning->getCotisation();
+            if ($cotisation) {
+                $displayCotisation = true;
+                break;
+            }
+        }
         return $this->twig->render('section/section_planning/planning.html.twig', [
-            'section_plannings' => $sportPlanning
+            'section_plannings' => $sportPlanning,
+            'display_cotisation' => $displayCotisation,
         ]);
     }
 
