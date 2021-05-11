@@ -26,22 +26,28 @@ h1 {
     font-size: 2.5rem;
 }
 
-.container_adherant {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
-}
-
 .adherant_image {
     display: flex;
-    justify-content: center;
-    height: 500px;
+    width: 500px;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    float: left;
+}
+
+.adherant_image img {
+    width: 100%;
+}
+
+.container_adherant-text {
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .adherent_text {
-    display: flex;
-    justify-content: center;
     margin: 0.5rem 1rem;
-    text-align: center;
+    font-size: 1rem;
 }
 
 .categories {
@@ -50,6 +56,8 @@ h1 {
     grid-auto-rows: minmax(50px, 10px);
     align-items: center;
     text-align: center;
+    clear: both;
+    margin-top: 5rem;
 }
 .categories a {
     text-decoration: none;
@@ -129,7 +137,7 @@ h1 {
 
 @media screen and (max-width: 850px) {
     .adherant_image {
-        height: 300px;
+        width: 300px;
     }
     .item_partenaire {
         flex-direction: row;
@@ -137,7 +145,8 @@ h1 {
 }
 @media screen and (max-width: 650px) {
     .adherant_image {
-        height: 200px;
+        width: 200px;
+        flex-direction: column;
     }
     .item_partenaire {
         flex-direction: column;

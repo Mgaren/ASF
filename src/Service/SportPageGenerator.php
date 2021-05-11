@@ -41,9 +41,23 @@ class SportPageGenerator
                 break;
             }
         }
+        /*foreach ($sportPlanning as $planning) {
+            $sectionDay = $planning->getSection()->getId();
+            foreach ($sectionDay as $days) {
+                $day = $days->getDay()
+            }
+        }
+        $sportPlannings = $this->entityManager->getRepository(SectionPlanning::class)->findAll();
+        $day_by_day = [];
+        foreach ($sportPlannings as $day) {
+            $dayId = $day->getDay()->getId();
+            $day_by_day[$dayId]['days'] = $day->getDay()->getId();
+            $day_by_day[$dayId]['day'][] = $day;
+        }*/
         return $this->twig->render('section/section_planning/planning.html.twig', [
             'section_plannings' => $sportPlanning,
             'display_cotisation' => $displayCotisation,
+            //'days' => $day_by_day,
         ]);
     }
 

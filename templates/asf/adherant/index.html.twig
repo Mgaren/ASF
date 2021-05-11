@@ -17,26 +17,18 @@
     </div>
     <ul class="container_adherant">
         {% for adherant_image in adherant_images %}
-            <li class="container_item">
-                <div class="adherant">
-                    <div class="adherant_image">
-                        {% if adherant_image.image == true %}
-                            <img src="/uploads/adherant/{{ adherant_image.image }}">
-                        {% endif %}
-                    </div>
-                </div>
-            </li>
+            <div class="adherant_image">
+                {% if adherant_image.image == true %}
+                    <img src="/uploads/adherant/{{ adherant_image.image }}">
+                {% endif %}
+            </div>
         {% endfor %}
     </ul>
-    <ul class="container_adherant">
+    <ul class="container_adherant-text">
         {% for adherant_text in adherant_texts %}
-            <li class="container_item">
-                <div class="adherant">
-                    <div class="adherent_text">
-                        <div><h2>{{ adherant_text.description }}</h2></div>
-                    </div>
-                </div>
-            </li>
+            <div class="adherent_text">
+                <p>{{ adherant_text.description }}</p>
+            </div>
         {% endfor %}
     </ul>
     <div class="categories">
@@ -51,7 +43,7 @@
                 {% for adherant_partenaire in category.partenaires %}
                 <li class="item_partenaire">
                     <div class="partenaire">
-                        <div class="partenaire_name" id="{{ adherant_partenaire.partenaireCategory.id }}"><h2>{{ adherant_partenaire.name }}</h2></div>
+                        <div class="partenaire_name" id="{{ adherant_partenaire.partenaireCategory.id }}"></div>
                         <div class="partenaire_image">
                             {% if adherant_partenaire.image == true %}
                                 <a href="{{ adherant_partenaire.lien }}" target="_blank"><img src="/uploads/adherant/{{ adherant_partenaire.image }}"></a>
