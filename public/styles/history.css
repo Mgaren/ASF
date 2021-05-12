@@ -4,15 +4,15 @@
 main {
     font: normal 16px/1.5 "Helvetica Neue", sans-serif;
     padding-top: 30px;
-    background: var(--fifth-color);
+    background: var(--first-color);
     color: var(--history-text-color);
     overflow-x: hidden;
     padding-bottom: 50px;
 }
 
 .intro {
-    background: var(--second-color);
-    padding: 100px 0;
+    background: var(--first-color);
+    padding: 20px 0;
 }
 
 .container {
@@ -27,26 +27,29 @@ main {
 
 .history {
     display: flex;
-    flex-direction: row;
-    justify-content: space-around;
     margin-top: 1rem;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-word;
+    margin-left: 2rem;
+    margin-right: 2rem;
 }
 
 .history p {
-    font-size: 2.3rem;
+    font-size: 1rem;
     margin-left: 1rem;
     margin-right: 1rem;
 }
 
-.history img {
+.history-image img {
     margin-left: 1rem;
     margin-right: 1rem;
-    width: 35%;
+    float: right;
+    margin-top: 1rem;
+    width: 25vw;
 }
 
 .table {
-    width: 50%;
+    width: 50vw;
     margin-top: 1rem;
     border: medium solid black;
     border-collapse: collapse;
@@ -57,6 +60,7 @@ main {
     flex-direction: column;
     align-items: center;
     margin-top: 2rem;
+    clear: both;
 }
 
 th {
@@ -68,4 +72,26 @@ td {
     border: thin solid var(--fourth-color);
     padding: 5px;
     text-align: center;
+}
+
+@media screen and (max-width: 900px) {
+    .history-image img {
+        width: 40vw;
+    }
+    .president h1 {
+        text-align: center;
+    }
+    .table {
+        width: 75vw;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .history-image img {
+        float: none;
+    }
+    .history-image {
+        display: flex;
+        justify-content: center;
+    }
 }

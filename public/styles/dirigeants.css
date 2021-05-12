@@ -4,15 +4,15 @@
 main {
     font-family: 'Raleway', sans-serif;
     padding-top: 30px;
-    background: #456990;
-    color: #fff;
+    background: var(--first-color);
+    color: var(--history-text-color);
     overflow-x: hidden;
     padding-bottom: 50px;
 }
 
 .intro {
-    background: #F45B69;
-    padding: 100px 0;
+    background: var(--first-color);
+    padding: 20px 0;
 }
 
 .container {

@@ -33,3 +33,7 @@
     text-decoration: none;
     color: var(--nav-text-color);
 }
+
+.active {
+    background-color: red;
+}

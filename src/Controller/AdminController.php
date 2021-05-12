@@ -532,7 +532,9 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
-        $item = $itemRepository->findAll();
+        $item = $itemRepository->findBy([], [
+            'cguCategory' => 'ASC'
+        ]);
         $item = $paginator->paginate(
             $item,
             $request->query->getInt('page', 1),

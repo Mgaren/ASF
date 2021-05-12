@@ -11,6 +11,9 @@ h1 {
 
 .container {
     margin: 2em 2em;
+    text-align: justify;
+    text-justify: inter-word;
+    line-height: 1.5rem;
 }
 
 .cgu_text {
@@ -27,4 +30,5 @@ h1 {
 .cgu_article {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    text-justify: none;
 }

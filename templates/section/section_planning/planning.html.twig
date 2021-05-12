@@ -11,7 +11,9 @@
                 <th>Horaire</th>
                 <th>Catégorie</th>
                 <th>Lieu</th>
-                <th class="cotisation">Cotisation</th>
+                {% if display_cotisation %}
+                    <th class="cotisation">Cotisation</th>
+                {% endif %}
             </tr>
             </thead>
             <tbody>
@@ -25,11 +27,13 @@
                         {% endfor %}
                     </td>
                     <td class="lieu">{{ section_planning.lieu }}</td>
-                    <td class="cotisation">
-                        {% if section_planning.cotisation == true %}
-                            {{ section_planning.cotisation }}
-                        {% endif %}
-                    </td>
+                    {% if display_cotisation %}
+                        <td class="cotisation">
+                            {% if section_planning.cotisation == true %}
+                                {{ section_planning.cotisation }}
+                            {% endif %}
+                        </td>
+                    {% endif %}
                 </tr>
             {% else %}
                 <tr>
