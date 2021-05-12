@@ -20,7 +20,7 @@ main {
 
 .intro {
     background: var(--first-color);
-    padding: 100px 0;
+    padding: 20px 0;
 }
 
 .container {
@@ -36,7 +36,7 @@ h1 {
 
 .timeline ul {
     background: var(--first-color);
-    padding: 50px 0;
+    padding: 5px 0;
 }
 
 .timeline ul li {
