@@ -28,12 +28,14 @@
     transition: transform .5s;
     font-family: 'Raleway', sans-serif;
 }
-
+.nav_barAsf a:focus {
+    background-color: red;
+}
 .nav_barAsf a:hover {
     text-decoration: none;
     color: var(--nav-text-color);
 }
 
-.active {
-    background-color: red;
+.nav_barAsf a:active {
+    background-color: yellow;
 }

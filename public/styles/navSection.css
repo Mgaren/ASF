@@ -27,12 +27,14 @@
     transition: transform .5s;
     font-family: 'Raleway', sans-serif;
 }
-
+.nav_barSection a:focus {
+    background-color: red;
+}
 .nav_barSection a:hover {
     text-decoration: none;
     color: var(--nav-text-color);
 }
 
-.active {
-    background-color: red;
+.nav_barSection a:active {
+    background-color: yellow;
 }
