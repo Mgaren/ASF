@@ -15,15 +15,19 @@
             <h1>Toute l'histoire de l'ASF</h1>
         </div>
     </section>
-    {% for key, history in histories %}
-        <section class="history" id="{{ key ~ history.date.date }}">
-            <p>{{ history.description }}</p>
+    <section>
+        {% for key, history in histories %}
+            <div class="history" id="{{ key ~ history.date.date }}">
+                <p>{{ history.description }}</p>
+            </div>
             {% if history.image == true %}
-                <img src="/uploads/histoire/{{ history.image }}">
+                <div class="history-image">
+                    <img src="/uploads/histoire/{{ history.image }}">
+                </div>
             {% endif %}
-        </section>
-    {% endfor %}
-    <div class="president">
+        {% endfor %}
+    </section>
+    <section class="president">
         <h1>Les différents Présidents de l’ASF s’étant succédés :</h1>
         <table class="table">
             <thead>
@@ -41,5 +45,5 @@
             {% endfor %}
             </tbody>
         </table>
-    </div>
+    </section>
 {% endblock %}
