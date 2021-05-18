@@ -44,9 +44,11 @@ h1 {
     justify-content: center;
 }
 
-.actuality_titre a {
+.actuality a {
     text-decoration: none;
     color: black;
+    display: flex;
+    justify-content: flex-end;
 }
 
 .actuality_date {
