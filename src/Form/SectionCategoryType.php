@@ -16,6 +16,10 @@ class SectionCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->add('number', TextType::class, [
+                'label' => 'numéro*',
+                'required' => true,
+            ])
             ->add('section', EntityType::class, [
                 'label' => 'section*',
                 'required' => true,

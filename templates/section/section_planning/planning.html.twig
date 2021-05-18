@@ -22,7 +22,7 @@
                     <td class="day">{{ section_planning.day }}</td>
                     <td class="time">{{ section_planning.time }}</td>
                     <td class="category">
-                        {% for category in section_planning.sectionCategory %}
+                        {% for category in section_planning.sectionCategory|sort((a, b) => a.number <=> b.number) %}
                             {{ category.name }}
                         {% endfor %}
                     </td>
