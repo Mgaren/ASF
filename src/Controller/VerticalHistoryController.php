@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\VerticalHistory;
 use App\Form\VerticalHistoryType;
 use App\Repository\VerticalHistoryRepository;
+use App\Service\UtilsService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -22,16 +23,20 @@ class VerticalHistoryController extends AbstractController
 {
     /**
      * @param VerticalHistoryRepository $vertHistRepository
+     * @param UtilsService $utilsService
      * @return Response
      * @Route("/", name="asf_history", methods={"GET"})
      */
-    public function index(
-        VerticalHistoryRepository $vertHistRepository
-    ): Response {
+    public function index(VerticalHistoryRepository $vertHistRepository, UtilsService $utilsService): Response
+    {
+        $verticalHistories = $vertHistRepository->findBy([], [
+            'date' => 'ASC'
+        ]);
+
+        $verticalHistByDate = $utilsService->getHistoriesByDate($verticalHistories);
+
         return $this->render('asf/verticalhistory/index.html.twig', [
-            'verticalHistorys' => $vertHistRepository->findBy([], [
-                'date' => 'ASC'
-            ]),
+            'verticalHistories' => $verticalHistByDate,
         ]);
     }
 
