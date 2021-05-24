@@ -2,7 +2,7 @@
 @import "fontFamily.css";
 
 main {
-    font: normal 16px/1.5 "Helvetica Neue", sans-serif;
+    font: normal 16px/1.5 "Varela", sans-serif;
     padding-top: 30px;
     background: var(--first-color);
     color: var(--history-text-color);

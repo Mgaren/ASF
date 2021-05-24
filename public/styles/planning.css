@@ -1,6 +1,10 @@
 @import "variables.css";
 @import "fontFamily.css";
 
+main {
+    font-family: 'Varela', sans-serif;
+}
+
 h1 {
     text-align: center;
 }

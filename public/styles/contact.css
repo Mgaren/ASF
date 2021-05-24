@@ -1,4 +1,5 @@
 @import 'variables.css';
+@import 'fontFamily.css';
 
 main {
     font-family: 'Raleway', sans-serif;
@@ -9,6 +10,7 @@ main {
 h1 {
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .wrapper {
@@ -25,6 +27,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .contact {
@@ -37,6 +40,7 @@ h1 {
     font-size: 30px;
     display: flex;
     align-items: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .contact img {
@@ -78,6 +82,7 @@ button {
     margin-top: 1rem;
     border: medium solid black;
     border-collapse: collapse;
+    font-family: 'Varela', sans-serif;
 }
 
 th {

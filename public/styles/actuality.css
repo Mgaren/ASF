@@ -7,6 +7,7 @@ main {
 
 h1 {
     text-align: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .container {
@@ -42,6 +43,7 @@ h1 {
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality a {
@@ -49,6 +51,7 @@ h1 {
     color: black;
     display: flex;
     justify-content: flex-end;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality_date {
@@ -58,6 +61,7 @@ h1 {
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality_text {
@@ -66,6 +70,7 @@ h1 {
     font-weight: 400;
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality_image {

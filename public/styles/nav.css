@@ -59,7 +59,7 @@
     text-decoration: none;
     color: var(--nav-text-color);
     transition: transform .5s;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Varela', sans-serif;
 }
 
 @media screen and (min-width: 1000px) {
@@ -105,7 +105,7 @@
         text-decoration: none;
         color: var(--nav-text-color);
         transition: transform .5s;
-        font-family: 'Raleway', sans-serif;
+        font-family: 'Varela', sans-serif;
     }
     .nav_bar a:focus {
         background-color: red;

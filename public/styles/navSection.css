@@ -25,7 +25,7 @@
     text-decoration: none;
     color: var(--nav-text-color);
     transition: transform .5s;
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Varela', sans-serif;
 }
 .nav_barSection a:focus {
     background-color: red;
