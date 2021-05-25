@@ -2,120 +2,114 @@
 @import 'fontFamily.css';
 
 * {
+    font-family: 'Varela', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-.nav_bar {
-    position: sticky;
-    z-index: 100;
+a {
+    text-decoration: none;
+    color: black;
+}
+header {
+    position: static;
+    left: 0;
+    right: 0;
     height: 150px;
-    font-size: 22px;
     background-color: var(--nav-background-color);
-    text-align: center;
 }
-.openButton {
-    margin: 8px 8px 0 8px;
-    top: 0;
-    right: 0;
-    cursor: pointer;
-    position: fixed;
-    z-index: 15;
+
+.image-home {
+    float: left;
+    margin-left: 75px;
 }
-.bar1, .bar2, .bar3 {
-    width: 35px;
-    height: 5px;
-    background-color: black;
-    border-radius: 10px;
-    margin: 6px 6px;
-}
-.closeButton {
-    font-size: 3rem;
-    margin: 8px;
-    padding: 3px;
-}
-.sideNav {
-    height: 100%;
-    width: 0;
-    position: fixed;
-    z-index: 16;
-    top: 0;
-    right: 0;
-    background-color: var(--nav-background-color);
-    overflow-x: hidden;
-    transition: 0.5s;
-}
-.nav {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    align-items: center;
+
+.menu {
+    float: left;
     position: relative;
-    padding: 0;
-    height: 70%;
-    list-style: none;
+    top: 60px;
+    left: 200px;
 }
-.nav_bar a {
+.menu a {
+    padding: 0 50px;
+}
+
+.menu a:focus {
+    background-color: red;
+}
+.menu a:hover {
     text-decoration: none;
     color: var(--nav-text-color);
-    transition: transform .5s;
-    font-family: 'Varela', sans-serif;
 }
 
-@media screen and (min-width: 1000px) {
-    .nav_bar {
-        display: flex;
-        position: sticky;
-        justify-content: space-between;
-        z-index: 100;
-        align-items: center;
-        height: 150px;
-        font-size: 22px;
-        background-color: var(--nav-background-color);
-        text-align: center;
-        padding-left: 1rem;
-    }
-    .nav_bar nav {
-        position: absolute;
-        right: 150px;
-        width: 60%;
-        display: flex;
-        padding-right: 2rem;
-    }
-    .nav {
-        display: flex;
-        justify-content: space-between;
-        flex-direction: row;
-        width: 100%;
-        height: 95%;
-    }
-    .navLink {
-        display: flex;
+.menu a:active {
+    background-color: yellow;
+}
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+    .site-container, .site-pusher {
         height: 100%;
-        align-items: center;
-        justify-content: center;
     }
-    .bar1, .bar2, .bar3 {
-        display: none;
+    .site-container {
+        overflow: hidden;
     }
-    .closeButton {
-        display: none;
+    .site-pusher {
+        transition-duration: 0.3s;
+        transform: translateX(0px);
     }
-    .nav_bar a {
-        text-decoration: none;
-        color: var(--nav-text-color);
-        transition: transform .5s;
-        font-family: 'Varela', sans-serif;
-    }
-    .nav_bar a:focus {
-        background-color: red;
-    }
-    .nav_bar a:hover {
-        text-decoration: none;
-        color: var(--nav-text-color);
+    .openButton {
+        position: relative;
+        display: block;
+        float: left;
+        width: 50px;
+        height: 150px;
+        cursor: pointer;
     }
 
-    .nav_bar a:active {
-        background-color: yellow;
+    .bar1, .bar2, .bar3 {
+        position: relative;
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        border-radius: 10px;
+        margin: 6px 6px;
+        top: 50px;
+    }
+
+    .image-home {
+        position: relative;
+        left: 250px;
+        margin-left: 0;
+    }
+
+    .menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 250px;
+        background-color: var(--nav-background-color);
+        transform: translateX(-250px);
+        padding-top: 30px;
+    }
+
+    .menu a {
+        display: block;
+        height: 40px;
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .with--sidebar .site-pusher {
+        transform: translateX(250px);
     }
 }
+@media screen and (max-width: 600px) {
+    .image-home {
+        position: relative;
+        left: 60px;
+        margin-left: 0;
+    }
+}
+

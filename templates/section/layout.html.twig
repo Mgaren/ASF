@@ -1,28 +1,33 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header>
-        {% include "_nav.html.twig" %}
-        {{ html_nav | raw }}
-    </header>
-    <main>
-        {% block stylesheets %}
-            <link href="{{ '/styles/sectionSport.css' }}" rel="stylesheet">
-            <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
-            <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
-            <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
-        {% endblock %}
+    <div class="site-container">
+        <div class="site-pusher">
+            <header>
+                {% include "_nav.html.twig" %}
+                {{ html_nav | raw }}
+            </header>
+            <main>
+                {% block stylesheets %}
+                    <link href="{{ '/styles/sectionSport.css' }}" rel="stylesheet">
+                    <link href="{{ '/styles/footer.css' }}" rel="stylesheet">
+                    <link href="{{ '/styles/nav.css' }}" rel="stylesheet">
+                    <link href="{{ '/styles/navSection.css' }}" rel="stylesheet">
+                {% endblock %}
 
-        {% block main %}
-            <h1>{{ section.name }}</h1>
-            {{ section_sports | raw }}
-            {{ section_plannings | raw }}
-        {% endblock %}
-    </main>
-    {% include "_footer.html.twig" %}
+                {% block main %}
+                    <h1>{{ section.name }}</h1>
+                    {{ section_sports | raw }}
+                    {{ section_plannings | raw }}
+                {% endblock %}
+            </main>
+        {% include "_footer.html.twig" %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/burgerMenu.js"></script>
     <script src="/js/nav.js"></script>
 {% endblock %}

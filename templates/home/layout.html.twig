@@ -1,13 +1,17 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header>
-        {% include "_nav.html.twig" %}
-    </header>
-    <main>
-        {% block main %}{% endblock %}
-    </main>
-    {% include "_footer.html.twig" %}
+    <div class="site-container">
+        <div class="site-pusher">
+            <header>
+                {% include "_nav.html.twig" %}
+            </header>
+            <main>
+                {% block main %}{% endblock %}
+            </main>
+            {% include "_footer.html.twig" %}
+        </div>
+    </div>
 {% endblock %}
 
 {% block javascripts %}
