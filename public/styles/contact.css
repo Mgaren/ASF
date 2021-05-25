@@ -19,7 +19,6 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    min-height: 100%;
     padding: 20px;
 }
 
@@ -33,6 +32,7 @@ h1 {
 .contact {
     display: flex;
     flex-direction: column;
+    width: 100%;
 }
 
 .contact a {

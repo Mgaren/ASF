@@ -19,7 +19,8 @@ main {
     margin-left: 2rem;
 }
 .image img {
-    width: 35vw;
+    width: 30vw;
+    float: left;
 }
 .sport {
     display: flex;
@@ -36,6 +37,7 @@ main {
     text-justify: inter-word;
     line-height: 1.5rem;
 }
+
 .lien a {
     text-decoration: none;
     color: black;
@@ -48,6 +50,10 @@ main {
     .image, .image img, .sport {
         width: 75vw;
     }
+    .image img {
+        width: 50vw;
+        margin-left: 100px;
+    }
     .image, .sport {
         margin: 0;
     }
@@ -55,5 +61,9 @@ main {
 @media screen and (max-width: 600px) {
     .image, .image img, .sport {
         width: 75vw;
+    }
+    .image img {
+        width: 50vw;
+        margin-left: 50px;
     }
 }

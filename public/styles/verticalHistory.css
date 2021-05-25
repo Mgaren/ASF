@@ -158,4 +158,18 @@ time p, time a {
     .timeline img:hover {
         display: none;
     }
+
+    .timeline img {
+        margin-top: 1rem;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .timeline ul li div {
+        flex-direction: column;
+    }
+    .timeline img {
+        margin-left: 0;
+        margin-right: 0;
+    }
 }

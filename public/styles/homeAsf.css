@@ -31,9 +31,8 @@ main {
     text-align: left;
 }
 .image-1 img, .image-2 img, .image-3 img, .image-4 img, .image-5 img {
-    width: 50vw;
-    height: 50vh;
-    align-items: center;
+    width: 35vw;
+    height: 35vh;
 }
 .text-1, .text-2, .text-3, .text-4, .text-5 {
     text-align: center;
@@ -64,5 +63,28 @@ main {
         padding: 0 0;
         width: 100vw;
         margin-top: 1.5rem;
+        font-size: 20px;
+    }
+    .text-4 {
+        margin-top: 3rem;
+    }
+
+    .image-1 img, .image-2 img, .image-3 img, .image-4 img, .image-5 img {
+        width: 50vw;
+        height: 25vh;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .image-1 img, .image-2 img, .image-3 img, .image-4 img, .image-5 img {
+        width: 75vw;
+        height: 25vh;
+    }
+    .text-1 a, .text-2 a, .text-3 a, .text-4 a, .text-5 a {
+        margin: 0 0;
+        font-size: 20px;
+    }
+    .text-4 {
+        margin-top: 5rem;
     }
 }

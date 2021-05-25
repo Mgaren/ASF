@@ -48,7 +48,7 @@ h1 {
 
 .actuality a {
     text-decoration: none;
-    color: black;
+    color: var(--fifth-color);
     display: flex;
     justify-content: flex-end;
     font-family: 'Varela', sans-serif;
@@ -99,6 +99,11 @@ h1 {
     }
     .container_actuality {
         align-items: center;
+    }
+
+    .actuality_image img {
+        width: 150px;
+        height: 150px;
     }
 }
 @media screen and (max-width: 750px) {
