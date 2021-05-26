@@ -20,6 +20,8 @@ main {
 .container_item {
     display: flex;
     margin: 1em 5px;
+    width: 400px;
+    height: 500px;
 }
 
 .sections {
@@ -48,8 +50,10 @@ main {
     line-height: 1.5;
     margin-bottom: 1.25rem;
     font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
 }
-.section_text h2 {
+.section_text p {
     display: flex;
     justify-content: center;
 }

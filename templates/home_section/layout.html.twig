@@ -22,7 +22,7 @@
                                     <div class="sections">
                                         <div class="section_title"><h2>{{ home_section.section.name }}</h2></div>
                                         <div class="section_image"><a href="{{ path('sectionSport', {id:home_section.section.id}) }}"><img src="/uploads/sections/{{ home_section.image }}"></a></div>
-                                        <div class="section_text"><h2>{{ home_section.description }}</h2></div>
+                                        <div class="section_text"><p>{{ home_section.description }}</p></div>
                                     </div>
                                 </li>
                             {% endfor %}
