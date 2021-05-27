@@ -11,7 +11,7 @@
 
 main {
     font: normal 16px/1.5 "Varela", sans-serif;
-    padding-top: 105px;
+    padding-top: 80px;
     background: var(--first-color);
     color: var(--history-text-color);
     overflow-x: hidden;
