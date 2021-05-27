@@ -18,15 +18,15 @@
                 <div class="actuality">
                     <div class="actuality_titre"><h2>{{ actuality.titre }}</h2></div>
                     <div class="actuality_date">{{ actuality.date }}</div>
-                    <div class="actuality_text">{{ actuality.description }}</div>
+                    <div class="actuality_text">{{ actuality.description|nl2br }}</div>
                     <div class="actuality_text">
                         {% if actuality.description2 == true %}
-                            {{ actuality.description2 }}
+                            {{ actuality.description2|nl2br }}
                         {% endif %}
                     </div>
                     <div class="actuality_text">
                         {% if actuality.description3 == true %}
-                            {{ actuality.description3 }}
+                            {{ actuality.description3|nl2br }}
                         {% endif %}
                     </div>
                     <div>

@@ -65,13 +65,13 @@ class CarouselPartenaireType extends AbstractType
                 'mapped' => false, 'required' => false, 'label' => '17ème image*',
             ])
             ->add('fileimage18', FileType::class, [
-                'mapped' => false, 'required' => false, 'label' => '18ème image',
+                'mapped' => false, 'required' => false, 'label' => '18ème image*',
             ])
             ->add('fileimage19', FileType::class, [
-                'mapped' => false, 'required' => false, 'label' => '19ème image',
+                'mapped' => false, 'required' => false, 'label' => '19ème image*',
             ])
             ->add('fileimage20', FileType::class, [
-                'mapped' => false, 'required' => false, 'label' => '20ème image',
+                'mapped' => false, 'required' => false, 'label' => '20ème image*',
             ])
             ->add('fileimage21', FileType::class, [
                 'mapped' => false, 'required' => false, 'label' => '21ème image',
