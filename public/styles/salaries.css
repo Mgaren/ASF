@@ -3,7 +3,7 @@
 
 main {
     font-family: 'Varela', sans-serif;
-    padding-top: 30px;
+    padding-top: 105px;
     background: var(--first-color);
     color: var(--history-text-color);
     overflow-x: hidden;

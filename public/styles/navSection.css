@@ -9,7 +9,7 @@
 
 .nav_barSection {
     display: block;
-    position: sticky;
+    position: absolute;
     text-align: center;
     top: 150px;
     right: 0;
