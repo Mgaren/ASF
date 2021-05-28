@@ -41,7 +41,7 @@ class SportPageGenerator
             $cotisation = $planning->getCotisation();
             if ($cotisation) {
                 $displayCotisation = true;
-                break;
+                //break;
             }
         }
 
@@ -49,7 +49,6 @@ class SportPageGenerator
         return $this->twig->render('section/section_planning/planning.html.twig', [
             'section_plannings' => $planningByWeekDay,
             'display_cotisation' => $displayCotisation,
-            //'days' => $day_by_day,
         ]);
     }
 
