@@ -33,6 +33,11 @@ class SectionSport
     private string $description3;
 
     /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private string $description4;
+
+    /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private string $image;
@@ -86,6 +91,18 @@ class SectionSport
     public function setDescription3(string $description3): self
     {
         $this->description3 = $description3;
+
+        return $this;
+    }
+
+    public function getDescription4(): ?string
+    {
+        return $this->description4;
+    }
+
+    public function setDescription4(string $description4): self
+    {
+        $this->description4 = $description4;
 
         return $this;
     }

@@ -27,7 +27,7 @@
     <ul class="container_adherant-text">
         {% for adherant_text in adherant_texts %}
             <div class="adherent_text">
-                <p>{{ adherant_text.description }}</p>
+                <p>{{ adherant_text.description|nl2br }}</p>
             </div>
         {% endfor %}
     </ul>

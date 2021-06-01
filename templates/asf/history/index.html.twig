@@ -19,7 +19,7 @@
         {% for keya, date in histories %}
             {% for keyb, history in date %}
                 <div class="history" id="{{ keyb ~ keya }}">
-                    <p>{{ history.description }}</p>
+                    <p>{{ history.description|nl2br }}</p>
                 </div>
                 {% if history.image == true %}
                     <div class="history-image">

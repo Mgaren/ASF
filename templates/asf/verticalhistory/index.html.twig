@@ -23,7 +23,7 @@
                         <div>
                             <section>
                                 <time><a href="{{ path('asf_history_history') }}#{{ keyb ~ keya }}">{{ keya }}</a></time>
-                                <p>{{ history.description }}</p>
+                                <p>{{ history.description|nl2br }}</p>
                             </section>
                             {% if history.image == true %}
                                 <img src="/uploads/histoire/{{ history.image }}">
