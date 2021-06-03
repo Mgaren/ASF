@@ -41,10 +41,13 @@ main {
     margin-right: 1rem;
 }
 
+.history-image {
+    float: right;
+}
+
 .history-image img {
     margin-left: 1rem;
     margin-right: 1rem;
-    float: right;
     margin-top: 1rem;
     width: 25vw;
 }

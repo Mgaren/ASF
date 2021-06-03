@@ -17,10 +17,10 @@ main {
 .image {
     margin-right: 2rem;
     margin-left: 2rem;
+    float: left;
 }
 .image img {
     width: 30vw;
-    float: left;
 }
 .sport {
     display: flex;
@@ -36,6 +36,10 @@ main {
     text-align: justify;
     text-justify: inter-word;
     line-height: 1.5rem;
+}
+
+.info {
+    width: 1000px
 }
 
 .lien a {
