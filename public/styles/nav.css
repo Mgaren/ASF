@@ -35,6 +35,7 @@ header {
     padding: 0 50px;
 }
 
+/*
 .menu a:focus {
     background-color: red;
 }
@@ -45,7 +46,7 @@ header {
 
 .menu a:active {
     background-color: yellow;
-}
+}*/
 
 /* Responsive */
 @media screen and (max-width: 1000px) {
