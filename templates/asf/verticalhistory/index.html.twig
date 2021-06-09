@@ -17,18 +17,20 @@
     </section>
     <section class="timeline">
         <ul>
-            {% for key, verticalHistory in verticalHistorys %}
-            <li>
-                <div>
-                    <section>
-                        <time><a href="{{ path('asf_history_history') }}#{{ key ~ verticalHistory.date.date }}">{{ verticalHistory.date.date }}</a></time>
-                        <p>{{ verticalHistory.description }}</p>
-                    </section>
-                    {% if verticalHistory.image == true %}
-                        <img src="/uploads/histoire/{{ verticalHistory.image }}">
-                    {% endif %}
-                </div>
-            </li>
+            {% for keya, date in verticalHistories %}
+                {% for keyb, history in date %}
+                    <li>
+                        <div>
+                            <section>
+                                <time><a href="{{ path('asf_history_history') }}#{{ keyb ~ keya }}">{{ keya }}</a></time>
+                                <p>{{ history.description|nl2br }}</p>
+                            </section>
+                            {% if history.image == true %}
+                                <img src="/uploads/histoire/{{ history.image }}">
+                            {% endif %}
+                        </div>
+                    </li>
+                {% endfor %}
             {% endfor %}
         </ul>
     </section>

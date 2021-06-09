@@ -2,38 +2,123 @@
 @import 'fontFamily.css';
 
 * {
+    font-family: 'Varela', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
-
-.nav_bar {
-    display: flex;
-    position: sticky;
-    top: 0;
-    right: 0;
+a {
+    text-decoration: none;
+    color: black;
+}
+header {
+    position: static;
     left: 0;
-    justify-content: space-around;
-    z-index: 100;
-    align-items: center;
+    right: 0;
     height: 150px;
-    font-size: 22px;
     background-color: var(--nav-background-color);
-    text-align: center;
 }
 
-.nav_bar a {
-    text-decoration: none;
-    color: var(--nav-text-color);
-    transition: transform .5s;
-    font-family: 'Raleway', sans-serif;
+.image-home {
+    float: left;
+    margin-left: 75px;
 }
 
-.nav_bar a:hover {
-    text-decoration: none;
-    color: var(--nav-text-color);
+.menu {
+    float: left;
+    position: relative;
+    top: 60px;
+    left: 140px;
+    font-size: 1.5rem;
+}
+.menu a {
+    padding: 0 50px;
 }
 
-.active {
+/*
+.menu a:focus {
     background-color: red;
+}
+.menu a:hover {
+    text-decoration: none;
+    color: var(--nav-text-color);
+}
+
+.menu a:active {
+    background-color: yellow;
+}*/
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+    .site-container, .site-pusher {
+        height: 100%;
+    }
+    .site-container {
+        overflow: hidden;
+    }
+    .site-pusher {
+        transition-duration: 0.3s;
+        transform: translateX(0px);
+    }
+    .openButton {
+        position: relative;
+        display: block;
+        float: left;
+        width: 50px;
+        height: 150px;
+        cursor: pointer;
+    }
+
+    .bar1, .bar2, .bar3 {
+        position: relative;
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        border-radius: 10px;
+        margin: 6px 6px;
+        top: 50px;
+    }
+
+    .image-home {
+        position: relative;
+        left: 230px;
+        margin-left: 0;
+    }
+
+    .menu {
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 250px;
+        background-color: var(--nav-background-color);
+        transform: translateX(-250px);
+        padding-top: 30px;
+    }
+
+    .menu a {
+        display: block;
+        height: 40px;
+        text-align: center;
+        margin-top: 30px;
+        padding: 0 0;
+    }
+
+    .with--sidebar .site-pusher {
+        transform: translateX(250px);
+    }
+}
+@media screen and (max-width: 600px) {
+    .image-home {
+        position: relative;
+        left: 60px;
+        margin-left: 0;
+    }
+}
+@media screen and (max-width: 400px) {
+    .image-home {
+        position: relative;
+        left: 33px;
+        margin-left: 0;
+    }
 }

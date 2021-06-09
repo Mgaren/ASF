@@ -1,17 +1,22 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    <header>
-        {% include "_nav.html.twig" %}
-        {% include "_navAsf.html.twig" %}
-    </header>
-    <main>
-        {% block main %}{% endblock %}
-    </main>
-    {% include "_footer.html.twig" %}
+<div class="site-container">
+    <div class="site-pusher">
+        <header>
+            {% include "_nav.html.twig" %}
+            {% include "_navAsf.html.twig" %}
+        </header>
+        <main>
+            {% block main %}{% endblock %}
+        </main>
+        {% include "_footer.html.twig" %}
+    </div>
+</div>
 {% endblock %}
 
 {% block javascripts %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="/js/burgerMenu.js"></script>
     <script src="/js/nav.js"></script>
 {% endblock %}

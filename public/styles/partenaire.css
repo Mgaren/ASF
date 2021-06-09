@@ -3,6 +3,7 @@
 
 main {
     padding-top: 30px;
+    font-family: 'Varela', sans-serif;
 }
 
 h1 {
@@ -23,6 +24,8 @@ h1 {
 .container_item {
     display: flex;
     margin: 1em 5px;
+    width: 300px;
+    height: 350px;
 }
 
 .partenaire {
@@ -51,8 +54,10 @@ h1 {
     line-height: 1.5;
     margin-bottom: 1.25rem;
     font-weight: 400;
+    text-align: justify;
+    text-justify: inter-word;
 }
-.partenaire_text h3 {
+.partenaire_text p {
     display: flex;
     justify-content: center;
 }
@@ -63,8 +68,8 @@ h1 {
 }
 
 .partenaire_image img {
-    width: 400px;
-    height: 350px;
+    width: 300px;
+    height: 250px;
 }
 
 @media screen and (max-width: 1200px) {

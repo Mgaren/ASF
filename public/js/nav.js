@@ -1,4 +1,4 @@
-$(function () {
+/*$(function () {
     $('.nav_bar a').click(function () {
         $('.nav_bar a').removeClass('active');
         $(this).addClass('active');
@@ -17,4 +17,4 @@ $(function () {
         $('.nav_barSection a').removeClass('active');
         $(this).addClass('active');
     });
-});
+});*/

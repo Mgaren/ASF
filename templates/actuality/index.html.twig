@@ -16,23 +16,26 @@
         {% for actuality in actualities %}
             <div class="container_actuality">
                 <div class="actuality">
-                    <div class="actuality_titre"><a href="{{ path('actualities_show', {id:actuality.id}) }}">{{ actuality.titre }}</a></div>
+                    <div class="actuality_titre"><h2>{{ actuality.titre }}</h2></div>
                     <div class="actuality_date">{{ actuality.date }}</div>
-                    <div class="actuality_text">{{ actuality.description }}</div>
+                    <div class="actuality_text">{{ actuality.description|nl2br }}</div>
                     <div class="actuality_text">
                         {% if actuality.description2 == true %}
-                            {{ actuality.description2 }}
+                            {{ actuality.description2|nl2br }}
                         {% endif %}
                     </div>
                     <div class="actuality_text">
                         {% if actuality.description3 == true %}
-                            {{ actuality.description3 }}
+                            {{ actuality.description3|nl2br }}
                         {% endif %}
+                    </div>
+                    <div>
+                        <a href="{{ path('actualities_show', {id:actuality.id}) }}">Voir plus...</a>
                     </div>
                 </div>
                 <div class="actuality_image">
                     {% if actuality.image == true %}
-                        <img src="/uploads/actuality/{{ actuality.image }}">
+                        <a href="/uploads/actuality/{{ actuality.image }}" target="_blank"><img src="/uploads/actuality/{{ actuality.image }}"></a>
                     {% endif %}
                 </div>
             </div>

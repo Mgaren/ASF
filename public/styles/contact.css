@@ -1,14 +1,16 @@
 @import 'variables.css';
+@import 'fontFamily.css';
 
 main {
-    font-family: 'Raleway', sans-serif;
-    padding-top: 30px;
+    font-family: 'Varela', sans-serif;
+    padding-top: 105px;
     padding-bottom: 50px;
 }
 
 h1 {
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .wrapper {
@@ -17,7 +19,6 @@ h1 {
     flex-direction: row;
     justify-content: space-around;
     width: 100%;
-    min-height: 100%;
     padding: 20px;
 }
 
@@ -25,6 +26,7 @@ h1 {
     display: flex;
     flex-direction: column;
     align-items: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .contact {
@@ -37,6 +39,7 @@ h1 {
     font-size: 30px;
     display: flex;
     align-items: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .contact img {
@@ -78,6 +81,7 @@ button {
     margin-top: 1rem;
     border: medium solid black;
     border-collapse: collapse;
+    font-family: 'Varela', sans-serif;
 }
 
 th {

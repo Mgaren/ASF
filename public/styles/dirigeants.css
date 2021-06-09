@@ -2,8 +2,8 @@
 @import "fontFamily.css";
 
 main {
-    font-family: 'Raleway', sans-serif;
-    padding-top: 30px;
+    font-family: 'Varela', sans-serif;
+    padding-top: 105px;
     background: var(--first-color);
     color: var(--history-text-color);
     overflow-x: hidden;
@@ -39,7 +39,7 @@ h1 {
 
 .container_item {
     display: flex;
-    margin: 1em 5px;
+    margin: 1em 50px;
 }
 
 .dirigeant {
@@ -58,8 +58,8 @@ h1 {
 }
 
 .dirigeant_image img {
-    height: 300px;
-    width: 300px;
+    height: 150px;
+    width: 150px;
     border-radius: 50%;
 }
 

@@ -31,6 +31,7 @@
         <table class="table text-center">
             <thead>
             <tr>
+                <th>Numéro</th>
                 <th>Section</th>
                 <th>Nom</th>
             </tr>
@@ -39,6 +40,7 @@
             {% for section_category in section_categories %}
                 {% for category in section_category %}
                 <tr>
+                    <td>{{ category.number }}</td>
                     <td>{{ category.section.name }}</td>
                     <td>{{ category.name }}</td>
                     <td>

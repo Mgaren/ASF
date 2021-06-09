@@ -7,6 +7,7 @@ main {
 
 h1 {
     text-align: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .container {
@@ -19,16 +20,19 @@ h1 {
 .cgu_text {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
+    font-family: 'Varela', sans-serif;
 }
 
 .cgu_description {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     text-align: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .cgu_article {
     margin-bottom: 0.5em;
     margin-top: 0.5em;
     text-justify: none;
+    font-family: 'Varela', sans-serif;
 }
