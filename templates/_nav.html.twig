@@ -1,7 +1,12 @@
-<nav class="nav_bar">
-    <a href="{{ path('index') }}"><img src="{{ ('/images/Logo ASF sans fond.png') }}" class="image-home" alt="logo home" height="150" width="200" /></a>
-    <a href="{{ path('actuality') }}">Actualités</a>
-    <a href="{{ path('asf') }}">AS Fondettes</a>
-    <a href="{{ path('home_section') }}">Les Sections</a>
-    <a href="{{ path('partenaire') }}">Nos Partenaires</a>
+<div class="openButton" id="openButton">
+    <div class="bar1"></div>
+    <div class="bar2"></div>
+    <div class="bar3"></div>
+</div>
+<a href="{{ path('index') }}"><img src="{{ ('/images/Logo ASF sans fond.png') }}" class="image-home" alt="logo home" height="150" width="200" /></a>
+<nav class="menu">
+    <a class="link" href="{{ path('actuality') }}">Actualités</a>
+    <a class="link" href="{{ path('asf') }}">AS Fondettes</a>
+    <a class="link" href="{{ path('home_section') }}">Les Sections</a>
+    <a class="link" href="{{ path('partenaire') }}">Nos Partenaires</a>
 </nav>

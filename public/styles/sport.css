@@ -1,6 +1,10 @@
 @import "variables.css";
 @import "fontFamily.css";
 
+main {
+    font-family: 'Varela', sans-serif;
+}
+
 .container {
     margin: 2rem 2rem;
 }
@@ -13,9 +17,10 @@
 .image {
     margin-right: 2rem;
     margin-left: 2rem;
+    float: left;
 }
 .image img {
-    width: 35vw;
+    width: 30vw;
 }
 .sport {
     display: flex;
@@ -32,6 +37,11 @@
     text-justify: inter-word;
     line-height: 1.5rem;
 }
+
+.info {
+    width: 1000px
+}
+
 .lien a {
     text-decoration: none;
     color: black;
@@ -44,6 +54,10 @@
     .image, .image img, .sport {
         width: 75vw;
     }
+    .image img {
+        width: 50vw;
+        margin-left: 100px;
+    }
     .image, .sport {
         margin: 0;
     }
@@ -51,5 +65,9 @@
 @media screen and (max-width: 600px) {
     .image, .image img, .sport {
         width: 75vw;
+    }
+    .image img {
+        width: 50vw;
+        margin-left: 50px;
     }
 }

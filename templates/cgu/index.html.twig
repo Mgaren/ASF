@@ -15,9 +15,9 @@
         <div>
             {% for cgu in cgus %}
                 <div>
-                    <p class="cgu_text">{{ cgu.description1 }}</p>
-                    <p class="cgu_text">{{ cgu.description2 }}</p>
-                    <p class="cgu_text">{{ cgu.description3 }}</p>
+                    <p class="cgu_text">{{ cgu.description1|nl2br }}</p>
+                    <p class="cgu_text">{{ cgu.description2|nl2br }}</p>
+                    <p class="cgu_text">{{ cgu.description3|nl2br }}</p>
                 </div>
             {% endfor %}
         </div>
@@ -26,7 +26,7 @@
                 <div>
                     <div class="cgu_article"><h2>{{ item.cguCategory }}</h2></div>
                     {% for category_item in item.items %}
-                    <div class="cgu_article_description"><p>{{ category_item.description }}</p></div>
+                    <div class="cgu_article_description"><p>{{ category_item.description|nl2br }}</p></div>
                     {% endfor %}
                 </div>
             {% endfor %}
@@ -34,7 +34,7 @@
         <div>
             {% for cgu in cgus %}
                 <div>
-                    <p class="cgu_description">{{ cgu.description4 }}</p>
+                    <p class="cgu_description">{{ cgu.description4|nl2br }}</p>
                 </div>
             {% endfor %}
         </div>

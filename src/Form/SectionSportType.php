@@ -30,16 +30,20 @@ class SectionSportType extends AbstractType
                 }
             ])
             ->add('description1', TextareaType::class, [
-                'label' => 'Description du sport*',
+                'label' => 'Renseignement 1*',
                 'required' => true,
             ])
             ->add('description2', TextareaType::class, [
-                'label' => 'Renseignement*',
+                'label' => 'Renseignement 2*',
                 'required' => true,
             ])
             ->add('description3', TextareaType::class, [
-                'label' => 'Info complémentaire*',
+                'label' => 'Info complémentaire 1*',
                 'required' => true,
+            ])
+            ->add('description4', TextareaType::class, [
+                'label' => 'Info complémentaire 2',
+                'required' => false,
             ])
             ->add('fileimage', FileType::class, [
                 'label' => 'Image / Logo*',

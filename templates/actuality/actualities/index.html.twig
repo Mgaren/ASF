@@ -15,56 +15,56 @@
         <div class="actuality">
             <div class="actuality_titre">{{ actuality.titre }}</div>
             <div class="actuality_date">{{ actuality.date }}</div>
-            <div class="actuality_text">{{ actuality.description }}</div>
+            <div class="actuality_text">{{ actuality.description|nl2br }}</div>
             <div class="actuality_text">
                 {% if actuality.description2 == true %}
-                    {{ actuality.description2 }}
+                    {{ actuality.description2|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description3 == true %}
-                    {{ actuality.description3 }}
+                    {{ actuality.description3|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description4 == true %}
-                    {{ actuality.description4 }}
+                    {{ actuality.description4|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description5 == true %}
-                    {{ actuality.description5 }}
+                    {{ actuality.description5|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description6 == true %}
-                    {{ actuality.description6 }}
+                    {{ actuality.description6|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description7 == true %}
-                    {{ actuality.description7 }}
+                    {{ actuality.description7|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description8 == true %}
-                    {{ actuality.description8 }}
+                    {{ actuality.description8|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description9 == true %}
-                    {{ actuality.description9 }}
+                    {{ actuality.description9|nl2br }}
                 {% endif %}
             </div>
             <div class="actuality_text">
                 {% if actuality.description10 == true %}
-                    {{ actuality.description10 }}
+                    {{ actuality.description10|nl2br }}
                 {% endif %}
             </div>
         </div>
         <div class="actuality_image">
             {% if actuality.image == true %}
-                <img src="/uploads/actuality/{{ actuality.image }}">
+                <a href="/uploads/actuality/{{ actuality.image }}" target="_blank"><img src="/uploads/actuality/{{ actuality.image }}"></a>
             {% endif %}
         </div>
     </div>

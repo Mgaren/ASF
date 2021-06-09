@@ -2,7 +2,7 @@
 @import 'fontFamily.css';
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'Varela', sans-serif;
     height: 100vh;
     background: url('../images/logo-ASF.png') center;
     background-size: cover;

@@ -16,15 +16,17 @@
         </div>
     </section>
     <section>
-        {% for key, history in histories %}
-            <div class="history" id="{{ key ~ history.date.date }}">
-                <p>{{ history.description }}</p>
-            </div>
-            {% if history.image == true %}
-                <div class="history-image">
-                    <img src="/uploads/histoire/{{ history.image }}">
+        {% for keya, date in histories %}
+            {% for keyb, history in date %}
+                <div class="history" id="{{ keyb ~ keya }}">
+                    <p>{{ history.description|nl2br }}</p>
                 </div>
-            {% endif %}
+                {% if history.image == true %}
+                    <div class="history-image">
+                        <img src="/uploads/histoire/{{ history.image }}">
+                    </div>
+                {% endif %}
+            {% endfor %}
         {% endfor %}
     </section>
     <section class="president">

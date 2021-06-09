@@ -2,38 +2,112 @@
 @import 'fontFamily.css';
 
 * {
+    font-family: 'Varela', sans-serif;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
 }
 
-.nav_barAsf {
-    display: flex;
-    position: sticky;
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.menu-Asf {
+    float: right;
+    position: absolute;
     top: 150px;
     right: 0;
     left: 0;
-    justify-content: space-around;
-    z-index: 100;
-    align-items: center;
-    height: 75px;
-    font-size: 22px;
+    height: 50px;
     background-color: var(--nav-background-color);
     text-align: center;
+    padding-top: 10px;
+    font-size: 1.5rem;
+}
+.menu-Asf a {
+    padding: 0 80px;
 }
 
-.nav_barAsf a {
-    text-decoration: none;
-    color: var(--nav-text-color);
-    transition: transform .5s;
-    font-family: 'Raleway', sans-serif;
-}
-
-.nav_barAsf a:hover {
-    text-decoration: none;
-    color: var(--nav-text-color);
-}
-
-.active {
+.menu-Asf a:focus {
     background-color: red;
+}
+.menu-Asf a:hover {
+    text-decoration: none;
+    color: var(--nav-text-color);
+}
+
+.menu-Asf a:active {
+    background-color: yellow;
+}
+
+/* Responsive */
+@media screen and (max-width: 1000px) {
+    .site-container, .site-pusher {
+        height: 100%;
+    }
+    .site-container {
+        overflow: hidden;
+    }
+    .site-pusher {
+        transition-duration: 0.3s;
+        transform: translateX(0px);
+    }
+    .openButton-ASF {
+        position: relative;
+        display: block;
+        float: right;
+        width: 50px;
+        height: 150px;
+        cursor: pointer;
+    }
+    .bar4, .bar5, .bar6 {
+        position: relative;
+        width: 35px;
+        height: 5px;
+        background-color: black;
+        border-radius: 10px;
+        margin: 6px 6px;
+        top: 50px;
+    }
+    /*.bar4, .bar5, .bar6 {
+        position: relative;
+        top: 40px;
+    }*/
+    .menu-Asf {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        width: 250px;
+        background-color: var(--nav-background-color);
+        transform: translateX(768px);
+        padding-top: 30px;
+        height: 100%;
+    }
+    .menu-Asf a {
+        display: block;
+        height: 40px;
+        text-align: center;
+        margin-top: 30px;
+        padding: 0 0;
+    }
+    .with--sidebar-Asf .site-pusher {
+        transform: translateX(-250px);
+    }
+}
+@media screen and (max-width: 600px) {
+    .menu-Asf {
+        transform: translateX(414px);
+    }
+}
+@media screen and (max-width: 400px) {
+    .menu-Asf {
+        transform: translateX(375px);
+    }
+}
+@media screen and (max-width: 370px) {
+    .menu-Asf {
+        transform: translateX(360px);
+    }
 }

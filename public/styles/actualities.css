@@ -7,6 +7,7 @@ main {
 
 h1 {
     text-align: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .container_actuality {
@@ -30,6 +31,7 @@ h1 {
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality_date {
@@ -39,14 +41,17 @@ h1 {
     margin-bottom: 1rem;
     display: flex;
     justify-content: center;
+    font-family: 'Varela', sans-serif;
 }
 
 .actuality_text {
     font-size: 16px;
-    margin-bottom: 0.25rem;
+    margin-bottom: 0.5rem;
     font-weight: 400;
     display: flex;
-    justify-content: center;
+    font-family: 'Varela', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
 }
 
 .actuality_image {
@@ -56,7 +61,7 @@ h1 {
 
 .actuality_image img {
     width: 600px;
-    height: 500px;
+    height: 800px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -69,8 +74,8 @@ h1 {
     }
 
     .actuality_image img {
-        width: 400px;
-        height: 300px;
+        width: 200px;
+        height: 150px;
     }
 }
 @media screen and (max-width: 750px) {

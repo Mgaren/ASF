@@ -6,6 +6,7 @@ use App\Entity\History;
 use App\Form\HistoryType;
 use App\Repository\HistoryRepository;
 use App\Repository\PresidentRepository;
+use App\Service\UtilsService;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
@@ -24,23 +25,22 @@ class HistoryController extends AbstractController
     /**
      * @param HistoryRepository $historyRepository
      * @param PresidentRepository $presidentRepository
+     * @param UtilsService $utilsService
      * @return Response
      * @Route("/", name="asf_history_history", methods={"GET"})
      */
-    public function index(HistoryRepository $historyRepository, PresidentRepository $presidentRepository): Response
-    {
-        /*$histories = $historyRepository->findAll();
-        $history_by_date = [];
-        foreach ($histories as $history) {
-            $historyId = $history->getDate()->getId();
-            $history_by_date[$historyId]['historyDate'] = $history->getDate()->getId();
-            $history_by_date[$historyId]['histories'][] = $history;
-        }*/
+    public function index(
+        HistoryRepository $historyRepository,
+        PresidentRepository $presidentRepository,
+        UtilsService $utilsService
+    ): Response {
+        $histories = $historyRepository->findBy([], [
+            'date' => 'ASC'
+        ]);
+        $historiesByDate = $utilsService->getHistoriesByDate($histories);
 
         return $this->render('asf/history/index.html.twig', [
-            'histories' => $historyRepository->findBy([], [
-                'date' => 'ASC'
-            ]),
+            'histories' => $historiesByDate,
             'presidents' => $presidentRepository->findBy([], [
                 'date' => 'ASC'
             ]),

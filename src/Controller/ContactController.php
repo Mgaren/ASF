@@ -30,7 +30,7 @@ class ContactController extends AbstractController
      * @param ContactHoraireRepository $horaireRepository
      * @return Response
      * @throws TransportExceptionInterface
-     * @Route("/", name="asf_contact", methods={"GET"})
+     * @Route("/", name="asf_contact", methods={"GET","POST"})
      */
     public function index(
         Request $request,
@@ -46,7 +46,13 @@ class ContactController extends AbstractController
             $entityManager->flush();
 
             $email = (new Email())
+                ->from($contact->getEmail())
                 ->to('omnisportasf@gmail.com')
+                ->subject(
+                    'Une nouvelle demande d\'information est arrivée'
+                     . $contact->getLastname()
+                     . $contact->getFirstname()
+                )
                 ->html($this->renderView('asf/contact/contactMail.html.twig', ['contact' => $contact]));
             $mailer->send($email);
             return $this->redirectToRoute('index');

@@ -1,5 +1,11 @@
 /* RALEWAY */
 @font-face {
     font-family: 'Raleway';
-    src: url('/public/fonts/Raleway-VariableFont_wght.ttf') format("truetype");
+    src: url('../fonts/Raleway-VariableFont_wght.ttf') format("truetype");
+}
+
+/* VARELA */
+@font-face {
+    font-family: 'Varela';
+    src: url('../fonts/VarelaRound-Regular.ttf') format("truetype");
 }
