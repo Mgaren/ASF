@@ -1,3 +1,7 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+    app.request.attributes.get('_route_params')) %}
+{% set pathItem = currentPath | split('/') %}
+
 <div class="openButton" id="openButton">
     <div class="bar1"></div>
     <div class="bar2"></div>
@@ -5,8 +9,8 @@
 </div>
 <a href="{{ path('index') }}"><img src="{{ ('/images/Logo ASF sans fond.png') }}" class="image-home" alt="logo home" height="150" width="200" /></a>
 <nav class="menu">
-    <a class="link" href="{{ path('actuality') }}">Actualités</a>
-    <a class="link" href="{{ path('asf') }}">AS Fondettes</a>
-    <a class="link" href="{{ path('home_section') }}">Les Sections</a>
-    <a class="link" href="{{ path('partenaire') }}">Nos Partenaires</a>
+    <a class="link{{ pathItem[1] == 'actuality' ? ' active' : '' }}" href="{{ path('actuality') }}">Actualités</a>
+    <a class="link{{ pathItem[1] == 'asf' ? ' active' : '' }}" href="{{ path('asf') }}">AS Fondettes</a>
+    <a class="link{{ pathItem[1] == 'homeSection' ? ' active' : '' }}" href="{{ path('home_section') }}">Les Sections</a>
+    <a class="link{{ pathItem[1] == 'partenaire' ? ' active' : '' }}" href="{{ path('partenaire') }}">Nos Partenaires</a>
 </nav>

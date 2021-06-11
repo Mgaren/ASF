@@ -31,7 +31,7 @@ a {
     padding: 0 80px;
 }
 
-.menu-Asf a:focus {
+/*.menu-Asf a:focus {
     background-color: red;
 }
 .menu-Asf a:hover {
@@ -41,6 +41,10 @@ a {
 
 .menu-Asf a:active {
     background-color: yellow;
+}*/
+
+.menu-Asf .active {
+    background-color: red;
 }
 
 /* Responsive */

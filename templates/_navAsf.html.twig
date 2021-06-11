@@ -1,3 +1,6 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+    app.request.attributes.get('_route_params')) %}
+
 <div class="openButton-ASF" id="openButton-ASF">
     {# <div class="bar4"></div>
     <div class="bar5"></div>
@@ -7,7 +10,7 @@
     <div class="bar6"> ---> </div>
 </div>
 <nav class="menu-Asf">
-    <a href="{{ path('asf_history') }}">Histoire</a>
+    <a class="link{{ currentPath == path('asf_history') ? ' active' : '' }}" href="{{ path('asf_history') }}">Histoire</a>
     <a href="{{ path('asf_dirigeants') }}">Bureau ASF</a>
     <a href="{{ path('asf_salaries') }}">Salariés ASF</a>
     <a href="{{ path('asf_adherant') }}">Carte adhérent</a>

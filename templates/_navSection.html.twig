@@ -1,3 +1,6 @@
+{% set currentPath = path(app.request.attributes.get('_route'),
+    app.request.attributes.get('_route_params')) %}
+
 <div class="openButton-section" id="openButton-section">
     {# <div class="bar4"></div>
     <div class="bar5"></div>
@@ -8,6 +11,6 @@
 </div>
 <nav class="menu-section">
     {% for section in sections %}
-    <a href="{{ path('sectionSport', {id:section.id}) }}">{{ section.name }}</a>
+    <a class="link{{ currentPath == path('sectionSport', {id:section.id}) ? ' active' : '' }}" href="{{ path('sectionSport', {id:section.id}) }}">{{ section.name }}</a>
     {% endfor %}
 </nav>

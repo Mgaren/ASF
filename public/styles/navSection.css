@@ -30,7 +30,7 @@ a {
     word-spacing: 1rem;
 }
 
-.menu-section a:focus {
+/*.menu-section a:focus {
     background-color: red;
 }
 .menu-section a:hover {
@@ -40,6 +40,10 @@ a {
 
 .menu-section a:active {
     background-color: yellow;
+}*/
+
+.menu-section .active {
+    background-color: red;
 }
 
 /* Responsive */
