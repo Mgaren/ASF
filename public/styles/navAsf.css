@@ -12,7 +12,9 @@ a {
     text-decoration: none;
     color: black;
 }
-
+.bar4, .bar5, .bar6 {
+    display: none;
+}
 .menu-Asf {
     float: right;
     position: absolute;
@@ -61,7 +63,7 @@ a {
         height: 150px;
         cursor: pointer;
     }
-    .bar4, .bar5, .bar6 {
+    /*.bar4, .bar5, .bar6 {
         position: relative;
         width: 35px;
         height: 5px;
@@ -69,11 +71,12 @@ a {
         border-radius: 10px;
         margin: 6px 6px;
         top: 50px;
-    }
-    /*.bar4, .bar5, .bar6 {
+    }*/
+    .bar4, .bar5, .bar6 {
+        display: flex;
         position: relative;
         top: 40px;
-    }*/
+    }
     .menu-Asf {
         position: absolute;
         top: 0;
