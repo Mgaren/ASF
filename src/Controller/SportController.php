@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 /**
  * Class SportController
  * @package App\Controller
- * @Route("/sectionSport")
+ * @Route("/homeSection")
  */
 class SportController extends AbstractController
 {

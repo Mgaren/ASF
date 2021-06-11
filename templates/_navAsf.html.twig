@@ -11,8 +11,8 @@
 </div>
 <nav class="menu-Asf">
     <a class="link{{ currentPath == path('asf_history') ? ' active' : '' }}" href="{{ path('asf_history') }}">Histoire</a>
-    <a href="{{ path('asf_dirigeants') }}">Bureau ASF</a>
-    <a href="{{ path('asf_salaries') }}">Salariés ASF</a>
-    <a href="{{ path('asf_adherant') }}">Carte adhérent</a>
-    <a href="{{ path('asf_contact') }}">Contact</a>
+    <a class="link{{ currentPath == path('asf_dirigeants') ? ' active' : '' }}" href="{{ path('asf_dirigeants') }}">Bureau ASF</a>
+    <a class="link{{ currentPath == path('asf_salaries') ? ' active' : '' }}" href="{{ path('asf_salaries') }}">Salariés ASF</a>
+    <a class="link{{ currentPath == path('asf_adherant') ? ' active' : '' }}" href="{{ path('asf_adherant') }}">Carte adhérent</a>
+    <a class="link{{ currentPath == path('asf_contact') ? ' active' : '' }}" href="{{ path('asf_contact') }}">Contact</a>
 </nav>
