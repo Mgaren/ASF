@@ -1,0 +1,17 @@
+{% for section in sections %}
+    <li class="active">
+        <a href="#homeSubmenusection{{ section.name }}" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+            {{ section.name }}</a>
+        <ul class="collapse list-unstyled" id="homeSubmenusection{{ section.name }}">
+            <li>
+                <a href="{{ path('admin_section_sport', {section:section.id}) }}">Editer {{ section.name }}</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_section_planning', {section:section.id}) }}">Editer le planning {{ section.name }}</a>
+            </li>
+            <li>
+                <a href="{{ path('admin_section_category', {section:section.id}) }}">Ajouter une catégorie pour {{ section.name }}</a>
+            </li>
+        </ul>
+    </li>
+{% endfor %}

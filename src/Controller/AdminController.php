@@ -25,6 +25,7 @@ use App\Repository\HistoryDateRepository;
 use App\Repository\CguRepository;
 use App\Repository\ItemRepository;
 use App\Repository\CguCategoryRepository;
+use App\Service\AdminSectionGenerator;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -40,14 +41,17 @@ class AdminController extends AbstractController
 {
     /**
      * @Route("/index", name="index")
-     * @param SectionRepository $sectionRepository
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
-    public function index(SectionRepository $sectionRepository): Response
+    public function index(AdminSectionGenerator $generator): Response
     {
-        $sections = $sectionRepository->findAll();
-        return $this->render('admin/index.html.twig', [
-            'sections' => $sections,
+        $htmlNav = $generator->getAdminSectionGenerator();
+        return $this->render('admin/layout.html.twig', [
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -56,12 +60,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param HomeSectionRepository $homeSectionRep
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function homeSection(
         Request $request,
         HomeSectionRepository $homeSectionRep,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $homeSections = $homeSectionRep->findAll();
         $sectionsOrdered = [];
@@ -74,8 +83,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/homeSection.html.twig', [
-            'home_sections' => $homeSections
+            'home_sections' => $homeSections,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -84,12 +95,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param VerticalHistoryRepository $vertHistRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function verticalHistory(
         Request $request,
         VerticalHistoryRepository $vertHistRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $verticalHistory = $vertHistRepository->findBy([], [
             'date' => 'ASC'
@@ -99,8 +115,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/verticalHistory.html.twig', [
-            'verticalHistorys' => $verticalHistory
+            'verticalHistorys' => $verticalHistory,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -109,12 +127,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param DirigeantsRepository $dirigeantsRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function dirigeantAsf(
         Request $request,
         DirigeantsRepository $dirigeantsRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $dirigeants = $dirigeantsRepository->findBy([], [
             'id' => 'ASC'
@@ -124,8 +147,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/dirigeantsAsf.html.twig', [
-            'dirigeants' => $dirigeants
+            'dirigeants' => $dirigeants,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -134,12 +159,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param SalariesRepository $salariesRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function salariesAsf(
         Request $request,
         SalariesRepository $salariesRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $salaries = $salariesRepository->findBy([], [
             'lastname' => 'ASC'
@@ -149,8 +179,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/salariesAsf.html.twig', [
-            'salaries' => $salaries
+            'salaries' => $salaries,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -161,14 +193,19 @@ class AdminController extends AbstractController
      * @param AdherantTextRepository $textRepository
      * @param AdherantPartenaireRepository $adherantPartenaireR
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function carteAdherant(
         Request $request,
         AdherantImageRepository $imageRepository,
         AdherantTextRepository $textRepository,
         AdherantPartenaireRepository $adherantPartenaireR,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $adherantImages = $imageRepository->findAll();
         $adherantTexts = $textRepository->findAll();
@@ -190,10 +227,12 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/adherant.html.twig', [
             'adherant_images' => $adherantImages,
             'adherant_texts' => $adherantTexts,
-            'adherant_partenaires' => $adherantPartenaires
+            'adherant_partenaires' => $adherantPartenaires,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -202,12 +241,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param ContactHoraireRepository $horaireRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function contact(
         Request $request,
         ContactHoraireRepository $horaireRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $horaires = $horaireRepository->findBy([], [
             'id' => 'ASC'
@@ -217,8 +261,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/contactHoraire.html.twig', [
-            'contact_horaires' => $horaires
+            'contact_horaires' => $horaires,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -227,13 +273,31 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param DirigeantsPostRepository $postRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addPost(
         Request $request,
         DirigeantsPostRepository $postRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
+        /*
+                $posts = $postRepository->findAll();
+        $postOrdered = [];
+        foreach ($posts as $post) {
+            $postOrdered[$post->getNumber()][] = $post;
+        }
+        ksort($postOrdered);
+        $posts = $paginator->paginate(
+            $postOrdered,
+            $request->query->getInt('page', 1),
+            10
+        );
+        */
         $posts = $postRepository->findBy([], [
             'number' => 'ASC'
         ]);
@@ -242,8 +306,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/dirigeantsPost.html.twig', [
-            'dirigeants_posts' => $posts
+            'dirigeants_posts' => $posts,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -252,12 +318,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param SectionRepository $sectionRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addSection(
         Request $request,
         SectionRepository $sectionRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $sections = $sectionRepository->findBy([], [
             'name' => 'ASC',
@@ -267,8 +338,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/section.html.twig', [
-            'sections' => $sections
+            'sections' => $sections,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -277,12 +350,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param PresidentRepository $presidentRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addPresident(
         Request $request,
         PresidentRepository $presidentRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $presidents = $presidentRepository->findBy([], [
             'date' => 'ASC',
@@ -292,8 +370,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/president.html.twig', [
-            'presidents' => $presidents
+            'presidents' => $presidents,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -302,12 +382,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param CarouselHistoryRepository $carouselHistory
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function carouselHistory(
         Request $request,
         CarouselHistoryRepository $carouselHistory,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $carouselHistories = $carouselHistory->findAll();
         $carouselHistories = $paginator->paginate(
@@ -315,8 +400,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/carouselHistory.html.twig', [
-            'carousel_history' => $carouselHistories
+            'carousel_history' => $carouselHistories,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -325,12 +412,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param CarouselSectionRepository $carouselSection
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function carouselSection(
         Request $request,
         CarouselSectionRepository $carouselSection,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $carouselSections = $carouselSection->findAll();
         $carouselSections = $paginator->paginate(
@@ -338,8 +430,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/carouselSection.html.twig', [
-            'carousel_section' => $carouselSections
+            'carousel_section' => $carouselSections,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -348,12 +442,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param CarouselPartenaireRepository $carouselPartenaire
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function carouselPartenaire(
         Request $request,
         CarouselPartenaireRepository $carouselPartenaire,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $carouselPartenaires = $carouselPartenaire->findAll();
         $carouselPartenaires = $paginator->paginate(
@@ -361,8 +460,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/carouselPartenaire.html.twig', [
-            'carousel_partenaire' => $carouselPartenaires
+            'carousel_partenaire' => $carouselPartenaires,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -371,12 +472,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param HistoryRepository $historyRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function history(
         Request $request,
         HistoryRepository $historyRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $history = $historyRepository->findBy([], [
             'date' => 'ASC'
@@ -386,8 +492,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/history.html.twig', [
-            'historys' => $history
+            'historys' => $history,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -396,12 +504,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param ActualityRepository $actualityRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function actuality(
         Request $request,
         ActualityRepository $actualityRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $actuality = $actualityRepository->findBy([], [
             'id' => 'DESC'
@@ -411,8 +524,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/actuality.html.twig', [
-            'actualitys' => $actuality
+            'actualitys' => $actuality,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -421,12 +536,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param PartenaireRepository $partenaireRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function partenaire(
         Request $request,
         PartenaireRepository $partenaireRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $partenaire = $partenaireRepository->findBy([], [
             'name' => 'ASC'
@@ -436,8 +556,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/partenaire.html.twig', [
-            'partenaires' => $partenaire
+            'partenaires' => $partenaire,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -446,12 +568,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param HomeAsfRepository $homeAsfRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function homeAsf(
         Request $request,
         HomeAsfRepository $homeAsfRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $homeAsf = $homeAsfRepository->findBy([], [
             'id' => 'ASC'
@@ -461,8 +588,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/homeAsf.html.twig', [
-            'home_asfs' => $homeAsf
+            'home_asfs' => $homeAsf,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -471,12 +600,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param PartenaireCategoryRepository $partenaireCatRep
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addPartenaireCategory(
         Request $request,
         PartenaireCategoryRepository $partenaireCatRep,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $partenaireCategory = $partenaireCatRep->findBy([], [
             'name' => 'ASC'
@@ -486,8 +620,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/PartenaireCategory.html.twig', [
-            'partenaire_categories' => $partenaireCategory
+            'partenaire_categories' => $partenaireCategory,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -496,12 +632,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param HistoryDateRepository $dateRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addDate(
         Request $request,
         HistoryDateRepository $dateRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $date = $dateRepository->findBy([], [
             'date' => 'ASC'
@@ -511,8 +652,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/date.html.twig', [
-            'dates' => $date
+            'dates' => $date,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -522,13 +665,18 @@ class AdminController extends AbstractController
      * @param CguRepository $cguRepository
      * @param ItemRepository $itemRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function cgu(
         Request $request,
         CguRepository $cguRepository,
         ItemRepository $itemRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $cgu = $cguRepository->findAll();
         $cgu = $paginator->paginate(
@@ -544,9 +692,11 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/cgu.html.twig', [
             'cgus' => $cgu,
-            'items' => $item
+            'items' => $item,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -555,12 +705,17 @@ class AdminController extends AbstractController
      * @param Request $request
      * @param CguCategoryRepository $cguCategoryRep
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addCguCategory(
         Request $request,
         CguCategoryRepository $cguCategoryRep,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $cguCategory = $cguCategoryRep->findAll();
         $cguCategory = $paginator->paginate(
@@ -568,8 +723,10 @@ class AdminController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin/cguCategory.html.twig', [
-            'cgu_categories' => $cguCategory
+            'cgu_categories' => $cguCategory,
+            'html_nav' => $htmlNav,
         ]);
     }
 }

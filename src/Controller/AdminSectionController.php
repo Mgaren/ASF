@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Repository\SectionCategoryRepository;
 use App\Repository\SectionPlanningRepository;
 use App\Repository\SectionSportRepository;
+use App\Service\AdminSectionGenerator;
 use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -23,17 +24,30 @@ class AdminSectionController extends AbstractController
      * @param Request $request
      * @param SectionCategoryRepository $categoryRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addSectionCategory(
         Request $request,
         SectionCategoryRepository $categoryRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $sectionCategories = $categoryRepository->findAll();
         $sectionsOrdered = [];
+        $currentId = null;
+        if (isset($_GET['section'])) {
+            $currentId = $_GET['section'];
+        }
         foreach ($sectionCategories as $sectionCategory) {
-            $sectionsOrdered[$sectionCategory->getSection()->getName()][] = $sectionCategory;
+            if ($currentId && $currentId == $sectionCategory->getSection()->getId()) {
+                $sectionsOrdered[$sectionCategory->getNumber()][] = $sectionCategory;
+            } elseif (!$currentId) {
+                $sectionsOrdered[$sectionCategory->getNumber()][] = $sectionCategory;
+            }
         }
         ksort($sectionsOrdered);
         $sectionCategories = $paginator->paginate(
@@ -41,8 +55,10 @@ class AdminSectionController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin_section/sectionCategory.html.twig', [
-            'section_categories' => $sectionCategories
+            'section_categories' => $sectionCategories,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -51,12 +67,17 @@ class AdminSectionController extends AbstractController
      * @param Request $request
      * @param SectionPlanningRepository $planningRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addSectionPlanning(
         Request $request,
         SectionPlanningRepository $planningRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $sectionPlannings = $planningRepository->findAll();
         $sectionsOrdered = [];
@@ -66,9 +87,9 @@ class AdminSectionController extends AbstractController
         }
         foreach ($sectionPlannings as $sectionPlanning) {
             if ($currentId && $currentId == $sectionPlanning->getSection()->getId()) {
-                $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
+                $sectionsOrdered[$sectionPlanning->getId()][] = $sectionPlanning;
             } elseif (!$currentId) {
-                $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
+                $sectionsOrdered[$sectionPlanning->getId()][] = $sectionPlanning;
             }
         }
         ksort($sectionsOrdered);
@@ -77,8 +98,10 @@ class AdminSectionController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin_section/sectionPlanning.html.twig', [
-            'section_plannings' => $sectionPlannings
+            'section_plannings' => $sectionPlannings,
+            'html_nav' => $htmlNav,
         ]);
     }
 
@@ -87,12 +110,17 @@ class AdminSectionController extends AbstractController
      * @param Request $request
      * @param SectionSportRepository $sportRepository
      * @param PaginatorInterface $paginator
+     * @param AdminSectionGenerator $generator
      * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
      */
     public function addSectionSport(
         Request $request,
         SectionSportRepository $sportRepository,
-        PaginatorInterface $paginator
+        PaginatorInterface $paginator,
+        AdminSectionGenerator $generator
     ): Response {
         $sectionSports = $sportRepository->findAll();
         $sectionsOrdered = [];
@@ -111,8 +139,10 @@ class AdminSectionController extends AbstractController
             $request->query->getInt('page', 1),
             10
         );
+        $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin_section/sectionSport.html.twig', [
-            'section_sports' => $sectionSports
+            'section_sports' => $sectionSports,
+            'html_nav' => $htmlNav,
         ]);
     }
 }
