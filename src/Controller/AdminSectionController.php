@@ -60,8 +60,16 @@ class AdminSectionController extends AbstractController
     ): Response {
         $sectionPlannings = $planningRepository->findAll();
         $sectionsOrdered = [];
+        $currentId = null;
+        if (isset($_GET['section'])) {
+            $currentId = $_GET['section'];
+        }
         foreach ($sectionPlannings as $sectionPlanning) {
-            $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
+            if ($currentId && $currentId == $sectionPlanning->getSection()->getId()) {
+                $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
+            } elseif (!$currentId) {
+                $sectionsOrdered[$sectionPlanning->getSection()->getName()][] = $sectionPlanning;
+            }
         }
         ksort($sectionsOrdered);
         $sectionPlannings = $paginator->paginate(
@@ -88,8 +96,14 @@ class AdminSectionController extends AbstractController
     ): Response {
         $sectionSports = $sportRepository->findAll();
         $sectionsOrdered = [];
+        $currentId = null;
+        if (isset($_GET['section'])) {
+            $currentId = $_GET['section'];
+        }
         foreach ($sectionSports as $sectionSport) {
-            $sectionsOrdered[$sectionSport->getSection()->getName()] = $sectionSport;
+            if ($currentId && $currentId == $sectionSport->getSection()->getId()) {
+                $sectionsOrdered[$sectionSport->getSection()->getName()] = $sectionSport;
+            }
         }
         ksort($sectionsOrdered);
         $sectionSports = $paginator->paginate(

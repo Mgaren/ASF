@@ -29,9 +29,7 @@ h1 {
 
 .adherant_image {
     display: flex;
-    width: 500px;
-    margin-left: 2rem;
-    margin-right: 2rem;
+    width: 450px;
     float: left;
 }
 

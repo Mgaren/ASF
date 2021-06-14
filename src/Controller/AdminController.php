@@ -40,11 +40,15 @@ class AdminController extends AbstractController
 {
     /**
      * @Route("/index", name="index")
+     * @param SectionRepository $sectionRepository
      * @return Response
      */
-    public function index(): Response
+    public function index(SectionRepository $sectionRepository): Response
     {
-        return $this->render('admin/index.html.twig');
+        $sections = $sectionRepository->findAll();
+        return $this->render('admin/index.html.twig', [
+            'sections' => $sections,
+        ]);
     }
 
     /**

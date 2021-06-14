@@ -81,6 +81,7 @@
                         <li>
                             <a href="{{ path('admin_homeSection') }}">Les sections sportives</a>
                         </li>
+                        /* faire un foreach sur section et passé l'id de la section dans la fonction path() */
                         <li class="active">
                             <a href="#homeSubmenusectionAthletisme" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
                                 L'Athlétisme</a>
@@ -116,10 +117,10 @@
                                 Le Basketball</a>
                             <ul class="collapse list-unstyled" id="homeSubmenusectionBasketball">
                                 <li>
-                                    <a href="{{ path('admin_section_sport') }}">Editer le Basketball</a>
+                                    <a href="{{ path('admin_section_sport', {"section":"1"}) }}">Editer le Basketball</a>
                                 </li>
                                 <li>
-                                    <a href="{{ path('admin_section_planning') }}">Editer le planning</a>
+                                    <a href="{{ path('admin_section_planning', {"section":"1"}) }}">Editer le planning</a>
                                 </li>
                                 <li>
                                     <a href="{{ path('admin_section_category') }}">Ajouter une catégorie pour le Basketball</a>

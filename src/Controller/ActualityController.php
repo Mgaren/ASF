@@ -6,6 +6,7 @@ use App\Entity\Actuality;
 use App\Form\ActualityType;
 use App\Repository\ActualityRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\HttpFoundation\Request;
@@ -21,14 +22,28 @@ class ActualityController extends AbstractController
     /**
      * @Route("/", name="actuality", methods={"GET"})
      * @param ActualityRepository $actualityRepository
+     * @param PaginatorInterface $paginator
+     * @param Request $request
      * @return Response
      */
-    public function index(ActualityRepository $actualityRepository): Response
-    {
+    public function index(
+        ActualityRepository $actualityRepository,
+        PaginatorInterface $paginator,
+        Request $request
+    ): Response {
+        $actualities = $actualityRepository->findAll();
+        $actualitiesOrdered = [];
+        foreach ($actualities as $actuality) {
+            $actualitiesOrdered[$actuality->getId()] = $actuality;
+        }
+        krsort($actualitiesOrdered);
+        $actualities = $paginator->paginate(
+            $actualitiesOrdered,
+            $request->query->getInt('page', 1),
+            10
+        );
         return $this->render('actuality/index.html.twig', [
-            'actualities' => $actualityRepository->findBy([], [
-                'id' => 'DESC'
-            ]),
+            'actualities' => $actualities
         ]);
     }
 

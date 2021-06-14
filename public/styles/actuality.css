@@ -20,6 +20,10 @@ h1 {
     justify-content: space-around;
 }
 
+.pagination {
+    text-align: center;
+}
+
 .container_actuality {
     display: flex;
     margin: 1em 5px;
