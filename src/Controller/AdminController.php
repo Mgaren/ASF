@@ -285,24 +285,14 @@ class AdminController extends AbstractController
         PaginatorInterface $paginator,
         AdminSectionGenerator $generator
     ): Response {
-        /*
-                $posts = $postRepository->findAll();
+        $posts = $postRepository->findAll();
         $postOrdered = [];
         foreach ($posts as $post) {
-            $postOrdered[$post->getNumber()][] = $post;
+            $postOrdered[$post->getNumber()] = $post;
         }
         ksort($postOrdered);
         $posts = $paginator->paginate(
             $postOrdered,
-            $request->query->getInt('page', 1),
-            10
-        );
-        */
-        $posts = $postRepository->findBy([], [
-            'number' => 'ASC'
-        ]);
-        $posts = $paginator->paginate(
-            $posts,
             $request->query->getInt('page', 1),
             10
         );
