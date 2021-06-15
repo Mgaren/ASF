@@ -53,7 +53,7 @@ class AdminSectionController extends AbstractController
         $sectionCategories = $paginator->paginate(
             $sectionsOrdered,
             $request->query->getInt('page', 1),
-            10
+            35
         );
         $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin_section/sectionCategory.html.twig', [
@@ -96,7 +96,7 @@ class AdminSectionController extends AbstractController
         $sectionPlannings = $paginator->paginate(
             $sectionsOrdered,
             $request->query->getInt('page', 1),
-            10
+            35
         );
         $htmlNav = $generator->getAdminSectionGenerator();
         return $this->render('admin_section/sectionPlanning.html.twig', [
