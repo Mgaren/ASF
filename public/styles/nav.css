@@ -49,16 +49,16 @@ header {
 }*/
 
 .menu .active_1 {
-    background-color: red;
+    background-color: var(--first-color-bis);
 }
 .menu .active_2 {
-    background-color: blue;
+    background-color: var(--second-color);
 }
 .menu .active_3 {
-    background-color: yellow;
+    background-color: var(--fourth-color);
 }
 .menu .active_4 {
-    background-color: green;
+    background-color: var(--fifth-color);
 }
 
 /* Responsive */
