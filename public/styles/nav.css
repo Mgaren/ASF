@@ -33,6 +33,7 @@ header {
 }
 .menu a {
     padding: 0 50px;
+    border-radius: 20px;
 }
 
 /*.menu a:focus {
@@ -47,8 +48,17 @@ header {
     background-color: yellow;
 }*/
 
-.menu .active {
+.menu .active_1 {
     background-color: red;
+}
+.menu .active_2 {
+    background-color: blue;
+}
+.menu .active_3 {
+    background-color: yellow;
+}
+.menu .active_4 {
+    background-color: green;
 }
 
 /* Responsive */

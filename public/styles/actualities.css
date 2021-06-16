@@ -24,6 +24,14 @@ h1 {
     justify-content: center;
 }
 
+.actuality a {
+    text-decoration: none;
+    color: var(--fifth-color);
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Varela', sans-serif;
+}
+
 .actuality_titre {
     font-size: 30px;
     font-weight: 700;

@@ -22,13 +22,14 @@ a {
     right: 0;
     left: 0;
     height: 50px;
-    background-color: var(--nav-background-color);
+    background-color: blue;
     text-align: center;
     padding-top: 10px;
     font-size: 1.5rem;
 }
 .menu-Asf a {
     padding: 0 80px;
+    border-radius: 20px;
 }
 
 /*.menu-Asf a:focus {
