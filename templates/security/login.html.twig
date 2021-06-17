@@ -1,45 +1,54 @@
 {% extends 'base.html.twig' %}
 
 {% block stylesheets %}
+    <link href="{{ 'styles/footer.css' }}" rel="stylesheet">
+    <link href="{{ 'styles/nav.css' }}" rel="stylesheet">
     <link href="{{ 'styles/login.css' }}" rel="stylesheet">
 {% endblock %}
 
-{% block title %}{% endblock %}
+{% block title %}Se connecter{% endblock %}
 
 {% block body %}
-    <div class="background"></div>
-    <div class="wrapper">
-        <form method="post" class="login">
-            {% if error %}
-                <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-            {% endif %}
+    <header>
+        <div class="image-title">
+            {% include "_nav.html.twig" %}
+            {% block headerTitle %}{% endblock %}
+        </div>
+        <hr>
+    </header>
+    <main>
+        {% block main %}
+            <div class="wrapper">
+                <form method="post" class="login">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                <h1 class="title">Login</h1>
+                    <div>
+                        <label for="inputEmail">Email</label>
+                    </div>
+                    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                    <div class="fa fa-user">
+                        <div>
+                            <label for="inputPassword">Mot de passe</label>
+                        </div>
+                        <input type="password" name="password" id="inputPassword" class="form-control" required>
+                    </div>
 
-            {#
-            {% if app.user %}
-                <div class="mb-3">
-                    You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-                </div>
-            {% endif %}
-            #}
+                    <input type="hidden" name="_csrf_token"
+                           value="{{ csrf_token('authenticate') }}"
+                    >
 
-            <h1 class="title">Login</h1>
-            <div>
-                <label for="inputEmail">Email</label>
+                    <div class="password-lost">
+                        <a href="{{ path('app_forgot_password_request') }}">Mot de Passe oublié </a>
+                    </div>
+
+                    <button class="button" type="submit">
+                        Envoyer
+                    </button>
+                </form>
             </div>
-            <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-            <div class="fa fa-user">
-                <div>
-                    <label for="inputPassword">Mot de passe</label>
-                </div>
-            <input type="password" name="password" id="inputPassword" class="form-control" required>
-            </div>
-
-            <input type="hidden" name="_csrf_token"
-                   value="{{ csrf_token('authenticate') }}"
-            >
-            <button class="button" type="submit">
-                Envoyer
-            </button>
-        </form>
-    </div>
+        {% endblock %}
+    </main>
+    {% include "_footer.html.twig" %}
 {% endblock %}
