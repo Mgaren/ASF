@@ -31,10 +31,13 @@
             </div>
         {% endfor %}
     </ul>
-    <div class="categories">
-        {% for category in categories %}
-            <div><a href="#{{ category.id }}">{{ category.name }}</a></div>
-        {% endfor %}
+    <div class="test">
+        <p>Recherche par thèmes</p>
+        <div class="categories">
+            {% for category in categories %}
+                <div><a href="#{{ category.id }}">{{ category.name }}</a></div>
+            {% endfor %}
+        </div>
     </div>
     <ul class="container_adherant_partenaire">
         {% for category in adherant_partenaires_by_category %}

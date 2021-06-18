@@ -22,7 +22,7 @@ a {
     right: 0;
     left: 0;
     height: 50px;
-    background-color: var(--second-color);
+    background-color: var(--second-color-bis);
     text-align: center;
     padding-top: 10px;
     font-size: 1.5rem;
@@ -88,7 +88,7 @@ a {
         right: 0;
         bottom: 0;
         width: 250px;
-        background-color: var(--second-color);
+        background-color: var(--second-color-bis);
         transform: translateX(768px);
         padding-top: 30px;
         height: 100%;

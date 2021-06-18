@@ -51,20 +51,26 @@ h1 {
     font-size: 1rem;
     font-family: 'Varela', sans-serif;
 }
-
+.test p {
+    font-size: 30px;
+    background-color: var(--fifth-color);
+    text-align: center;
+    margin-top: 3rem;
+}
 .categories {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(5, 1fr);
     grid-auto-rows: minmax(50px, 10px);
     align-items: center;
     text-align: center;
     clear: both;
-    margin-top: 5rem;
     font-family: 'Varela', sans-serif;
+    font-size: 30px;
+    background-color: var(--fifth-color);
 }
 .categories a {
     text-decoration: none;
-    color: var(--fifth-color);
+    color: var(--history-text-color);
     font-family: 'Varela', sans-serif;
 }
 
@@ -72,22 +78,21 @@ h1 {
     display: flex;
     flex-direction: column;
     list-style: none;
-    margin-top: 5rem;
+    margin-top: 3rem;
     margin-left: 5rem;
     margin-right: 5rem;
     padding: 0;
 }
 
 .category {
-    margin-left: 2rem;
     font-size: 25px;
     font-family: 'Varela', sans-serif;
-    color: var(--fifth-color);
+    color: var(--history-text-color);
+    font-weight: bold;
 }
 
 .container_item_partenaire {
     display: flex;
-    margin-top: 1rem;
     margin-bottom: 1rem;
     flex-wrap: wrap;
     align-items: center;
@@ -97,8 +102,6 @@ h1 {
 .item_partenaire {
     display: flex;
     align-items: center;
-    margin-bottom: 1rem;
-    margin-top: 1rem;
 }
 
 .partenaire {
