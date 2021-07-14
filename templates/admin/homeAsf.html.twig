@@ -52,6 +52,33 @@
                         <a href="{{ path('asf_edit', {'id': home_asf.id}) }}">Editer</a>
                     </td>
                 </tr>
+                <tr>
+                    <td>
+                        {% if home_asf.image1 == true %}
+                            <img src="/uploads/homeAsf/{{ home_asf.image1 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if home_asf.image2 == true %}
+                            <img src="/uploads/homeAsf/{{ home_asf.image2 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if home_asf.image3 == true %}
+                            <img src="/uploads/homeAsf/{{ home_asf.image3 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if home_asf.image4 == true %}
+                            <img src="/uploads/homeAsf/{{ home_asf.image4 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if home_asf.image5 == true %}
+                            <img src="/uploads/homeAsf/{{ home_asf.image5 }}">
+                        {% endif %}
+                    </td>
+                </tr>
             {% else %}
                 <tr>
                     <td colspan="7">Le page est vide</td>

@@ -47,6 +47,13 @@
                     <td>{{ carousel_section.image4 }}</td>
                     <td>{{ carousel_section.image5 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image1 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image2 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image3 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image4 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image5 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -67,6 +74,13 @@
                     <td>{{ carousel_section.image9 }}</td>
                     <td>{{ carousel_section.image10 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image6 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image7 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image8 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image9 }}"></td>
+                    <td><img src="/uploads/carousel/section/{{ carousel_section.image10 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -86,6 +100,33 @@
                     <td>{{ carousel_section.image13 }}</td>
                     <td>{{ carousel_section.image14 }}</td>
                     <td>{{ carousel_section.image15 }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if carousel_section.image11 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image11 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image12 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image12 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image13 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image13 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image14 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image14 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image15 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image15 }}">
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -110,6 +151,33 @@
                         <a href="{{ path('home_carousel_section_show', {'id': carousel_section.id}) }}">Détail</a>
                         {# {{ include('home/carousel_section/_delete_form.html.twig') }} #}
                         <a href="{{ path('home_carousel_section_edit', {'id': carousel_section.id}) }}">Editer</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if carousel_section.image16 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image16 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image17 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image17 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image18 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image18 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image19 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image19 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_section.image20 == true %}
+                            <img src="/uploads/carousel/section/{{ carousel_section.image20 }}">
+                        {% endif %}
                     </td>
                 </tr>
             {% else %}

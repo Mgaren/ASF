@@ -43,6 +43,11 @@
                     <td>{{ carousel_history.image2 }}</td>
                     <td>{{ carousel_history.image3 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/history/{{ carousel_history.image1 }}"></td>
+                    <td><img src="/uploads/carousel/history/{{ carousel_history.image2 }}"></td>
+                    <td><img src="/uploads/carousel/history/{{ carousel_history.image3 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -62,6 +67,23 @@
                         <a href="{{ path('home_carousel_history_show', {'id': carousel_history.id}) }}">Détail</a>
                         {# {{ include('home/carousel_history/_delete_form.html.twig') }} #}
                         <a href="{{ path('home_carousel_history_edit', {'id': carousel_history.id}) }}">Editer</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if carousel_history.image4 == true %}
+                            <img src="/uploads/carousel/history/{{ carousel_history.image4 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_history.image4 == true %}
+                            <img src="/uploads/carousel/history/{{ carousel_history.image5 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_history.image4 == true %}
+                            <img src="/uploads/carousel/history/{{ carousel_history.image6 }}">
+                        {% endif %}
                     </td>
                 </tr>
             {% else %}

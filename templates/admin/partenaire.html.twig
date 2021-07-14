@@ -43,7 +43,12 @@
                     <td>{{ partenaire.name }}</td>
                     <td>{{ partenaire.description }}</td>
                     <td>{{ partenaire.lien }}</td>
-                    <td>{{ partenaire.image }}</td>
+                    <td>
+                        {{ partenaire.image }}
+                        {% if partenaire.image == true %}
+                            <img src="/uploads/partenaire/{{ partenaire.image }}">
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('partenaire_show', {'id': partenaire.id}) }}">Détail</a>
                         {{ include('partenaire/_delete_form.html.twig') }}

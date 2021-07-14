@@ -41,7 +41,12 @@
                 <tr>
                     <td>{{ history.date.date }}</td>
                     <td>{{ history.description }}</td>
-                    <td>{{ history.image }}</td>
+                    <td>
+                        {{ history.image }}
+                        {% if history.image == true %}
+                            <img src="/uploads/histoire/{{ history.image }}">
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('asf_history_history_show', {'id': history.id}) }}">Détail</a>
                         {{ include('asf/history/_delete_form.html.twig') }}

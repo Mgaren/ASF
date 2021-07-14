@@ -40,7 +40,7 @@ class ActualityController extends AbstractController
         $actualities = $paginator->paginate(
             $actualitiesOrdered,
             $request->query->getInt('page', 1),
-            2
+            10
         );
         return $this->render('actuality/index.html.twig', [
             'actualities' => $actualities

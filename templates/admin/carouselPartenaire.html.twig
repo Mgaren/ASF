@@ -47,6 +47,13 @@
                     <td>{{ carousel_partenaire.image4 }}</td>
                     <td>{{ carousel_partenaire.image5 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image1 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image2 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image3 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image4 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image5 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -66,6 +73,13 @@
                     <td>{{ carousel_partenaire.image8 }}</td>
                     <td>{{ carousel_partenaire.image9 }}</td>
                     <td>{{ carousel_partenaire.image10 }}</td>
+                </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image6 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image7 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image8 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image9 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image10 }}"></td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -87,6 +101,13 @@
                     <td>{{ carousel_partenaire.image14 }}</td>
                     <td>{{ carousel_partenaire.image15 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image11 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image12 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image13 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image14 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image15 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -107,6 +128,13 @@
                     <td>{{ carousel_partenaire.image19 }}</td>
                     <td>{{ carousel_partenaire.image20 }}</td>
                 </tr>
+                <tr>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image16 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image17 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image18 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image19 }}"></td>
+                    <td><img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image20 }}"></td>
+                </tr>
             {% endfor %}
             </tbody>
             <thead>
@@ -126,6 +154,33 @@
                     <td>{{ carousel_partenaire.image23 }}</td>
                     <td>{{ carousel_partenaire.image24 }}</td>
                     <td>{{ carousel_partenaire.image25 }}</td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if carousel_partenaire.image21 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image21 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image22 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image22 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image23 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image23 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image24 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image24 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image25 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image25 }}">
+                        {% endif %}
+                    </td>
                 </tr>
             {% endfor %}
             </tbody>
@@ -150,6 +205,33 @@
                         <a href="{{ path('home_carousel_partenaire_show', {'id': carousel_partenaire.id}) }}">Détail</a>
                         {# {{ include('home/carousel_partenaire/_delete_form.html.twig') }} #}
                         <a href="{{ path('home_carousel_partenaire_edit', {'id': carousel_partenaire.id}) }}">Editer</a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        {% if carousel_partenaire.image26 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image26 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image27 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image27 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image28 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image28 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image29 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image29 }}">
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if carousel_partenaire.image30 == true %}
+                            <img src="/uploads/carousel/partenaire/{{ carousel_partenaire.image30 }}">
+                        {% endif %}
                     </td>
                 </tr>
             {% else %}

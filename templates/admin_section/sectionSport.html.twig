@@ -48,7 +48,12 @@
                     <td>{{ section_sport.description2 }}</td>
                     <td>{{ section_sport.description3 }}</td>
                     <td>{{ section_sport.description4 }}</td>
-                    <td>{{ section_sport.image }}</td>
+                    <td>
+                        {{ section_sport.image }}
+                        {% if section_sport.image == true %}
+                            <img src="/uploads/sports/{{ section_sport.image }}">
+                        {% endif %}
+                    </td>
                     <td>{{ section_sport.lien }}</td>
                     <td>
                         <a href="{{ path('section_sport_show', {'id': section_sport.id}) }}">Détail</a>

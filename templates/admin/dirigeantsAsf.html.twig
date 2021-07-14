@@ -43,7 +43,12 @@
                     <td>{{ dirigeant.firstname }}</td>
                     <td>{{ dirigeant.lastname }}</td>
                     <td>{{ dirigeant.dirigeantsPost.name }}</td>
-                    <th>{{ dirigeant.image }}</th>
+                    <th>
+                        {{ dirigeant.image }}
+                        {% if dirigeant.image == true %}
+                            <img src="/uploads/dirigeants/{{ dirigeant.image }}">
+                        {% endif %}
+                    </th>
                     <td>
                         <a href="{{ path('asf_dirigeants_show', {'id': dirigeant.id}) }}">Détail</a>
                         {{ include('asf/dirigeants/_delete_form.html.twig') }}

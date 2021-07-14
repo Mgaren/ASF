@@ -41,7 +41,12 @@
                 <tr>
                     <td>{{ actuality.date }}</td>
                     <td>{{ actuality.titre }}</td>
-                    <td>{{ actuality.image }}</td>
+                    <td>
+                        {{ actuality.image }}
+                        {% if actuality.image == true %}
+                            <a href="/uploads/actuality/{{ actuality.image }}"><img src="/uploads/actuality/{{ actuality.image }}"></a>
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('actuality_show', {'id': actuality.id}) }}">Détail</a>
                         {{ include('actuality/_delete_form.html.twig') }}

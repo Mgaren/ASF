@@ -47,7 +47,12 @@
                             {{ section.name }}
                         {% endfor %}
                     </td>
-                    <td>{{ salary.image }}</td>
+                    <td>
+                        {{ salary.image }}
+                        {% if salary.image == true %}
+                            <img src="/uploads/salaries/{{ salary.image }}">
+                        {% endif %}
+                    </td>
                     <td>
                         <a href="{{ path('asf_salaries_show', {'id': salary.id}) }}">Détail</a>
                         {{ include('asf/salaries/_delete_form.html.twig') }}
