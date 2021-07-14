@@ -1,0 +1,116 @@
+@import "variables.css";
+@import "fontFamily.css";
+
+h1 {
+    text-align: center;
+    font-family: 'Varela', sans-serif;
+}
+
+.containerSport {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    list-style: none;
+    margin-top: 2rem;
+    padding: 0;
+    justify-content: space-around;
+}
+
+.pagination {
+    text-align: center;
+    word-spacing: 5px;
+}
+
+.container_actuality {
+    display: flex;
+    margin: 1em 5px;
+    width: 700px;
+}
+
+.actuality {
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform .5s;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+}
+
+.actuality_titre {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Varela', sans-serif;
+}
+
+.actuality a {
+    text-decoration: none;
+    color: var(--fifth-color);
+    display: flex;
+    justify-content: flex-end;
+    font-family: 'Varela', sans-serif;
+}
+
+.actuality_date {
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: center;
+    font-family: 'Varela', sans-serif;
+}
+
+.actuality_text {
+    font-size: 16px;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    display: flex;
+    font-family: 'Varela', sans-serif;
+    text-align: justify;
+    text-justify: inter-word;
+}
+
+.actuality_image {
+    display: flex;
+    justify-content: center;
+}
+
+.actuality_image img {
+    width: 300px;
+    height: 350px;
+}
+
+/*
+.actuality_image img:hover {
+    width: 300px;
+    height: 300px;
+}
+
+.actuality_image img:hover {
+    transform: scale(1.20);
+}*/
+
+@media screen and (max-width: 1200px) {
+    .actuality_image img:hover {
+        transform: none;
+    }
+    .container_actuality {
+        align-items: center;
+    }
+
+    .actuality_image img {
+        width: 150px;
+        height: 150px;
+    }
+}
+@media screen and (max-width: 750px) {
+    .container_actuality {
+        display: flex;
+        flex-direction: column;
+    }
+}

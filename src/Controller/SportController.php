@@ -35,12 +35,14 @@ class SportController extends AbstractController
         $htmlNav = $navbarGenerator->getNav();
         $htmlSportPlanning = $sportPageGenerator->getSportPlanning($id);
         $htmlSport = $sportPageGenerator->getSport($id);
+        $htmlActualities = $sportPageGenerator->getActuality($id);
 
         return $this->render('section/layout.html.twig', [
             'section' => $sectionRep,
             'section_plannings' => $htmlSportPlanning,
             'section_sports' => $htmlSport,
             'html_nav' => $htmlNav,
+            'actuality' => $htmlActualities
         ]);
     }
 }

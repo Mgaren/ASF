@@ -2,9 +2,14 @@
 
 namespace App\Service;
 
+use App\Entity\Actuality;
 use App\Entity\SectionSport;
 use App\Entity\SectionPlanning;
+use App\Repository\ActualityRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 
 class SportPageGenerator
@@ -65,5 +70,32 @@ class SportPageGenerator
             ['section' => $id ]
         );
         return $this->twig->render('section/section_sport/sport.html.twig', ['section_sports' => $sport]);
+    }
+
+    /**
+     * @param int $id
+     * @return Response
+     * @throws \Twig\Error\LoaderError
+     * @throws \Twig\Error\RuntimeError
+     * @throws \Twig\Error\SyntaxError
+     */
+    public function getActuality(int $id): string
+    {
+        $actualities = $this->entityManager->getRepository(Actuality::class)->findBy(
+            ['section' => $id ]
+        );
+        /*$actualitiesOrdered = [];
+        foreach ($actualities as $actuality) {
+            $actualitiesOrdered[$actuality->getId()] = $actuality;
+        }
+        krsort($actualitiesOrdered);
+        /** @var PaginatorInterface $paginator
+        /** @var Request $request
+        $actualities = $paginator->paginate(
+            $actualitiesOrdered,
+            $request->query->getInt('page', 1),
+            3
+        );*/
+        return $this->twig->render('section/actuality.html.twig', ['actualities' => $actualities]);
     }
 }
