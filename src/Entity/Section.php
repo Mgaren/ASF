@@ -54,6 +54,12 @@ class Section
      */
     private Collection $sectionSport;
 
+    /**
+     * @ORM\OneToMany(targetEntity=Actuality::class, mappedBy="section")
+     * @var Collection
+     */
+    private Collection $actuality;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -83,6 +89,7 @@ class Section
         $this->sectionCategory = new ArrayCollection();
         $this->sectionPlanning = new ArrayCollection();
         $this->sectionSport = new ArrayCollection();
+        $this->actuality = new ArrayCollection();
     }
 
     /**
@@ -218,6 +225,34 @@ class Section
             // set the owning side to null (unless already changed)
             if ($sectionSport->getSection() === $this) {
                 $sectionSport->setSection(null);
+            }
+        }
+        return $this;
+    }
+
+    /**
+     * @return Collection|Actuality[]
+     */
+    public function getActuality(): Collection
+    {
+        return $this->actuality;
+    }
+
+    public function addActuality(Actuality $actuality): self
+    {
+        if (! $this->actuality->contains($actuality)) {
+            $this->actuality[] = $actuality;
+            $actuality->setSection($this);
+        }
+        return $this;
+    }
+
+    public function removeActuality(Actuality $actuality): self
+    {
+        if ($this->actuality->removeElement($actuality)) {
+            // set the owning side to null (unless already changed)
+            if ($actuality->getSection() === $this) {
+                $actuality->setSection(null);
             }
         }
         return $this;

@@ -82,6 +82,13 @@ class Actuality
      */
     private string $image = '';
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Section::class, inversedBy="actuality")
+     * @ORM\JoinColumn(nullable=false)
+     * @var Section|null
+     */
+    private ?Section $section;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -221,5 +228,17 @@ class Actuality
     public function setDescription10(?string $description10): void
     {
         $this->description10 = $description10;
+    }
+
+    public function getSection(): ?Section
+    {
+        return $this->section;
+    }
+
+    public function setSection(?Section $section): self
+    {
+        $this->section = $section;
+
+        return $this;
     }
 }

@@ -16,7 +16,8 @@
 #home_section_section,
 #section_planning_section,
 #section_sport_section,
-#section_category_section {
+#section_category_section,
+#actuality_section {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: minmax(25px, 25px);
